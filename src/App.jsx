@@ -1,11 +1,13 @@
 import Section from './components/Section.jsx';
 import News from './features/News/News.jsx';
 import Schedule from './features/Schedule/Schedule.jsx';
+import newsConfig from './features/News/config.json';
+import scheduleConfig from './features/Schedule/config.json';
 
 const App = () => {
   const sections = [
-    { id: 'news', title: 'Latest News', component: <News /> },
-    { id: 'schedule', title: 'Upcoming Schedule', component: <Schedule /> },
+    { id: 'news', title: 'Latest News', component: <News data={newsConfig} /> },
+    { id: 'schedule', title: 'Upcoming Schedule', component: <Schedule data={scheduleConfig} /> },
   ];
 
   return (
