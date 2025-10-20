@@ -1,0 +1,27 @@
+[
+  {
+    "name": "1/2 финала",
+    "matches": [
+      {
+        "id": "semi-1",
+        "teams": { "home": "Northern Shields", "away": "Volga Hunters" },
+        "time": "16 ноября, 12:00"
+      },
+      {
+        "id": "semi-2",
+        "teams": { "home": "Cyber Rangers", "away": "Yaroslavl CERT" },
+        "time": "16 ноября, 15:00"
+      }
+    ]
+  },
+  {
+    "name": "Финал",
+    "matches": [
+      {
+        "id": "final",
+        "teams": { "home": "Победитель полуфинала 1", "away": "Победитель полуфинала 2" },
+        "time": "30 ноября, 18:00"
+      }
+    ]
+  }
+]
