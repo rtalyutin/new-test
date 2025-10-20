@@ -1,4 +1,7 @@
+
 import PropTypes from "prop-types";
+
+
 
 const Section = ({ title, children }) => (
   <section className="section">
