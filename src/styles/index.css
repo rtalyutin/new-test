@@ -1,0 +1,98 @@
+:root {
+  color-scheme: light dark;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: #f4f6fb;
+  color: #1f2933;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+main.app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.app__header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.app__header h1 {
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+}
+
+.section {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.section__title {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+}
+
+.news__list,
+.schedule__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.news__item,
+.schedule__item {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  background-color: #fdfdff;
+}
+
+.news__title,
+.schedule__title {
+  margin: 0 0 0.5rem;
+}
+
+.news__summary,
+.schedule__location {
+  margin: 0 0 0.5rem;
+  color: #52606d;
+}
+
+.news__link {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.news__link:hover,
+.news__link:focus {
+  text-decoration: underline;
+}
+
+.schedule__time {
+  display: inline-block;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+@media (max-width: 768px) {
+  main.app {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .section {
+    padding: 1.25rem;
+  }
+}
