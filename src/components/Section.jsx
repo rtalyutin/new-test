@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
-const Section = ({ title, children, variant = 'default', hideHeader = false }) => (
-  <section className={`section section--${variant}`}>
+const Section = ({ id, title, children, variant = 'default', hideHeader = false }) => (
+  <section id={id} className={`section section--${variant}`}>
     {!hideHeader && title && (
       <div className="section__header">
         <h2 className="section__title">{title}</h2>
@@ -12,6 +12,7 @@ const Section = ({ title, children, variant = 'default', hideHeader = false }) =
 );
 
 Section.propTypes = {
+  id: PropTypes.string,
   title: PropTypes.string,
   children: PropTypes.node.isRequired,
   variant: PropTypes.string,
@@ -19,6 +20,7 @@ Section.propTypes = {
 };
 
 Section.defaultProps = {
+  id: undefined,
   title: undefined,
   variant: 'default',
   hideHeader: false,
