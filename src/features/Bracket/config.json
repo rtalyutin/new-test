@@ -1,0 +1,28 @@
+{
+  "title": "Турнирная сетка",
+  "rounds": [
+    {
+      "id": "quarterfinals",
+      "title": "1/4 финала",
+      "matches": [
+        {"id": "qf1", "home": "Team Aurora", "away": "Red Shield", "score": "2:1"},
+        {"id": "qf2", "home": "Northwave", "away": "CyberLynx", "score": "2:0"}
+      ]
+    },
+    {
+      "id": "semifinals",
+      "title": "1/2 финала",
+      "matches": [
+        {"id": "sf1", "home": "Team Aurora", "away": "Northwave", "score": "2:0"}
+      ]
+    },
+    {
+      "id": "final",
+      "title": "Финал",
+      "matches": [
+        {"id": "f1", "home": "Team Aurora", "away": "Wildcard", "score": "Ожидается"}
+      ]
+    }
+  ],
+  "note": "Трансляция финала и аналитика по каждой игре будут доступны в прямом эфире."
+}
