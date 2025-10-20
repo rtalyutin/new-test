@@ -1,15 +1,87 @@
 {
-  "tagline": "YarCyberSeason",
-  "title": "Кибербезопасность начинается здесь",
-  "subtitle": "Фестиваль экспериментов, практики и соревновательной аналитики для специалистов по информационной безопасности.",
-  "season": {
-    "label": "Сезон 2024",
-    "dates": "1 сентября — 30 ноября",
-    "location": "Ярославль + онлайн"
+  "badge": "YCS Cup",
+  "title": {
+    "left": "CS2",
+    "accent": "vs",
+    "right": "Dota 2"
   },
-  "action": {
-    "label": "Стать участником",
-    "href": "https://yarcyberseason.ru/register",
-    "note": "Регистрация открыта до 15 августа"
+  "subtitle": "Квалификации стартуют",
+  "tabs": [
+    {
+      "label": "CS2",
+      "href": "#cs2",
+      "active": true
+    },
+    {
+      "label": "Dota 2",
+      "href": "#dota2",
+      "active": false
+    }
+  ],
+  "panels": [
+    {
+      "id": "cs2",
+      "title": "Квалификация CS2",
+      "description": "Командный формат 5x5. Онлайн-отборы и LAN-финал в Ярославле.",
+      "primaryAction": {
+        "label": "Регистрация",
+        "href": "https://yarcyberseason.ru/cs2"
+      },
+      "secondaryAction": {
+        "label": "Регламент",
+        "href": "https://yarcyberseason.ru/rules/cs2"
+      }
+    },
+    {
+      "id": "dota2",
+      "title": "Квалификация Dota 2",
+      "description": "Захватывающие серии best-of-3. Лучшие команды проходят в плей-офф.",
+      "primaryAction": {
+        "label": "Регистрация",
+        "href": "https://yarcyberseason.ru/dota2"
+      },
+      "secondaryAction": {
+        "label": "Регламент",
+        "href": "https://yarcyberseason.ru/rules/dota2"
+      }
+    }
+  ],
+  "meta": {
+    "prize": {
+      "label": "Призовой фонд",
+      "value": "1 200 000 ₽"
+    },
+    "timer": {
+      "label": "До старта трансляции",
+      "value": "00:00:00"
+    }
+  },
+  "partners": [
+    {
+      "label": "Logo",
+      "href": "https://yarcyberseason.ru/partners/ycs"
+    },
+    {
+      "label": "Logo",
+      "href": "https://yarcyberseason.ru/partners/tech"
+    },
+    {
+      "label": "Logo",
+      "href": "https://yarcyberseason.ru/partners/esports"
+    }
+  ],
+  "figures": {
+    "backdrop": {
+      "key": "backdrop",
+      "alt": "Вырезать фон 900×720 с закруглёнными углами, оставить мягкий верхний градиент и нижнюю неоновую волну, сохранить прозрачность углов"
+    },
+    "left": {
+      "key": "phoenix",
+      "alt": "Вырезать феникса с клювом и крыльями целиком, уложить в прямоугольник 620×720, фон удалить до прозрачности, оставить внутреннее свечение перьев"
+    },
+    "center": {
+      "key": "operator",
+      "alt": "Вырезать бойца CS2 по овальному силуэту, оставить шлем и плечи на переднем плане, экспортировать с мягкой тенью и прозрачным фоном"
+    }
   }
 }

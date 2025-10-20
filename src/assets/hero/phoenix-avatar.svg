@@ -1,0 +1,22 @@
+<svg width="620" height="720" viewBox="0 0 620 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="phoenixBase" x1="590" y1="700" x2="80" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#140018"/>
+      <stop offset="0.35" stop-color="#2E0239"/>
+      <stop offset="1" stop-color="#50126C"/>
+    </linearGradient>
+    <linearGradient id="phoenixFeathers" x1="160" y1="700" x2="520" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFAA4B" stop-opacity="0.98"/>
+      <stop offset="0.4" stop-color="#FF4D6D" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#6622FF" stop-opacity="0.95"/>
+    </linearGradient>
+    <radialGradient id="phoenixEye" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0 16 -16 0 396 218)">
+      <stop offset="0" stop-color="#FFE066"/>
+      <stop offset="1" stop-color="#FF4D6D" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="620" height="720" rx="260" fill="url(#phoenixBase)"/>
+  <path d="M314 120C260 118 212 144 182 196C147 258 164 340 222 386L182 426C154 454 158 498 188 524L244 572L208 610C186 633 190 670 216 686C232 696 252 696 268 686L336 640L402 684C427 700 460 692 476 668C485 656 486 640 480 626L454 564L520 508C550 484 556 440 534 408L480 332L526 280C566 234 560 160 514 122C472 86 402 122 358 128L314 120Z" fill="url(#phoenixFeathers)" opacity="0.94"/>
+  <path d="M374 210C386 210 396 220 396 232C396 244 386 254 374 254C362 254 352 244 352 232C352 220 362 210 374 210Z" fill="url(#phoenixEye)"/>
+  <path d="M166 288C146 240 150 176 180 130C218 74 284 42 350 50C418 58 486 104 516 170C540 222 534 290 498 338" stroke="#FFB347" stroke-width="18" stroke-linecap="round" stroke-opacity="0.35"/>
+</svg>

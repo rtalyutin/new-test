@@ -1,0 +1,26 @@
+<svg width="900" height="720" viewBox="0 0 900 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="heroBackdropGradient" x1="870" y1="700" x2="120" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#110C2F"/>
+      <stop offset="0.45" stop-color="#1C1445"/>
+      <stop offset="1" stop-color="#2C1A69"/>
+    </linearGradient>
+    <radialGradient id="heroBackdropGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0 320 -420 0 450 260)">
+      <stop offset="0" stop-color="#814BFF" stop-opacity="0.95"/>
+      <stop offset="0.4" stop-color="#4B2FE3" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#120826" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="heroBackdropStroke" x1="0" y1="0" x2="900" y2="720" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF8A65" stop-opacity="0.75"/>
+      <stop offset="0.5" stop-color="#FF4E7A" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#3AA0FF" stop-opacity="0.7"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="720" rx="180" fill="url(#heroBackdropGradient)"/>
+  <path d="M60 524C179 429 324 418 458 468C608 525 704 421 812 332C848 303 884 274 900 266V720H0V604C17 595 43 553 60 524Z" fill="url(#heroBackdropGlow)"/>
+  <path d="M72 470C197 356 373 360 503 410C653 468 742 399 840 318C861 301 888 275 900 264" stroke="url(#heroBackdropStroke)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.65"/>
+  <path d="M120 140C164 104 220 82 270 98C356 126 416 224 513 236C581 244 640 202 702 175C758 151 816 144 864 164C884 172 900 182 900 182V0H0V248C14 226 54 193 120 140Z" fill="#1A123B" opacity="0.72"/>
+  <circle cx="168" cy="162" r="5" fill="#FF886C" opacity="0.65"/>
+  <circle cx="742" cy="128" r="8" fill="#5AF0FF" opacity="0.65"/>
+  <circle cx="620" cy="564" r="6" fill="#F9F871" opacity="0.55"/>
+</svg>
