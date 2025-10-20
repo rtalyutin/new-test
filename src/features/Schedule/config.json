@@ -1,0 +1,26 @@
+{
+  "description": "Key milestones planned for the next sprint.",
+  "items": [
+    {
+      "id": "kickoff",
+      "date": "Jan 8",
+      "isoDate": "2025-01-08",
+      "title": "Sprint Kick-off",
+      "location": "Remote stand-up"
+    },
+    {
+      "id": "design-review",
+      "date": "Jan 12",
+      "isoDate": "2025-01-12",
+      "title": "Design Review",
+      "location": "Product room"
+    },
+    {
+      "id": "demo",
+      "date": "Jan 19",
+      "isoDate": "2025-01-19",
+      "title": "Sprint Demo",
+      "location": "Town hall"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "headline": "React Ecosystem Highlights",
+  "articles": [
+    {
+      "id": "release",
+      "title": "React 18: Concurrent Features Simplified",
+      "summary": "The latest React release focuses on developer ergonomics and streaming rendering for modern apps.",
+      "url": "https://react.dev/blog"
+    },
+    {
+      "id": "tooling",
+      "title": "Vite Becomes the Default Choice for SPA Tooling",
+      "summary": "Fast dev server, optimized builds, and first-class React support make Vite ideal for new projects.",
+      "url": "https://vitejs.dev/guide/"
+    },
+    {
+      "id": "community",
+      "title": "Component-driven Design Systems Grow",
+      "summary": "Teams adopt feature-based folders to scale SPA codebases while keeping components maintainable.",
+      "url": "https://storybook.js.org/blog/"
+    }
+  ]
+}
