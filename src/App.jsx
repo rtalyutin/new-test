@@ -1,11 +1,18 @@
 import Section from './components/Section.jsx';
+import Benefits from './features/Benefits/Benefits.jsx';
 import News from './features/News/News.jsx';
 import Schedule from './features/Schedule/Schedule.jsx';
+import benefitsConfig from './features/Benefits/config.json';
 import newsConfig from './features/News/config.json';
 import scheduleConfig from './features/Schedule/config.json';
 
 const App = () => {
   const sections = [
+    {
+      id: 'benefits',
+      title: 'Преимущества шаблона',
+      component: <Benefits items={benefitsConfig} />,
+    },
     { id: 'news', title: 'Latest News', component: <News data={newsConfig} /> },
     { id: 'schedule', title: 'Upcoming Schedule', component: <Schedule data={scheduleConfig} /> },
   ];
