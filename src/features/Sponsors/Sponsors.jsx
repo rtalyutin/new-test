@@ -42,7 +42,7 @@ const Sponsors = ({ data }) => {
 
       {featuredTier ? (
         <section
-          className="sponsors__featured"
+          className="sponsors__featured sponsors__panel sponsors__panel--featured"
           aria-labelledby={`${featuredTier.id}-heading`}
         >
           <div className="sponsors__featured-content">
@@ -91,10 +91,13 @@ const Sponsors = ({ data }) => {
           {featuredSponsors.length ? (
             <ul className="sponsors__featured-logos">
               {featuredSponsors.map((sponsor) => (
-                <li key={sponsor.name} className="sponsors__featured-logo-item">
+                <li
+                  key={sponsor.name}
+                  className="sponsors__featured-logo-item sponsors__logo-spot"
+                >
                   {sponsor?.url ? (
                     <a
-                      className="sponsors__featured-logo-link"
+                      className="sponsors__featured-logo-link sponsors__logo-tile"
                       href={sponsor.url}
                       target="_blank"
                       rel="noreferrer"
@@ -108,7 +111,7 @@ const Sponsors = ({ data }) => {
                       />
                     </a>
                   ) : (
-                    <div className="sponsors__featured-logo-static">
+                    <div className="sponsors__featured-logo-static sponsors__logo-tile">
                       <img
                         className="sponsors__featured-logo-image"
                         src={sponsor.logo}
@@ -129,7 +132,7 @@ const Sponsors = ({ data }) => {
           {regularTiersWithSponsors.map((tier) => (
             <section
               key={tier.id}
-              className="sponsors__tier"
+              className="sponsors__tier sponsors__panel"
               aria-labelledby={`${tier.id}-heading`}
             >
               <div className="sponsors__tier-header">
@@ -166,10 +169,13 @@ const Sponsors = ({ data }) => {
                   const hasLink = Boolean(sponsor?.url);
 
                   return (
-                    <li key={sponsor.name} className="sponsors__logo-item">
+                    <li
+                      key={sponsor.name}
+                      className="sponsors__logo-item sponsors__logo-spot"
+                    >
                       {hasLink ? (
                         <a
-                          className="sponsors__logo-link"
+                          className="sponsors__logo-link sponsors__logo-tile"
                           href={sponsor.url}
                           target="_blank"
                           rel="noreferrer"
@@ -183,7 +189,7 @@ const Sponsors = ({ data }) => {
                           />
                         </a>
                       ) : (
-                        <div className="sponsors__logo-static">
+                        <div className="sponsors__logo-static sponsors__logo-tile">
                           <img
                             className="sponsors__logo"
                             src={sponsor.logo}
