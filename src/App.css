@@ -141,6 +141,51 @@ main.app {
   border-color: rgba(255, 255, 255, 0.18);
 }
 
+.app__menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  padding: 0;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.app__menu-toggle:hover,
+.app__menu-toggle:focus-visible {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.app__menu-toggle-line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--color-text-primary);
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.app__menu-toggle-line + .app__menu-toggle-line {
+  margin-top: 5px;
+}
+
+.app__menu-toggle--open .app__menu-toggle-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.app__menu-toggle--open .app__menu-toggle-line:nth-child(2) {
+  opacity: 0;
+}
+
+.app__menu-toggle--open .app__menu-toggle-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 @media (max-width: 1180px) {
   .app__header {
     grid-template-columns: 1fr;
@@ -167,11 +212,56 @@ main.app {
     top: 0;
     border-radius: var(--radius-lg);
     padding: var(--space-3);
+    grid-template-columns: auto auto;
+    grid-template-areas:
+      'logo toggle'
+      'nav nav'
+      'cta cta';
+    align-items: center;
+    justify-items: stretch;
+    row-gap: var(--space-3);
   }
 
   .app__cta {
     width: 100%;
     margin-top: var(--space-3);
+    grid-area: cta;
+  }
+
+  .app__logo {
+    grid-area: logo;
+    justify-self: flex-start;
+  }
+
+  .app__menu-toggle {
+    display: inline-flex;
+    grid-area: toggle;
+    justify-self: end;
+  }
+
+  .app__nav {
+    display: none;
+    grid-area: nav;
+    width: 100%;
+    padding: var(--space-3);
+    background: linear-gradient(140deg, rgba(18, 25, 48, 0.95), rgba(24, 36, 69, 0.92));
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(139, 123, 255, 0.25);
+    box-shadow: 0 16px 36px rgba(5, 9, 24, 0.6);
+  }
+
+  .app__nav--open {
+    display: block;
+  }
+
+  .app__nav-list {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .app__nav-link {
+    width: 100%;
+    justify-content: flex-start;
   }
 }
 
