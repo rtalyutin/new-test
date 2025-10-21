@@ -2,67 +2,147 @@
   "branding": {
     "tagline": "YCS CUP",
     "label": "YarCyberSeason",
+    "seasonLabel": "Сезон 2025/26",
     "links": [
-      { "label": "Формат", "href": "#format" },
-      { "label": "Правила", "href": "#rules" },
-      { "label": "Партнеры", "href": "#partners" }
+      { "label": "Календарь", "href": "#schedule" },
+      { "label": "Дивизионы", "href": "#divisions" },
+      { "label": "Партнёры", "href": "#sponsors" }
     ]
   },
-  "title": "CS2 vs Dota 2",
-  "subtitle": "Квалификации стартуют",
+  "primaryCta": {
+    "label": "Регистрация команды",
+    "href": "https://yarcyberseason.ru/register",
+    "ariaLabel": "Открыть форму регистрации команды YarCyberSeason 2025/26"
+  },
+  "title": "YarCyberSeason 2025/26",
+  "subtitle": "Новый сезон киберспортивных лиг для школьных, студенческих и открытых команд Центрального региона",
+  "media": {
+    "poster": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=2000&q=80",
+    "fallbackImage": "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=2000&q=80",
+    "disableOnMobile": true,
+    "ariaLabel": "Видео-анонс нового сезона YarCyberSeason",
+    "sources": [
+      {
+        "src": "https://cdn.coverr.co/videos/coverr-futuristic-hacker-typing-4242/1080p.webm",
+        "type": "video/webm"
+      },
+      {
+        "src": "https://cdn.coverr.co/videos/coverr-futuristic-hacker-typing-4242/1080p.mp4",
+        "type": "video/mp4"
+      }
+    ]
+  },
   "background": {
-    "left": "https://images.unsplash.com/photo-1618005198919-d3d4b5a92eee?auto=format&fit=crop&w=900&q=80",
-    "right": "https://images.unsplash.com/photo-1618005198878-1fd66f39e7bb?auto=format&fit=crop&w=900&q=80"
+    "left": "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1100&q=80",
+    "right": "https://images.unsplash.com/photo-1516905041604-7935af78f573?auto=format&fit=crop&w=1100&q=80"
   },
   "match": {
     "left": {
-      "code": "CS2",
-      "name": "Counter-Strike 2",
-      "note": "Best of 3, 5×5"
+      "code": "OPEN",
+      "name": "Открытая лига",
+      "note": "Онлайн-отборы осень 2025"
     },
     "right": {
-      "code": "Dota 2",
-      "name": "Defense of the Ancients",
-      "note": "Captain's Mode, 5×5"
+      "code": "LAN",
+      "name": "Гранд-финал",
+      "note": "Май 2026, Ярославль"
     }
   },
   "tabs": [
-    { "label": "CS2", "href": "#qual-cs2" },
-    { "label": "Dota 2", "href": "#qual-dota" }
+    { "label": "Открытая лига", "href": "#division-open" },
+    { "label": "Студенческий дивизион", "href": "#division-students" },
+    { "label": "Школьный дивизион", "href": "#division-school" }
   ],
-  "qualifiers": [
+  "keyFacts": [
     {
-      "tag": "CS2",
-      "title": "Квалификация CS2",
-      "description": "Онлайн-раунды, 24 октября, 19:00 МСК",
+      "tag": "OPEN",
+      "title": "Открытая лига",
+      "value": "Регистрация до 12 сентября",
+      "description": "Онлайн-отборочные раунды стартуют 15 сентября 2025 года. 256 слотов для полупрофессиональных составов.",
       "cta": {
-        "label": "Регистрация",
-        "href": "https://yarcyberseason.ru/register/cs2"
+        "label": "Регистрация OPEN",
+        "href": "https://yarcyberseason.ru/register/open",
+        "ariaLabel": "Зарегистрировать команду в открытой лиге"
       }
     },
     {
-      "tag": "Dota 2",
-      "title": "Квалификация Dota 2",
-      "description": "LAN-финал, 27 октября, 12:00 МСК",
+      "tag": "STUDENT",
+      "title": "Студенческий дивизион",
+      "value": "Регистрация до 19 сентября",
+      "description": "Кампус-лиги университетов региона. Отборочные стадии проходят в онлайн-формате, финал в декабре 2025 года.",
       "cta": {
-        "label": "Принять участие",
-        "href": "https://yarcyberseason.ru/register/dota2"
+        "label": "Регистрация STUDENT",
+        "href": "https://yarcyberseason.ru/register/student",
+        "ariaLabel": "Зарегистрировать команду студенческого дивизиона"
+      }
+    },
+    {
+      "tag": "SCHOOL",
+      "title": "Школьный дивизион",
+      "value": "Регистрация до 26 сентября",
+      "description": "Командные баталии для школьников 8-11 классов. Старт онлайн-групп — 29 сентября, финал в январе 2026 года.",
+      "cta": {
+        "label": "Регистрация SCHOOL",
+        "href": "https://yarcyberseason.ru/register/school",
+        "ariaLabel": "Зарегистрировать школьную команду"
+      }
+    },
+    {
+      "tag": "LAN",
+      "title": "Финальный фестиваль",
+      "value": "24 мая 2026",
+      "description": "Лучшие команды всех дивизионов встретятся на офлайн-сцене в Ярославле, чтобы побороться за кубок сезона и призовой фонд.",
+      "cta": {
+        "label": "Получить приглашение",
+        "href": "https://yarcyberseason.ru/final",
+        "ariaLabel": "Узнать подробнее о финальном фестивале"
+      }
+    }
+  ],
+  "qualifiers": [
+    {
+      "tag": "OPEN",
+      "title": "Онлайн-квалификация OPEN",
+      "description": "15–22 сентября 2025 • форматы CS2 и Dota 2",
+      "cta": {
+        "label": "Регистрация OPEN",
+        "href": "https://yarcyberseason.ru/register/open"
+      }
+    },
+    {
+      "tag": "STUDENT",
+      "title": "Кампус-лиги",
+      "description": "3–12 октября 2025 • гибридный формат с офлайн-плей-офф",
+      "cta": {
+        "label": "Заявка STUDENT",
+        "href": "https://yarcyberseason.ru/register/student"
+      }
+    },
+    {
+      "tag": "SCHOOL",
+      "title": "Школьные онлайн-группы",
+      "description": "29 сентября – 10 ноября 2025 • вечерние матчи",
+      "cta": {
+        "label": "Заявка SCHOOL",
+        "href": "https://yarcyberseason.ru/register/school"
       }
     }
   ],
   "prize": {
-    "label": "Призовой фонд",
-    "value": "500 000 ₽"
+    "label": "Призовой фонд сезона",
+    "value": "1 200 000 ₽"
   },
   "timer": {
-    "label": "До старта квалификации",
-    "deadline": "2024-10-24T19:00:00+03:00",
-    "expiredLabel": "Квалификация началась",
+    "label": "До старта сезона",
+    "deadline": "2025-09-15T18:00:00+03:00",
+    "expiredLabel": "Сезон начался",
     "fallbackLabel": "Следите за расписанием"
   },
   "logos": [
     "YCS",
     "CS2",
-    "Dota 2"
+    "Dota 2",
+    "Valorant",
+    "Rocket League"
   ]
 }

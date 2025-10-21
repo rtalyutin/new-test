@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 const DEFAULT_EXPIRED_LABEL = 'Сезон уже стартовал';
+const MOBILE_MEDIA_QUERY = '(max-width: 767px)';
 
 const calculateTimeLeft = (deadline) => {
   if (!deadline) {
@@ -40,10 +41,33 @@ const calculateTimeLeft = (deadline) => {
   };
 };
 
+const getIsMobile = () => {
+  if (typeof window === 'undefined') {
+    return false;
+  }
+
+  return window.matchMedia(MOBILE_MEDIA_QUERY).matches;
+};
+
 const Hero = ({ data }) => {
-  const { branding, title, subtitle, background, match, tabs, qualifiers, prize, timer, logos } = data;
+  const {
+    branding,
+    title,
+    subtitle,
+    background,
+    match,
+    tabs,
+    qualifiers,
+    prize,
+    timer,
+    logos,
+    media,
+    keyFacts,
+    primaryCta,
+  } = data;
 
   const [timeLeft, setTimeLeft] = useState(() => calculateTimeLeft(timer?.deadline));
+  const [isMobile, setIsMobile] = useState(getIsMobile);
 
   useEffect(() => {
     if (!timer?.deadline || typeof window === 'undefined') {
@@ -63,13 +87,69 @@ const Hero = ({ data }) => {
     };
   }, [timer?.deadline]);
 
+  useEffect(() => {
+    if (typeof window === 'undefined' || !media?.disableOnMobile) {
+      return undefined;
+    }
+
+    const mediaQuery = window.matchMedia(MOBILE_MEDIA_QUERY);
+
+    const handleChange = (event) => {
+      setIsMobile(event.matches);
+    };
+
+    setIsMobile(mediaQuery.matches);
+
+    if (typeof mediaQuery.addEventListener === 'function') {
+      mediaQuery.addEventListener('change', handleChange);
+      return () => {
+        mediaQuery.removeEventListener('change', handleChange);
+      };
+    }
+
+    mediaQuery.addListener(handleChange);
+    return () => {
+      mediaQuery.removeListener(handleChange);
+    };
+  }, [media?.disableOnMobile]);
+
   const timerExpiredLabel = timer?.expiredLabel ?? DEFAULT_EXPIRED_LABEL;
   const timerUnavailableLabel = timer?.fallbackLabel ?? timerExpiredLabel;
   const countdownUnavailable = timer?.deadline && timeLeft === null;
 
+  const videoSources = Array.isArray(media?.sources)
+    ? media.sources.filter((source) => source && source.src)
+    : [];
+  const shouldRenderVideo = videoSources.length > 0 && !(media?.disableOnMobile && isMobile);
+  const fallbackImage = media?.fallbackImage || media?.poster;
+
   return (
     <div className="hero hero--versus">
       <div className="hero__background" aria-hidden="true">
+        {shouldRenderVideo ? (
+          <video
+            className="hero__background-video"
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster={media?.poster}
+            preload="auto"
+            {...(media?.ariaLabel ? { 'aria-label': media.ariaLabel } : { 'aria-hidden': 'true' })}
+          >
+            {videoSources.map((source) => (
+              <source key={`${source.src}-${source.type || 'video/mp4'}`} src={source.src} type={source.type} />
+            ))}
+          </video>
+        ) : null}
+
+        {!shouldRenderVideo && fallbackImage ? (
+          <div
+            className="hero__background-fallback"
+            style={{ backgroundImage: `url(${fallbackImage})` }}
+          />
+        ) : null}
+
         {background?.left ? (
           <div
             className="hero__background-layer hero__background-layer--left"
@@ -111,9 +191,20 @@ const Hero = ({ data }) => {
         </header>
 
         <div className="hero__centerpiece">
+          {branding?.seasonLabel ? <span className="hero__season">{branding.seasonLabel}</span> : null}
           {branding?.tagline ? <span className="hero__tagline">{branding.tagline}</span> : null}
           <h1 className="hero__title">{title}</h1>
           <p className="hero__subtitle">{subtitle}</p>
+
+          {primaryCta ? (
+            <a
+              className="hero__primary-cta"
+              href={primaryCta.href}
+              aria-label={primaryCta.ariaLabel || primaryCta.label}
+            >
+              {primaryCta.label}
+            </a>
+          ) : null}
 
           {match ? (
             <div className="hero__matchup" role="group" aria-label="Противостояние игр">
@@ -148,6 +239,28 @@ const Hero = ({ data }) => {
           ) : null}
         </div>
 
+        {Array.isArray(keyFacts) && keyFacts.length > 0 ? (
+          <div className="hero__keyfacts" role="list">
+            {keyFacts.map((fact) => (
+              <article key={fact.title} className="hero__keyfact" role="listitem">
+                {fact.tag ? <span className="hero__keyfact-tag">{fact.tag}</span> : null}
+                <h2 className="hero__keyfact-title">{fact.title}</h2>
+                {fact.value ? <p className="hero__keyfact-value">{fact.value}</p> : null}
+                {fact.description ? <p className="hero__keyfact-description">{fact.description}</p> : null}
+                {fact.cta ? (
+                  <a
+                    className="hero__keyfact-cta"
+                    href={fact.cta.href}
+                    aria-label={fact.cta.ariaLabel || fact.cta.label}
+                  >
+                    {fact.cta.label}
+                  </a>
+                ) : null}
+              </article>
+            ))}
+          </div>
+        ) : null}
+
         {Array.isArray(qualifiers) && qualifiers.length > 0 ? (
           <div className="hero__qualifiers" role="list">
             {qualifiers.map((qualifier) => (
@@ -156,7 +269,11 @@ const Hero = ({ data }) => {
                 <h2 className="hero__qualifier-title">{qualifier.title}</h2>
                 {qualifier.description ? <p className="hero__qualifier-description">{qualifier.description}</p> : null}
                 {qualifier.cta ? (
-                  <a className="hero__qualifier-cta" href={qualifier.cta.href} aria-label={qualifier.cta.ariaLabel || qualifier.cta.label}>
+                  <a
+                    className="hero__qualifier-cta"
+                    href={qualifier.cta.href}
+                    aria-label={qualifier.cta.ariaLabel || qualifier.cta.label}
+                  >
                     {qualifier.cta.label}
                   </a>
                 ) : null}
@@ -225,6 +342,7 @@ Hero.propTypes = {
     branding: PropTypes.shape({
       tagline: PropTypes.string,
       label: PropTypes.string,
+      seasonLabel: PropTypes.string,
       links: PropTypes.arrayOf(
         PropTypes.shape({
           label: PropTypes.string.isRequired,
@@ -279,6 +397,36 @@ Hero.propTypes = {
       fallbackLabel: PropTypes.string,
     }),
     logos: PropTypes.arrayOf(PropTypes.string),
+    media: PropTypes.shape({
+      disableOnMobile: PropTypes.bool,
+      poster: PropTypes.string,
+      fallbackImage: PropTypes.string,
+      ariaLabel: PropTypes.string,
+      sources: PropTypes.arrayOf(
+        PropTypes.shape({
+          src: PropTypes.string.isRequired,
+          type: PropTypes.string,
+        })
+      ),
+    }),
+    keyFacts: PropTypes.arrayOf(
+      PropTypes.shape({
+        tag: PropTypes.string,
+        title: PropTypes.string.isRequired,
+        value: PropTypes.string,
+        description: PropTypes.string,
+        cta: PropTypes.shape({
+          label: PropTypes.string.isRequired,
+          href: PropTypes.string.isRequired,
+          ariaLabel: PropTypes.string,
+        }),
+      })
+    ),
+    primaryCta: PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      href: PropTypes.string.isRequired,
+      ariaLabel: PropTypes.string,
+    }),
   }).isRequired,
 };
 
