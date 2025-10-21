@@ -1,59 +1,68 @@
 {
-  "tagline": "YarCyberSeason",
-  "title": "Кибербезопасность начинается здесь",
-  "subtitle": "Фестиваль экспериментов, практики и соревновательной аналитики для специалистов по информационной безопасности.",
-  "season": {
-    "label": "Сезон 2024",
-    "dates": "1 сентября — 30 ноября",
-    "location": "Ярославль + онлайн"
+  "branding": {
+    "tagline": "YCS CUP",
+    "label": "YarCyberSeason",
+    "links": [
+      { "label": "Формат", "href": "#format" },
+      { "label": "Правила", "href": "#rules" },
+      { "label": "Партнеры", "href": "#partners" }
+    ]
   },
-  "media": {
-    "src": "https://cdn.yarcyberseason.ru/media/hero-loop.mp4",
-    "type": "video/mp4",
-    "poster": "https://cdn.yarcyberseason.ru/media/hero-poster.jpg",
-    "mobilePoster": "https://cdn.yarcyberseason.ru/media/hero-poster-mobile.jpg",
-    "alt": "Команда участников YarCyberSeason на арене турнира",
-    "disableOnMobile": true
+  "title": "CS2 vs Dota 2",
+  "subtitle": "Квалификации стартуют",
+  "background": {
+    "left": "https://images.unsplash.com/photo-1618005198919-d3d4b5a92eee?auto=format&fit=crop&w=900&q=80",
+    "right": "https://images.unsplash.com/photo-1618005198878-1fd66f39e7bb?auto=format&fit=crop&w=900&q=80"
   },
-  "facts": [
+  "match": {
+    "left": {
+      "code": "CS2",
+      "name": "Counter-Strike 2",
+      "note": "Best of 3, 5×5"
+    },
+    "right": {
+      "code": "Dota 2",
+      "name": "Defense of the Ancients",
+      "note": "Captain's Mode, 5×5"
+    }
+  },
+  "tabs": [
+    { "label": "CS2", "href": "#qual-cs2" },
+    { "label": "Dota 2", "href": "#qual-dota" }
+  ],
+  "qualifiers": [
     {
-      "title": "5 игровых форматов",
-      "description": "CTF, reverse, threat hunting, форензика и live-аналитика",
-      "icon": "🎯"
+      "tag": "CS2",
+      "title": "Квалификация CS2",
+      "description": "Онлайн-раунды, 24 октября, 19:00 МСК",
+      "cta": {
+        "label": "Регистрация",
+        "href": "https://yarcyberseason.ru/register/cs2"
+      }
     },
     {
-      "title": "24/7 практика",
-      "description": "Лаборатория открыта круглосуточно с менторской поддержкой",
-      "icon": "🛡️"
-    },
-    {
-      "title": "Pro-комьюнити",
-      "description": "Эксперты из SOC, инцидент-реагирования и синего тиминга",
-      "icon": "🤝"
-    },
-    {
-      "title": "Гибридный формат",
-      "description": "Оффлайн в Ярославле и онлайн из любой точки мира",
-      "icon": "🌐"
+      "tag": "Dota 2",
+      "title": "Квалификация Dota 2",
+      "description": "LAN-финал, 27 октября, 12:00 МСК",
+      "cta": {
+        "label": "Принять участие",
+        "href": "https://yarcyberseason.ru/register/dota2"
+      }
     }
   ],
-  "primaryCta": {
-    "label": "Стать участником",
-    "href": "https://yarcyberseason.ru/register",
-    "note": "Регистрация открыта до 15 августа",
-    "icon": "🚀",
-    "ariaLabel": "Стать участником YarCyberSeason"
-  },
-  "secondaryCta": {
-    "label": "Скачать гайд",
-    "href": "https://yarcyberseason.ru/media/YCS-guide.pdf",
-    "icon": "📄",
-    "ariaLabel": "Скачать гайд участника"
+  "prize": {
+    "label": "Призовой фонд",
+    "value": "500 000 ₽"
   },
   "timer": {
-    "label": "До закрытия регистрации",
-    "deadline": "2024-08-15T20:59:59+03:00",
-    "expiredLabel": "Регистрация закрыта",
-    "fallbackLabel": "Следите за обновлениями"
-  }
+    "label": "До старта квалификации",
+    "deadline": "2024-10-24T19:00:00+03:00",
+    "expiredLabel": "Квалификация началась",
+    "fallbackLabel": "Следите за расписанием"
+  },
+  "logos": [
+    "YCS",
+    "CS2",
+    "Dota 2"
+  ]
 }

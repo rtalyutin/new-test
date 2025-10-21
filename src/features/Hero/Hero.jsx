@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 const DEFAULT_EXPIRED_LABEL = 'Сезон уже стартовал';
@@ -40,105 +40,8 @@ const calculateTimeLeft = (deadline) => {
   };
 };
 
-const Hero = ({ data, disableVideoOnMobile }) => {
-  const {
-    tagline,
-    title,
-    subtitle,
-    season,
-    media,
-    facts,
-    primaryCta,
-    secondaryCta,
-    timer,
-  } = data;
-
-  const videoRef = useRef(null);
-  const [isMobile, setIsMobile] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const [autoplayFailed, setAutoplayFailed] = useState(false);
-
-  useEffect(() => {
-    if (typeof window === 'undefined') {
-      return undefined;
-    }
-
-    const mobileQuery = window.matchMedia('(max-width: 640px)');
-    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-    const handleMobileChange = (event) => {
-      setIsMobile(event.matches);
-    };
-
-    const handleMotionChange = (event) => {
-      setPrefersReducedMotion(event.matches);
-    };
-
-    setIsMobile(mobileQuery.matches);
-    setPrefersReducedMotion(reducedMotionQuery.matches);
-
-    mobileQuery.addEventListener('change', handleMobileChange);
-    reducedMotionQuery.addEventListener('change', handleMotionChange);
-
-    return () => {
-      mobileQuery.removeEventListener('change', handleMobileChange);
-      reducedMotionQuery.removeEventListener('change', handleMotionChange);
-    };
-  }, []);
-
-  const shouldDisableVideo = useMemo(() => {
-    if (!media?.src) {
-      return true;
-    }
-
-    if (prefersReducedMotion) {
-      return true;
-    }
-
-    if (isMobile && (disableVideoOnMobile || media?.disableOnMobile)) {
-      return true;
-    }
-
-    return false;
-  }, [media?.src, media?.disableOnMobile, disableVideoOnMobile, isMobile, prefersReducedMotion]);
-
-  useEffect(() => {
-    if (shouldDisableVideo || autoplayFailed) {
-      return;
-    }
-
-    const videoElement = videoRef.current;
-    if (!videoElement) {
-      return;
-    }
-
-    const playPromise = videoElement.play();
-    if (playPromise && typeof playPromise.then === 'function') {
-      playPromise.catch(() => {
-        setAutoplayFailed(true);
-      });
-    }
-  }, [shouldDisableVideo, autoplayFailed, media?.src]);
-
-  useEffect(() => {
-    if (!shouldDisableVideo) {
-      setAutoplayFailed(false);
-    }
-  }, [shouldDisableVideo]);
-
-  const posterSource = useMemo(() => {
-    if (!media) {
-      return null;
-    }
-
-    if (isMobile && media.mobilePoster) {
-      return media.mobilePoster;
-    }
-
-    return media.poster ?? null;
-  }, [media, isMobile]);
-
-  const showVideo = Boolean(media?.src) && !shouldDisableVideo && !autoplayFailed;
+const Hero = ({ data }) => {
+  const { branding, title, subtitle, background, match, tabs, qualifiers, prize, timer, logos } = data;
 
   const [timeLeft, setTimeLeft] = useState(() => calculateTimeLeft(timer?.deadline));
 
@@ -165,112 +68,153 @@ const Hero = ({ data, disableVideoOnMobile }) => {
   const countdownUnavailable = timer?.deadline && timeLeft === null;
 
   return (
-    <div className={`hero${showVideo ? '' : ' hero--static'}`}>
+    <div className="hero hero--versus">
       <div className="hero__background" aria-hidden="true">
-        {showVideo ? (
-          <video
-            ref={videoRef}
-            className="hero__video"
-            poster={posterSource || media?.poster}
-            preload="metadata"
-            muted
-            loop
-            playsInline
-            autoPlay
-          >
-            <source src={media?.src} type={media?.type || 'video/mp4'} />
-          </video>
-        ) : posterSource ? (
-          <img className="hero__poster" src={posterSource} alt={media?.alt || 'YarCyberSeason'} loading="lazy" />
+        {background?.left ? (
+          <div
+            className="hero__background-layer hero__background-layer--left"
+            style={{ backgroundImage: `url(${background.left})` }}
+          />
+        ) : null}
+        {background?.right ? (
+          <div
+            className="hero__background-layer hero__background-layer--right"
+            style={{ backgroundImage: `url(${background.right})` }}
+          />
         ) : null}
       </div>
       <div className="hero__overlay" aria-hidden="true" />
-      <div className="hero__inner">
-        <div className="hero__content">
-          <span className="hero__tagline">{tagline}</span>
+      <div className="hero__inner hero__inner--versus">
+        <header className="hero__topbar">
+          <div className="hero__brand">
+            <span className="hero__brand-mark" aria-hidden="true">
+              YCS
+            </span>
+            <div className="hero__brand-text">
+              {branding?.tagline ? <span className="hero__brand-tagline">{branding.tagline}</span> : null}
+              {branding?.label ? <span className="hero__brand-label">{branding.label}</span> : null}
+            </div>
+          </div>
+          {Array.isArray(branding?.links) && branding.links.length > 0 ? (
+            <nav className="hero__topnav" aria-label="Навигация по турниру">
+              <ul className="hero__topnav-list">
+                {branding.links.map((link) => (
+                  <li key={`${link.href || link.label}`} className="hero__topnav-item">
+                    <a className="hero__topnav-link" href={link.href}>
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ) : null}
+        </header>
+
+        <div className="hero__centerpiece">
+          {branding?.tagline ? <span className="hero__tagline">{branding.tagline}</span> : null}
           <h1 className="hero__title">{title}</h1>
           <p className="hero__subtitle">{subtitle}</p>
-          <div className="hero__meta" role="list">
-            <span className="hero__meta-item hero__season" role="listitem">
-              {season.label}
-            </span>
-            <span className="hero__meta-item hero__dates" role="listitem">
-              {season.dates}
-            </span>
-            <span className="hero__meta-item hero__location" role="listitem">
-              {season.location}
-            </span>
-          </div>
-          <div className="hero__actions">
-            {primaryCta ? (
-              <a className="hero__cta" href={primaryCta.href} aria-label={primaryCta.ariaLabel || primaryCta.label}>
-                {primaryCta.icon ? <span aria-hidden="true">{primaryCta.icon}</span> : null}
-                <span>{primaryCta.label}</span>
-              </a>
-            ) : null}
-            {secondaryCta ? (
-              <a
-                className="hero__cta hero__cta--secondary"
-                href={secondaryCta.href}
-                aria-label={secondaryCta.ariaLabel || secondaryCta.label}
-              >
-                {secondaryCta.icon ? <span aria-hidden="true">{secondaryCta.icon}</span> : null}
-                <span>{secondaryCta.label}</span>
-              </a>
-            ) : null}
-          </div>
-          {primaryCta?.note ? <span className="hero__note">{primaryCta.note}</span> : null}
+
+          {match ? (
+            <div className="hero__matchup" role="group" aria-label="Противостояние игр">
+              {match.left ? (
+                <div className="hero__match-side hero__match-side--left">
+                  <span className="hero__match-code">{match.left.code}</span>
+                  <span className="hero__match-name">{match.left.name}</span>
+                  {match.left.note ? <span className="hero__match-note">{match.left.note}</span> : null}
+                </div>
+              ) : null}
+              <span className="hero__match-versus" aria-hidden="true">
+                VS
+              </span>
+              {match.right ? (
+                <div className="hero__match-side hero__match-side--right">
+                  <span className="hero__match-code">{match.right.code}</span>
+                  <span className="hero__match-name">{match.right.name}</span>
+                  {match.right.note ? <span className="hero__match-note">{match.right.note}</span> : null}
+                </div>
+              ) : null}
+            </div>
+          ) : null}
+
+          {Array.isArray(tabs) && tabs.length > 0 ? (
+            <div className="hero__tabs" role="tablist" aria-label="Игровые дисциплины">
+              {tabs.map((tab) => (
+                <a key={`${tab.href || tab.label}`} className="hero__tab" href={tab.href} role="tab">
+                  {tab.label}
+                </a>
+              ))}
+            </div>
+          ) : null}
         </div>
-        <aside className="hero__aside">
+
+        {Array.isArray(qualifiers) && qualifiers.length > 0 ? (
+          <div className="hero__qualifiers" role="list">
+            {qualifiers.map((qualifier) => (
+              <article key={qualifier.title} className="hero__qualifier" role="listitem">
+                {qualifier.tag ? <span className="hero__qualifier-tag">{qualifier.tag}</span> : null}
+                <h2 className="hero__qualifier-title">{qualifier.title}</h2>
+                {qualifier.description ? <p className="hero__qualifier-description">{qualifier.description}</p> : null}
+                {qualifier.cta ? (
+                  <a className="hero__qualifier-cta" href={qualifier.cta.href} aria-label={qualifier.cta.ariaLabel || qualifier.cta.label}>
+                    {qualifier.cta.label}
+                  </a>
+                ) : null}
+              </article>
+            ))}
+          </div>
+        ) : null}
+
+        <footer className="hero__footer">
+          {prize ? (
+            <div className="hero__stat">
+              <span className="hero__stat-label">{prize.label}</span>
+              <span className="hero__stat-value">{prize.value}</span>
+            </div>
+          ) : null}
+
           {timer?.deadline ? (
-            <div className="hero__timer" aria-live="polite">
-              <span className="hero__timer-label">{timer.label}</span>
+            <div className="hero__countdown" aria-live="polite">
+              <span className="hero__countdown-label">{timer.label}</span>
               {countdownUnavailable ? (
-                <span className="hero__timer-expired">{timerUnavailableLabel}</span>
+                <span className="hero__countdown-status">{timerUnavailableLabel}</span>
               ) : timeLeft ? (
                 timeLeft.expired ? (
-                  <span className="hero__timer-expired">{timerExpiredLabel}</span>
+                  <span className="hero__countdown-status">{timerExpiredLabel}</span>
                 ) : (
-                  <div className="hero__timer-grid" role="group" aria-label="Обратный отсчет до старта">
-                    <div className="hero__timer-segment">
-                      <span className="hero__timer-value">{timeLeft.days}</span>
-                      <span className="hero__timer-unit">дней</span>
+                  <div className="hero__countdown-grid" role="group" aria-label="Обратный отсчет до старта">
+                    <div className="hero__countdown-segment">
+                      <span className="hero__countdown-value">{timeLeft.days}</span>
+                      <span className="hero__countdown-unit">дни</span>
                     </div>
-                    <div className="hero__timer-segment">
-                      <span className="hero__timer-value">{timeLeft.hours}</span>
-                      <span className="hero__timer-unit">часов</span>
+                    <div className="hero__countdown-segment">
+                      <span className="hero__countdown-value">{timeLeft.hours}</span>
+                      <span className="hero__countdown-unit">часы</span>
                     </div>
-                    <div className="hero__timer-segment">
-                      <span className="hero__timer-value">{timeLeft.minutes}</span>
-                      <span className="hero__timer-unit">минут</span>
+                    <div className="hero__countdown-segment">
+                      <span className="hero__countdown-value">{timeLeft.minutes}</span>
+                      <span className="hero__countdown-unit">минуты</span>
                     </div>
-                    <div className="hero__timer-segment">
-                      <span className="hero__timer-value">{timeLeft.seconds}</span>
-                      <span className="hero__timer-unit">секунд</span>
+                    <div className="hero__countdown-segment">
+                      <span className="hero__countdown-value">{timeLeft.seconds}</span>
+                      <span className="hero__countdown-unit">секунды</span>
                     </div>
                   </div>
                 )
               ) : null}
             </div>
           ) : null}
-          {Array.isArray(facts) && facts.length > 0 ? (
-            <div className="hero__facts" role="list">
-              {facts.map((fact) => (
-                <div key={fact.title} className="hero__fact" role="listitem">
-                  {fact.icon ? (
-                    <span className="hero__fact-icon" aria-hidden="true">
-                      {fact.icon}
-                    </span>
-                  ) : null}
-                  <div className="hero__fact-content">
-                    <span className="hero__fact-title">{fact.title}</span>
-                    {fact.description ? <p className="hero__fact-description">{fact.description}</p> : null}
-                  </div>
-                </div>
+
+          {Array.isArray(logos) && logos.length > 0 ? (
+            <div className="hero__logos" aria-label="Партнеры и дисциплины">
+              {logos.map((logo) => (
+                <span key={logo} className="hero__logo-chip">
+                  {logo}
+                </span>
               ))}
             </div>
           ) : null}
-        </aside>
+        </footer>
       </div>
     </div>
   );
@@ -278,41 +222,55 @@ const Hero = ({ data, disableVideoOnMobile }) => {
 
 Hero.propTypes = {
   data: PropTypes.shape({
-    tagline: PropTypes.string.isRequired,
+    branding: PropTypes.shape({
+      tagline: PropTypes.string,
+      label: PropTypes.string,
+      links: PropTypes.arrayOf(
+        PropTypes.shape({
+          label: PropTypes.string.isRequired,
+          href: PropTypes.string.isRequired,
+        })
+      ),
+    }).isRequired,
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
-    season: PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      dates: PropTypes.string.isRequired,
-      location: PropTypes.string.isRequired,
-    }).isRequired,
-    media: PropTypes.shape({
-      src: PropTypes.string,
-      type: PropTypes.string,
-      poster: PropTypes.string,
-      mobilePoster: PropTypes.string,
-      disableOnMobile: PropTypes.bool,
-      alt: PropTypes.string,
+    background: PropTypes.shape({
+      left: PropTypes.string,
+      right: PropTypes.string,
     }),
-    facts: PropTypes.arrayOf(
+    match: PropTypes.shape({
+      left: PropTypes.shape({
+        code: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        note: PropTypes.string,
+      }),
+      right: PropTypes.shape({
+        code: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        note: PropTypes.string,
+      }),
+    }),
+    tabs: PropTypes.arrayOf(
       PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        description: PropTypes.string,
-        icon: PropTypes.string,
+        label: PropTypes.string.isRequired,
+        href: PropTypes.string.isRequired,
       })
     ),
-    primaryCta: PropTypes.shape({
+    qualifiers: PropTypes.arrayOf(
+      PropTypes.shape({
+        tag: PropTypes.string,
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string,
+        cta: PropTypes.shape({
+          label: PropTypes.string.isRequired,
+          href: PropTypes.string.isRequired,
+          ariaLabel: PropTypes.string,
+        }),
+      })
+    ),
+    prize: PropTypes.shape({
       label: PropTypes.string.isRequired,
-      href: PropTypes.string.isRequired,
-      note: PropTypes.string,
-      icon: PropTypes.string,
-      ariaLabel: PropTypes.string,
-    }),
-    secondaryCta: PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      href: PropTypes.string.isRequired,
-      icon: PropTypes.string,
-      ariaLabel: PropTypes.string,
+      value: PropTypes.string.isRequired,
     }),
     timer: PropTypes.shape({
       label: PropTypes.string.isRequired,
@@ -320,12 +278,8 @@ Hero.propTypes = {
       expiredLabel: PropTypes.string,
       fallbackLabel: PropTypes.string,
     }),
+    logos: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
-  disableVideoOnMobile: PropTypes.bool,
-};
-
-Hero.defaultProps = {
-  disableVideoOnMobile: false,
 };
 
 export default Hero;
