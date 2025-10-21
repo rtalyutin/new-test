@@ -1,4 +1,5 @@
 import Section from './components/Section.jsx';
+import Footer from './components/Footer.jsx';
 import Hero from './features/Hero/Hero.jsx';
 import Overview from './features/Overview/Overview.jsx';
 import Benefits from './features/Benefits/Benefits.jsx';
@@ -190,6 +191,7 @@ const App = () => {
           </Section>
         );
       })}
+      <Footer />
     </main>
   );
 };
