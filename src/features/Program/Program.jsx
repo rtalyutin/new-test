@@ -4,13 +4,23 @@ import './Program.css';
 const Program = ({ sessions }) => (
   <ol className="program">
     {sessions.map(
-      ({ id, title, description, date, format, activities, resources }) => (
+      ({
+        id,
+        title,
+        description,
+        date,
+        format,
+        location,
+        activities,
+        resources,
+      }) => (
         <li key={id} className="program__item">
           <div className="program__date">{date}</div>
           <div className="program__body">
             <h3 className="program__title">{title}</h3>
             <p className="program__description">{description}</p>
             <span className="program__format">{format}</span>
+            {location && <span className="program__location">{location}</span>}
             {(activities?.length || resources?.length) && (
               <div className="program__meta">
                 {activities?.length > 0 && (
@@ -62,6 +72,7 @@ Program.propTypes = {
       description: PropTypes.string.isRequired,
       date: PropTypes.string.isRequired,
       format: PropTypes.string.isRequired,
+      location: PropTypes.string,
       activities: PropTypes.arrayOf(PropTypes.string),
       resources: PropTypes.arrayOf(
         PropTypes.shape({
