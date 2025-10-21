@@ -7,6 +7,7 @@ import Disciplines from './features/Disciplines/Disciplines.jsx';
 import Bracket from './features/Bracket/Bracket.jsx';
 import Schedule from './features/Schedule/Schedule.jsx';
 import News from './features/News/News.jsx';
+import Divisions from './features/Divisions/Divisions.jsx';
 import heroConfig from './features/Hero/config.json';
 import overviewConfig from './features/Overview/config.json';
 import benefitsConfig from './features/Benefits/config.json';
@@ -15,6 +16,7 @@ import disciplinesConfig from './features/Disciplines/config.json';
 import bracketConfig from './features/Bracket/config.json';
 import scheduleConfig from './features/Schedule/config.json';
 import newsConfig from './features/News/config.json';
+import divisionsConfig from './features/Divisions/config.json';
 
 const App = () => {
   const sections = [
@@ -51,6 +53,13 @@ const App = () => {
       title: 'Программа сезона',
       component: <Program sessions={programConfig} />,
       navLabel: 'Программа',
+    },
+    {
+      id: 'divisions',
+      title: 'Дивизионы участия',
+      component: <Divisions divisions={divisionsConfig.divisions} />,
+      navLabel: 'Дивизионы',
+      variant: 'divisions',
     },
     {
       id: 'benefits',
