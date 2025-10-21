@@ -18,7 +18,7 @@ const App = () => {
   const sections = [
     {
       id: 'hero',
-      component: <Hero data={heroConfig} />,
+      component: <Hero data={heroConfig} disableVideoOnMobile={heroConfig.media?.disableOnMobile} />,
       variant: 'hero',
       hideTitle: true,
       fullBleed: true,
@@ -89,13 +89,15 @@ const App = () => {
             ))}
           </ul>
         </nav>
-        <a
-          className="app__cta"
-          href={heroConfig.action.href}
-          aria-label="Зарегистрироваться на YarCyberSeason"
-        >
-          Регистрация
-        </a>
+        {heroConfig.primaryCta ? (
+          <a
+            className="app__cta"
+            href={heroConfig.primaryCta.href}
+            aria-label={heroConfig.primaryCta.ariaLabel || 'Зарегистрироваться на YarCyberSeason'}
+          >
+            {heroConfig.primaryCta.label}
+          </a>
+        ) : null}
       </header>
       {sections.map((section) => {
         const { id, title, component, variant, hideTitle, fullBleed, background, modifiers } = section;
