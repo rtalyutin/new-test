@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import './Benefits.css';
 
 const Benefits = ({ items }) => (
   <div className="benefits">

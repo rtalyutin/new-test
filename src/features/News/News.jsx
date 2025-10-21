@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import './News.css';
 
 const News = ({ data }) => (
   <div className="news">

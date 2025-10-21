@@ -1,0 +1,101 @@
+.sponsors {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.sponsors__intro {
+  display: grid;
+  gap: var(--space-2);
+  max-width: 60ch;
+}
+
+.sponsors__eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.sponsors__description {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+.sponsors__cta {
+  justify-self: flex-start;
+  display: inline-flex;
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.sponsors__cta:hover,
+.sponsors__cta:focus-visible {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.sponsors__tiers {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.sponsors__tier {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-xl);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sponsors__tier-title {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.sponsors__logos {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  align-items: center;
+}
+
+.sponsors__logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sponsors__logo-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: var(--space-3);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  transition: transform var(--transition-fast);
+}
+
+.sponsors__logo-link:hover,
+.sponsors__logo-link:focus-visible {
+  transform: translateY(-2px);
+}
+
+@media (min-width: 1280px) {
+  .sponsors__logos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

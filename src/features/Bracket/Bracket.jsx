@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import './Bracket.css';
 
 const Bracket = ({ stages }) => (
   <div className="bracket">

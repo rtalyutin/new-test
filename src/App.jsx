@@ -28,6 +28,7 @@ import spectatorsConfig from './features/Spectators/config.json';
 import communityConfig from './features/Community/config.json';
 import statsConfig from './features/Stats/config.json';
 import sponsorsConfig from './features/Sponsors/config.json';
+import './App.css';
 
 const App = () => {
   const sections = [

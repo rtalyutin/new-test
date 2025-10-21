@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
+import './Stats.css';
 
 const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
 

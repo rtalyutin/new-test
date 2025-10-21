@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import './RegistrationCta.css';
 
 const calculateTimeLeft = (deadline) => {
   if (!deadline) {

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import './Divisions.css';
 
 const Divisions = ({ divisions }) => {
   return (

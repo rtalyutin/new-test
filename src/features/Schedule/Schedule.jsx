@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+import './Schedule.css';
 
 const Schedule = ({ data }) => {
   const itemRefs = useRef([]);
