@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import Section from './components/Section.jsx';
 import Footer from './components/Footer.jsx';
 import Hero from './features/Hero/Hero.jsx';
@@ -145,6 +147,30 @@ const App = () => {
       label: section.navLabel,
     }));
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768 && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isMenuOpen]);
+
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
+
+  const handleNavLinkClick = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <main className="app">
       <header className="app__header">
@@ -154,11 +180,27 @@ const App = () => {
           </span>
           <span className="app__logo-text">YarCyberSeason</span>
         </a>
-        <nav className="app__nav" aria-label="Навигация по секциям YarCyberSeason">
+        <button
+          type="button"
+          className={`app__menu-toggle${isMenuOpen ? ' app__menu-toggle--open' : ''}`}
+          aria-label={isMenuOpen ? 'Скрыть меню' : 'Открыть меню'}
+          aria-expanded={isMenuOpen}
+          aria-controls="app-navigation"
+          onClick={toggleMenu}
+        >
+          <span className="app__menu-toggle-line" aria-hidden="true" />
+          <span className="app__menu-toggle-line" aria-hidden="true" />
+          <span className="app__menu-toggle-line" aria-hidden="true" />
+        </button>
+        <nav
+          id="app-navigation"
+          className={`app__nav${isMenuOpen ? ' app__nav--open' : ''}`}
+          aria-label="Навигация по секциям YarCyberSeason"
+        >
           <ul className="app__nav-list">
             {navigationItems.map(({ id, label }) => (
               <li key={id} className="app__nav-item">
-                <a className="app__nav-link" href={`#${id}`}>
+                <a className="app__nav-link" href={`#${id}`} onClick={handleNavLinkClick}>
                   {label}
                 </a>
               </li>
