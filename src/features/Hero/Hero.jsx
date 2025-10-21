@@ -192,10 +192,16 @@ const Hero = ({ data }) => {
         </header>
 
         <div className="hero__centerpiece">
-          {branding?.seasonLabel ? <span className="hero__season">{branding.seasonLabel}</span> : null}
-          {branding?.tagline ? <span className="hero__tagline">{branding.tagline}</span> : null}
-          <h1 className="hero__title">{title}</h1>
-          <p className="hero__subtitle">{subtitle}</p>
+          {branding?.seasonLabel ? (
+            <span className="hero__season hero__badge hero__badge--accent">
+              {branding.seasonLabel}
+            </span>
+          ) : null}
+          {branding?.tagline ? (
+            <span className="hero__tagline hero__display-lead">{branding.tagline}</span>
+          ) : null}
+          <h1 className="hero__title hero__display">{title}</h1>
+          <p className="hero__subtitle hero__display-subtitle">{subtitle}</p>
 
           {primaryCta ? (
             <a
@@ -208,7 +214,11 @@ const Hero = ({ data }) => {
           ) : null}
 
           {match ? (
-            <div className="hero__matchup" role="group" aria-label="Противостояние игр">
+            <div
+              className="hero__matchup hero__glass hero__glass--strong"
+              role="group"
+              aria-label="Противостояние игр"
+            >
               {match.left ? (
                 <div className="hero__match-side hero__match-side--left">
                   <span className="hero__match-code">{match.left.code}</span>
@@ -243,8 +253,14 @@ const Hero = ({ data }) => {
         {Array.isArray(keyFacts) && keyFacts.length > 0 ? (
           <div className="hero__keyfacts" role="list">
             {keyFacts.map((fact) => (
-              <article key={fact.title} className="hero__keyfact" role="listitem">
-                {fact.tag ? <span className="hero__keyfact-tag">{fact.tag}</span> : null}
+              <article
+                key={fact.title}
+                className="hero__keyfact hero__glass"
+                role="listitem"
+              >
+                {fact.tag ? (
+                  <span className="hero__keyfact-tag hero__badge hero__badge--soft">{fact.tag}</span>
+                ) : null}
                 <h2 className="hero__keyfact-title">{fact.title}</h2>
                 {fact.value ? <p className="hero__keyfact-value">{fact.value}</p> : null}
                 {fact.description ? <p className="hero__keyfact-description">{fact.description}</p> : null}
@@ -265,8 +281,16 @@ const Hero = ({ data }) => {
         {Array.isArray(qualifiers) && qualifiers.length > 0 ? (
           <div className="hero__qualifiers" role="list">
             {qualifiers.map((qualifier) => (
-              <article key={qualifier.title} className="hero__qualifier" role="listitem">
-                {qualifier.tag ? <span className="hero__qualifier-tag">{qualifier.tag}</span> : null}
+              <article
+                key={qualifier.title}
+                className="hero__qualifier hero__glass hero__glass--soft"
+                role="listitem"
+              >
+                {qualifier.tag ? (
+                  <span className="hero__qualifier-tag hero__badge hero__badge--outline">
+                    {qualifier.tag}
+                  </span>
+                ) : null}
                 <h2 className="hero__qualifier-title">{qualifier.title}</h2>
                 {qualifier.description ? <p className="hero__qualifier-description">{qualifier.description}</p> : null}
                 {qualifier.cta ? (
