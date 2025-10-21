@@ -9,6 +9,7 @@ import Schedule from './features/Schedule/Schedule.jsx';
 import News from './features/News/News.jsx';
 import Divisions from './features/Divisions/Divisions.jsx';
 import RegistrationCta from './features/RegistrationCta/RegistrationCta.jsx';
+import Spectators from './features/Spectators/Spectators.jsx';
 import heroConfig from './features/Hero/config.json';
 import overviewConfig from './features/Overview/config.json';
 import benefitsConfig from './features/Benefits/config.json';
@@ -19,6 +20,7 @@ import scheduleConfig from './features/Schedule/config.json';
 import newsConfig from './features/News/config.json';
 import divisionsConfig from './features/Divisions/config.json';
 import registrationCtaConfig from './features/RegistrationCta/config.json';
+import spectatorsConfig from './features/Spectators/config.json';
 
 const App = () => {
   const sections = [
@@ -87,6 +89,18 @@ const App = () => {
       title: 'Новости экосистемы',
       component: <News data={newsConfig} />,
       navLabel: 'Новости',
+    },
+    {
+      id: 'spectators',
+      title: 'Для зрителей',
+      component: (
+        <Spectators
+          streams={spectatorsConfig.streams}
+          lanFinal={spectatorsConfig.lanFinal}
+        />
+      ),
+      navLabel: 'Зрителям',
+      variant: 'spectators',
     },
     {
       id: 'bracket',
