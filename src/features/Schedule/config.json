@@ -1,26 +1,87 @@
 {
-  "description": "Key milestones planned for the next sprint.",
+  "title": "Competition Roadmap",
+  "description": "Track each milestone to keep your team ready for the next challenge.",
+  "screenReaderDescription": "Timeline covers registration and roster checks, the first scrimmage, qualifying matches, and the championship finals. Each stop includes preparation tips and a link to the relevant rulebook section.",
   "items": [
     {
-      "id": "kickoff",
-      "date": "Jan 8",
-      "isoDate": "2025-01-08",
-      "title": "Sprint Kick-off",
-      "location": "Remote stand-up"
+      "id": "registration",
+      "title": "Registration & Rosters",
+      "icon": "📝",
+      "dateRange": {
+        "label": "Jan 8 – Jan 12",
+        "start": "2025-01-08",
+        "end": "2025-01-12"
+      },
+      "description": "Lock in your team roster, confirm eligibility, and submit entrance fees.",
+      "rulesLink": {
+        "href": "https://rules.example.com/registration",
+        "label": "Registration rules"
+      },
+      "tips": [
+        "Double-check age and eligibility certificates before submission.",
+        "Coordinate with finance to confirm the payment receipt."
+      ],
+      "a11yDescription": "Registration and roster submission runs from January 8 through January 12. Prepare eligibility proofs and confirm payment receipts."
     },
     {
-      "id": "design-review",
-      "date": "Jan 12",
-      "isoDate": "2025-01-12",
-      "title": "Design Review",
-      "location": "Product room"
+      "id": "scrimmage",
+      "title": "Early Scrimmage",
+      "icon": "🤝",
+      "dateRange": {
+        "label": "Jan 15",
+        "start": "2025-01-15",
+        "end": "2025-01-15"
+      },
+      "description": "Shake out strategies with a collaborative scrimmage to gather feedback from mentors.",
+      "rulesLink": {
+        "href": "https://rules.example.com/scrimmage",
+        "label": "Scrimmage guidelines"
+      },
+      "tips": [
+        "Bring prototype builds for live testing.",
+        "Capture mentor feedback and log it for the next sprint."
+      ],
+      "a11yDescription": "Scrimmage day is January 15. Teams test strategies with mentors and capture improvement notes."
     },
     {
-      "id": "demo",
-      "date": "Jan 19",
-      "isoDate": "2025-01-19",
-      "title": "Sprint Demo",
-      "location": "Town hall"
+      "id": "qualifiers",
+      "title": "Regional Qualifiers",
+      "icon": "🏆",
+      "dateRange": {
+        "label": "Jan 22 – Jan 24",
+        "start": "2025-01-22",
+        "end": "2025-01-24"
+      },
+      "description": "Compete in ranked matches to secure a berth for the finals.",
+      "rulesLink": {
+        "href": "https://rules.example.com/qualifiers",
+        "label": "Qualifier regulations"
+      },
+      "tips": [
+        "Study the tie-break criteria and prepare backup line-ups.",
+        "Assign a scout to track opponent strategies in real time."
+      ],
+      "a11yDescription": "Regional qualifiers run from January 22 through January 24 with ranked matches determining finals placement."
+    },
+    {
+      "id": "championship",
+      "title": "Championship Finals",
+      "icon": "🎉",
+      "dateRange": {
+        "label": "Jan 31",
+        "start": "2025-01-31",
+        "end": "2025-01-31"
+      },
+      "description": "Showcase your best performance and celebrate the season with the community.",
+      "rulesLink": {
+        "href": "https://rules.example.com/championship",
+        "label": "Finals handbook"
+      },
+      "tips": [
+        "Rehearse the presentation deck and highlight reels.",
+        "Plan travel logistics early for the closing ceremony."
+      ],
+      "a11yDescription": "Championship finals take place on January 31 with presentations and closing ceremonies."
     }
   ]
 }
