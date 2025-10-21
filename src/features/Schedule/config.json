@@ -1,87 +1,87 @@
 {
-  "title": "Competition Roadmap",
-  "description": "Track each milestone to keep your team ready for the next challenge.",
-  "screenReaderDescription": "Timeline covers registration and roster checks, the first scrimmage, qualifying matches, and the championship finals. Each stop includes preparation tips and a link to the relevant rulebook section.",
+  "title": "Календарь YarCyberSeason 2025/26",
+  "description": "Следите за ключевыми этапами сезона, чтобы команда была готова к каждому вызову.",
+  "screenReaderDescription": "Таймлайн охватывает онлайн-квалификации, групповой этап, плей-офф и LAN-финал YarCyberSeason 2025/26. Для каждого этапа указаны сроки, советы по подготовке и ссылка на соответствующий раздел регламента.",
   "items": [
     {
-      "id": "registration",
-      "title": "Registration & Rosters",
-      "icon": "📝",
+      "id": "qual_online",
+      "title": "Онлайн-квалификации",
+      "icon": "🌐",
       "dateRange": {
-        "label": "Jan 8 – Jan 12",
-        "start": "2025-01-08",
-        "end": "2025-01-12"
+        "label": "10 ноября – 18 декабря 2025",
+        "start": "2025-11-10",
+        "end": "2025-12-18"
       },
-      "description": "Lock in your team roster, confirm eligibility, and submit entrance fees.",
+      "description": "Сыграйте серию онлайн-матчей, чтобы попасть в основной этап сезона.",
       "rulesLink": {
-        "href": "https://rules.example.com/registration",
-        "label": "Registration rules"
+        "href": "https://yarcyberseason.example.com/rules/qualifiers-2025",
+        "label": "Регламент квалификаций"
       },
       "tips": [
-        "Double-check age and eligibility certificates before submission.",
-        "Coordinate with finance to confirm the payment receipt."
+        "Проверьте стабильность соединения и заранее протестируйте серверы.",
+        "Анализируйте результаты каждого матча, чтобы адаптировать стратегии."
       ],
-      "a11yDescription": "Registration and roster submission runs from January 8 through January 12. Prepare eligibility proofs and confirm payment receipts."
+      "a11yDescription": "Онлайн-квалификации проходят с 10 ноября по 18 декабря 2025 года. Команды играют серию матчей и готовят техническую инфраструктуру."
     },
     {
-      "id": "scrimmage",
-      "title": "Early Scrimmage",
-      "icon": "🤝",
+      "id": "group_stage",
+      "title": "Групповой этап",
+      "icon": "🛡️",
       "dateRange": {
-        "label": "Jan 15",
-        "start": "2025-01-15",
-        "end": "2025-01-15"
+        "label": "22 – 26 декабря 2025",
+        "start": "2025-12-22",
+        "end": "2025-12-26"
       },
-      "description": "Shake out strategies with a collaborative scrimmage to gather feedback from mentors.",
+      "description": "Команды, прошедшие отбор, разыгрывают места в плей-офф в формате кругового турнира.",
       "rulesLink": {
-        "href": "https://rules.example.com/scrimmage",
-        "label": "Scrimmage guidelines"
+        "href": "https://yarcyberseason.example.com/rules/groupstage-2025",
+        "label": "Регламент группового этапа"
       },
       "tips": [
-        "Bring prototype builds for live testing.",
-        "Capture mentor feedback and log it for the next sprint."
+        "Подготовьте детальные разборы соперников и ротацию составов.",
+        "Назначьте аналитика для оперативного обновления плейбука после каждого матча."
       ],
-      "a11yDescription": "Scrimmage day is January 15. Teams test strategies with mentors and capture improvement notes."
+      "a11yDescription": "Групповой этап проходит с 22 по 26 декабря 2025 года в формате кругового турнира за выход в плей-офф."
     },
     {
-      "id": "qualifiers",
-      "title": "Regional Qualifiers",
+      "id": "playoffs",
+      "title": "Плей-офф",
+      "icon": "⚔️",
+      "dateRange": {
+        "label": "3 – 6 января 2026",
+        "start": "2026-01-03",
+        "end": "2026-01-06"
+      },
+      "description": "Серии на выбывание определяют финалистов LAN-турнира.",
+      "rulesLink": {
+        "href": "https://yarcyberseason.example.com/rules/playoffs-2026",
+        "label": "Регламент плей-офф"
+      },
+      "tips": [
+        "Планируйте расписание тренировок с учётом таймзон и отдыха игроков.",
+        "Подготовьте несколько сценариев пики/банов для каждой стадии серии."
+      ],
+      "a11yDescription": "Плей-офф проходит с 3 по 6 января 2026 года и определяет участников LAN-финала по результатам серий на выбывание."
+    },
+    {
+      "id": "lan_final",
+      "title": "LAN-финал",
       "icon": "🏆",
       "dateRange": {
-        "label": "Jan 22 – Jan 24",
-        "start": "2025-01-22",
-        "end": "2025-01-24"
+        "label": "24 – 25 января 2026",
+        "start": "2026-01-24",
+        "end": "2026-01-25"
       },
-      "description": "Compete in ranked matches to secure a berth for the finals.",
+      "description": "Заключительная встреча лучших команд сезона на офлайн-арене с участием болельщиков.",
       "rulesLink": {
-        "href": "https://rules.example.com/qualifiers",
-        "label": "Qualifier regulations"
+        "href": "https://yarcyberseason.example.com/rules/lanfinal-2026",
+        "label": "Регламент LAN-финала"
       },
       "tips": [
-        "Study the tie-break criteria and prepare backup line-ups.",
-        "Assign a scout to track opponent strategies in real time."
+        "Уточните логистику и аккредитации не позднее чем за две недели до старта.",
+        "Подготовьте медиа-активности и планы взаимодействия с фанатами."
       ],
-      "a11yDescription": "Regional qualifiers run from January 22 through January 24 with ranked matches determining finals placement."
-    },
-    {
-      "id": "championship",
-      "title": "Championship Finals",
-      "icon": "🎉",
-      "dateRange": {
-        "label": "Jan 31",
-        "start": "2025-01-31",
-        "end": "2025-01-31"
-      },
-      "description": "Showcase your best performance and celebrate the season with the community.",
-      "rulesLink": {
-        "href": "https://rules.example.com/championship",
-        "label": "Finals handbook"
-      },
-      "tips": [
-        "Rehearse the presentation deck and highlight reels.",
-        "Plan travel logistics early for the closing ceremony."
-      ],
-      "a11yDescription": "Championship finals take place on January 31 with presentations and closing ceremonies."
+      "a11yDescription": "LAN-финал состоится 24 и 25 января 2026 года на офлайн-арене с участием болельщиков и медиа-активностями."
     }
   ]
 }
