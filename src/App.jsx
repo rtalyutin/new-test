@@ -12,6 +12,7 @@ import RegistrationCta from './features/RegistrationCta/RegistrationCta.jsx';
 import Spectators from './features/Spectators/Spectators.jsx';
 import Community from './features/Community/Community.jsx';
 import Stats from './features/Stats/Stats.jsx';
+import Sponsors from './features/Sponsors/Sponsors.jsx';
 import heroConfig from './features/Hero/config.json';
 import overviewConfig from './features/Overview/config.json';
 import benefitsConfig from './features/Benefits/config.json';
@@ -25,6 +26,7 @@ import registrationCtaConfig from './features/RegistrationCta/config.json';
 import spectatorsConfig from './features/Spectators/config.json';
 import communityConfig from './features/Community/config.json';
 import statsConfig from './features/Stats/config.json';
+import sponsorsConfig from './features/Sponsors/config.json';
 
 const App = () => {
   const sections = [
@@ -106,6 +108,13 @@ const App = () => {
       component: <Community data={communityConfig} />,
       navLabel: 'Комьюнити',
       variant: 'community',
+    },
+    {
+      id: 'sponsors',
+      title: 'Партнёры и спонсоры',
+      component: <Sponsors data={sponsorsConfig} />,
+      navLabel: 'Партнёры',
+      variant: 'sponsors',
     },
     {
       id: 'spectators',
