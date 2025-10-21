@@ -131,9 +131,9 @@ const RegistrationCta = ({ data }) => {
       <div className="registration-cta__body">
         {termsTitle ? <span className="registration-cta__terms-title">{termsTitle}</span> : null}
         {Array.isArray(terms) && terms.length > 0 ? (
-          <ul className="registration-cta__terms" role="list">
+          <ul className="registration-cta__terms">
             {terms.map((term) => (
-              <li key={term} className="registration-cta__term" role="listitem">
+              <li key={term} className="registration-cta__term">
                 <span className="registration-cta__term-icon" aria-hidden="true">●</span>
                 <span className="registration-cta__term-text">{term}</span>
               </li>
