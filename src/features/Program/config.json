@@ -13,7 +13,7 @@
     "resources": [
       {
         "label": "Расписание матчей",
-        "url": "https://yarcyberseason.ru/schedule/qualifiers"
+        "url": "/schedule/qualifiers"
       },
       {
         "label": "Тайм-коды трансляций",
@@ -35,7 +35,7 @@
     "resources": [
       {
         "label": "Таблица и сетка",
-        "url": "https://yarcyberseason.ru/results/group-stage"
+        "url": "/results/group-stage"
       }
     ]
   },
@@ -53,7 +53,7 @@
     "resources": [
       {
         "label": "Сетка плей-офф",
-        "url": "https://yarcyberseason.ru/bracket/playoffs"
+        "url": "/bracket/playoffs"
       },
       {
         "label": "Лучшие моменты",
@@ -75,7 +75,7 @@
     "resources": [
       {
         "label": "Бриф для команд",
-        "url": "https://yarcyberseason.ru/media-day/brief"
+        "url": "/media-day/brief"
       }
     ]
   },
@@ -93,7 +93,7 @@
     "resources": [
       {
         "label": "Карта площадки",
-        "url": "https://yarcyberseason.ru/lan/floor-plan"
+        "url": "/lan/floor-plan"
       },
       {
         "label": "Тайм-коды гранд-финала",
@@ -115,7 +115,7 @@
     "resources": [
       {
         "label": "Программа фан-вилладжа",
-        "url": "https://yarcyberseason.ru/lan/fan-village"
+        "url": "/lan/fan-village"
       }
     ]
   }

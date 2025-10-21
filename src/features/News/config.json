@@ -5,37 +5,37 @@
       "id": "match-previews",
       "title": "Анонс матчей плей-офф YarCyberSeason",
       "summary": "Представляем расписание решающих матчей с ключевыми противостояниями и ссылками на трансляции.",
-      "url": "https://yarcyberseason.ru/matches",
+      "url": "/matches",
       "source": "YarCyberSeason Media Center",
       "publishedAt": "2024-07-12",
-      "image": "https://yarcyberseason.ru/assets/news/playoffs-lineup.jpg"
+      "image": "/assets/news/playoffs-lineup.jpg"
     },
     {
       "id": "qualifiers-wrap",
       "title": "Итоги квалификаций: кто прошёл в основной этап",
       "summary": "Результаты региональных отборов, неожиданные герои и статистика лучших игроков.",
-      "url": "https://yarcyberseason.ru/qualifiers-results",
+      "url": "/qualifiers-results",
       "source": "YarCyberSeason Analytics",
       "publishedAt": "2024-07-08",
-      "image": "https://yarcyberseason.ru/assets/news/qualifiers-recap.jpg"
+      "image": "/assets/news/qualifiers-recap.jpg"
     },
     {
       "id": "player-interview",
       "title": "Интервью с капитаном команды Volga Rising",
       "summary": "Как команда готовилась к сезону, планы на плей-офф и ожидания болельщиков.",
-      "url": "https://yarcyberseason.ru/interviews/volga-rising",
+      "url": "/interviews/volga-rising",
       "source": "YarCyberSeason Live",
       "publishedAt": "2024-07-05",
-      "image": "https://yarcyberseason.ru/assets/news/volga-rising-interview.jpg"
+      "image": "/assets/news/volga-rising-interview.jpg"
     },
     {
       "id": "media-pack",
       "title": "Медиапак YarCyberSeason: фото и хайлайты недели",
       "summary": "Лучшие моменты, фото с арены и официальные заставки для социальных сетей.",
-      "url": "https://yarcyberseason.ru/media",
+      "url": "/media",
       "source": "YarCyberSeason Production",
       "publishedAt": "2024-07-03",
-      "image": "https://yarcyberseason.ru/assets/news/media-pack.jpg"
+      "image": "/assets/news/media-pack.jpg"
     }
   ]
 }

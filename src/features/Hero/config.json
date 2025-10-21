@@ -11,7 +11,7 @@
   },
   "primaryCta": {
     "label": "Регистрация команды",
-    "href": "https://yarcyberseason.ru/register",
+    "href": "/register",
     "ariaLabel": "Открыть форму регистрации команды YarCyberSeason 2025/26"
   },
   "title": "YarCyberSeason 2025/26",
@@ -61,7 +61,7 @@
       "description": "Онлайн-отборочные раунды стартуют 15 сентября 2025 года. 256 слотов для полупрофессиональных составов.",
       "cta": {
         "label": "Регистрация OPEN",
-        "href": "https://yarcyberseason.ru/register/open",
+        "href": "/register/open",
         "ariaLabel": "Зарегистрировать команду в открытой лиге"
       }
     },
@@ -72,7 +72,7 @@
       "description": "Кампус-лиги университетов региона. Отборочные стадии проходят в онлайн-формате, финал в декабре 2025 года.",
       "cta": {
         "label": "Регистрация STUDENT",
-        "href": "https://yarcyberseason.ru/register/student",
+        "href": "/register/student",
         "ariaLabel": "Зарегистрировать команду студенческого дивизиона"
       }
     },
@@ -83,7 +83,7 @@
       "description": "Командные баталии для школьников 8-11 классов. Старт онлайн-групп — 29 сентября, финал в январе 2026 года.",
       "cta": {
         "label": "Регистрация SCHOOL",
-        "href": "https://yarcyberseason.ru/register/school",
+        "href": "/register/school",
         "ariaLabel": "Зарегистрировать школьную команду"
       }
     },
@@ -94,7 +94,7 @@
       "description": "Лучшие команды всех дивизионов встретятся на офлайн-сцене в Ярославле, чтобы побороться за кубок сезона и призовой фонд.",
       "cta": {
         "label": "Получить приглашение",
-        "href": "https://yarcyberseason.ru/final",
+        "href": "/final",
         "ariaLabel": "Узнать подробнее о финальном фестивале"
       }
     }
@@ -106,7 +106,7 @@
       "description": "15–22 сентября 2025 • форматы CS2 и Dota 2",
       "cta": {
         "label": "Регистрация OPEN",
-        "href": "https://yarcyberseason.ru/register/open"
+        "href": "/register/open"
       }
     },
     {
@@ -115,7 +115,7 @@
       "description": "3–12 октября 2025 • гибридный формат с офлайн-плей-офф",
       "cta": {
         "label": "Заявка STUDENT",
-        "href": "https://yarcyberseason.ru/register/student"
+        "href": "/register/student"
       }
     },
     {
@@ -124,7 +124,7 @@
       "description": "29 сентября – 10 ноября 2025 • вечерние матчи",
       "cta": {
         "label": "Заявка SCHOOL",
-        "href": "https://yarcyberseason.ru/register/school"
+        "href": "/register/school"
       }
     }
   ],
