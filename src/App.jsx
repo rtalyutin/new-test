@@ -1,13 +1,13 @@
 import Section from './components/Section.jsx';
 import Hero from './features/Hero/Hero.jsx';
-import About from './features/About/About.jsx';
+import Overview from './features/Overview/Overview.jsx';
 import Benefits from './features/Benefits/Benefits.jsx';
 import Program from './features/Program/Program.jsx';
 import Bracket from './features/Bracket/Bracket.jsx';
 import Schedule from './features/Schedule/Schedule.jsx';
 import News from './features/News/News.jsx';
 import heroConfig from './features/Hero/config.json';
-import aboutConfig from './features/About/config.json';
+import overviewConfig from './features/Overview/config.json';
 import benefitsConfig from './features/Benefits/config.json';
 import programConfig from './features/Program/config.json';
 import bracketConfig from './features/Bracket/config.json';
@@ -27,8 +27,16 @@ const App = () => {
     {
       id: 'overview',
       title: 'Обзор YarCyberSeason',
-      component: <About data={aboutConfig} />,
+      component: <Overview data={overviewConfig} />,
       navLabel: 'Обзор',
+      variant: 'overview',
+      background: (
+        <div className="overview-background">
+          <div className="overview-background__blur overview-background__blur--primary" />
+          <div className="overview-background__blur overview-background__blur--secondary" />
+          <div className="overview-background__grain" />
+        </div>
+      ),
     },
     {
       id: 'schedule',
