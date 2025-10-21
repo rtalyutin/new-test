@@ -8,6 +8,7 @@ import Bracket from './features/Bracket/Bracket.jsx';
 import Schedule from './features/Schedule/Schedule.jsx';
 import News from './features/News/News.jsx';
 import Divisions from './features/Divisions/Divisions.jsx';
+import RegistrationCta from './features/RegistrationCta/RegistrationCta.jsx';
 import heroConfig from './features/Hero/config.json';
 import overviewConfig from './features/Overview/config.json';
 import benefitsConfig from './features/Benefits/config.json';
@@ -17,6 +18,7 @@ import bracketConfig from './features/Bracket/config.json';
 import scheduleConfig from './features/Schedule/config.json';
 import newsConfig from './features/News/config.json';
 import divisionsConfig from './features/Divisions/config.json';
+import registrationCtaConfig from './features/RegistrationCta/config.json';
 
 const App = () => {
   const sections = [
@@ -47,6 +49,13 @@ const App = () => {
       title: 'Календарь событий',
       component: <Schedule data={scheduleConfig} />,
       navLabel: 'Расписание',
+    },
+    {
+      id: 'registration',
+      component: <RegistrationCta data={registrationCtaConfig} />,
+      navLabel: 'Регистрация',
+      variant: 'registration-cta',
+      hideTitle: true,
     },
     {
       id: 'program',
