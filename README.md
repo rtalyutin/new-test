@@ -40,3 +40,8 @@ You can duplicate an existing feature folder to bootstrap new blocks.
 ## Linting & Formatting
 
 ESLint is configured with the recommended rules for React, hooks, and accessibility. Prettier integration guarantees consistent formatting. Run `npm run lint` and `npm run format` to keep the codebase clean.
+
+## Code Style Requirements
+
+- Стили, используемые несколькими блоками, храните в общих файлах, а специфические стили оставляйте в файлах компонентов.
+- Не складывайте все стили в один файл: общий файл должен содержать только действительно общие правила, чтобы избежать излишней связанности и упростить сопровождение.
