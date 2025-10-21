@@ -135,6 +135,65 @@
   color: var(--color-secondary);
 }
 
+.registration-cta__term-group {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(139, 123, 255, 0.2);
+}
+
+.registration-cta__term-heading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-3);
+  align-items: baseline;
+}
+
+.registration-cta__term-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-text-primary);
+}
+
+.registration-cta__term-quota {
+  font-size: 0.85rem;
+  padding: 0.2rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(64, 232, 194, 0.14);
+  border: 1px solid rgba(64, 232, 194, 0.4);
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+
+.registration-cta__term-items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.registration-cta__term-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-3);
+  align-items: baseline;
+  color: var(--color-text-secondary);
+}
+
+.registration-cta__term-bullet {
+  color: var(--color-secondary);
+}
+
+.registration-cta__term-note {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
 .registration-cta__actions {
   display: flex;
   flex-wrap: wrap;

@@ -133,12 +133,52 @@ const RegistrationCta = ({ data }) => {
         {termsTitle ? <span className="registration-cta__terms-title">{termsTitle}</span> : null}
         {Array.isArray(terms) && terms.length > 0 ? (
           <ul className="registration-cta__terms">
-            {terms.map((term) => (
-              <li key={term} className="registration-cta__term">
-                <span className="registration-cta__term-icon" aria-hidden="true">●</span>
-                <span className="registration-cta__term-text">{term}</span>
-              </li>
-            ))}
+            {terms
+              .map((term) => {
+                if (typeof term === 'string') {
+                  return (
+                    <li key={term} className="registration-cta__term">
+                      <span className="registration-cta__term-icon" aria-hidden="true">
+                        ●
+                      </span>
+                      <span className="registration-cta__term-text">{term}</span>
+                    </li>
+                  );
+                }
+
+                if (term && typeof term === 'object') {
+                  const { id, title: termTitle, quota, items, note } = term;
+                  const key = id || termTitle || JSON.stringify(term);
+                  const nestedItems = Array.isArray(items) ? items : [];
+
+                  return (
+                    <li key={key} className="registration-cta__term-group">
+                      <div className="registration-cta__term-heading">
+                        {termTitle ? <span className="registration-cta__term-title">{termTitle}</span> : null}
+                        {quota ? <span className="registration-cta__term-quota">{quota}</span> : null}
+                      </div>
+
+                      {nestedItems.length > 0 ? (
+                        <ul className="registration-cta__term-items">
+                          {nestedItems.map((item) => (
+                            <li key={item} className="registration-cta__term-item">
+                              <span className="registration-cta__term-bullet" aria-hidden="true">
+                                ●
+                              </span>
+                              <span className="registration-cta__term-text">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : null}
+
+                      {note ? <p className="registration-cta__term-note">{note}</p> : null}
+                    </li>
+                  );
+                }
+
+                return null;
+              })
+              .filter(Boolean)}
           </ul>
         ) : null}
       </div>
@@ -182,7 +222,18 @@ RegistrationCta.propTypes = {
       expiredLabel: PropTypes.string,
     }),
     termsTitle: PropTypes.string,
-    terms: PropTypes.arrayOf(PropTypes.string),
+    terms: PropTypes.arrayOf(
+      PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.shape({
+          id: PropTypes.string,
+          title: PropTypes.string,
+          quota: PropTypes.string,
+          items: PropTypes.arrayOf(PropTypes.string),
+          note: PropTypes.string,
+        }),
+      ]),
+    ),
     primaryCta: PropTypes.shape({
       label: PropTypes.string.isRequired,
       href: PropTypes.string.isRequired,
