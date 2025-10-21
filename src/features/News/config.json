@@ -1,23 +1,41 @@
 {
-  "headline": "React Ecosystem Highlights",
+  "headline": "YarCyberSeason: актуальные новости турнира",
   "articles": [
     {
-      "id": "release",
-      "title": "React 18: Concurrent Features Simplified",
-      "summary": "The latest React release focuses on developer ergonomics and streaming rendering for modern apps.",
-      "url": "https://react.dev/blog"
+      "id": "match-previews",
+      "title": "Анонс матчей плей-офф YarCyberSeason",
+      "summary": "Представляем расписание решающих матчей с ключевыми противостояниями и ссылками на трансляции.",
+      "url": "https://yarcyberseason.ru/matches",
+      "source": "YarCyberSeason Media Center",
+      "publishedAt": "2024-07-12",
+      "image": "https://yarcyberseason.ru/assets/news/playoffs-lineup.jpg"
     },
     {
-      "id": "tooling",
-      "title": "Vite Becomes the Default Choice for SPA Tooling",
-      "summary": "Fast dev server, optimized builds, and first-class React support make Vite ideal for new projects.",
-      "url": "https://vitejs.dev/guide/"
+      "id": "qualifiers-wrap",
+      "title": "Итоги квалификаций: кто прошёл в основной этап",
+      "summary": "Результаты региональных отборов, неожиданные герои и статистика лучших игроков.",
+      "url": "https://yarcyberseason.ru/qualifiers-results",
+      "source": "YarCyberSeason Analytics",
+      "publishedAt": "2024-07-08",
+      "image": "https://yarcyberseason.ru/assets/news/qualifiers-recap.jpg"
     },
     {
-      "id": "community",
-      "title": "Component-driven Design Systems Grow",
-      "summary": "Teams adopt feature-based folders to scale SPA codebases while keeping components maintainable.",
-      "url": "https://storybook.js.org/blog/"
+      "id": "player-interview",
+      "title": "Интервью с капитаном команды Volga Rising",
+      "summary": "Как команда готовилась к сезону, планы на плей-офф и ожидания болельщиков.",
+      "url": "https://yarcyberseason.ru/interviews/volga-rising",
+      "source": "YarCyberSeason Live",
+      "publishedAt": "2024-07-05",
+      "image": "https://yarcyberseason.ru/assets/news/volga-rising-interview.jpg"
+    },
+    {
+      "id": "media-pack",
+      "title": "Медиапак YarCyberSeason: фото и хайлайты недели",
+      "summary": "Лучшие моменты, фото с арены и официальные заставки для социальных сетей.",
+      "url": "https://yarcyberseason.ru/media",
+      "source": "YarCyberSeason Production",
+      "publishedAt": "2024-07-03",
+      "image": "https://yarcyberseason.ru/assets/news/media-pack.jpg"
     }
   ]
 }
