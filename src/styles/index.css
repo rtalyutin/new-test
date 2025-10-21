@@ -8,6 +8,10 @@
   color: #1f2933;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -19,65 +23,144 @@ main.app {
   padding: 2rem 1.5rem 4rem;
 }
 
-.app__brand {
-  display: flex;
+.app__header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 1.75rem;
-  padding: 2.25rem 2rem;
+  gap: 1.5rem;
+  padding: 1.75rem 2rem;
   margin-bottom: 3rem;
-  background: linear-gradient(135deg, #111827, #1e293b);
+  background: linear-gradient(135deg, #0f172a, #1f2937);
   color: #f8fafc;
   border-radius: 1.5rem;
   box-shadow: 0 30px 60px rgba(15, 23, 42, 0.2);
 }
 
-.app__brand-logo {
+.app__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.app__logo-mark {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 84px;
-  height: 84px;
-  border-radius: 1.2rem;
+  width: 72px;
+  height: 72px;
+  border-radius: 1.1rem;
   background: linear-gradient(135deg, #60a5fa, #a855f7);
-  font-size: 2.25rem;
+  font-size: 1.8rem;
   font-weight: 800;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.25);
 }
 
-.app__brand-copy {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.app__brand-label {
-  margin: 0;
-  font-size: 0.875rem;
-  letter-spacing: 0.16em;
+.app__logo-text {
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(226, 232, 240, 0.75);
+  color: rgba(241, 245, 249, 0.85);
 }
 
-.app__brand-title {
-  margin: 0;
-  font-size: 2.25rem;
-  line-height: 1.2;
+.app__nav {
+  display: flex;
+  justify-content: center;
 }
 
-.app__brand-subtitle {
+.app__nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
   margin: 0;
-  max-width: 620px;
-  color: rgba(226, 232, 240, 0.85);
+  padding: 0;
+}
+
+.app__nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  color: rgba(241, 245, 249, 0.85);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.app__nav-link:hover,
+.app__nav-link:focus {
+  color: #0f172a;
+  background-color: rgba(248, 250, 252, 0.9);
+}
+
+.app__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.4rem;
+  border-radius: 0.9rem;
+  background: linear-gradient(135deg, #60a5fa, #a855f7);
+  color: #0f172a;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 16px 30px rgba(96, 165, 250, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.app__cta:hover,
+.app__cta:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 38px rgba(148, 163, 184, 0.35);
 }
 
 .section {
+  position: relative;
   background-color: #ffffff;
   border-radius: 1rem;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+
+.section__background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.section__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.section__inner--full-bleed {
+  gap: 0;
+}
+
+.section__content {
+  position: relative;
+  z-index: 1;
+}
+
+.section__content--full-bleed {
+  padding: 0;
+}
+
+.section--full-bleed {
+  padding: 0;
+  border-radius: 1.5rem;
 }
 
 .section--hero {
@@ -382,17 +465,24 @@ main.app {
 }
 
 @media (max-width: 900px) {
-  .app__brand {
-    flex-direction: column;
+  .app__header {
+    grid-template-columns: 1fr;
+    justify-items: center;
     text-align: center;
+    gap: 1.25rem;
   }
 
-  .app__brand-copy {
-    align-items: center;
+  .app__logo {
+    justify-content: center;
   }
 
-  .app__brand-subtitle {
-    max-width: none;
+  .app__logo-text {
+    letter-spacing: 0.18em;
+  }
+
+  .app__cta {
+    width: 100%;
+    max-width: 280px;
   }
 
   .section--hero .section__content {
@@ -420,6 +510,25 @@ main.app {
 @media (max-width: 600px) {
   main.app {
     padding: 1.5rem 1rem 3rem;
+  }
+
+  .app__header {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  .app__logo-mark {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+
+  .app__nav-list {
+    gap: 0.75rem;
+  }
+
+  .app__cta {
+    max-width: 100%;
   }
 
   .section {
