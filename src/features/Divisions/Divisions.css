@@ -1,0 +1,107 @@
+.divisions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-5);
+}
+
+.divisions__card {
+  position: relative;
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  border-radius: var(--radius-xl);
+  background: rgba(10, 14, 28, 0.85);
+  border: 1px solid rgba(139, 123, 255, 0.25);
+  overflow: hidden;
+}
+
+.divisions__card-sheen {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.12), transparent 65%);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.divisions__card:hover .divisions__card-sheen,
+.divisions__card:focus-within .divisions__card-sheen {
+  opacity: 1;
+}
+
+.divisions__header {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+
+.divisions__icon {
+  font-size: 2.2rem;
+  color: var(--color-secondary);
+}
+
+.divisions__title {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.divisions__description {
+  margin: var(--space-1) 0 0;
+  color: var(--color-text-muted);
+}
+
+.divisions__deadline {
+  margin: 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-tertiary);
+}
+
+.divisions__benefits {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.divisions__benefit {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  color: var(--color-text-secondary);
+}
+
+.divisions__benefit-marker {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+  box-shadow: 0 0 0 6px rgba(64, 232, 194, 0.12);
+}
+
+.divisions__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  background: rgba(139, 123, 255, 0.2);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: transform var(--transition-normal), background var(--transition-normal);
+}
+
+.divisions__cta:hover,
+.divisions__cta:focus-visible {
+  transform: translateY(-2px);
+  background: var(--gradient-primary);
+  color: #05060f;
+}
+
+@media (max-width: 768px) {
+  .divisions__card {
+    padding: var(--space-4);
+  }
+}

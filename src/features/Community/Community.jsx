@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
+import './Community.css';
 
 const SOCIAL_ICON_MAP = {
   discord: (

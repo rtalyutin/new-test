@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
+import './Disciplines.css';
 
 const Disciplines = ({ disciplines }) => {
   const [activeId, setActiveId] = useState(disciplines[0]?.id ?? '');

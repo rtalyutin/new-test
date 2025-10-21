@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import './Overview.css';
 
 const Overview = ({ data }) => {
   const { lead, goals, metrics } = data;

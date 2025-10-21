@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import './Sponsors.css';
 
 const Sponsors = ({ data }) => {
   const { intro, tiers } = data;

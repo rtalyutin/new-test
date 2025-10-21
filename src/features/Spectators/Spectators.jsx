@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import './Spectators.css';
 
 const renderPreview = (preview, title, watchUrl) => {
   if (!preview) {
