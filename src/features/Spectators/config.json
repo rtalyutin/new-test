@@ -1,0 +1,92 @@
+{
+  "streams": [
+    {
+      "id": "qualifiers-final",
+      "title": "Финал онлайн-отборов",
+      "description": "Разогрев с аналитиками, прямая трансляция решающих матчей и студийные комментарии от приглашённых экспертов.",
+      "platform": "YouTube",
+      "schedule": "14 ноября · 19:00 (МСК)",
+      "watchUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "calendarUrl": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%D0%A4%D0%B8%D0%BD%D0%B0%D0%BB+%D0%BE%D1%82%D0%B1%D0%BE%D1%80%D0%BE%D0%B2+YarCyberSeason&details=%D0%A1%D0%BC%D0%BE%D1%82%D1%80%D0%B8+%D1%84%D0%B8%D0%BD%D0%B0%D0%BB+%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD-%D0%BE%D1%82%D0%B1%D0%BE%D1%80%D0%BE%D0%B2+YarCyberSeason&dates=20241114T160000Z/20241114T183000Z",
+      "tags": ["Best-of-5", "Экспертный разбор"],
+      "preview": {
+        "type": "video",
+        "thumbnail": "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80",
+        "label": "Трейлер трансляции",
+        "duration": "2:35"
+      }
+    },
+    {
+      "id": "community-show",
+      "title": "Community Show с капитанами",
+      "description": "Панель с капитанами дивизионов, интервью о стратегии и интерактив с зрителями в прямом эфире.",
+      "platform": "VK Play",
+      "schedule": "21 ноября · 18:30 (МСК)",
+      "watchUrl": "https://vkplay.live/",
+      "calendarUrl": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Community+Show+YarCyberSeason&details=%D0%A3%D1%87%D0%B0%D1%81%D1%82%D0%B2%D1%83%D0%B9+%D0%B2+Community+Show+YarCyberSeason&dates=20241121T153000Z/20241121T170000Z",
+      "tags": ["Live QA", "Интерактив"],
+      "preview": {
+        "type": "gallery",
+        "images": [
+          {
+            "src": "https://images.unsplash.com/photo-1517677129300-07b130802f46?auto=format&fit=crop&w=600&q=80",
+            "alt": "Киберспортсмен делится стратегией"
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=80",
+            "alt": "Обсуждение команды в студии"
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1525182008055-f88b95ff7980?auto=format&fit=crop&w=600&q=80",
+            "alt": "Интерактив с аудиторией"
+          }
+        ]
+      }
+    },
+    {
+      "id": "final-draft",
+      "title": "Жеребьёвка LAN-финала",
+      "description": "Торжественная жеребьёвка, выбор карт и анализ шансов команд перед очными играми.",
+      "platform": "Twitch",
+      "schedule": "30 ноября · 17:00 (МСК)",
+      "watchUrl": "https://www.twitch.tv/",
+      "calendarUrl": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%D0%96%D0%B5%D1%80%D0%B5%D0%B1%D1%8C%D1%91%D0%B2%D0%BA%D0%B0+LAN-%D1%84%D0%B8%D0%BD%D0%B0%D0%BB%D0%B0+YarCyberSeason&details=%D0%A3%D0%B7%D0%BD%D0%B0%D0%B9+%D0%BF%D0%B0%D1%80%D1%8B+LAN-%D1%84%D0%B8%D0%BD%D0%B0%D0%BB%D0%B0+YarCyberSeason&dates=20241130T140000Z/20241130T153000Z",
+      "tags": ["Live Draft", "Статистика"],
+      "preview": {
+        "type": "video",
+        "thumbnail": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=800&q=80",
+        "label": "Анонс LAN-финала",
+        "duration": "1:48"
+      }
+    }
+  ],
+  "lanFinal": {
+    "title": "Офлайн-финал в Ярославле",
+    "date": "7 декабря · 12:00 (МСК)",
+    "location": "Конгресс-центр, Ярославль",
+    "description": "Лучшие команды встретятся на сцене, чтобы сразиться за чемпионский титул YarCyberSeason. Зрителей ждут активности от партнёров, фан-зона и зона автографов.",
+    "highlights": [
+      "Главная сцена с круговым экраном 360°",
+      "Павильон технологических демо и VR-зона",
+      "Конкурсы с призами от спонсоров и команды продакшена",
+      "Лаундж для зрителей с настольными играми и мерч-зоной"
+    ],
+    "media": {
+      "type": "gallery",
+      "images": [
+        {
+          "src": "https://images.unsplash.com/photo-1516245834210-c4c142787335?auto=format&fit=crop&w=800&q=80",
+          "alt": "Сцена киберспортивного турнира"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1515162305285-0293e47ef015?auto=format&fit=crop&w=800&q=80",
+          "alt": "Зрители на трибунах арены"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=800&q=80",
+          "alt": "Киберспортивный игрок на сцене"
+        }
+      ]
+    }
+  }
+}
