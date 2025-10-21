@@ -3,6 +3,7 @@ import Hero from './features/Hero/Hero.jsx';
 import Overview from './features/Overview/Overview.jsx';
 import Benefits from './features/Benefits/Benefits.jsx';
 import Program from './features/Program/Program.jsx';
+import Disciplines from './features/Disciplines/Disciplines.jsx';
 import Bracket from './features/Bracket/Bracket.jsx';
 import Schedule from './features/Schedule/Schedule.jsx';
 import News from './features/News/News.jsx';
@@ -10,6 +11,7 @@ import heroConfig from './features/Hero/config.json';
 import overviewConfig from './features/Overview/config.json';
 import benefitsConfig from './features/Benefits/config.json';
 import programConfig from './features/Program/config.json';
+import disciplinesConfig from './features/Disciplines/config.json';
 import bracketConfig from './features/Bracket/config.json';
 import scheduleConfig from './features/Schedule/config.json';
 import newsConfig from './features/News/config.json';
@@ -55,6 +57,12 @@ const App = () => {
       title: 'Почему стоит участвовать',
       component: <Benefits items={benefitsConfig} />,
       navLabel: 'Преимущества',
+    },
+    {
+      id: 'disciplines',
+      title: 'Киберспортивные дисциплины',
+      component: <Disciplines disciplines={disciplinesConfig} />,
+      navLabel: 'Дисциплины',
     },
     {
       id: 'news',
