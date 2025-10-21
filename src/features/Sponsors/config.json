@@ -1,0 +1,84 @@
+{
+  "intro": {
+    "eyebrow": "Партнёрская экосистема",
+    "description": "Крупные технологические бренды, образовательные площадки и локальные бизнесы поддерживают YarCyberSeason, помогая развивать таланты и инфраструктуру региона.",
+    "download": {
+      "label": "Скачать спонсорский пакет",
+      "href": "https://yarcyberseason.ru/files/yarcyberseason-sponsor-pack.pdf"
+    }
+  },
+  "tiers": [
+    {
+      "id": "general",
+      "label": "Генеральные партнёры",
+      "sponsors": [
+        {
+          "name": "Microsoft",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+          "url": "https://www.microsoft.com/",
+          "alt": "Логотип Microsoft"
+        },
+        {
+          "name": "Amazon Web Services",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
+          "url": "https://aws.amazon.com/",
+          "alt": "Логотип Amazon Web Services"
+        }
+      ]
+    },
+    {
+      "id": "official",
+      "label": "Официальные партнёры",
+      "sponsors": [
+        {
+          "name": "Google Cloud",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/0/08/Google_Logo.svg",
+          "url": "https://cloud.google.com/",
+          "alt": "Логотип Google"
+        },
+        {
+          "name": "Intel",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Intel_logo_%282020%2C_dark_blue%29.svg",
+          "url": "https://www.intel.ru/",
+          "alt": "Логотип Intel"
+        },
+        {
+          "name": "Red Bull",
+          "logo": "https://upload.wikimedia.org/wikipedia/fr/3/3a/Red_Bull.svg",
+          "url": "https://www.redbull.com/",
+          "alt": "Логотип Red Bull"
+        }
+      ]
+    },
+    {
+      "id": "community",
+      "label": "Сообщество и образовательные партнёры",
+      "sponsors": [
+        {
+          "name": "Logitech G",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Logitech_logo.svg",
+          "url": "https://www.logitechg.com/",
+          "alt": "Логотип Logitech"
+        },
+        {
+          "name": "Skillbox",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Skillbox_logo.svg",
+          "url": "https://skillbox.ru/",
+          "alt": "Логотип Skillbox"
+        },
+        {
+          "name": "GeekBrains",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/3/3a/GeekBrains_logo.svg",
+          "url": "https://gb.ru/",
+          "alt": "Логотип GeekBrains"
+        },
+        {
+          "name": "VK Play",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/d/de/VK_Logo.svg",
+          "url": "https://vkplay.ru/",
+          "alt": "Логотип VK Play"
+        }
+      ]
+    }
+  ]
+}
