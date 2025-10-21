@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import Section from './components/Section.jsx';
 import Footer from './components/Footer.jsx';
@@ -33,6 +33,11 @@ import sponsorsConfig from './features/Sponsors/config.json';
 import './App.css';
 
 const App = () => {
+  const handleSponsorFormSubmit = useCallback(async (formData) => {
+    // Здесь мог бы быть вызов API или интеграция с сервисом отправки.
+    console.log('Sponsor form submitted', formData);
+  }, []);
+
   const sections = [
     {
       id: 'hero',
@@ -116,7 +121,12 @@ const App = () => {
     {
       id: 'sponsors',
       title: 'Партнёры и спонсоры',
-      component: <Sponsors data={sponsorsConfig} />,
+      component: (
+        <Sponsors
+          data={sponsorsConfig}
+          onSponsorFormSubmit={handleSponsorFormSubmit}
+        />
+      ),
       navLabel: 'Партнёры',
       variant: 'sponsors',
     },
