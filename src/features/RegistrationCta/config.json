@@ -60,12 +60,12 @@
   ],
   "primaryCta": {
     "label": "Выбрать дивизион и подать заявку",
-    "href": "https://yarcyberseason.ru/apply",
+    "href": "/apply",
     "ariaLabel": "Открыть универсальную форму подачи заявки в YarCyberSeason"
   },
   "secondaryCta": {
     "label": "Ознакомиться с регламентом",
-    "href": "https://yarcyberseason.ru/regulations",
+    "href": "/regulations",
     "ariaLabel": "Перейти к регламенту участия YarCyberSeason"
   },
   "disclaimer": "Отправляя заявку, вы подтверждаете согласие с регламентом турнира YarCyberSeason и выбранного дивизиона."

@@ -14,7 +14,7 @@
       },
       "description": "Сыграйте серию онлайн-матчей, чтобы попасть в основной этап сезона.",
       "rulesLink": {
-        "href": "https://yarcyberseason.example.com/rules/qualifiers-2025",
+        "href": "/rules/qualifiers-2025",
         "label": "Регламент квалификаций"
       },
       "tips": [
@@ -34,7 +34,7 @@
       },
       "description": "Команды, прошедшие отбор, разыгрывают места в плей-офф в формате кругового турнира.",
       "rulesLink": {
-        "href": "https://yarcyberseason.example.com/rules/groupstage-2025",
+        "href": "/rules/groupstage-2025",
         "label": "Регламент группового этапа"
       },
       "tips": [
@@ -54,7 +54,7 @@
       },
       "description": "Серии на выбывание определяют финалистов LAN-турнира.",
       "rulesLink": {
-        "href": "https://yarcyberseason.example.com/rules/playoffs-2026",
+        "href": "/rules/playoffs-2026",
         "label": "Регламент плей-офф"
       },
       "tips": [
@@ -74,7 +74,7 @@
       },
       "description": "Заключительная встреча лучших команд сезона на офлайн-арене с участием болельщиков.",
       "rulesLink": {
-        "href": "https://yarcyberseason.example.com/rules/lanfinal-2026",
+        "href": "/rules/lanfinal-2026",
         "label": "Регламент LAN-финала"
       },
       "tips": [
