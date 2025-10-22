@@ -75,6 +75,26 @@ body {
   background-attachment: fixed;
 }
 
+body.app-barrel-roll {
+  transform: rotate(180deg);
+  transform-origin: center center;
+  animation: app-barrel-roll-spin 2.2s ease-in-out forwards;
+}
+
+@keyframes app-barrel-roll-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -125,5 +145,9 @@ img {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+
+  body.app-barrel-roll {
+    animation: none !important;
   }
 }
