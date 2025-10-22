@@ -1,151 +1,202 @@
 import PropTypes from 'prop-types';
 import './Spectators.css';
 
-const renderPreview = (preview, title, watchUrl) => {
-  if (!preview) {
-    return null;
-  }
+const getLinkClassName = (variant = 'primary') => `spectators__link spectators__link--${variant}`;
 
-  if (preview.type === 'gallery' && Array.isArray(preview.images)) {
-    return (
-      <div className="spectators__gallery" role="group" aria-label={`Фотографии трансляции «${title}»`}>
-        {preview.images.map((image) => (
-          <figure key={image.src} className="spectators__gallery-item">
-            <img src={image.src} alt={image.alt} loading="lazy" />
-          </figure>
-        ))}
-      </div>
-    );
-  }
-
-  if (preview.type === 'video') {
-    return (
-      <a
-        className="spectators__video"
-        href={watchUrl}
-        target="_blank"
-        rel="noreferrer"
-        aria-label={`Посмотреть видеопревью «${title}»`}
-      >
-        <img src={preview.thumbnail} alt={preview.label || `Превью трансляции ${title}`} loading="lazy" />
-        <div className="spectators__video-meta" aria-hidden="true">
-          <span className="spectators__video-icon">▶</span>
-          <span className="spectators__video-label">{preview.label}</span>
-          {preview.duration ? (
-            <span className="spectators__video-duration">{preview.duration}</span>
-          ) : null}
-        </div>
-      </a>
-    );
-  }
-
-  return null;
-};
-
-const Spectators = ({ streams, lanFinal }) => (
+const Spectators = ({ sections }) => (
   <div className="spectators">
-    <section className="spectators__streams" aria-label="Онлайн-трансляции YarCyberSeason">
-      {streams.map(({ id, title, description, platform, schedule, watchUrl, calendarUrl, tags, preview }) => (
-        <article key={id} className="spectators__card">
-          <header className="spectators__card-header">
-            <span className="spectators__badge" aria-label={`Платформа: ${platform}`}>
-              {platform}
-            </span>
-            <span className="spectators__schedule">{schedule}</span>
-          </header>
-          <h3 className="spectators__card-title">{title}</h3>
-          <p className="spectators__card-description">{description}</p>
-          {tags?.length ? (
-            <ul className="spectators__tags" aria-label="Особенности трансляции">
-              {tags.map((tag) => (
-                <li key={tag} className="spectators__tag">
-                  {tag}
+    {sections.map((section) => {
+      const headingId = `spectators-${section.id}`;
+
+      return (
+        <section key={section.id} className="spectators__section" aria-labelledby={headingId}>
+          <div className="spectators__section-header">
+            <h3 id={headingId} className="spectators__section-title">
+              {section.title}
+            </h3>
+            {section.description ? (
+              <p className="spectators__section-description">{section.description}</p>
+            ) : null}
+          </div>
+
+          {section.type === 'links' ? (
+            <ul className="spectators__list">
+              {section.items.map((item) => (
+                <li key={item.id} className="spectators__list-item">
+                  <div className="spectators__item-content">
+                    <div className="spectators__item-header">
+                      <h4 className="spectators__item-title">{item.title}</h4>
+                      {item.description ? (
+                        <p className="spectators__item-description">{item.description}</p>
+                      ) : null}
+                    </div>
+
+                    {item.meta?.length ? (
+                      <ul className="spectators__meta" aria-label={`Подробности «${item.title}»`}>
+                        {item.meta.map((detail) => (
+                          <li key={`${detail.label}-${detail.value}`} className="spectators__meta-item">
+                            {detail.icon ? (
+                              <span className="spectators__meta-icon" aria-hidden="true">
+                                {detail.icon}
+                              </span>
+                            ) : null}
+                            <span className="spectators__meta-text">
+                              <span className="spectators__meta-label">{detail.label}</span>
+                              <span className="spectators__meta-value">{detail.value}</span>
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+
+                    {item.tags?.length ? (
+                      <ul className="spectators__tags" aria-label={`Теги для «${item.title}»`}>
+                        {item.tags.map((tag) => (
+                          <li key={tag} className="spectators__tag">
+                            {tag}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </div>
+
+                  {item.links?.length ? (
+                    <div className="spectators__actions" role="group" aria-label={`Ссылки для «${item.title}»`}>
+                      {item.links.map((link) => (
+                        <a
+                          key={`${item.id}-${link.label}`}
+                          className={getLinkClassName(link.variant)}
+                          href={link.url}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  ) : null}
                 </li>
               ))}
             </ul>
           ) : null}
-          {renderPreview(preview, title, watchUrl)}
-          <div className="spectators__actions" role="group" aria-label={`Действия для трансляции «${title}»`}>
-            <a className="spectators__button spectators__button--primary" href={watchUrl} target="_blank" rel="noreferrer">
-              Смотреть стрим
-            </a>
-            <a className="spectators__button spectators__button--secondary" href={calendarUrl} target="_blank" rel="noreferrer">
-              Добавить в календарь
-            </a>
-          </div>
-        </article>
-      ))}
-    </section>
-    <section className="spectators__lan" aria-labelledby="spectators-lan-title">
-      <div className="spectators__lan-info">
-        <h3 id="spectators-lan-title" className="spectators__lan-title">
-          {lanFinal.title}
-        </h3>
-        <div className="spectators__lan-meta">
-          <span className="spectators__lan-date" aria-label="Дата и время офлайн-финала">
-            🗓️ {lanFinal.date}
-          </span>
-          <span className="spectators__lan-location" aria-label="Место проведения офлайн-финала">
-            📍 {lanFinal.location}
-          </span>
-        </div>
-        <p className="spectators__lan-description">{lanFinal.description}</p>
-        {lanFinal.highlights?.length ? (
-          <ul className="spectators__lan-list">
-            {lanFinal.highlights.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        ) : null}
-      </div>
-      {lanFinal.media?.type === 'gallery' && Array.isArray(lanFinal.media.images) ? (
-        <div className="spectators__lan-media" role="group" aria-label="Кадры офлайн-финала">
-          {lanFinal.media.images.map((image) => (
-            <figure key={image.src} className="spectators__lan-media-item">
-              <img src={image.src} alt={image.alt} loading="lazy" />
-            </figure>
-          ))}
-        </div>
-      ) : null}
-    </section>
+
+          {section.type === 'lan' ? (
+            <div className="spectators__lan">
+              {section.details?.length ? (
+                <ul className="spectators__meta spectators__meta--lan" aria-label="Ключевые детали LAN-финала">
+                  {section.details.map((detail) => (
+                    <li key={`${detail.label}-${detail.value}`} className="spectators__meta-item">
+                      {detail.icon ? (
+                        <span className="spectators__meta-icon" aria-hidden="true">
+                          {detail.icon}
+                        </span>
+                      ) : null}
+                      <span className="spectators__meta-text">
+                        <span className="spectators__meta-label">{detail.label}</span>
+                        <span className="spectators__meta-value">{detail.value}</span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+
+              {section.description ? (
+                <p className="spectators__lan-description">{section.description}</p>
+              ) : null}
+
+              {section.actions?.length ? (
+                <div className="spectators__actions" role="group" aria-label="Полезные ссылки LAN-финала">
+                  {section.actions.map((link) => (
+                    <a
+                      key={`${section.id}-${link.label}`}
+                      className={getLinkClassName(link.variant)}
+                      href={link.url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              ) : null}
+
+              {section.highlights?.length ? (
+                <ul className="spectators__lan-list">
+                  {section.highlights.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              ) : null}
+
+              {section.media?.type === 'gallery' && Array.isArray(section.media.images) ? (
+                <div className="spectators__lan-media" role="group" aria-label="Кадры LAN-финала">
+                  {section.media.images.map((image) => (
+                    <figure key={image.src} className="spectators__lan-media-item">
+                      <img src={image.src} alt={image.alt} loading="lazy" />
+                    </figure>
+                  ))}
+                </div>
+              ) : null}
+            </div>
+          ) : null}
+        </section>
+      );
+    })}
   </div>
 );
 
+const detailShape = PropTypes.shape({
+  icon: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+});
+
+const linkShape = PropTypes.shape({
+  label: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  variant: PropTypes.oneOf(['primary', 'secondary']),
+});
+
+const linkItemShape = PropTypes.shape({
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  meta: PropTypes.arrayOf(detailShape),
+  tags: PropTypes.arrayOf(PropTypes.string),
+  links: PropTypes.arrayOf(linkShape),
+});
+
 const mediaShape = PropTypes.shape({
-  type: PropTypes.string.isRequired,
+  type: PropTypes.oneOf(['gallery']).isRequired,
   images: PropTypes.arrayOf(
     PropTypes.shape({
       src: PropTypes.string.isRequired,
       alt: PropTypes.string.isRequired,
     }),
-  ),
-  thumbnail: PropTypes.string,
-  label: PropTypes.string,
-  duration: PropTypes.string,
+  ).isRequired,
+});
+
+const linkSectionShape = PropTypes.shape({
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  type: PropTypes.oneOf(['links']).isRequired,
+  description: PropTypes.string,
+  items: PropTypes.arrayOf(linkItemShape).isRequired,
+});
+
+const lanSectionShape = PropTypes.shape({
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  type: PropTypes.oneOf(['lan']).isRequired,
+  description: PropTypes.string,
+  details: PropTypes.arrayOf(detailShape),
+  actions: PropTypes.arrayOf(linkShape),
+  highlights: PropTypes.arrayOf(PropTypes.string),
+  media: mediaShape,
 });
 
 Spectators.propTypes = {
-  streams: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      platform: PropTypes.string.isRequired,
-      schedule: PropTypes.string.isRequired,
-      watchUrl: PropTypes.string.isRequired,
-      calendarUrl: PropTypes.string.isRequired,
-      tags: PropTypes.arrayOf(PropTypes.string),
-      preview: mediaShape,
-    }),
-  ).isRequired,
-  lanFinal: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
-    location: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    highlights: PropTypes.arrayOf(PropTypes.string),
-    media: mediaShape,
-  }).isRequired,
+  sections: PropTypes.arrayOf(PropTypes.oneOfType([linkSectionShape, lanSectionShape])).isRequired,
 };
 
 export default Spectators;
