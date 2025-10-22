@@ -56,12 +56,8 @@ const Hero = ({ data }) => {
     title,
     subtitle,
     background,
-    match,
-    tabs,
-    qualifiers,
     prize,
     timer,
-    logos,
     media,
     keyFacts,
     primaryCta,
@@ -176,19 +172,6 @@ const Hero = ({ data }) => {
               {branding?.label ? <span className="hero__brand-label">{branding.label}</span> : null}
             </div>
           </div>
-          {Array.isArray(branding?.links) && branding.links.length > 0 ? (
-            <nav className="hero__topnav" aria-label="Навигация по турниру">
-              <ul className="hero__topnav-list">
-                {branding.links.map((link) => (
-                  <li key={`${link.href || link.label}`} className="hero__topnav-item">
-                    <a className="hero__topnav-link" href={link.href}>
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          ) : null}
         </header>
 
         <div className="hero__centerpiece">
@@ -203,49 +186,26 @@ const Hero = ({ data }) => {
           <h1 className="hero__title hero__display">{title}</h1>
           <p className="hero__subtitle hero__display-subtitle">{subtitle}</p>
 
-          {primaryCta ? (
-            <a
-              className="hero__primary-cta"
-              href={primaryCta.href}
-              aria-label={primaryCta.ariaLabel || primaryCta.label}
-            >
-              {primaryCta.label}
-            </a>
-          ) : null}
-
-          {match ? (
-            <div
-              className="hero__matchup hero__glass hero__glass--strong"
-              role="group"
-              aria-label="Противостояние игр"
-            >
-              {match.left ? (
-                <div className="hero__match-side hero__match-side--left">
-                  <span className="hero__match-code">{match.left.code}</span>
-                  <span className="hero__match-name">{match.left.name}</span>
-                  {match.left.note ? <span className="hero__match-note">{match.left.note}</span> : null}
-                </div>
-              ) : null}
-              <span className="hero__match-versus" aria-hidden="true">
-                VS
-              </span>
-              {match.right ? (
-                <div className="hero__match-side hero__match-side--right">
-                  <span className="hero__match-code">{match.right.code}</span>
-                  <span className="hero__match-name">{match.right.name}</span>
-                  {match.right.note ? <span className="hero__match-note">{match.right.note}</span> : null}
-                </div>
-              ) : null}
-            </div>
-          ) : null}
-
-          {Array.isArray(tabs) && tabs.length > 0 ? (
-            <div className="hero__tabs" role="tablist" aria-label="Игровые дисциплины">
-              {tabs.map((tab) => (
-                <a key={`${tab.href || tab.label}`} className="hero__tab" href={tab.href} role="tab">
-                  {tab.label}
+          {primaryCta || (Array.isArray(branding?.links) && branding.links.length > 0) ? (
+            <div className="hero__actions">
+              {primaryCta ? (
+                <a
+                  className="hero__primary-cta"
+                  href={primaryCta.href}
+                  aria-label={primaryCta.ariaLabel || primaryCta.label}
+                >
+                  {primaryCta.label}
                 </a>
-              ))}
+              ) : null}
+              {Array.isArray(branding?.links) && branding.links.length > 0 ? (
+                <nav className="hero__quicklinks" aria-label="Полезные ссылки сезона">
+                  {branding.links.map((link) => (
+                    <a key={`${link.href || link.label}`} className="hero__quicklink" href={link.href}>
+                      {link.label}
+                    </a>
+                  ))}
+                </nav>
+              ) : null}
             </div>
           ) : null}
         </div>
@@ -271,35 +231,6 @@ const Hero = ({ data }) => {
                     aria-label={fact.cta.ariaLabel || fact.cta.label}
                   >
                     {fact.cta.label}
-                  </a>
-                ) : null}
-              </article>
-            ))}
-          </div>
-        ) : null}
-
-        {Array.isArray(qualifiers) && qualifiers.length > 0 ? (
-          <div className="hero__qualifiers" role="list">
-            {qualifiers.map((qualifier) => (
-              <article
-                key={qualifier.title}
-                className="hero__qualifier hero__glass hero__glass--soft"
-                role="listitem"
-              >
-                {qualifier.tag ? (
-                  <span className="hero__qualifier-tag hero__badge hero__badge--outline">
-                    {qualifier.tag}
-                  </span>
-                ) : null}
-                <h2 className="hero__qualifier-title">{qualifier.title}</h2>
-                {qualifier.description ? <p className="hero__qualifier-description">{qualifier.description}</p> : null}
-                {qualifier.cta ? (
-                  <a
-                    className="hero__qualifier-cta"
-                    href={qualifier.cta.href}
-                    aria-label={qualifier.cta.ariaLabel || qualifier.cta.label}
-                  >
-                    {qualifier.cta.label}
                   </a>
                 ) : null}
               </article>
@@ -346,16 +277,6 @@ const Hero = ({ data }) => {
               ) : null}
             </div>
           ) : null}
-
-          {Array.isArray(logos) && logos.length > 0 ? (
-            <div className="hero__logos" aria-label="Партнеры и дисциплины">
-              {logos.map((logo) => (
-                <span key={logo} className="hero__logo-chip">
-                  {logo}
-                </span>
-              ))}
-            </div>
-          ) : null}
         </footer>
       </div>
     </div>
@@ -381,36 +302,6 @@ Hero.propTypes = {
       left: PropTypes.string,
       right: PropTypes.string,
     }),
-    match: PropTypes.shape({
-      left: PropTypes.shape({
-        code: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        note: PropTypes.string,
-      }),
-      right: PropTypes.shape({
-        code: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        note: PropTypes.string,
-      }),
-    }),
-    tabs: PropTypes.arrayOf(
-      PropTypes.shape({
-        label: PropTypes.string.isRequired,
-        href: PropTypes.string.isRequired,
-      })
-    ),
-    qualifiers: PropTypes.arrayOf(
-      PropTypes.shape({
-        tag: PropTypes.string,
-        title: PropTypes.string.isRequired,
-        description: PropTypes.string,
-        cta: PropTypes.shape({
-          label: PropTypes.string.isRequired,
-          href: PropTypes.string.isRequired,
-          ariaLabel: PropTypes.string,
-        }),
-      })
-    ),
     prize: PropTypes.shape({
       label: PropTypes.string.isRequired,
       value: PropTypes.string.isRequired,
@@ -421,7 +312,6 @@ Hero.propTypes = {
       expiredLabel: PropTypes.string,
       fallbackLabel: PropTypes.string,
     }),
-    logos: PropTypes.arrayOf(PropTypes.string),
     media: PropTypes.shape({
       disableOnMobile: PropTypes.bool,
       poster: PropTypes.string,

@@ -4,9 +4,8 @@
     "label": "YarCyberSeason",
     "seasonLabel": "Сезон 2025/26",
     "links": [
-      { "label": "Календарь", "href": "#schedule" },
-      { "label": "Дивизионы", "href": "#divisions" },
-      { "label": "Партнёры", "href": "#sponsors" }
+      { "label": "Регламент сезона", "href": "/docs/ycs-cup-2025-26.pdf" },
+      { "label": "FAQ", "href": "#faq" }
     ]
   },
   "primaryCta": {
@@ -36,95 +35,49 @@
     "left": "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1100&q=80",
     "right": "https://images.unsplash.com/photo-1516905041604-7935af78f573?auto=format&fit=crop&w=1100&q=80"
   },
-  "match": {
-    "left": {
-      "code": "OPEN",
-      "name": "Открытая лига",
-      "note": "Онлайн-отборы осень 2025"
-    },
-    "right": {
-      "code": "LAN",
-      "name": "Гранд-финал",
-      "note": "Май 2026, Ярославль"
-    }
-  },
-  "tabs": [
-    { "label": "Открытая лига", "href": "#division-open" },
-    { "label": "Студенческий дивизион", "href": "#division-students" },
-    { "label": "Школьный дивизион", "href": "#division-school" }
-  ],
   "keyFacts": [
     {
-      "tag": "OPEN",
-      "title": "Открытая лига",
-      "value": "Регистрация до 12 сентября",
-      "description": "Онлайн-отборочные раунды стартуют 15 сентября 2025 года. 256 слотов для полупрофессиональных составов.",
+      "tag": "QUAL",
+      "title": "Регистрация на квалификацию",
+      "value": "до 12 сентября 2025",
+      "description": "Подайте общую заявку, чтобы попасть в онлайн-квалификацию сезона по CS2 и Dota 2.",
       "cta": {
-        "label": "Регистрация OPEN",
-        "href": "/register/open",
-        "ariaLabel": "Зарегистрировать команду в открытой лиге"
+        "label": "Заполнить заявку",
+        "href": "/forms/qualification",
+        "ariaLabel": "Открыть форму регистрации на квалификацию YarCyberSeason"
       }
     },
     {
-      "tag": "STUDENT",
-      "title": "Студенческий дивизион",
-      "value": "Регистрация до 19 сентября",
-      "description": "Кампус-лиги университетов региона. Отборочные стадии проходят в онлайн-формате, финал в декабре 2025 года.",
+      "tag": "DOTA 2",
+      "title": "Основной этап Dota 2",
+      "value": "15–28 октября 2025",
+      "description": "Групповой этап и плей-офф среди лучших команд квалификации. Матчи проходят онлайн по будням.",
       "cta": {
-        "label": "Регистрация STUDENT",
-        "href": "/register/student",
-        "ariaLabel": "Зарегистрировать команду студенческого дивизиона"
+        "label": "Регламент Dota 2",
+        "href": "/docs/ycs-dota2-mainstage.pdf",
+        "ariaLabel": "Открыть регламент основного этапа Dota 2"
       }
     },
     {
-      "tag": "SCHOOL",
-      "title": "Школьный дивизион",
-      "value": "Регистрация до 26 сентября",
-      "description": "Командные баталии для школьников 8-11 классов. Старт онлайн-групп — 29 сентября, финал в январе 2026 года.",
+      "tag": "CS2",
+      "title": "Основной этап CS2",
+      "value": "5–20 ноября 2025",
+      "description": "Студенческие и открытые составы борются за слоты в офлайн-плей-офф. Формат – best-of-three.",
       "cta": {
-        "label": "Регистрация SCHOOL",
-        "href": "/register/school",
-        "ariaLabel": "Зарегистрировать школьную команду"
+        "label": "Регламент CS2",
+        "href": "/docs/ycs-cs2-mainstage.pdf",
+        "ariaLabel": "Открыть регламент основного этапа CS2"
       }
     },
     {
       "tag": "LAN",
-      "title": "Финальный фестиваль",
+      "title": "Гранд-финал YCS CUP",
       "value": "24 мая 2026",
-      "description": "Лучшие команды всех дивизионов встретятся на офлайн-сцене в Ярославле, чтобы побороться за кубок сезона и призовой фонд.",
+      "description": "Офлайн-фестиваль в Ярославле: финальные матчи, фан-зона и награждение чемпионов сезона.",
       "cta": {
-        "label": "Получить приглашение",
-        "href": "/final",
-        "ariaLabel": "Узнать подробнее о финальном фестивале"
-      }
-    }
-  ],
-  "qualifiers": [
-    {
-      "tag": "OPEN",
-      "title": "Онлайн-квалификация OPEN",
-      "description": "15–22 сентября 2025 • форматы CS2 и Dota 2",
-      "cta": {
-        "label": "Регистрация OPEN",
-        "href": "/register/open"
-      }
-    },
-    {
-      "tag": "STUDENT",
-      "title": "Кампус-лиги",
-      "description": "3–12 октября 2025 • гибридный формат с офлайн-плей-офф",
-      "cta": {
-        "label": "Заявка STUDENT",
-        "href": "/register/student"
-      }
-    },
-    {
-      "tag": "SCHOOL",
-      "title": "Школьные онлайн-группы",
-      "description": "29 сентября – 10 ноября 2025 • вечерние матчи",
-      "cta": {
-        "label": "Заявка SCHOOL",
-        "href": "/register/school"
+        "label": "Регламент LAN",
+        "href": "/docs/ycs-grand-final.pdf",
+        "ariaLabel": "Открыть регламент гранд-финала YarCyberSeason"
       }
     }
   ],
@@ -137,12 +90,5 @@
     "deadline": "2025-09-15T18:00:00+03:00",
     "expiredLabel": "Сезон начался",
     "fallbackLabel": "Следите за расписанием"
-  },
-  "logos": [
-    "YCS",
-    "CS2",
-    "Dota 2",
-    "Valorant",
-    "Rocket League"
-  ]
+  }
 }
