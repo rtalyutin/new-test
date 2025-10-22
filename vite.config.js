@@ -52,7 +52,4 @@ function spaFallback() {
 
 export default defineConfig({
   plugins: [react(), spaFallback()],
-  test: {
-    environment: 'jsdom',
-  },
 });

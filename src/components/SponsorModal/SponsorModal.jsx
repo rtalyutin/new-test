@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
+import { createBodyPortalContainer } from './createBodyPortalContainer';
 import './SponsorModal.css';
 
 const INITIAL_FORM_STATE = {
@@ -30,15 +31,10 @@ const SponsorModal = ({
       return undefined;
     }
 
-    const modalContainer = document.createElement('div');
-    document.body.appendChild(modalContainer);
-    setPortalElement(modalContainer);
+    const { container, dispose } = createBodyPortalContainer(document);
+    setPortalElement(container);
 
-    return () => {
-      if (modalContainer.parentNode) {
-        modalContainer.parentNode.removeChild(modalContainer);
-      }
-    };
+    return dispose;
   }, []);
 
   useEffect(() => {
