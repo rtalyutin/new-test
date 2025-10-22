@@ -68,6 +68,14 @@ const Schedule = ({ data }) => {
           const descriptionId = `${baseId}-description`;
           const dateId = `${baseId}-date`;
           const srId = `${baseId}-sr`;
+          const locationId = `${baseId}-location`;
+          const describedByIds = [dateId];
+
+          if (item.location) {
+            describedByIds.push(locationId);
+          }
+
+          describedByIds.push(descriptionId, srId);
 
           return (
             <li
@@ -75,7 +83,7 @@ const Schedule = ({ data }) => {
               className="schedule__item"
               ref={setItemRef(index)}
               aria-labelledby={`${baseId}-title`}
-              aria-describedby={`${dateId} ${descriptionId} ${srId}`}
+              aria-describedby={describedByIds.join(' ')}
             >
               <div className="schedule__rail" aria-hidden="true" />
               <div className="schedule__marker" aria-hidden="true">
@@ -87,6 +95,11 @@ const Schedule = ({ data }) => {
                 <time id={dateId} className="schedule__date" dateTime={item.dateRange.start}>
                   {item.dateRange.label}
                 </time>
+                {item.location && (
+                  <p id={locationId} className="schedule__location">
+                    <span aria-hidden="true">📍</span> {item.location}
+                  </p>
+                )}
                 <h4 id={`${baseId}-title`} className="schedule__title">
                   {item.title}
                 </h4>
@@ -142,6 +155,7 @@ Schedule.propTypes = {
         }).isRequired,
         tips: PropTypes.arrayOf(PropTypes.string).isRequired,
         a11yDescription: PropTypes.string.isRequired,
+        location: PropTypes.string,
       }),
     ).isRequired,
   }).isRequired,

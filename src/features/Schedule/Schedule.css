@@ -85,6 +85,19 @@
   color: var(--color-secondary);
 }
 
+.schedule__location {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.schedule__location span {
+  font-size: 1rem;
+}
+
 .schedule__title {
   margin: 0;
   font-size: 1.25rem;
