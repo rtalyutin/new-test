@@ -92,10 +92,7 @@ const App = () => {
       id: 'spectators',
       title: 'Для зрителей',
       component: (
-        <Spectators
-          streams={spectatorsConfig.streams}
-          lanFinal={spectatorsConfig.lanFinal}
-        />
+        <Spectators sections={spectatorsConfig.sections} />
       ),
       navLabel: 'Зрителям',
       variant: 'spectators',
