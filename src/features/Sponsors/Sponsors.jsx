@@ -268,6 +268,8 @@ SponsorsTier.defaultProps = {
 
 const Sponsors = ({ data, onSponsorFormSubmit }) => {
   const intro = data?.intro ?? {};
+  const benefits = data?.benefits ?? {};
+  const benefitItems = Array.isArray(benefits?.items) ? benefits.items : [];
   const tiers = useMemo(
     () => (Array.isArray(data?.tiers) ? data.tiers : []),
     [data],
@@ -353,6 +355,21 @@ const Sponsors = ({ data, onSponsorFormSubmit }) => {
         ) : null}
         {intro?.description ? (
           <p className="sponsors__description">{intro.description}</p>
+        ) : null}
+        {benefitItems.length ? (
+          <div className="sponsors__benefits" aria-labelledby="sponsors-benefits-title">
+            <h3 id="sponsors-benefits-title" className="sponsors__benefits-title">
+              {benefits.title || 'Ключевые выгоды партнёрства'}
+            </h3>
+            <ul className="sponsors__benefits-list">
+              {benefitItems.map((item, index) => (
+                <li key={`${item}-${index}`} className="sponsors__benefit">
+                  <span className="sponsors__benefit-marker" aria-hidden="true" />
+                  <span className="sponsors__benefit-text">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         ) : null}
         <div className="sponsors__cta-group">
           <button
@@ -512,6 +529,10 @@ Sponsors.propTypes = {
         label: PropTypes.string,
         href: PropTypes.string,
       }),
+    }),
+    benefits: PropTypes.shape({
+      title: PropTypes.string,
+      items: PropTypes.arrayOf(PropTypes.string),
     }),
     tiers: PropTypes.arrayOf(
       PropTypes.shape({

@@ -52,29 +52,11 @@ const App = () => {
       ),
     },
     {
-      id: 'stats',
-      title: 'Ключевые показатели сезона',
-      component: <Stats items={statsConfig} />,
-      navLabel: 'Статистика',
-    },
-    {
-      id: 'schedule',
-      title: 'Календарь событий',
-      component: <Schedule data={scheduleConfig} />,
-      navLabel: 'Расписание',
-    },
-    {
       id: 'registration',
       component: <RegistrationCta data={registrationCtaConfig} />,
       navLabel: 'Регистрация',
       variant: 'registration-cta',
       hideTitle: true,
-    },
-    {
-      id: 'program',
-      title: 'Программа сезона',
-      component: <Program sessions={programConfig} />,
-      navLabel: 'Программа',
     },
     {
       id: 'sponsors',
@@ -87,6 +69,24 @@ const App = () => {
       ),
       navLabel: 'Партнёры',
       variant: 'sponsors',
+    },
+    {
+      id: 'stats',
+      title: 'Ключевые показатели сезона',
+      component: <Stats items={statsConfig} />,
+      navLabel: 'Статистика',
+    },
+    {
+      id: 'schedule',
+      title: 'Календарь событий',
+      component: <Schedule data={scheduleConfig} />,
+      navLabel: 'Расписание',
+    },
+    {
+      id: 'program',
+      title: 'Программа сезона',
+      component: <Program sessions={programConfig} />,
+      navLabel: 'Программа',
     },
     {
       id: 'spectators',
