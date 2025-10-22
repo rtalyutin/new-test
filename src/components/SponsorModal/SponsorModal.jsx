@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import './SponsorModal.css';
 
@@ -22,6 +23,23 @@ const SponsorModal = ({
   const dialogRef = useRef(null);
   const nameInputRef = useRef(null);
   const [formData, setFormData] = useState(INITIAL_FORM_STATE);
+  const [portalElement, setPortalElement] = useState(null);
+
+  useEffect(() => {
+    if (typeof document === 'undefined') {
+      return undefined;
+    }
+
+    const modalContainer = document.createElement('div');
+    document.body.appendChild(modalContainer);
+    setPortalElement(modalContainer);
+
+    return () => {
+      if (modalContainer.parentNode) {
+        modalContainer.parentNode.removeChild(modalContainer);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
@@ -119,7 +137,7 @@ const SponsorModal = ({
     };
   }, [isOpen, onClose]);
 
-  if (!isOpen) {
+  if (!isOpen || !portalElement) {
     return null;
   }
 
@@ -141,7 +159,7 @@ const SponsorModal = ({
     onSubmit({ ...formData });
   };
 
-  return (
+  return createPortal(
     <div className="sponsor-modal" role="presentation">
       <div className="sponsor-modal__backdrop" aria-hidden="true" />
       <div className="sponsor-modal__overlay">
@@ -266,7 +284,7 @@ const SponsorModal = ({
         </div>
       </div>
     </div>
-  );
+  , portalElement);
 };
 
 SponsorModal.propTypes = {
