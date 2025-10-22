@@ -4,30 +4,20 @@ import Section from './components/Section.jsx';
 import Footer from './components/Footer.jsx';
 import Hero from './features/Hero/Hero.jsx';
 import Overview from './features/Overview/Overview.jsx';
-import Benefits from './features/Benefits/Benefits.jsx';
 import Program from './features/Program/Program.jsx';
-import Disciplines from './features/Disciplines/Disciplines.jsx';
 import Bracket from './features/Bracket/Bracket.jsx';
 import Schedule from './features/Schedule/Schedule.jsx';
-import News from './features/News/News.jsx';
-import Divisions from './features/Divisions/Divisions.jsx';
 import RegistrationCta from './features/RegistrationCta/RegistrationCta.jsx';
 import Spectators from './features/Spectators/Spectators.jsx';
-import Community from './features/Community/Community.jsx';
 import Stats from './features/Stats/Stats.jsx';
 import Sponsors from './features/Sponsors/Sponsors.jsx';
 import heroConfig from './features/Hero/config.json';
 import overviewConfig from './features/Overview/config.json';
-import benefitsConfig from './features/Benefits/config.json';
 import programConfig from './features/Program/config.json';
-import disciplinesConfig from './features/Disciplines/config.json';
 import bracketConfig from './features/Bracket/config.json';
 import scheduleConfig from './features/Schedule/config.json';
-import newsConfig from './features/News/config.json';
-import divisionsConfig from './features/Divisions/config.json';
 import registrationCtaConfig from './features/RegistrationCta/config.json';
 import spectatorsConfig from './features/Spectators/config.json';
-import communityConfig from './features/Community/config.json';
 import statsConfig from './features/Stats/config.json';
 import sponsorsConfig from './features/Sponsors/config.json';
 import './App.css';
@@ -85,38 +75,6 @@ const App = () => {
       title: 'Программа сезона',
       component: <Program sessions={programConfig} />,
       navLabel: 'Программа',
-    },
-    {
-      id: 'divisions',
-      title: 'Дивизионы участия',
-      component: <Divisions divisions={divisionsConfig.divisions} />,
-      navLabel: 'Дивизионы',
-      variant: 'divisions',
-    },
-    {
-      id: 'benefits',
-      title: 'Почему стоит участвовать',
-      component: <Benefits items={benefitsConfig} />,
-      navLabel: 'Преимущества',
-    },
-    {
-      id: 'disciplines',
-      title: 'Киберспортивные дисциплины',
-      component: <Disciplines disciplines={disciplinesConfig} />,
-      navLabel: 'Дисциплины',
-    },
-    {
-      id: 'news',
-      title: 'Новости экосистемы',
-      component: <News data={newsConfig} />,
-      navLabel: 'Новости',
-    },
-    {
-      id: 'community',
-      title: 'Комьюнити YarCyberSeason',
-      component: <Community data={communityConfig} />,
-      navLabel: 'Комьюнити',
-      variant: 'community',
     },
     {
       id: 'sponsors',
