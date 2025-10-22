@@ -1,8 +1,33 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import './Footer.css';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [isEasterEggActive, setIsEasterEggActive] = useState(false);
+
+  useEffect(() => {
+    if (!isEasterEggActive) {
+      return undefined;
+    }
+
+    const { body } = document;
+
+    if (!body) {
+      return undefined;
+    }
+
+    body.classList.add('app-barrel-roll');
+
+    return () => {
+      body.classList.remove('app-barrel-roll');
+    };
+  }, [isEasterEggActive]);
+
+  const handleSupportTriggerClick = (event) => {
+    event.preventDefault();
+
+    setIsEasterEggActive(true);
+  };
 
   return (
     <footer className="footer" aria-labelledby="footer-title">
@@ -40,8 +65,25 @@ const Footer = () => {
               Часто задаваемые вопросы
             </a>
             <p className="footer__support-note">
-              Не нашли ответ? Напишите нам на почту — ответим в течение рабочего дня.
+              <button
+                type="button"
+                className="footer__support-trigger"
+                onClick={handleSupportTriggerClick}
+                aria-expanded={isEasterEggActive}
+              >
+                Не нашли ответ?
+              </button>{' '}
+              Напишите нам на почту — ответим в течение рабочего дня.
             </p>
+            {isEasterEggActive ? (
+              <div className="footer__easter-egg" role="status" aria-live="polite">
+                <p className="footer__easter-egg-title">🎮 Пасхалка активирована!</p>
+                <p className="footer__easter-egg-text">
+                  Вы запустили barrel roll, и теперь сайт перевёрнут вверх ногами. Чтобы вернуть всё как
+                  было, просто обновите страницу — а пока наслаждайтесь видом.
+                </p>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>
