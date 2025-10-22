@@ -2,25 +2,53 @@ import PropTypes from 'prop-types';
 import './Overview.css';
 
 const Overview = ({ data }) => {
-  const { lead, goals, metrics } = data;
+  const { lead, history, goals, metrics } = data;
+  const historyTitle = history?.title ?? 'История сезона';
+  const historySummary = history?.summary;
+  const milestones = Array.isArray(history?.milestones) ? history.milestones : [];
+  const mainGoal = Array.isArray(goals) && goals.length ? goals[0] : null;
 
   return (
     <div className="overview">
       <p className="overview__lead">{lead}</p>
       <div className="overview__layout">
-        <div className="overview__goals" aria-labelledby="overview-goals-title">
-          <h3 id="overview-goals-title" className="overview__subtitle">
-            Ключевые цели сезона
+        <section className="overview__history" aria-labelledby="overview-history-title">
+          <h3 id="overview-history-title" className="overview__subtitle">
+            {historyTitle}
           </h3>
-          <ul className="overview__goals-list">
-            {goals.map((goal) => (
-              <li key={goal} className="overview__goal">
-                <span className="overview__goal-marker" aria-hidden="true" />
-                <span className="overview__goal-text">{goal}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+          {historySummary ? (
+            <p className="overview__history-summary">{historySummary}</p>
+          ) : null}
+          {milestones.length ? (
+            <ol className="overview__timeline">
+              {milestones.map((milestone, index) => {
+                const { period, title, description } = milestone;
+
+                return (
+                  <li key={`${period || index}-${title || index}`} className="overview__timeline-item">
+                    {period ? (
+                      <span className="overview__timeline-period">{period}</span>
+                    ) : null}
+                    <div className="overview__timeline-content">
+                      {title ? (
+                        <h4 className="overview__timeline-title">{title}</h4>
+                      ) : null}
+                      {description ? (
+                        <p className="overview__timeline-description">{description}</p>
+                      ) : null}
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
+          ) : null}
+          {mainGoal ? (
+            <p className="overview__history-goal">
+              <span className="overview__history-goal-label">Главная цель сезона:</span>
+              <span className="overview__history-goal-text">{mainGoal}</span>
+            </p>
+          ) : null}
+        </section>
         <div className="overview__metrics">
           {metrics.map(({ label, value, description }) => (
             <article key={label} className="overview__metric-card">
@@ -40,7 +68,18 @@ const Overview = ({ data }) => {
 Overview.propTypes = {
   data: PropTypes.shape({
     lead: PropTypes.string.isRequired,
-    goals: PropTypes.arrayOf(PropTypes.string).isRequired,
+    history: PropTypes.shape({
+      title: PropTypes.string,
+      summary: PropTypes.string,
+      milestones: PropTypes.arrayOf(
+        PropTypes.shape({
+          period: PropTypes.string,
+          title: PropTypes.string,
+          description: PropTypes.string,
+        }),
+      ),
+    }).isRequired,
+    goals: PropTypes.arrayOf(PropTypes.string),
     metrics: PropTypes.arrayOf(
       PropTypes.shape({
         label: PropTypes.string.isRequired,
