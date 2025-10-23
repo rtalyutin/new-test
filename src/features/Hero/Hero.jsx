@@ -253,19 +253,6 @@ const Hero = ({ data }) => {
               <div className="hero__countdown" aria-live="polite">
                 <div className="hero__countdown-header">
                   <span className="hero__countdown-label">{timer.label}</span>
-
-                  <div className="hero__support" aria-label="При поддержке">
-                    <span className="hero__support-label">при поддержке</span>
-                    <div className="hero__support-logos" role="group" aria-label="Логотипы партнеров">
-                      <img className="hero__support-logo" src={msLogo} alt="Microsoft" />
-                      <img
-                        className="hero__support-logo"
-                        src={fksLogo}
-                        alt="Федерация компьютерного спорта"
-                      />
-                    </div>
-                  </div>
-
                 </div>
                 {countdownUnavailable ? (
                   <span className="hero__countdown-status">{timerUnavailableLabel}</span>
@@ -295,7 +282,7 @@ const Hero = ({ data }) => {
                 ) : null}
               </div>
             ) : null}
-            <div className="hero__support" aria-label="При поддержке">
+            <div className="hero__support" aria-label="Партнеры сезона">
               <span className="hero__support-label">при поддержке</span>
               <div className="hero__support-logos" role="group" aria-label="Логотипы партнеров">
                 <img className="hero__support-logo" src={msLogo} alt="Microsoft" />
