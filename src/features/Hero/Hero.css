@@ -441,8 +441,8 @@
 }
 
 .hero__support {
-
-  display: inline-flex;
+  display: grid;
+  grid-template-rows: auto 1fr;
   align-items: center;
   gap: var(--space-2);
   padding: 0.4rem 0.9rem;
@@ -461,20 +461,21 @@
 }
 
 .hero__support-logos {
-  display: inline-flex;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: center;
   gap: var(--space-2);
-
+  grid-auto-rows: 1fr;
+  height: 100%;
 }
 
 .hero__support-logo {
   display: block;
-
-  height: 28px;
-  width: auto;
+  width: 100%;
+  height: 100%;
+  padding: 0.2rem;
   object-fit: contain;
   filter: drop-shadow(0 4px 8px rgba(9, 14, 32, 0.45));
-
 }
 
 .hero__countdown-grid {
@@ -588,20 +589,14 @@
   }
 
   .hero__support {
-
     width: 100%;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    grid-template-rows: auto auto;
     gap: var(--space-1);
-
   }
 
   .hero__support-logos {
     width: 100%;
-    justify-content: flex-start;
-
     gap: var(--space-1);
-
   }
 
   .hero__quicklinks {
@@ -620,8 +615,12 @@
     font-size: clamp(2rem, 8vw, 2.8rem);
   }
 
+  .hero__support-logos {
+    grid-template-columns: 1fr;
+  }
+
   .hero__support-logo {
-    height: 24px;
+    padding: 0.15rem 0;
   }
 }
 
