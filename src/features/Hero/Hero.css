@@ -379,7 +379,8 @@
 
 .hero__footer {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  justify-content: center;
+  grid-template-columns: minmax(0, 320px) minmax(0, 420px) minmax(0, 280px);
   gap: clamp(var(--space-3), 3vw, var(--space-5));
   align-items: stretch;
 }
@@ -401,6 +402,8 @@
   border-radius: var(--radius-md);
   background: rgba(139, 123, 255, 0.12);
   border: 1px solid rgba(139, 123, 255, 0.35);
+  width: 100%;
+  max-width: 320px;
 }
 
 .hero__stat-label {
@@ -411,8 +414,10 @@
 }
 
 .hero__stat-value {
-  font-size: 1.4rem;
+  font-size: clamp(2.2rem, 1.5rem + 2vw, 3.2rem);
   font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
 }
 
 
@@ -424,6 +429,8 @@
   border-radius: var(--radius-lg);
   background: rgba(13, 18, 40, 0.85);
   border: 1px solid rgba(64, 232, 194, 0.25);
+  width: 100%;
+  max-width: 420px;
 }
 
 .hero__countdown-status {
@@ -470,6 +477,8 @@
   border: 1px solid rgba(139, 123, 255, 0.35);
   align-content: start;
   align-self: stretch;
+  width: 100%;
+  max-width: 280px;
 }
 
 .hero__support-label {
