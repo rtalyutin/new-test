@@ -248,61 +248,63 @@ const Hero = ({ data }) => {
             </div>
           ) : null}
 
-          {timer?.deadline ? (
-            <div className="hero__countdown" aria-live="polite">
-              <div className="hero__countdown-header">
-                <span className="hero__countdown-label">{timer.label}</span>
+          <div className="hero__timing">
+            {timer?.deadline ? (
+              <div className="hero__countdown" aria-live="polite">
+                <div className="hero__countdown-header">
+                  <span className="hero__countdown-label">{timer.label}</span>
 
-                <div className="hero__support" aria-label="При поддержке">
-                  <span className="hero__support-label">при поддержке</span>
-                  <div className="hero__support-logos" role="group" aria-label="Логотипы партнеров">
-                    <img className="hero__support-logo" src={msLogo} alt="Microsoft" />
-                    <img
-                      className="hero__support-logo"
-                      src={fksLogo}
-                      alt="Федерация компьютерного спорта"
-                    />
+                  <div className="hero__support" aria-label="При поддержке">
+                    <span className="hero__support-label">при поддержке</span>
+                    <div className="hero__support-logos" role="group" aria-label="Логотипы партнеров">
+                      <img className="hero__support-logo" src={msLogo} alt="Microsoft" />
+                      <img
+                        className="hero__support-logo"
+                        src={fksLogo}
+                        alt="Федерация компьютерного спорта"
+                      />
+                    </div>
                   </div>
+
                 </div>
-
+                {countdownUnavailable ? (
+                  <span className="hero__countdown-status">{timerUnavailableLabel}</span>
+                ) : timeLeft ? (
+                  timeLeft.expired ? (
+                    <span className="hero__countdown-status">{timerExpiredLabel}</span>
+                  ) : (
+                    <div className="hero__countdown-grid" role="group" aria-label="Обратный отсчет до старта">
+                      <div className="hero__countdown-segment">
+                        <span className="hero__countdown-value">{timeLeft.days}</span>
+                        <span className="hero__countdown-unit">дни</span>
+                      </div>
+                      <div className="hero__countdown-segment">
+                        <span className="hero__countdown-value">{timeLeft.hours}</span>
+                        <span className="hero__countdown-unit">часы</span>
+                      </div>
+                      <div className="hero__countdown-segment">
+                        <span className="hero__countdown-value">{timeLeft.minutes}</span>
+                        <span className="hero__countdown-unit">минуты</span>
+                      </div>
+                      <div className="hero__countdown-segment">
+                        <span className="hero__countdown-value">{timeLeft.seconds}</span>
+                        <span className="hero__countdown-unit">секунды</span>
+                      </div>
+                    </div>
+                  )
+                ) : null}
               </div>
-              {countdownUnavailable ? (
-                <span className="hero__countdown-status">{timerUnavailableLabel}</span>
-              ) : timeLeft ? (
-                timeLeft.expired ? (
-                  <span className="hero__countdown-status">{timerExpiredLabel}</span>
-                ) : (
-                  <div className="hero__countdown-grid" role="group" aria-label="Обратный отсчет до старта">
-                    <div className="hero__countdown-segment">
-                      <span className="hero__countdown-value">{timeLeft.days}</span>
-                      <span className="hero__countdown-unit">дни</span>
-                    </div>
-                    <div className="hero__countdown-segment">
-                      <span className="hero__countdown-value">{timeLeft.hours}</span>
-                      <span className="hero__countdown-unit">часы</span>
-                    </div>
-                    <div className="hero__countdown-segment">
-                      <span className="hero__countdown-value">{timeLeft.minutes}</span>
-                      <span className="hero__countdown-unit">минуты</span>
-                    </div>
-                    <div className="hero__countdown-segment">
-                      <span className="hero__countdown-value">{timeLeft.seconds}</span>
-                      <span className="hero__countdown-unit">секунды</span>
-                    </div>
-                  </div>
-                )
-              ) : null}
-            </div>
-          ) : null}
-          <div className="hero__support" aria-label="При поддержке">
-            <span className="hero__support-label">при поддержке</span>
-            <div className="hero__support-logos" role="group" aria-label="Логотипы партнеров">
-              <img className="hero__support-logo" src={msLogo} alt="Microsoft" />
-              <img
-                className="hero__support-logo"
-                src={fksLogo}
-                alt="Федерация компьютерного спорта"
-              />
+            ) : null}
+            <div className="hero__support" aria-label="При поддержке">
+              <span className="hero__support-label">при поддержке</span>
+              <div className="hero__support-logos" role="group" aria-label="Логотипы партнеров">
+                <img className="hero__support-logo" src={msLogo} alt="Microsoft" />
+                <img
+                  className="hero__support-logo"
+                  src={fksLogo}
+                  alt="Федерация компьютерного спорта"
+                />
+              </div>
             </div>
           </div>
         </footer>
