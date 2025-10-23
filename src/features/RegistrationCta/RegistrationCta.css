@@ -58,6 +58,7 @@
   border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(64, 232, 194, 0.2);
+  width: min(20vw, 100%);
 }
 
 .registration-cta__deadline-label {
@@ -266,6 +267,10 @@
 @media (max-width: 1024px) {
   .registration-cta__header {
     flex-direction: column;
+  }
+
+  .registration-cta__deadline {
+    width: 100%;
   }
 
   .registration-cta__actions {
