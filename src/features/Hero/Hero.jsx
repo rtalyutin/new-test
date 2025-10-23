@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import msLogo from './ms.png';
+import fksLogo from './fks.png';
 import './Hero.css';
 
 const DEFAULT_EXPIRED_LABEL = 'Сезон уже стартовал';
@@ -248,7 +250,20 @@ const Hero = ({ data }) => {
 
           {timer?.deadline ? (
             <div className="hero__countdown" aria-live="polite">
-              <span className="hero__countdown-label">{timer.label}</span>
+              <div className="hero__countdown-header">
+                <span className="hero__countdown-label">{timer.label}</span>
+                <div className="hero__support" aria-label="При поддержке">
+                  <span className="hero__support-label">при поддержке</span>
+                  <div className="hero__support-logos" role="group" aria-label="Логотипы партнеров">
+                    <img className="hero__support-logo" src={msLogo} alt="Microsoft" />
+                    <img
+                      className="hero__support-logo"
+                      src={fksLogo}
+                      alt="Федерация компьютерного спорта"
+                    />
+                  </div>
+                </div>
+              </div>
               {countdownUnavailable ? (
                 <span className="hero__countdown-status">{timerUnavailableLabel}</span>
               ) : timeLeft ? (
