@@ -242,14 +242,16 @@ const Hero = ({ data }) => {
 
         <footer className="hero__footer">
           {prize ? (
-            <div className="hero__stat">
-              <span className="hero__stat-label">{prize.label}</span>
-              <span className="hero__stat-value">{prize.value}</span>
+            <div className="hero__footer-item">
+              <div className="hero__stat">
+                <span className="hero__stat-label">{prize.label}</span>
+                <span className="hero__stat-value">{prize.value}</span>
+              </div>
             </div>
           ) : null}
 
-          <div className="hero__timing">
-            {timer?.deadline ? (
+          {timer?.deadline ? (
+            <div className="hero__footer-item">
               <div className="hero__countdown" aria-live="polite">
                 <div className="hero__countdown-header">
                   <span className="hero__countdown-label">{timer.label}</span>
@@ -281,7 +283,10 @@ const Hero = ({ data }) => {
                   )
                 ) : null}
               </div>
-            ) : null}
+            </div>
+          ) : null}
+
+          <div className="hero__footer-item">
             <div className="hero__support" aria-label="Партнеры сезона">
               <span className="hero__support-label">при поддержке</span>
               <div className="hero__support-logos" role="group" aria-label="Логотипы партнеров">

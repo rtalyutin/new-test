@@ -378,16 +378,26 @@
 }
 
 .hero__footer {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(var(--space-3), 3vw, var(--space-5));
-  align-items: center;
+  align-items: stretch;
+}
+
+.hero__footer-item {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.hero__footer-item > * {
+  flex: 1 1 auto;
 }
 
 .hero__stat {
   display: grid;
   gap: var(--space-1);
-  padding: var(--space-3) var(--space-4);
+  padding: clamp(var(--space-3), 3vw, var(--space-4));
   border-radius: var(--radius-md);
   background: rgba(139, 123, 255, 0.12);
   border: 1px solid rgba(139, 123, 255, 0.35);
@@ -406,25 +416,26 @@
 }
 
 
-.hero__timing {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: stretch;
-  gap: clamp(var(--space-3), 3vw, var(--space-4));
-  flex: 1 1 clamp(320px, 55vw, 520px);
-  min-width: min(320px, 100%);
-}
-
-
 .hero__countdown {
-
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-  padding: var(--space-3);
+  padding: clamp(var(--space-3), 3vw, var(--space-4));
   border-radius: var(--radius-lg);
   background: rgba(13, 18, 40, 0.85);
   border: 1px solid rgba(64, 232, 194, 0.25);
+}
+
+.hero__countdown-status {
+  display: block;
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.05);
+  text-align: center;
+  font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.05rem);
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+  text-wrap: pretty;
 }
 
 .hero__countdown-header {
@@ -453,7 +464,7 @@
 .hero__support {
   display: grid;
   gap: var(--space-2);
-  padding: var(--space-3) var(--space-4);
+  padding: clamp(var(--space-3), 3vw, var(--space-4));
   border-radius: var(--radius-md);
   background: rgba(139, 123, 255, 0.12);
   border: 1px solid rgba(139, 123, 255, 0.35);
@@ -537,6 +548,29 @@
     gap: var(--space-5);
   }
 
+  .hero__footer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero__countdown {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero__countdown-header {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero__support {
+    text-align: center;
+    justify-items: center;
+  }
+
+  .hero__support-logos {
+    justify-content: center;
+  }
+
   .hero__countdown-header {
     gap: var(--space-2);
   }
@@ -569,6 +603,10 @@
     gap: var(--space-4);
   }
 
+  .hero__footer {
+    grid-template-columns: 1fr;
+  }
+
   .hero__topbar {
     flex-direction: column;
     align-items: flex-start;
@@ -583,21 +621,9 @@
     grid-template-columns: 1fr;
   }
 
-  .hero__timing {
-    grid-template-columns: 1fr;
-    width: 100%;
-    min-width: 100%;
-  }
-
-  .hero__countdown,
-  .hero__support {
-    width: 100%;
-    min-width: 100%;
-  }
-
   .hero__countdown-header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: var(--space-2);
   }
 
