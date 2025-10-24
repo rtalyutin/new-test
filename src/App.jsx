@@ -5,19 +5,13 @@ import Footer from './components/Footer.jsx';
 import Hero from './features/Hero/Hero.jsx';
 import Overview from './features/Overview/Overview.jsx';
 import Program from './features/Program/Program.jsx';
-import Bracket from './features/Bracket/Bracket.jsx';
-import Schedule from './features/Schedule/Schedule.jsx';
 import RegistrationCta from './features/RegistrationCta/RegistrationCta.jsx';
-import Spectators from './features/Spectators/Spectators.jsx';
 import Stats from './features/Stats/Stats.jsx';
 import Sponsors from './features/Sponsors/Sponsors.jsx';
 import heroConfig from './features/Hero/config.json';
 import overviewConfig from './features/Overview/config.json';
 import programConfig from './features/Program/config.json';
-import bracketConfig from './features/Bracket/config.json';
-import scheduleConfig from './features/Schedule/config.json';
 import registrationCtaConfig from './features/RegistrationCta/config.json';
-import spectatorsConfig from './features/Spectators/config.json';
 import statsConfig from './features/Stats/config.json';
 import sponsorsConfig from './features/Sponsors/config.json';
 import './App.css';
@@ -77,31 +71,10 @@ const App = () => {
       navLabel: 'Статистика',
     },
     {
-      id: 'schedule',
-      title: 'Календарь событий',
-      component: <Schedule data={scheduleConfig} />,
-      navLabel: 'Расписание',
-    },
-    {
       id: 'program',
       title: 'Программа сезона',
       component: <Program sessions={programConfig} />,
       navLabel: 'Программа',
-    },
-    {
-      id: 'spectators',
-      title: 'Для зрителей',
-      component: (
-        <Spectators sections={spectatorsConfig.sections} />
-      ),
-      navLabel: 'Зрителям',
-      variant: 'spectators',
-    },
-    {
-      id: 'bracket',
-      title: 'Плей-офф YarCyberLeague',
-      component: <Bracket stages={bracketConfig} />,
-      navLabel: 'Плей-офф',
     },
   ];
 
