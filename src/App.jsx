@@ -137,15 +137,6 @@ const App = () => {
             ))}
           </ul>
         </nav>
-        {heroConfig.primaryCta ? (
-          <a
-            className="app__cta"
-            href={heroConfig.primaryCta.href}
-            aria-label={heroConfig.primaryCta.ariaLabel || 'Зарегистрироваться на YarCyberSeason'}
-          >
-            {heroConfig.primaryCta.label}
-          </a>
-        ) : null}
       </header>
       {sections.map((section) => {
         const { id, title, component, variant, hideTitle, fullBleed, background, modifiers } = section;

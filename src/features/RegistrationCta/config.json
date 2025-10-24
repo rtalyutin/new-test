@@ -4,7 +4,7 @@
   "deadline": {
     "label": "Регистрация закроется через",
     "iso": "2025-11-11T12:00:00+03:00"
-     },
+  },
   "termsTitle": "Условия участия по дивизионам",
   "terms": [
     {
@@ -32,63 +32,5 @@
       "note": "Корпоративные матчи стартуют в январе 2026 года, партнёры сезона получают приоритет по слотам."
     }
   ],
-  "primaryCta": {
-    "label": "Выбрать сезон",
-    "href": "",
-    "ariaLabel": "Открыть модал выбора дисциплины и дивизиона YarCyberSeason"
-  },
-  "seasonSelector": {
-    "modal": {
-      "title": "Выбор дисциплины и дивизиона",
-      "description": "Уточните дисциплину и дивизион, чтобы перейти к форме регистрации выбранного сезона."
-    },
-    "emptyState": {
-      "title": "Начните с дисциплины",
-      "description": "Выберите игру, чтобы увидеть доступные дивизионы и перейти к подаче заявки."
-    },
-    "disciplines": [
-      {
-        "id": "cs2",
-        "label": "Counter-Strike 2",
-        "description": "Тактический шутер 5 на 5, матчи сезона проходят в формате best-of-3.",
-        "preview": "/assets/disciplines/cs2.jpg",
-        "divisions": [
-          {
-            "id": "open",
-            "label": "Открытый дивизион",
-            "href": "/apply/cs2/open"
-          },
-          {
-            "id": "corporate",
-            "label": "Корпоративный дивизион",
-            "href": "/apply/cs2/corporate"
-          }
-        ]
-      },
-      {
-        "id": "dota2",
-        "label": "Dota 2",
-        "description": "Командные сражения 5 на 5, расписание строится вокруг вечерних игровых слотов.",
-        "preview": "/assets/disciplines/dota2.jpg",
-        "divisions": [
-          {
-            "id": "open",
-            "label": "Открытый дивизион",
-            "href": "/apply/dota2/open"
-          },
-          {
-            "id": "corporate",
-            "label": "Корпоративный дивизион",
-            "href": "/apply/dota2/corporate"
-          }
-        ]
-      }
-    ]
-  },
-  "secondaryCta": {
-    "label": "Ознакомиться с регламентом",
-    "href": "/regulations",
-    "ariaLabel": "Перейти к регламенту участия YarCyberSeason"
-  },
   "disclaimer": "Отправляя заявку, вы подтверждаете согласие с регламентом турнира YarCyberSeason и выбранного дивизиона."
 }
