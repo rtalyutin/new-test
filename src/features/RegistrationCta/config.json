@@ -33,9 +33,57 @@
     }
   ],
   "primaryCta": {
-    "label": "Выбрать дивизион и подать заявку",
-    "href": "/apply",
-    "ariaLabel": "Открыть универсальную форму подачи заявки в YarCyberSeason"
+    "label": "Выбрать сезон",
+    "href": "",
+    "ariaLabel": "Открыть модал выбора дисциплины и дивизиона YarCyberSeason"
+  },
+  "seasonSelector": {
+    "modal": {
+      "title": "Выбор дисциплины и дивизиона",
+      "description": "Уточните дисциплину и дивизион, чтобы перейти к форме регистрации выбранного сезона."
+    },
+    "emptyState": {
+      "title": "Начните с дисциплины",
+      "description": "Выберите игру, чтобы увидеть доступные дивизионы и перейти к подаче заявки."
+    },
+    "disciplines": [
+      {
+        "id": "cs2",
+        "label": "Counter-Strike 2",
+        "description": "Тактический шутер 5 на 5, матчи сезона проходят в формате best-of-3.",
+        "preview": "/assets/disciplines/cs2.jpg",
+        "divisions": [
+          {
+            "id": "open",
+            "label": "Открытый дивизион",
+            "href": "/apply/cs2/open"
+          },
+          {
+            "id": "corporate",
+            "label": "Корпоративный дивизион",
+            "href": "/apply/cs2/corporate"
+          }
+        ]
+      },
+      {
+        "id": "dota2",
+        "label": "Dota 2",
+        "description": "Командные сражения 5 на 5, расписание строится вокруг вечерних игровых слотов.",
+        "preview": "/assets/disciplines/dota2.jpg",
+        "divisions": [
+          {
+            "id": "open",
+            "label": "Открытый дивизион",
+            "href": "/apply/dota2/open"
+          },
+          {
+            "id": "corporate",
+            "label": "Корпоративный дивизион",
+            "href": "/apply/dota2/corporate"
+          }
+        ]
+      }
+    ]
   },
   "secondaryCta": {
     "label": "Ознакомиться с регламентом",
