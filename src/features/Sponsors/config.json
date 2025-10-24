@@ -1,7 +1,7 @@
 {
   "intro": {
     "eyebrow": "Партнёрская экосистема",
-    "description": "Крупные технологические бренды, образовательные площадки и локальные бизнесы поддерживают YarCyberSeason, помогая развивать таланты и инфраструктуру региона.",
+    "description": "Мы предлагаем объединиться технологические брендам, образовательным площадкам и локальным бизнесам с YarCyberSeason и помочь развивать таланты и инфраструктуру региона.",
     "download": {
       "label": "Скачать спонсорский пакет",
       "href": "/files/yarcyberseason-sponsor-pack.pdf"
@@ -10,7 +10,6 @@
   "benefits": {
     "title": "Почему брендам выгодно партнёрство",
     "items": [
-      "Выявить сильнейшие корпоративные команды в дисциплинах Dota 2 и CS2",
       "Обеспечить высокую медийность и интерес киберспортивного сезона",
       "Предоставить брендам площадку для HR-инициатив и маркетинговых интеграций"
     ]
@@ -29,33 +28,27 @@
       "stats": [
         {
           "label": "Охват аудитории",
-          "value": "50 000+"
+          "value": "100 000+"
         },
         {
           "label": "Активности с брендом",
-          "value": "12"
+          "value": "мин 8"
         },
         {
           "label": "Среднее вовлечение",
-          "value": "78%"
+          "value": "78+%"
         }
       ],
       "cta": {
         "label": "Стать генеральным партнёром",
-        "href": "mailto:partners@yarcyberseason.ru"
+        "href": "mailto:partners@ycs.bar"
       },
       "sponsors": [
         {
-          "name": "Microsoft",
-          "logo": "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
-          "url": "https://www.microsoft.com/",
-          "alt": "Логотип Microsoft"
-        },
-        {
-          "name": "Amazon Web Services",
-          "logo": "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
-          "url": "https://aws.amazon.com/",
-          "alt": "Логотип Amazon Web Services"
+          "name": "Cherry RiAT",
+          "logo": "/cherry.png",
+          "url": "https://t.me/Talyutin",
+          "alt": "Логотип Cherry RiAT"
         }
       ]
     },
