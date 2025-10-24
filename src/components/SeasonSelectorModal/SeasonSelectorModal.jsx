@@ -14,6 +14,8 @@ const SeasonSelectorModal = ({
   onSelect,
   isPending,
   error,
+  dialogId,
+  stepsText,
 }) => {
   const dialogRef = useRef(null);
   const [portalElement, setPortalElement] = useState(null);
@@ -150,8 +152,18 @@ const SeasonSelectorModal = ({
   }
 
   const disciplines = Array.isArray(selector?.disciplines) ? selector.disciplines : [];
+  const dialogElementId = dialogId || 'season-selector-modal-dialog';
+  const modalTitleId = `${dialogElementId}-title`;
+  const stepsInstructionId = `${dialogElementId}-steps`;
   const modalTitle = selector?.modal?.title ?? 'Выбор дисциплины и дивизиона';
   const modalDescription = selector?.modal?.description ?? '';
+  const modalDescriptionId = modalDescription ? `${dialogElementId}-description` : undefined;
+  const modalStepsText =
+    stepsText ||
+    selector?.modal?.stepsText ||
+    'Сначала выберите дисциплину, затем дивизион для перехода к заявке.';
+  const describedBy = [modalDescriptionId, stepsInstructionId].filter(Boolean);
+  const dialogDescribedBy = describedBy.length > 0 ? describedBy.join(' ') : undefined;
   const emptyTitle = selector?.emptyState?.title ?? '';
   const emptyDescription = selector?.emptyState?.description ?? '';
 
@@ -225,17 +237,21 @@ const SeasonSelectorModal = ({
           className="season-selector-modal__dialog"
           role="dialog"
           aria-modal="true"
-          aria-labelledby="season-selector-modal-title"
+          aria-labelledby={modalTitleId}
+          aria-describedby={dialogDescribedBy}
           ref={dialogRef}
+          id={dialogElementId}
         >
           <header className="season-selector-modal__header">
             <div className="season-selector-modal__header-text">
               <p className="season-selector-modal__eyebrow">Регистрация сезона</p>
-              <h2 id="season-selector-modal-title" className="season-selector-modal__title">
+              <h2 id={modalTitleId} className="season-selector-modal__title">
                 {modalTitle}
               </h2>
               {modalDescription ? (
-                <p className="season-selector-modal__subtitle">{modalDescription}</p>
+                <p id={modalDescriptionId} className="season-selector-modal__subtitle">
+                  {modalDescription}
+                </p>
               ) : null}
             </div>
             <button
@@ -247,6 +263,10 @@ const SeasonSelectorModal = ({
               ×
             </button>
           </header>
+
+          <p id={stepsInstructionId} className="season-selector-modal__sr-only">
+            {modalStepsText}
+          </p>
 
           {error ? <p className="season-selector-modal__error">{error}</p> : null}
 
@@ -296,6 +316,7 @@ SeasonSelectorModal.propTypes = {
     modal: PropTypes.shape({
       title: PropTypes.string,
       description: PropTypes.string,
+      stepsText: PropTypes.string,
     }),
     emptyState: PropTypes.shape({
       title: PropTypes.string,
@@ -320,12 +341,16 @@ SeasonSelectorModal.propTypes = {
   onSelect: PropTypes.func.isRequired,
   isPending: PropTypes.bool,
   error: PropTypes.string,
+  dialogId: PropTypes.string,
+  stepsText: PropTypes.string,
 };
 
 SeasonSelectorModal.defaultProps = {
   selector: undefined,
   isPending: false,
   error: undefined,
+  dialogId: undefined,
+  stepsText: undefined,
 };
 
 export default SeasonSelectorModal;

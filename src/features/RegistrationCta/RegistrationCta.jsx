@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useId, useState } from 'react';
 import PropTypes from 'prop-types';
 import './RegistrationCta.css';
+import SeasonSelectorModal from '../../components/SeasonSelectorModal/SeasonSelectorModal.jsx';
 
 const calculateTimeLeft = (deadline) => {
   if (!deadline) {
@@ -40,9 +41,22 @@ const calculateTimeLeft = (deadline) => {
 };
 
 const RegistrationCta = ({ data }) => {
-  const { title, description, deadline, termsTitle, terms, primaryCta, secondaryCta, disclaimer } = data;
+  const {
+    title,
+    description,
+    deadline,
+    termsTitle,
+    terms,
+    primaryCta,
+    secondaryCta,
+    disclaimer,
+    seasonSelector,
+  } = data;
 
   const [timeLeft, setTimeLeft] = useState(() => calculateTimeLeft(deadline?.iso));
+  const [isSeasonModalOpen, setIsSeasonModalOpen] = useState(false);
+  const [selectedDiscipline, setSelectedDiscipline] = useState(null);
+  const seasonSelectorDialogId = `${useId()}-dialog`;
 
   useEffect(() => {
     if (!deadline?.iso || typeof window === 'undefined') {
@@ -112,6 +126,41 @@ const RegistrationCta = ({ data }) => {
         </div>
       </div>
     );
+  };
+
+  const hasSeasonSelector = Boolean(seasonSelector);
+
+  const openSeasonSelector = () => {
+    setIsSeasonModalOpen(true);
+  };
+
+  const closeSeasonSelector = () => {
+    setIsSeasonModalOpen(false);
+  };
+
+  const handleSeasonSelection = (selection) => {
+    if (!selection) {
+      return;
+    }
+
+    const discipline = seasonSelector?.disciplines?.find(
+      (item) => item.id === selection.disciplineId,
+    );
+    const division = discipline?.divisions?.find((item) => item.id === selection.divisionId);
+
+    setSelectedDiscipline({
+      disciplineId: selection.disciplineId,
+      divisionId: selection.divisionId,
+      href: selection.href,
+      disciplineLabel: discipline?.label || selection.disciplineId,
+      divisionLabel: division?.label || selection.divisionId,
+    });
+
+    setIsSeasonModalOpen(false);
+
+    if (selection.href && typeof window !== 'undefined') {
+      window.location.assign(selection.href);
+    }
   };
 
   return (
@@ -184,7 +233,33 @@ const RegistrationCta = ({ data }) => {
       </div>
 
       <div className="registration-cta__actions" role="group" aria-label="Действия регистрации">
-        {primaryCta ? (
+        {primaryCta && hasSeasonSelector ? (
+          <>
+            <button
+              type="button"
+              className="registration-cta__button registration-cta__button--primary"
+              onClick={openSeasonSelector}
+              aria-label={primaryCta.ariaLabel || primaryCta.label}
+              aria-expanded={isSeasonModalOpen}
+              aria-controls={seasonSelectorDialogId}
+            >
+              {primaryCta.label}
+            </button>
+            <SeasonSelectorModal
+              isOpen={isSeasonModalOpen}
+              onClose={closeSeasonSelector}
+              selector={seasonSelector}
+              onSelect={handleSeasonSelection}
+              dialogId={seasonSelectorDialogId}
+            />
+            {selectedDiscipline ? (
+              <span className="registration-cta__sr-only" role="status" aria-live="polite">
+                {`Выбраны дисциплина ${selectedDiscipline.disciplineLabel} и дивизион ${selectedDiscipline.divisionLabel}.`}
+              </span>
+            ) : null}
+          </>
+        ) : null}
+        {primaryCta && !hasSeasonSelector ? (
           <a
             className="registration-cta__button registration-cta__button--primary"
             href={primaryCta.href}
@@ -238,6 +313,32 @@ RegistrationCta.propTypes = {
       label: PropTypes.string.isRequired,
       href: PropTypes.string.isRequired,
       ariaLabel: PropTypes.string,
+    }),
+    seasonSelector: PropTypes.shape({
+      modal: PropTypes.shape({
+        title: PropTypes.string,
+        description: PropTypes.string,
+        stepsText: PropTypes.string,
+      }),
+      emptyState: PropTypes.shape({
+        title: PropTypes.string,
+        description: PropTypes.string,
+      }),
+      disciplines: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.string.isRequired,
+          label: PropTypes.string.isRequired,
+          description: PropTypes.string,
+          preview: PropTypes.string,
+          divisions: PropTypes.arrayOf(
+            PropTypes.shape({
+              id: PropTypes.string.isRequired,
+              label: PropTypes.string.isRequired,
+              href: PropTypes.string.isRequired,
+            }),
+          ),
+        }),
+      ),
     }),
     secondaryCta: PropTypes.shape({
       label: PropTypes.string.isRequired,
