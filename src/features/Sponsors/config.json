@@ -32,7 +32,7 @@
         },
         {
           "label": "Активности с брендом",
-          "value": "мин 8"
+          "value": ">8"
         },
         {
           "label": "Среднее вовлечение",
@@ -46,7 +46,7 @@
       "sponsors": [
         {
           "name": "Cherry RAiT",
-          "logo": "/logo-cherry.jpg",
+          "logo": "logo-cherry.jpg",
           "url": "https://t.me/Talyutin",
           "alt": "Логотип Cherry RAiT"
         }
