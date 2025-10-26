@@ -132,8 +132,93 @@
 .footer__bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding-top: var(--space-3);
+}
+
+.footer__bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
   color: var(--color-text-muted);
   font-size: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.footer__theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0.35rem 0.55rem;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--color-text-secondary);
+}
+
+.footer__theme-text {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.footer__theme-label {
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: var(--color-secondary);
+}
+
+.footer__theme-description {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.footer__switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.footer__switch-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.footer__switch-indicator {
+  width: 52px;
+  height: 28px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  position: relative;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.footer__switch-indicator::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  transform: translate(0, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.footer__switch-input:checked + .footer__switch-indicator {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.footer__switch-input:checked + .footer__switch-indicator::after {
+  transform: translate(24px, -50%);
+  background: var(--gradient-secondary);
 }
 
 @media (max-width: 1024px) {
@@ -149,5 +234,14 @@
 
   .footer__brand {
     justify-content: center;
+  }
+
+  .footer__bottom-inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .footer__theme-toggle {
+    justify-content: space-between;
   }
 }

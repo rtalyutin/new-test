@@ -58,6 +58,38 @@
   --breakpoint-mobile: 768px;
 }
 
+:root[data-theme='feminine'] {
+  --color-bg: #160414;
+  --color-bg-alt: #220721;
+  --color-surface: rgba(54, 21, 56, 0.9);
+  --color-surface-strong: rgba(66, 29, 69, 0.94);
+  --color-card: rgba(56, 18, 52, 0.92);
+  --color-card-alt: rgba(76, 24, 68, 0.88);
+  --color-border: rgba(255, 154, 202, 0.24);
+  --color-border-strong: rgba(255, 154, 202, 0.48);
+  --color-shadow: 0 24px 64px rgba(45, 6, 31, 0.58);
+  --color-text-primary: #fff3fa;
+  --color-text-secondary: #ffd7ec;
+  --color-text-muted: #e0a8c6;
+  --color-primary: #ff86d1;
+  --color-primary-soft: rgba(255, 134, 209, 0.18);
+  --color-secondary: #ffb4ed;
+  --color-secondary-soft: rgba(255, 180, 237, 0.25);
+  --color-tertiary: #ffc7a5;
+  --color-tertiary-soft: rgba(255, 199, 165, 0.26);
+  --color-success: #ffdeeb;
+  --color-warning: #ffd174;
+  --color-danger: #ff8fa3;
+  --color-overlay: rgba(51, 12, 43, 0.6);
+  --color-glare: rgba(255, 255, 255, 0.08);
+
+  --gradient-primary: linear-gradient(130deg, rgba(255, 134, 209, 0.92), rgba(255, 199, 165, 0.9));
+  --gradient-secondary: linear-gradient(150deg, rgba(255, 180, 237, 0.9), rgba(255, 207, 177, 0.85));
+  --gradient-surface: linear-gradient(145deg, rgba(54, 21, 56, 0.9), rgba(76, 24, 68, 0.92));
+
+  color-scheme: dark;
+}
+
 html {
   scroll-behavior: smooth;
   background-color: var(--color-bg);
@@ -73,6 +105,14 @@ body {
     radial-gradient(circle at 50% 80%, rgba(255, 111, 207, 0.12), transparent 60%),
     linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
   background-attachment: fixed;
+}
+
+:root[data-theme='feminine'] body {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 134, 209, 0.16), transparent 55%),
+    radial-gradient(circle at 80% 12%, rgba(255, 207, 177, 0.22), transparent 55%),
+    radial-gradient(circle at 55% 78%, rgba(255, 180, 237, 0.18), transparent 60%),
+    linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
 }
 
 body.app-barrel-roll {

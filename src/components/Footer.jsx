@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import './Footer.css';
 
-const Footer = () => {
+const Footer = ({ isFeminineTheme, onThemeToggle }) => {
   const currentYear = new Date().getFullYear();
   const [isEasterEggActive, setIsEasterEggActive] = useState(false);
 
@@ -88,12 +89,35 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer__bottom">
-        <p className="footer__copyright">
-          © {currentYear} YarCyberSeason. Все права защищены.
-        </p>
+        <div className="footer__bottom-inner">
+          <p className="footer__copyright">
+            © {currentYear} YarCyberSeason. Все права защищены.
+          </p>
+          <div className="footer__theme-toggle">
+            <div className="footer__theme-text">
+              <span className="footer__theme-label">Женская версия</span>
+              <span className="footer__theme-description">Более мягкая цветовая палитра</span>
+            </div>
+            <label className="footer__switch">
+              <input
+                type="checkbox"
+                className="footer__switch-input"
+                checked={isFeminineTheme}
+                onChange={onThemeToggle}
+                aria-label="Переключить женскую версию сайта"
+              />
+              <span aria-hidden="true" className="footer__switch-indicator" />
+            </label>
+          </div>
+        </div>
       </div>
     </footer>
   );
+};
+
+Footer.propTypes = {
+  isFeminineTheme: PropTypes.bool.isRequired,
+  onThemeToggle: PropTypes.func.isRequired,
 };
 
 export default Footer;
