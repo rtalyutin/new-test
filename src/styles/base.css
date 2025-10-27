@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap');
+
 :root {
   color-scheme: dark;
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -32,6 +34,17 @@
   --gradient-secondary: linear-gradient(150deg, rgba(64, 232, 194, 0.85), rgba(111, 204, 255, 0.65));
   --gradient-surface: linear-gradient(145deg, rgba(18, 25, 48, 0.92), rgba(28, 38, 69, 0.92));
 
+  /* Eastern ornamentation tokens for base theme backgrounds */
+  --decor-pattern-celestial: radial-gradient(circle at 20% 20%, rgba(139, 123, 255, 0.12), transparent 55%);
+  --decor-pattern-aurora: radial-gradient(circle at 80% 10%, rgba(64, 232, 194, 0.18), transparent 55%);
+  --decor-pattern-lotus: radial-gradient(circle at 50% 80%, rgba(255, 111, 207, 0.12), transparent 60%);
+  --decor-gradient-haze: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+  --decor-surface-veil: linear-gradient(140deg, rgba(18, 25, 48, 0.95), rgba(24, 36, 69, 0.88));
+
+  /* Soft elevation tokens reused across ornamental themes */
+  --shadow-soft-elevated: 0 12px 38px rgba(5, 9, 24, 0.55);
+  --shadow-ambient-glow: 0 0 32px rgba(64, 232, 194, 0.18);
+
   --radius-xs: 0.4rem;
   --radius-sm: 0.6rem;
   --radius-md: 0.8rem;
@@ -59,33 +72,49 @@
 }
 
 :root[data-theme='feminine'] {
-  --color-bg: #160414;
-  --color-bg-alt: #220721;
-  --color-surface: rgba(54, 21, 56, 0.9);
-  --color-surface-strong: rgba(66, 29, 69, 0.94);
-  --color-card: rgba(56, 18, 52, 0.92);
-  --color-card-alt: rgba(76, 24, 68, 0.88);
-  --color-border: rgba(255, 154, 202, 0.24);
-  --color-border-strong: rgba(255, 154, 202, 0.48);
-  --color-shadow: 0 24px 64px rgba(45, 6, 31, 0.58);
-  --color-text-primary: #fff3fa;
-  --color-text-secondary: #ffd7ec;
-  --color-text-muted: #e0a8c6;
-  --color-primary: #ff86d1;
-  --color-primary-soft: rgba(255, 134, 209, 0.18);
-  --color-secondary: #ffb4ed;
-  --color-secondary-soft: rgba(255, 180, 237, 0.25);
-  --color-tertiary: #ffc7a5;
-  --color-tertiary-soft: rgba(255, 199, 165, 0.26);
-  --color-success: #ffdeeb;
-  --color-warning: #ffd174;
-  --color-danger: #ff8fa3;
-  --color-overlay: rgba(51, 12, 43, 0.6);
-  --color-glare: rgba(255, 255, 255, 0.08);
+  --color-bg: #1f0a12;
+  --color-bg-alt: #2c121c;
+  --color-surface: rgba(61, 20, 30, 0.88);
+  --color-surface-strong: rgba(80, 28, 38, 0.94);
+  --color-card: rgba(54, 16, 26, 0.92);
+  --color-card-alt: rgba(76, 28, 37, 0.9);
+  --color-border: rgba(214, 164, 90, 0.28);
+  --color-border-strong: rgba(214, 164, 90, 0.52);
+  --color-shadow: 0 32px 72px rgba(24, 4, 9, 0.78);
+  --color-text-primary: #fdf5e9;
+  --color-text-secondary: #f1d4b6;
+  --color-text-muted: #cfa987;
+  --color-primary: #b44a5b;
+  --color-primary-soft: rgba(180, 74, 91, 0.22);
+  --color-secondary: #d4a94c;
+  --color-secondary-soft: rgba(212, 169, 76, 0.24);
+  --color-tertiary: #7f8f99;
+  --color-tertiary-soft: rgba(127, 143, 153, 0.22);
+  --color-success: #cce0c8;
+  --color-warning: #f2c972;
+  --color-danger: #d66660;
+  --color-overlay: rgba(45, 14, 23, 0.65);
+  --color-glare: rgba(255, 226, 179, 0.12);
 
-  --gradient-primary: linear-gradient(130deg, rgba(255, 134, 209, 0.92), rgba(255, 199, 165, 0.9));
-  --gradient-secondary: linear-gradient(150deg, rgba(255, 180, 237, 0.9), rgba(255, 207, 177, 0.85));
-  --gradient-surface: linear-gradient(145deg, rgba(54, 21, 56, 0.9), rgba(76, 24, 68, 0.92));
+  --gradient-primary: linear-gradient(130deg, rgba(180, 74, 91, 0.95), rgba(212, 169, 76, 0.9));
+  --gradient-secondary: linear-gradient(150deg, rgba(212, 169, 76, 0.85), rgba(127, 143, 153, 0.78));
+  --gradient-surface: linear-gradient(145deg, rgba(61, 20, 30, 0.92), rgba(80, 28, 38, 0.95));
+
+  /* Feminine theme tactile tokens */
+  --feminine-pattern-brocade: repeating-linear-gradient(45deg, rgba(212, 169, 76, 0.08) 0 12px, transparent 12px 24px);
+  --feminine-pattern-smoke: radial-gradient(circle at 70% 30%, rgba(127, 143, 153, 0.18), transparent 60%);
+  --feminine-shadow-soft: 0 26px 68px rgba(46, 12, 22, 0.6);
+  --feminine-shadow-ambient: 0 0 48px rgba(212, 169, 76, 0.28);
+
+  --shadow-soft-elevated: var(--feminine-shadow-soft);
+  --shadow-ambient-glow: var(--feminine-shadow-ambient);
+
+  /* Eastern ornamentation tokens tailored for the feminine theme */
+  --decor-pattern-celestial: radial-gradient(circle at 18% 18%, rgba(180, 74, 91, 0.2), transparent 52%);
+  --decor-pattern-aurora: radial-gradient(circle at 82% 12%, rgba(212, 169, 76, 0.24), transparent 55%);
+  --decor-pattern-lotus: radial-gradient(circle at 54% 78%, rgba(127, 143, 153, 0.2), transparent 62%);
+  --decor-gradient-haze: linear-gradient(180deg, rgba(31, 10, 18, 1) 0%, rgba(44, 18, 28, 1) 100%);
+  --decor-surface-veil: linear-gradient(140deg, rgba(61, 20, 30, 0.95), rgba(93, 36, 45, 0.9));
 
   color-scheme: dark;
 }
@@ -100,19 +129,34 @@ body {
   min-height: 100vh;
   color: var(--color-text-primary);
   background:
-    radial-gradient(circle at 20% 20%, rgba(139, 123, 255, 0.12), transparent 55%),
-    radial-gradient(circle at 80% 10%, rgba(64, 232, 194, 0.18), transparent 55%),
-    radial-gradient(circle at 50% 80%, rgba(255, 111, 207, 0.12), transparent 60%),
-    linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+    var(--decor-pattern-celestial),
+    var(--decor-pattern-aurora),
+    var(--decor-pattern-lotus),
+    var(--decor-gradient-haze);
   background-attachment: fixed;
 }
 
 :root[data-theme='feminine'] body {
   background:
-    radial-gradient(circle at 20% 20%, rgba(255, 134, 209, 0.16), transparent 55%),
-    radial-gradient(circle at 80% 12%, rgba(255, 207, 177, 0.22), transparent 55%),
-    radial-gradient(circle at 55% 78%, rgba(255, 180, 237, 0.18), transparent 60%),
-    linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+    var(--feminine-pattern-brocade),
+    var(--feminine-pattern-smoke),
+    var(--decor-pattern-celestial),
+    var(--decor-pattern-aurora),
+    var(--decor-pattern-lotus),
+    var(--decor-gradient-haze);
+}
+
+:root[data-theme='feminine'] h1,
+:root[data-theme='feminine'] h2,
+:root[data-theme='feminine'] h3,
+:root[data-theme='feminine'] h4,
+:root[data-theme='feminine'] h5,
+:root[data-theme='feminine'] h6 {
+  /* Calligraphic flourish for headings within the feminine theme */
+  font-family: 'Great Vibes', 'Playfair Display', 'Inter', cursive;
+  letter-spacing: 0.04em;
+  color: var(--color-text-primary);
+  text-shadow: var(--shadow-ambient-glow);
 }
 
 body.app-barrel-roll {

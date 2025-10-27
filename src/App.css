@@ -22,9 +22,10 @@ main.app {
   padding: clamp(var(--space-3), 2.5vw, var(--space-4))
     clamp(var(--space-3), 2.5vw, var(--space-5));
   border-radius: var(--radius-lg);
-  background: linear-gradient(140deg, rgba(18, 25, 48, 0.95), rgba(24, 36, 69, 0.88));
+  /* Decorative veil gradient leverages eastern ornamentation tokens */
+  background: var(--decor-surface-veil);
   border: 1px solid var(--color-border);
-  box-shadow: 0 12px 38px rgba(5, 9, 24, 0.55);
+  box-shadow: var(--shadow-soft-elevated);
   backdrop-filter: blur(16px);
 }
 
