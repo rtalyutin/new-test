@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import SponsorModal from '../../components/SponsorModal/SponsorModal.jsx';
@@ -63,6 +63,206 @@ CheckIcon.propTypes = {
 
 CheckIcon.defaultProps = {
   className: undefined,
+};
+
+const ArrowIcon = ({ className, direction }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+    focusable="false"
+    aria-hidden="true"
+    style={direction === 'left' ? { transform: 'scaleX(-1)' } : undefined}
+  >
+    <path
+      d="M8.47 4.47a.75.75 0 0 0 0 1.06L13.94 11l-5.47 5.47a.75.75 0 1 0 1.06 1.06l6-6a.75.75 0 0 0 0-1.06l-6-6a.75.75 0 0 0-1.06 0z"
+      fill="currentColor"
+    />
+  </svg>
+);
+
+ArrowIcon.propTypes = {
+  className: PropTypes.string,
+  direction: PropTypes.oneOf(['left', 'right']),
+};
+
+ArrowIcon.defaultProps = {
+  className: undefined,
+  direction: 'right',
+};
+
+const sponsorShape = PropTypes.shape({
+  name: PropTypes.string.isRequired,
+  logo: PropTypes.string.isRequired,
+  url: PropTypes.string,
+  alt: PropTypes.string,
+});
+
+const renderSponsorLogoCard = (sponsor, { className } = {}) => {
+  const classes = ['sponsors__logo-card'];
+
+  if (className) {
+    classes.push(className);
+  }
+
+  const logoElement = (
+    <img
+      className="sponsors__logo-image"
+      src={sponsor.logo}
+      alt={sponsor.alt || sponsor.name}
+      loading="lazy"
+    />
+  );
+
+  if (sponsor.url) {
+    return (
+      <a
+        className={classes.join(' ')}
+        href={sponsor.url}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`Перейти на сайт ${sponsor.name}`}
+      >
+        {logoElement}
+      </a>
+    );
+  }
+
+  return <div className={classes.join(' ')}>{logoElement}</div>;
+};
+
+const LogoCarousel = ({ sponsors, cardClassName, ariaLabel, autoPlayInterval }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const total = sponsors.length;
+
+  useEffect(() => {
+    setActiveIndex(0);
+  }, [total]);
+
+  useEffect(() => {
+    if (!autoPlayInterval || autoPlayInterval <= 0 || total <= 1) {
+      return undefined;
+    }
+
+    const timer = setInterval(() => {
+      setActiveIndex((previous) => {
+        if (total <= 1) {
+          return 0;
+        }
+
+        return (previous + 1) % total;
+      });
+    }, autoPlayInterval);
+
+    return () => clearInterval(timer);
+  }, [autoPlayInterval, total]);
+
+  const goToIndex = useCallback(
+    (index) => {
+      if (total <= 1) {
+        return;
+      }
+
+      const normalizedIndex = ((index % total) + total) % total;
+      setActiveIndex(normalizedIndex);
+    },
+    [total],
+  );
+
+  const goToPrevious = useCallback(() => {
+    setActiveIndex((previous) => {
+      if (total <= 1) {
+        return 0;
+      }
+
+      return (previous - 1 + total) % total;
+    });
+  }, [total]);
+
+  const goToNext = useCallback(() => {
+    setActiveIndex((previous) => {
+      if (total <= 1) {
+        return 0;
+      }
+
+      return (previous + 1) % total;
+    });
+  }, [total]);
+
+  return (
+    <div className="sponsors__logo-carousel" aria-roledescription="carousel" aria-label={ariaLabel}>
+      <div className="sponsors__logo-carousel-viewport" aria-live="polite" aria-atomic="true">
+        {sponsors.map((sponsor, index) => {
+          const isActive = index === activeIndex;
+
+          return (
+            <div
+              key={`carousel-${sponsor.name}`}
+              className={`sponsors__logo-carousel-slide${isActive ? ' is-active' : ''}`}
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`${index + 1} из ${total}`}
+              aria-hidden={isActive ? 'false' : 'true'}
+            >
+              {renderSponsorLogoCard(sponsor, { className: cardClassName })}
+            </div>
+          );
+        })}
+      </div>
+
+      {total > 1 ? (
+        <>
+          <div className="sponsors__logo-carousel-controls" aria-label="Навигация по партнёрам">
+            <button
+              type="button"
+              className="sponsors__logo-carousel-button"
+              onClick={goToPrevious}
+              aria-label="Предыдущий партнёр"
+              disabled={total <= 1}
+            >
+              <ArrowIcon className="sponsors__logo-carousel-button-icon" direction="left" />
+            </button>
+            <button
+              type="button"
+              className="sponsors__logo-carousel-button"
+              onClick={goToNext}
+              aria-label="Следующий партнёр"
+              disabled={total <= 1}
+            >
+              <ArrowIcon className="sponsors__logo-carousel-button-icon" direction="right" />
+            </button>
+          </div>
+
+          <ol className="sponsors__logo-carousel-dots">
+            {sponsors.map((sponsor, index) => (
+              <li key={`carousel-dot-${sponsor.name}`}>
+                <button
+                  type="button"
+                  className="sponsors__logo-carousel-dot"
+                  onClick={() => goToIndex(index)}
+                  aria-label={`Перейти к партнёру ${index + 1}`}
+                  aria-current={index === activeIndex ? 'true' : undefined}
+                />
+              </li>
+            ))}
+          </ol>
+        </>
+      ) : null}
+    </div>
+  );
+};
+
+LogoCarousel.propTypes = {
+  sponsors: PropTypes.arrayOf(sponsorShape).isRequired,
+  cardClassName: PropTypes.string,
+  ariaLabel: PropTypes.string,
+  autoPlayInterval: PropTypes.number,
+};
+
+LogoCarousel.defaultProps = {
+  cardClassName: '',
+  ariaLabel: 'Карусель партнёров',
+  autoPlayInterval: 6500,
 };
 
 const SponsorsTier = ({ tier }) => {
@@ -153,12 +353,7 @@ SponsorsTier.propTypes = {
       }),
     ),
     sponsors: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        logo: PropTypes.string.isRequired,
-        url: PropTypes.string,
-        alt: PropTypes.string,
-      }),
+      sponsorShape,
     ),
   }).isRequired,
 };
@@ -187,6 +382,8 @@ const Sponsors = ({ data, onSponsorFormSubmit }) => {
 
     return featuredTier.sponsors;
   }, [featuredTier]);
+
+  const isSingleFeaturedSponsor = featuredSponsors.length === 1;
 
   const featuredHighlightsLabel = useMemo(() => {
     if (!featuredTier) {
@@ -355,39 +552,24 @@ const Sponsors = ({ data, onSponsorFormSubmit }) => {
             ) : null}
           </div>
 
-          {featuredSponsors.length ? (
-            <ul className="sponsors__feature-logos">
-              {featuredSponsors.map((sponsor) => (
-                <li key={`featured-${sponsor.name}`}>
-                  {sponsor.url ? (
-                    <a
-                      className="sponsors__logo-card"
-                      href={sponsor.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`Перейти на сайт ${sponsor.name}`}
-                    >
-                      <img
-                        className="sponsors__logo-image"
-                        src={sponsor.logo}
-                        alt={sponsor.alt || sponsor.name}
-                        loading="lazy"
-                      />
-                    </a>
-                  ) : (
-                    <div className="sponsors__logo-card">
-                      <img
-                        className="sponsors__logo-image"
-                        src={sponsor.logo}
-                        alt={sponsor.alt || sponsor.name}
-                        loading="lazy"
-                      />
-                    </div>
-                  )}
-                </li>
-              ))}
-            </ul>
-          ) : null}
+      {featuredSponsors.length ? (
+        isSingleFeaturedSponsor ? (
+          <ul className="sponsors__feature-logos sponsors__feature-logos--single">
+            {featuredSponsors.map((sponsor) => (
+              <li key={`featured-${sponsor.name}`}>
+                {renderSponsorLogoCard(sponsor, { className: 'sponsors__logo-card--hero' })}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <LogoCarousel
+            sponsors={featuredSponsors}
+            cardClassName="sponsors__logo-card--hero"
+            ariaLabel={featuredTier?.carouselLabel || featuredTier?.label || 'Партнёры'}
+            autoPlayInterval={featuredTier?.carouselInterval}
+          />
+        )
+      ) : null}
         </section>
       ) : null}
 
@@ -409,13 +591,6 @@ const Sponsors = ({ data, onSponsorFormSubmit }) => {
     </div>
   );
 };
-
-const sponsorShape = PropTypes.shape({
-  name: PropTypes.string.isRequired,
-  logo: PropTypes.string.isRequired,
-  url: PropTypes.string,
-  alt: PropTypes.string,
-});
 
 const statShape = PropTypes.shape({
   label: PropTypes.string,
@@ -452,6 +627,8 @@ Sponsors.propTypes = {
         stats: PropTypes.arrayOf(statShape),
         cta: ctaShape,
         sponsors: PropTypes.arrayOf(sponsorShape),
+        carouselInterval: PropTypes.number,
+        carouselLabel: PropTypes.string,
       }),
     ),
   }).isRequired,
