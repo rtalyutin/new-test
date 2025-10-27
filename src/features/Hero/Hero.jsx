@@ -277,11 +277,11 @@ const Hero = ({ data }) => {
                       </div>
                       <div className="hero__countdown-segment">
                         <span className="hero__countdown-value">{timeLeft.minutes}</span>
-                        <span className="hero__countdown-unit">минуты</span>
+                        <span className="hero__countdown-unit">мин</span>
                       </div>
                       <div className="hero__countdown-segment">
                         <span className="hero__countdown-value">{timeLeft.seconds}</span>
-                        <span className="hero__countdown-unit">секунды</span>
+                        <span className="hero__countdown-unit">сек</span>
                       </div>
                     </div>
                   )
