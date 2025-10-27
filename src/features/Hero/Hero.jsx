@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import msLogo from './ms.png';
 import fksLogo from './fks.png';
-import heroFeminineBackground from '../../styles/hero-feminine-background.svg';
+import heroBackgroundImage from './image_2025-10-27_20-17-24.png';
 import './Hero.css';
 
 const DEFAULT_EXPIRED_LABEL = 'Сезон уже стартовал';
@@ -85,7 +85,7 @@ const Hero = ({ data }) => {
     },
   ];
 
-  const defaultFallbackImage = heroFeminineBackground;
+  const defaultFallbackImage = heroBackgroundImage;
   const videoSources = Array.isArray(media?.sources) ? media.sources : [];
   const shouldRenderVideo = videoSources.length > 0;
   const fallbackImage = media?.fallbackImage || defaultFallbackImage;
@@ -139,6 +139,10 @@ const Hero = ({ data }) => {
           ) : null}
           <h1 className="hero__title hero__display">{title}</h1>
           <p className="hero__subtitle hero__display-subtitle">{subtitle}</p>
+          <p className="hero__description">
+            это киберспортивный проект, который проходит при официальной поддержке Министерства спорта
+            Ярославской области и Федерации компьютерного спорта (ФКС) ЯО.
+          </p>
 
           {primaryCta || (Array.isArray(branding?.links) && branding.links.length > 0) ? (
             <div className="hero__actions">
