@@ -10,6 +10,7 @@ import heroConfig from './features/Hero/config.json';
 import overviewConfig from './features/Overview/config.json';
 import registrationCtaConfig from './features/RegistrationCta/config.json';
 import sponsorsConfig from './features/Sponsors/config.json';
+import logoImage from './ChatGPT Image 20 окт. 2025 г., 22_02_10.png';
 import './App.css';
 
 const App = () => {
@@ -127,10 +128,8 @@ const App = () => {
     <main className="app">
       <header className="app__header">
         <a className="app__logo" href="#hero" aria-label="Перейти к началу страницы">
-          <span className="app__logo-mark" aria-hidden="true">
-            YCS
-          </span>
-          <span className="app__logo-text">YarCyberSeason</span>
+          <img className="app__logo-image" src={logoImage} alt="Логотип YarCyberSeason" />
+          <span className="app__logo-text" aria-hidden="true">YarCyberSeason</span>
         </a>
         <button
           type="button"

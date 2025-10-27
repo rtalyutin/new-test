@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
+import logoImage from '../ChatGPT Image 20 окт. 2025 г., 22_02_10.png';
 import './Footer.css';
 
 const Footer = ({ isFeminineTheme, onThemeToggle }) => {
@@ -34,8 +35,12 @@ const Footer = ({ isFeminineTheme, onThemeToggle }) => {
     <footer className="footer" aria-labelledby="footer-title">
       <div className="footer__content">
         <div className="footer__brand" id="footer-title">
-          <span className="footer__brand-mark" aria-hidden="true">
-            YCS
+          <span className="footer__brand-logo-wrapper">
+            <img
+              className="footer__brand-logo"
+              src={logoImage}
+              alt="Логотип YarCyberSeason"
+            />
           </span>
           <div className="footer__brand-text">
             <span className="footer__brand-name">YarCyberSeason</span>
