@@ -138,6 +138,61 @@ const App = () => {
       label: section.navLabel,
     }));
 
+  const THEME_STORAGE_KEY = 'ycs-theme';
+
+  const getInitialTheme = useCallback(() => {
+    if (typeof window === 'undefined') {
+      return 'default';
+    }
+
+    return window.localStorage.getItem(THEME_STORAGE_KEY) || 'default';
+  }, []);
+
+  const [theme, setTheme] = useState(getInitialTheme);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768 && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    if (typeof document === 'undefined') {
+      return;
+    }
+
+    const root = document.documentElement;
+    root.dataset.theme = theme;
+
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+    }
+  }, [theme]);
+
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
+
+  const handleNavLinkClick = () => {
+    setIsMenuOpen(false);
+  };
+
+  const handleThemeToggle = () => {
+    setTheme((prevTheme) => (prevTheme === 'feminine' ? 'default' : 'feminine'));
+  };
+
+  const isFeminineTheme = theme === 'feminine';
+
+
   return (
     <main className={`app${isFeminineTheme ? ' app--feminine' : ''}`}>
       <header className="app__header">
