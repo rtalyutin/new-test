@@ -61,10 +61,6 @@ const Footer = ({ isFeminineTheme, onThemeToggle }) => {
             </ul>
           </div>
           <div className="footer__section">
-            <h3 className="footer__section-title">Поддержка</h3>
-            <a className="footer__link" href="#faq">
-              Часто задаваемые вопросы
-            </a>
             <p className="footer__support-note">
               <button
                 type="button"
