@@ -5,12 +5,10 @@ import Footer from './components/Footer.jsx';
 import Hero from './features/Hero/Hero.jsx';
 import Overview from './features/Overview/Overview.jsx';
 import RegistrationCta from './features/RegistrationCta/RegistrationCta.jsx';
-import Stats from './features/Stats/Stats.jsx';
 import Sponsors from './features/Sponsors/Sponsors.jsx';
 import heroConfig from './features/Hero/config.json';
 import overviewConfig from './features/Overview/config.json';
 import registrationCtaConfig from './features/RegistrationCta/config.json';
-import statsConfig from './features/Stats/config.json';
 import sponsorsConfig from './features/Sponsors/config.json';
 import './App.css';
 
@@ -61,12 +59,6 @@ const App = () => {
       ),
       navLabel: 'Партнёры',
       variant: 'sponsors',
-    },
-    {
-      id: 'stats',
-      title: 'Ключевые показатели сезона',
-      component: <Stats items={statsConfig} />,
-      navLabel: 'Статистика',
     },
   ];
 
