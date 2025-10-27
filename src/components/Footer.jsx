@@ -49,13 +49,13 @@ const Footer = ({ isFeminineTheme, onThemeToggle }) => {
             <h3 className="footer__section-title">Контакты</h3>
             <ul className="footer__contact-list">
               <li className="footer__contact-item">
-                <a className="footer__contact-link" href="tel:+74852999999">
-                  +7 (4852) 999-999
+                <a className="footer__contact-link" href="tel:+79065253445">
+                  +7 (906) 525-34-45
                 </a>
               </li>
               <li className="footer__contact-item">
-                <a className="footer__contact-link" href="mailto:team@yarseason.ru">
-                  team@yarseason.ru
+                <a className="footer__contact-link" href="mailto:info@ycs.bar">
+                  info@ycs.bar
                 </a>
               </li>
             </ul>
