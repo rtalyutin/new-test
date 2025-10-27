@@ -58,7 +58,6 @@ const Hero = ({ data }) => {
     title,
     subtitle,
     background,
-    prize,
     timer,
     media,
     keyFacts,
@@ -255,15 +254,6 @@ const Hero = ({ data }) => {
         ) : null}
 
         <footer className="hero__footer">
-          {prize ? (
-            <div className="hero__footer-item">
-              <div className="hero__stat">
-                <span className="hero__stat-label">{prize.label}</span>
-                <span className="hero__stat-value">{prize.value}</span>
-              </div>
-            </div>
-          ) : null}
-
           {timer?.deadline ? (
             <div className="hero__footer-item">
               <div className="hero__countdown" aria-live="polite">
@@ -337,10 +327,6 @@ Hero.propTypes = {
     background: PropTypes.shape({
       left: PropTypes.string,
       right: PropTypes.string,
-    }),
-    prize: PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
     }),
     timer: PropTypes.shape({
       label: PropTypes.string.isRequired,
