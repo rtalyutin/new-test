@@ -140,7 +140,7 @@ const Hero = ({ data }) => {
           <h1 className="hero__title hero__display">{title}</h1>
           <p className="hero__subtitle hero__display-subtitle">{subtitle}</p>
           <p className="hero__description">
-            это киберспортивный проект, который проходит при официальной поддержке Министерства спорта
+            это киберспортивный проект, который проходит при поддержке Министерства спорта
             Ярославской области и Федерации компьютерного спорта (ФКС) ЯО.
           </p>
 
