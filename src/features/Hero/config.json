@@ -6,32 +6,10 @@
       { "label": "FAQ", "href": "#faq" }
     ]
   },
-  "primaryCta": {
-    "label": "Регистрация команды",
-    "href": "/register",
-    "ariaLabel": "Открыть форму регистрации команды ЯрКиберСезон 2025/26"
-  },
   "title": "Первый сезон",
   "subtitle": "киберспортивных лиг корпоративных, студенческих и сборных команд Ярославской области",
   "media": {
-    "poster": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=2000&q=80",
-    "fallbackImage": "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=2000&q=80",
-    "disableOnMobile": true,
-    "ariaLabel": "Видео-анонс нового сезона YarCyberSeason",
-    "sources": [
-      {
-        "src": "https://cdn.coverr.co/videos/coverr-futuristic-hacker-typing-4242/1080p.webm",
-        "type": "video/webm"
-      },
-      {
-        "src": "https://cdn.coverr.co/videos/coverr-futuristic-hacker-typing-4242/1080p.mp4",
-        "type": "video/mp4"
-      }
-    ]
-  },
-  "background": {
-    "left": "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1100&q=80",
-    "right": "https://images.unsplash.com/photo-1516905041604-7935af78f573?auto=format&fit=crop&w=1100&q=80"
+    "disableOnMobile": true
   },
   "keyFacts": [
     {
@@ -42,7 +20,8 @@
       "cta": {
         "label": "Заполнить заявку",
         "href": "/forms/qualification",
-        "ariaLabel": "Открыть форму регистрации на квалификацию YarCyberSeason"
+        "ariaLabel": "Открыть форму регистрации на квалификацию YarCyberSeason",
+        "variant": "primary"
       }
     },
     {
