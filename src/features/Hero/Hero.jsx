@@ -116,6 +116,21 @@ const Hero = ({ data }) => {
   const timerUnavailableLabel = timer?.fallbackLabel ?? timerExpiredLabel;
   const countdownUnavailable = timer?.deadline && timeLeft === null;
 
+  const supportPartners = [
+    {
+      id: 'microsoft',
+      logo: msLogo,
+      name: 'Microsoft',
+      alt: 'Microsoft',
+    },
+    {
+      id: 'fks',
+      logo: fksLogo,
+      name: 'Федерация компьютерного спорта',
+      alt: 'Федерация компьютерного спорта',
+    },
+  ];
+
   const videoSources = Array.isArray(media?.sources)
     ? media.sources.filter((source) => source && source.src)
     : [];
@@ -288,13 +303,13 @@ const Hero = ({ data }) => {
           <div className="hero__footer-item">
             <div className="hero__support" aria-label="Партнеры сезона">
               <span className="hero__support-label">при поддержке</span>
-              <div className="hero__support-logos" role="group" aria-label="Логотипы партнеров">
-                <img className="hero__support-logo" src={msLogo} alt="Microsoft" />
-                <img
-                  className="hero__support-logo"
-                  src={fksLogo}
-                  alt="Федерация компьютерного спорта"
-                />
+              <div className="hero__support-logos" role="list" aria-label="Партнеры сезона">
+                {supportPartners.map((partner) => (
+                  <div key={partner.id} className="hero__support-partner" role="listitem">
+                    <img className="hero__support-logo" src={partner.logo} alt={partner.alt} />
+                    <span className="hero__support-name">{partner.name}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
