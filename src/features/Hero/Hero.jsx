@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import msLogo from './ms.png';
 import fksLogo from './fks.png';
-import heroBackgroundImage from '../../styles/image_2025-10-27_20-17-24.png';
+import heroFeminineBackground from '../../styles/hero-feminine-background.svg';
 import './Hero.css';
 
 const DEFAULT_EXPIRED_LABEL = 'Сезон уже стартовал';
@@ -85,9 +85,11 @@ const Hero = ({ data }) => {
     },
   ];
 
-  const videoSources = [];
-  const shouldRenderVideo = false;
-  const fallbackImage = heroBackgroundImage;
+  const defaultFallbackImage = heroFeminineBackground;
+  const videoSources = Array.isArray(media?.sources) ? media.sources : [];
+  const shouldRenderVideo = videoSources.length > 0;
+  const fallbackImage = media?.fallbackImage || defaultFallbackImage;
+  const posterImage = media?.poster || defaultFallbackImage;
   const disabledCtaLabels = new Set(['Регламент Dota 2', 'Регламент CS2', 'Регламент LAN']);
 
   return (
@@ -100,7 +102,7 @@ const Hero = ({ data }) => {
             loop
             muted
             playsInline
-            poster={media?.poster}
+            poster={posterImage}
             preload="auto"
             {...(media?.ariaLabel ? { 'aria-label': media.ariaLabel } : { 'aria-hidden': 'true' })}
           >
