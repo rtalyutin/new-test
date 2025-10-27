@@ -101,12 +101,14 @@ const Footer = ({ isFeminineTheme, onThemeToggle }) => {
             aria-pressed={isFeminineTheme}
           >
             <span className="footer__theme-icon" aria-hidden="true">
-              {isFeminineTheme ? '🌸' : '🌺'}
+              {isFeminineTheme ? '🌸' : '🏮'}
             </span>
             <span className="footer__theme-text">
-              <span className="footer__theme-label">Женская версия</span>
+              <span className="footer__theme-label">Режим восточной героини</span>
               <span className="footer__theme-description">
-                {isFeminineTheme ? 'Нежная палитра активна' : 'Включить нежную палитру'}
+                {isFeminineTheme
+                  ? 'Восточная эстетика и вдохновляющий контент уже с вами'
+                  : 'Активируйте восточный режим — визуал и истории адаптируются под женскую аудиторию'}
               </span>
             </span>
           </button>
