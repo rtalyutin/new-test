@@ -16,7 +16,7 @@
       "description": "Подайте  заявку, чтобы попасть в онлайн-квалификацию сезона по Dota 2.",
       "cta": {
         "label": "Заполнить заявку",
-        "href": "/forms/qualification",
+        "href": "https://forms.yandex.ru/u/6831bf5f49363917b3f721e7/",
         "ariaLabel": "Открыть форму регистрации на квалификацию YarCyberSeason",
         "variant": "primary"
       }
