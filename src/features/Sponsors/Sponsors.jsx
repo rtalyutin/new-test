@@ -1,7 +1,43 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import SponsorModal from '../../components/SponsorModal/SponsorModal.jsx';
+import cherryRaitLogo from '../Hero/logo1.png';
 import './Sponsors.css';
+
+const ABSOLUTE_URL_PATTERN = /^(https?:)?\/\//i;
+
+const SPONSOR_LOGO_OVERRIDES = {
+  'cherry rait': cherryRaitLogo,
+};
+
+const resolveSponsorLogo = (sponsor) => {
+  if (!sponsor || typeof sponsor !== 'object') {
+    return '';
+  }
+
+  const normalizedName =
+    typeof sponsor.name === 'string' ? sponsor.name.trim().toLowerCase() : '';
+
+  if (normalizedName && SPONSOR_LOGO_OVERRIDES[normalizedName]) {
+    return SPONSOR_LOGO_OVERRIDES[normalizedName];
+  }
+
+  const { logo } = sponsor;
+
+  if (typeof logo !== 'string' || logo.length === 0) {
+    return logo;
+  }
+
+  if (ABSOLUTE_URL_PATTERN.test(logo) || logo.startsWith('data:')) {
+    return logo;
+  }
+
+  try {
+    return new URL(logo, import.meta.url).href;
+  } catch {
+    return logo;
+  }
+};
 
 const SLIDER_SPONSOR_THRESHOLD = 6;
 
@@ -275,7 +311,21 @@ const Sponsors = ({ data, onSponsorFormSubmit }) => {
     [data],
   );
 
-  const featuredTier = tiers.find((tier) => tier?.featured);
+  const processedTiers = useMemo(
+    () =>
+      tiers.map((tier) => ({
+        ...tier,
+        sponsors: Array.isArray(tier?.sponsors)
+          ? tier.sponsors.map((sponsor) => ({
+              ...sponsor,
+              logo: resolveSponsorLogo(sponsor),
+            }))
+          : [],
+      })),
+    [tiers],
+  );
+
+  const featuredTier = processedTiers.find((tier) => tier?.featured);
 
   const featuredSponsors = Array.isArray(featuredTier?.sponsors)
     ? featuredTier.sponsors
@@ -283,7 +333,7 @@ const Sponsors = ({ data, onSponsorFormSubmit }) => {
 
   const regularTiersWithMeta = useMemo(
     () =>
-      tiers
+      processedTiers
         .filter(
           (tier) =>
             !tier?.featured && Array.isArray(tier?.sponsors) && tier.sponsors.length > 0,
@@ -301,7 +351,7 @@ const Sponsors = ({ data, onSponsorFormSubmit }) => {
             enableAutoScroll,
           };
         }),
-    [tiers],
+    [processedTiers],
   );
 
   const heroCta = featuredTier?.cta;
