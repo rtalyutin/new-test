@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import Section from './components/Section.jsx';
 import Footer from './components/Footer.jsx';
@@ -20,63 +20,17 @@ const App = () => {
     console.log('Sponsor form submitted', formData);
   }, []);
 
-  const sections = [
-    {
-      id: 'hero',
-      component: <Hero data={heroConfig} disableVideoOnMobile={heroConfig.media?.disableOnMobile} />,
-      variant: 'hero',
-      hideTitle: true,
-      fullBleed: true,
-      navLabel: 'Главная',
-    },
-    {
-      id: 'overview',
-      title: 'Обзор YarCyberSeason',
-      component: <Overview data={overviewConfig} />,
-      navLabel: 'Обзор',
-      variant: 'overview',
-      background: (
-        <div className="overview-background">
-          <div className="overview-background__blur overview-background__blur--primary" />
-          <div className="overview-background__blur overview-background__blur--secondary" />
-          <div className="overview-background__grain" />
-        </div>
-      ),
-    },
-    {
-      id: 'registration',
-      component: <RegistrationCta data={registrationCtaConfig} />,
-      navLabel: 'Регистрация',
-      variant: 'registration-cta',
-      hideTitle: true,
-    },
-    {
-      id: 'sponsors',
-      title: 'Партнёры и спонсоры',
-      component: (
-        <Sponsors
-          data={sponsorsConfig}
-          onSponsorFormSubmit={handleSponsorFormSubmit}
-        />
-      ),
-      navLabel: 'Партнёры',
-      variant: 'sponsors',
-    },
-    {
-      id: 'stats',
-      title: 'Ключевые показатели сезона',
-      component: <Stats items={statsConfig} />,
-      navLabel: 'Статистика',
-    },
-  ];
+  const THEME_STORAGE_KEY = 'ycs-theme';
 
-  const navigationItems = sections
-    .filter((section) => Boolean(section.navLabel))
-    .map((section) => ({
-      id: section.id,
-      label: section.navLabel,
-    }));
+  const getInitialTheme = useCallback(() => {
+    if (typeof window === 'undefined') {
+      return 'default';
+    }
 
+    return window.localStorage.getItem(THEME_STORAGE_KEY) || 'default';
+  }, []);
+
+  const [theme, setTheme] = useState(getInitialTheme);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -93,6 +47,19 @@ const App = () => {
     };
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    if (typeof document === 'undefined') {
+      return;
+    }
+
+    const root = document.documentElement;
+    root.dataset.theme = theme;
+
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+    }
+  }, [theme]);
+
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
   };
@@ -101,8 +68,78 @@ const App = () => {
     setIsMenuOpen(false);
   };
 
+  const handleThemeToggle = () => {
+    setTheme((prevTheme) => (prevTheme === 'feminine' ? 'default' : 'feminine'));
+  };
+
+  const isFeminineTheme = theme === 'feminine';
+
+  const sections = useMemo(() => ([
+    {
+      id: 'hero',
+      component: (
+        <Hero
+          data={heroConfig}
+          disableVideoOnMobile={heroConfig.media?.disableOnMobile}
+          isFeminine={isFeminineTheme}
+        />
+      ),
+      variant: 'hero',
+      hideTitle: true,
+      fullBleed: true,
+      navLabel: 'Главная',
+    },
+    {
+      id: 'overview',
+      title: 'Обзор YarCyberSeason',
+      component: <Overview data={overviewConfig} isFeminine={isFeminineTheme} />,
+      navLabel: 'Обзор',
+      variant: 'overview',
+      background: (
+        <div className="overview-background">
+          <div className="overview-background__blur overview-background__blur--primary" />
+          <div className="overview-background__blur overview-background__blur--secondary" />
+          <div className="overview-background__grain" />
+        </div>
+      ),
+    },
+    {
+      id: 'registration',
+      component: <RegistrationCta data={registrationCtaConfig} isFeminine={isFeminineTheme} />,
+      navLabel: 'Регистрация',
+      variant: 'registration-cta',
+      hideTitle: true,
+    },
+    {
+      id: 'sponsors',
+      title: 'Партнёры и спонсоры',
+      component: (
+        <Sponsors
+          data={sponsorsConfig}
+          onSponsorFormSubmit={handleSponsorFormSubmit}
+          isFeminine={isFeminineTheme}
+        />
+      ),
+      navLabel: 'Партнёры',
+      variant: 'sponsors',
+    },
+    {
+      id: 'stats',
+      title: 'Ключевые показатели сезона',
+      component: <Stats items={statsConfig} isFeminine={isFeminineTheme} />,
+      navLabel: 'Статистика',
+    },
+  ]), [handleSponsorFormSubmit, isFeminineTheme]);
+
+  const navigationItems = sections
+    .filter((section) => Boolean(section.navLabel))
+    .map((section) => ({
+      id: section.id,
+      label: section.navLabel,
+    }));
+
   return (
-    <main className="app">
+    <main className={`app${isFeminineTheme ? ' app--feminine' : ''}`}>
       <header className="app__header">
         <a className="app__logo" href="#hero" aria-label="Перейти к началу страницы">
           <span className="app__logo-mark" aria-hidden="true">
@@ -155,7 +192,7 @@ const App = () => {
           </Section>
         );
       })}
-      <Footer />
+      <Footer isFeminineTheme={isFeminineTheme} onThemeToggle={handleThemeToggle} />
     </main>
   );
 };

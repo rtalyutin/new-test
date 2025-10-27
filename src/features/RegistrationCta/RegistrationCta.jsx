@@ -39,7 +39,7 @@ const calculateTimeLeft = (deadline) => {
   };
 };
 
-const RegistrationCta = ({ data }) => {
+const RegistrationCta = ({ data, isFeminine = false }) => {
   const {
     title,
     description,
@@ -121,8 +121,16 @@ const RegistrationCta = ({ data }) => {
     );
   };
 
+  const registrationClassName = `registration-cta${isFeminine ? ' registration-cta--feminine' : ''}`;
+
   return (
-    <div className="registration-cta">
+    <div className={registrationClassName}>
+      {isFeminine ? (
+        <div className="registration-cta__halo" aria-hidden="true">
+          <span className="registration-cta__halo-orb registration-cta__halo-orb--primary" />
+          <span className="registration-cta__halo-orb registration-cta__halo-orb--secondary" />
+        </div>
+      ) : null}
       <header className="registration-cta__header">
         <div className="registration-cta__heading">
           <h3 className="registration-cta__title">{title}</h3>
@@ -220,6 +228,7 @@ RegistrationCta.propTypes = {
     ),
     disclaimer: PropTypes.string,
   }).isRequired,
+  isFeminine: PropTypes.bool,
 };
 
 export default RegistrationCta;

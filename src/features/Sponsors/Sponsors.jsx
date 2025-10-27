@@ -266,7 +266,7 @@ SponsorsTier.defaultProps = {
   enableAutoScroll: false,
 };
 
-const Sponsors = ({ data, onSponsorFormSubmit }) => {
+const Sponsors = ({ data, onSponsorFormSubmit, isFeminine = false }) => {
   const intro = data?.intro ?? {};
   const benefits = data?.benefits ?? {};
   const benefitItems = Array.isArray(benefits?.items) ? benefits.items : [];
@@ -346,9 +346,17 @@ const Sponsors = ({ data, onSponsorFormSubmit }) => {
   );
 
   const hasDownloadCta = Boolean(intro?.download?.href && intro?.download?.label);
+  const sponsorsClassName = `sponsors${isFeminine ? ' sponsors--feminine' : ''}`;
 
   return (
-    <div className="sponsors">
+    <div className={sponsorsClassName}>
+      {isFeminine ? (
+        <div className="sponsors__backdrop" aria-hidden="true">
+          <span className="sponsors__backdrop-orb sponsors__backdrop-orb--one" />
+          <span className="sponsors__backdrop-orb sponsors__backdrop-orb--two" />
+          <span className="sponsors__backdrop-ribbon" />
+        </div>
+      ) : null}
       <div className="sponsors__intro">
         {intro?.eyebrow ? (
           <span className="sponsors__eyebrow">{intro.eyebrow}</span>
@@ -550,10 +558,12 @@ Sponsors.propTypes = {
     ),
   }).isRequired,
   onSponsorFormSubmit: PropTypes.func,
+  isFeminine: PropTypes.bool,
 };
 
 Sponsors.defaultProps = {
   onSponsorFormSubmit: undefined,
+  isFeminine: false,
 };
 
 export default Sponsors;
