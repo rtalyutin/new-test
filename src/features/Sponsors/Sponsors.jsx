@@ -185,7 +185,7 @@ const Sponsors = ({ data, onSponsorFormSubmit }) => {
     }
 
     if (featuredSponsors.length === 1) {
-      return `Преимущества ${featuredSponsors[0].name}`;
+      return `Преимущества`;
     }
 
     return 'Преимущества партнёров';
