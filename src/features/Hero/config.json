@@ -3,24 +3,15 @@
     "tagline": "",
     "label": "  YarCyber 2025/26",
     "seasonLabel": "Yar Cyber Season 2025/26",
-    "links": [
-      {
-        "label": "Программа фестиваля",
-        "href": "#overview"
-      },
-      {
-        "label": "Регистрация",
-        "href": "#registration"
-      }
-    ]
+    "links": []
   },
   "title": "YarCyber Seasonы",
   "subtitle": "",
 
   "media": {
     "disableOnMobile": true,
-    "poster": "/media/hero/feminine-poster.svg",
-    "fallbackImage": "/media/hero/feminine-fallback.svg",
+    "poster": null,
+    "fallbackImage": null,
     "ariaLabel": "Сакуровый фон с золотыми фонарями",
     "sources": []
   },
