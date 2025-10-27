@@ -129,7 +129,7 @@ const App = () => {
       <header className="app__header">
         <a className="app__logo" href="#hero" aria-label="Перейти к началу страницы">
           <img className="app__logo-image" src={logoImage} alt="Логотип YarCyberSeason" />
-          <span className="app__logo-text" aria-hidden="true">YarCyberSeason</span>
+          <span className="app__logo-text" aria-hidden="true">ЯрКиберСезон 25/26</span>
         </a>
         <button
           type="button"
