@@ -2,11 +2,10 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import msLogo from './ms.png';
 import fksLogo from './fks.png';
+import heroBackgroundImage from '../../styles/image_2025-10-27_20-17-24.png';
 import './Hero.css';
 
 const DEFAULT_EXPIRED_LABEL = 'Сезон уже стартовал';
-const MOBILE_MEDIA_QUERY = '(max-width: 767px)';
-
 const calculateTimeLeft = (deadline) => {
   if (!deadline) {
     return null;
@@ -44,28 +43,10 @@ const calculateTimeLeft = (deadline) => {
   };
 };
 
-const getIsMobile = () => {
-  if (typeof window === 'undefined') {
-    return false;
-  }
-
-  return window.matchMedia(MOBILE_MEDIA_QUERY).matches;
-};
-
 const Hero = ({ data }) => {
-  const {
-    branding,
-    title,
-    subtitle,
-    background,
-    timer,
-    media,
-    keyFacts,
-    primaryCta,
-  } = data;
+  const { branding, title, subtitle, timer, media, keyFacts, primaryCta } = data;
 
   const [timeLeft, setTimeLeft] = useState(() => calculateTimeLeft(timer?.deadline));
-  const [isMobile, setIsMobile] = useState(getIsMobile);
 
   useEffect(() => {
     if (!timer?.deadline || typeof window === 'undefined') {
@@ -84,32 +65,6 @@ const Hero = ({ data }) => {
       window.clearInterval(intervalId);
     };
   }, [timer?.deadline]);
-
-  useEffect(() => {
-    if (typeof window === 'undefined' || !media?.disableOnMobile) {
-      return undefined;
-    }
-
-    const mediaQuery = window.matchMedia(MOBILE_MEDIA_QUERY);
-
-    const handleChange = (event) => {
-      setIsMobile(event.matches);
-    };
-
-    setIsMobile(mediaQuery.matches);
-
-    if (typeof mediaQuery.addEventListener === 'function') {
-      mediaQuery.addEventListener('change', handleChange);
-      return () => {
-        mediaQuery.removeEventListener('change', handleChange);
-      };
-    }
-
-    mediaQuery.addListener(handleChange);
-    return () => {
-      mediaQuery.removeListener(handleChange);
-    };
-  }, [media?.disableOnMobile]);
 
   const timerExpiredLabel = timer?.expiredLabel ?? DEFAULT_EXPIRED_LABEL;
   const timerUnavailableLabel = timer?.fallbackLabel ?? timerExpiredLabel;
@@ -130,11 +85,9 @@ const Hero = ({ data }) => {
     },
   ];
 
-  const videoSources = Array.isArray(media?.sources)
-    ? media.sources.filter((source) => source && source.src)
-    : [];
-  const shouldRenderVideo = videoSources.length > 0 && !(media?.disableOnMobile && isMobile);
-  const fallbackImage = media?.fallbackImage || media?.poster;
+  const videoSources = [];
+  const shouldRenderVideo = false;
+  const fallbackImage = heroBackgroundImage;
 
   return (
     <div className="hero hero--versus">
@@ -163,18 +116,6 @@ const Hero = ({ data }) => {
           />
         ) : null}
 
-        {background?.left ? (
-          <div
-            className="hero__background-layer hero__background-layer--left"
-            style={{ backgroundImage: `url(${background.left})` }}
-          />
-        ) : null}
-        {background?.right ? (
-          <div
-            className="hero__background-layer hero__background-layer--right"
-            style={{ backgroundImage: `url(${background.right})` }}
-          />
-        ) : null}
       </div>
       <div className="hero__overlay" aria-hidden="true" />
       <div className="hero__inner hero__inner--versus">
@@ -241,7 +182,9 @@ const Hero = ({ data }) => {
                 {fact.description ? <p className="hero__keyfact-description">{fact.description}</p> : null}
                 {fact.cta ? (
                   <a
-                    className="hero__keyfact-cta"
+                    className={`hero__keyfact-cta${
+                      fact.cta.variant === 'primary' ? ' hero__keyfact-cta--primary' : ''
+                    }`}
                     href={fact.cta.href}
                     aria-label={fact.cta.ariaLabel || fact.cta.label}
                   >
