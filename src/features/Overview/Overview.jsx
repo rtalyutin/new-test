@@ -1,15 +1,24 @@
 import PropTypes from 'prop-types';
 import './Overview.css';
 
-const Overview = ({ data }) => {
+const Overview = ({ data, isFeminine = false }) => {
   const { lead, history, goals, metrics } = data;
   const historyTitle = history?.title ?? 'История сезона';
   const historySummary = history?.summary;
   const milestones = Array.isArray(history?.milestones) ? history.milestones : [];
   const mainGoal = Array.isArray(goals) && goals.length ? goals[0] : null;
 
+  const overviewClassName = `overview${isFeminine ? ' overview--feminine' : ''}`;
+
   return (
-    <div className="overview">
+    <div className={overviewClassName}>
+      {isFeminine ? (
+        <div className="overview__aura" aria-hidden="true">
+          <span className="overview__aura-orb overview__aura-orb--left" />
+          <span className="overview__aura-orb overview__aura-orb--right" />
+          <span className="overview__aura-ring" />
+        </div>
+      ) : null}
       <p className="overview__lead">{lead}</p>
       <div className="overview__layout">
         <section className="overview__history" aria-labelledby="overview-history-title">
@@ -88,6 +97,7 @@ Overview.propTypes = {
       })
     ).isRequired,
   }).isRequired,
+  isFeminine: PropTypes.bool,
 };
 
 export default Overview;

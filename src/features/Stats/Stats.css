@@ -2,6 +2,22 @@
   display: grid;
 }
 
+.stats--feminine {
+  position: relative;
+}
+
+.stats--feminine::before {
+  content: '';
+  position: absolute;
+  inset: -15% -10%;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255, 173, 212, 0.25), transparent 60%),
+    radial-gradient(circle at 80% 70%, rgba(255, 236, 188, 0.22), transparent 55%);
+  filter: blur(50px);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
 .stats__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -22,6 +38,13 @@
   animation: statsReveal 0.6s ease forwards;
 }
 
+.stats--feminine .stats__item {
+  background: linear-gradient(150deg, rgba(53, 16, 46, 0.88), rgba(100, 28, 72, 0.82));
+  border: 1px solid rgba(255, 173, 212, 0.32);
+  box-shadow: 0 22px 48px rgba(80, 10, 53, 0.45);
+  animation: statsBloom 0.8s ease forwards;
+}
+
 .stats__item::before {
   content: '';
   position: absolute;
@@ -29,6 +52,10 @@
   background: linear-gradient(140deg, rgba(139, 123, 255, 0.18), transparent 55%);
   opacity: 0;
   transition: opacity var(--transition-normal);
+}
+
+.stats--feminine .stats__item::before {
+  background: linear-gradient(145deg, rgba(255, 173, 212, 0.28), transparent 60%);
 }
 
 .stats__item:hover::before,
@@ -44,6 +71,10 @@
   color: var(--color-text-muted);
 }
 
+.stats--feminine .stats__label {
+  color: rgba(255, 236, 188, 0.75);
+}
+
 .stats__value {
   margin: var(--space-2) 0;
   font-size: clamp(2.2rem, 1.6rem + 1.6vw, 3rem);
@@ -52,9 +83,30 @@
   text-shadow: 0 8px 16px rgba(139, 123, 255, 0.18);
 }
 
+.stats--feminine .stats__value {
+  color: #ffe6f7;
+  text-shadow: 0 12px 22px rgba(255, 173, 212, 0.35);
+}
+
 .stats__description {
   margin: 0;
   color: var(--color-text-secondary);
+}
+
+.stats--feminine .stats__description {
+  color: rgba(255, 211, 233, 0.78);
+}
+
+@keyframes statsBloom {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 @keyframes statsReveal {
