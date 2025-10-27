@@ -1,5 +1,6 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
+
 import SponsorModal from '../../components/SponsorModal/SponsorModal.jsx';
 import './Sponsors.css';
 
@@ -20,243 +21,98 @@ const resolveSponsorLogo = (logoPath) => {
   }
 };
 
-const SLIDER_SPONSOR_THRESHOLD = 6;
+const normalizeSponsors = (sponsors) =>
+  Array.isArray(sponsors)
+    ? sponsors.map((sponsor) => ({
+        ...sponsor,
+        logo: resolveSponsorLogo(sponsor.logo),
+      }))
+    : [];
 
-const useAutoScroll = (isEnabled) => {
-  const listRef = useRef(null);
+const CheckIcon = ({ className }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+    focusable="false"
+    aria-hidden="true"
+  >
+    <path
+      d="M10.242 16.314a1.25 1.25 0 0 1-1.768 0l-3.788-3.788a1.25 1.25 0 1 1 1.768-1.768l2.904 2.903 7.318-7.317a1.25 1.25 0 0 1 1.768 1.768z"
+      fill="currentColor"
+    />
+  </svg>
+);
 
-  useEffect(() => {
-    if (!isEnabled || typeof window === 'undefined') {
-      return undefined;
-    }
-
-    const listElement = listRef.current;
-
-    if (!listElement) {
-      return undefined;
-    }
-
-    const prefersReducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)',
-    );
-    const desktopMedia = window.matchMedia(
-      '(pointer: fine) and (min-width: 1024px)',
-    );
-
-    if (prefersReducedMotion.matches || !desktopMedia.matches) {
-      return undefined;
-    }
-
-    let animationFrame;
-    let isHovering = false;
-    let lastTime;
-    let direction = 1;
-    let isActive = false;
-    let isInView = false;
-
-    const step = (timestamp) => {
-      if (!isActive || !listRef.current) {
-        return;
-      }
-
-      if (isHovering) {
-        lastTime = timestamp;
-        animationFrame = window.requestAnimationFrame(step);
-        return;
-      }
-
-      if (typeof lastTime !== 'number') {
-        lastTime = timestamp;
-        animationFrame = window.requestAnimationFrame(step);
-        return;
-      }
-
-      const delta = timestamp - lastTime;
-      lastTime = timestamp;
-
-      const element = listRef.current;
-      const maxScroll = element.scrollWidth - element.clientWidth;
-
-      if (maxScroll <= 0) {
-        isActive = false;
-        return;
-      }
-
-      const speed = 0.12;
-      element.scrollLeft += direction * speed * delta;
-
-      if (element.scrollLeft <= 0) {
-        element.scrollLeft = 0;
-        direction = 1;
-      } else if (element.scrollLeft >= maxScroll) {
-        element.scrollLeft = maxScroll;
-        direction = -1;
-      }
-
-      animationFrame = window.requestAnimationFrame(step);
-    };
-
-    const start = () => {
-      if (isActive) {
-        return;
-      }
-      isActive = true;
-      lastTime = undefined;
-      animationFrame = window.requestAnimationFrame(step);
-    };
-
-    const stop = () => {
-      isActive = false;
-      if (animationFrame) {
-        window.cancelAnimationFrame(animationFrame);
-      }
-    };
-
-    const observer = new window.IntersectionObserver(
-      ([entry]) => {
-        isInView = entry.isIntersecting;
-        if (isInView && desktopMedia.matches && !prefersReducedMotion.matches) {
-          start();
-        } else {
-          stop();
-        }
-      },
-      { threshold: 0.25 },
-    );
-
-    observer.observe(listElement);
-
-    const handleMouseEnter = () => {
-      isHovering = true;
-    };
-
-    const handleMouseLeave = () => {
-      isHovering = false;
-    };
-
-    listElement.addEventListener('mouseenter', handleMouseEnter);
-    listElement.addEventListener('mouseleave', handleMouseLeave);
-
-    const handleDesktopChange = (event) => {
-      if (!event.matches) {
-        stop();
-      } else if (isInView && !prefersReducedMotion.matches) {
-        start();
-      }
-    };
-
-    const handleMotionChange = (event) => {
-      if (event.matches) {
-        stop();
-      } else if (isInView && desktopMedia.matches) {
-        start();
-      }
-    };
-
-    desktopMedia.addEventListener('change', handleDesktopChange);
-    prefersReducedMotion.addEventListener('change', handleMotionChange);
-
-    return () => {
-      stop();
-      observer.disconnect();
-      listElement.removeEventListener('mouseenter', handleMouseEnter);
-      listElement.removeEventListener('mouseleave', handleMouseLeave);
-      desktopMedia.removeEventListener('change', handleDesktopChange);
-      prefersReducedMotion.removeEventListener('change', handleMotionChange);
-    };
-  }, [isEnabled]);
-
-  return listRef;
+CheckIcon.propTypes = {
+  className: PropTypes.string,
 };
 
-const SponsorsTier = ({ tier, enableSlider, enableAutoScroll }) => {
-  const sliderRef = useAutoScroll(enableSlider && enableAutoScroll);
+CheckIcon.defaultProps = {
+  className: undefined,
+};
 
+const SponsorsTier = ({ tier }) => {
+  const hasHighlights = Array.isArray(tier?.highlights) && tier.highlights.length > 0;
+  const hasStats = Array.isArray(tier?.stats) && tier.stats.length > 0;
   const sponsors = Array.isArray(tier?.sponsors) ? tier.sponsors : [];
 
   return (
-    <section
-      className="sponsors__tier sponsors__panel"
-      aria-labelledby={`${tier.id}-heading`}
-    >
-      <div className="sponsors__tier-header">
-        <h3 id={`${tier.id}-heading`} className="sponsors__tier-title">
+    <article className="sponsor-tier" aria-labelledby={`${tier.id}-title`}>
+      <header className="sponsor-tier__heading">
+        <h3 id={`${tier.id}-title`} className="sponsor-tier__title">
           {tier.label}
         </h3>
         {tier.description ? (
-          <p className="sponsors__tier-description">{tier.description}</p>
+          <p className="sponsor-tier__description">{tier.description}</p>
         ) : null}
-        {Array.isArray(tier.highlights) && tier.highlights.length ? (
-          <ul className="sponsors__tier-highlights">
-            {tier.highlights.map((highlight, index) => (
-              <li
-                key={`${tier.id}-highlight-${index}`}
-                className="sponsors__tier-highlight"
-              >
-                <span className="sponsors__tier-highlight-icon" aria-hidden="true">
-                  <svg
-                    className="sponsors__tier-highlight-asset"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                    focusable="false"
-                  >
-                    <path
-                      d="M8.203 14.53a1 1 0 0 1-1.414 0l-3.32-3.319a1 1 0 1 1 1.414-1.414l2.613 2.612 6.621-6.62a1 1 0 0 1 1.414 1.414z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </span>
-                <span className="sponsors__tier-highlight-text">{highlight}</span>
-              </li>
-            ))}
-          </ul>
-        ) : null}
-        {Array.isArray(tier.stats) && tier.stats.length ? (
-          <dl className="sponsors__tier-stats">
-            {tier.stats.map((stat, index) => (
-              <div key={`${tier.id}-stat-${index}`} className="sponsors__tier-stat">
-                {stat.value ? (
-                  <dt className="sponsors__tier-stat-value">{stat.value}</dt>
-                ) : null}
-                {stat.label ? (
-                  <dd className="sponsors__tier-stat-label">{stat.label}</dd>
-                ) : null}
-              </div>
-            ))}
-          </dl>
-        ) : null}
-      </div>
-      <ul
-        ref={enableSlider ? sliderRef : null}
-        className={`sponsors__logos${enableSlider ? ' sponsors__logos--slider' : ''}`}
-      >
-        {sponsors.map((sponsor) => {
-          const hasLink = Boolean(sponsor?.url);
+      </header>
 
-          return (
-            <li
-              key={sponsor.name}
-              className="sponsors__logo-item sponsors__logo-spot"
-            >
-              {hasLink ? (
+      {hasHighlights ? (
+        <ul className="sponsor-tier__highlights">
+          {tier.highlights.map((highlight, index) => (
+            <li key={`${tier.id}-highlight-${index}`} className="sponsor-tier__highlight">
+              <CheckIcon className="sponsor-tier__highlight-icon" />
+              <p className="sponsor-tier__highlight-text">{highlight}</p>
+            </li>
+          ))}
+        </ul>
+      ) : null}
+
+      {hasStats ? (
+        <dl className="sponsor-tier__stats">
+          {tier.stats.map((stat, index) => (
+            <div key={`${tier.id}-stat-${index}`} className="sponsor-tier__stat">
+              {stat.value ? <dt className="sponsor-tier__stat-value">{stat.value}</dt> : null}
+              {stat.label ? <dd className="sponsor-tier__stat-label">{stat.label}</dd> : null}
+            </div>
+          ))}
+        </dl>
+      ) : null}
+
+      {sponsors.length ? (
+        <ul className="sponsor-tier__logos">
+          {sponsors.map((sponsor) => (
+            <li key={`${tier.id}-${sponsor.name}`}>
+              {sponsor.url ? (
                 <a
-                  className="sponsors__logo-link sponsors__logo-tile"
+                  className="sponsors__logo-link"
                   href={sponsor.url}
                   target="_blank"
                   rel="noreferrer"
                   aria-label={`Перейти на сайт ${sponsor.name}`}
                 >
                   <img
-                    className="sponsors__logo"
+                    className="sponsors__logo-image"
                     src={sponsor.logo}
                     alt={sponsor.alt || sponsor.name}
                     loading="lazy"
                   />
                 </a>
               ) : (
-                <div className="sponsors__logo-static sponsors__logo-tile">
+                <div className="sponsor-tier__logo-static">
                   <img
-                    className="sponsors__logo"
+                    className="sponsors__logo-image"
                     src={sponsor.logo}
                     alt={sponsor.alt || sponsor.name}
                     loading="lazy"
@@ -264,10 +120,10 @@ const SponsorsTier = ({ tier, enableSlider, enableAutoScroll }) => {
                 </div>
               )}
             </li>
-          );
-        })}
-      </ul>
-    </section>
+          ))}
+        </ul>
+      ) : null}
+    </article>
   );
 };
 
@@ -277,7 +133,6 @@ SponsorsTier.propTypes = {
     label: PropTypes.string.isRequired,
     description: PropTypes.string,
     highlights: PropTypes.arrayOf(PropTypes.string),
-    highlightsTitle: PropTypes.string,
     stats: PropTypes.arrayOf(
       PropTypes.shape({
         label: PropTypes.string,
@@ -293,36 +148,32 @@ SponsorsTier.propTypes = {
       }),
     ),
   }).isRequired,
-  enableSlider: PropTypes.bool,
-  enableAutoScroll: PropTypes.bool,
-};
-
-SponsorsTier.defaultProps = {
-  enableSlider: false,
-  enableAutoScroll: false,
 };
 
 const Sponsors = ({ data, onSponsorFormSubmit }) => {
   const intro = data?.intro ?? {};
   const benefits = data?.benefits ?? {};
   const benefitItems = Array.isArray(benefits?.items) ? benefits.items : [];
-  const tiers = useMemo(
-    () => (Array.isArray(data?.tiers) ? data.tiers : []),
-    [data],
-  );
+
+  const tiers = useMemo(() => {
+    if (!Array.isArray(data?.tiers)) {
+      return [];
+    }
+
+    return data.tiers.map((tier) => ({
+      ...tier,
+      sponsors: normalizeSponsors(tier?.sponsors),
+    }));
+  }, [data]);
 
   const featuredTier = tiers.find((tier) => tier?.featured);
+  const featuredSponsors = useMemo(() => {
+    if (!featuredTier || !Array.isArray(featuredTier.sponsors)) {
+      return [];
+    }
 
-  const featuredSponsors = useMemo(
-    () =>
-      (Array.isArray(featuredTier?.sponsors) ? featuredTier.sponsors : []).map(
-        (sponsor) => ({
-          ...sponsor,
-          logo: resolveSponsorLogo(sponsor.logo),
-        }),
-      ),
-    [featuredTier],
-  );
+    return featuredTier.sponsors;
+  }, [featuredTier]);
 
   const featuredHighlightsLabel = useMemo(() => {
     if (!featuredTier) {
@@ -340,31 +191,20 @@ const Sponsors = ({ data, onSponsorFormSubmit }) => {
     return 'Преимущества партнёров';
   }, [featuredTier, featuredSponsors]);
 
-  const regularTiersWithMeta = useMemo(
-    () =>
-      tiers
-        .filter(
-          (tier) =>
-            !tier?.featured && Array.isArray(tier?.sponsors) && tier.sponsors.length > 0,
-        )
-        .map((tier) => {
-          const sponsors = tier.sponsors.map((sponsor) => ({
-            ...sponsor,
-            logo: resolveSponsorLogo(sponsor.logo),
-          }));
-          const preferSlider = tier.layout === 'slider';
-          const enableSlider = preferSlider || sponsors.length > SLIDER_SPONSOR_THRESHOLD;
-          const enableAutoScroll = enableSlider && (tier.autoScroll ?? true);
+  const regularTiers = useMemo(() => {
+    return tiers.filter((tier) => {
+      if (tier?.featured) {
+        return false;
+      }
 
-          return {
-            ...tier,
-            sponsors,
-            enableSlider,
-            enableAutoScroll,
-          };
-        }),
-    [tiers],
-  );
+      const hasSponsors = Array.isArray(tier?.sponsors) && tier.sponsors.length > 0;
+      const hasDescription = Boolean(tier?.description);
+      const hasHighlights = Array.isArray(tier?.highlights) && tier.highlights.length > 0;
+      const hasStats = Array.isArray(tier?.stats) && tier.stats.length > 0;
+
+      return hasSponsors || hasDescription || hasHighlights || hasStats;
+    });
+  }, [tiers]);
 
   const heroCta = featuredTier?.cta;
   const heroCtaHref = typeof heroCta?.href === 'string' ? heroCta.href : '';
@@ -411,182 +251,137 @@ const Sponsors = ({ data, onSponsorFormSubmit }) => {
 
   return (
     <div className="sponsors">
-      <div className="sponsors__lead">
-        <div className="sponsors__intro">
-          {intro?.eyebrow ? (
-            <span className="sponsors__eyebrow">{intro.eyebrow}</span>
-          ) : null}
-          {intro?.description ? (
-            <p className="sponsors__description">{intro.description}</p>
-          ) : null}
-          {benefitItems.length ? (
-            <div className="sponsors__benefits" aria-labelledby="sponsors-benefits-title">
-              <h3 id="sponsors-benefits-title" className="sponsors__benefits-title">
-                {benefits.title || 'Ключевые выгоды партнёрства'}
-              </h3>
-              <ul className="sponsors__benefits-list">
-                {benefitItems.map((item, index) => (
-                  <li key={`${item}-${index}`} className="sponsors__benefit">
-                    <span className="sponsors__benefit-icon" aria-hidden="true">
-                      <svg
-                        className="sponsors__benefit-icon-asset"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                        focusable="false"
-                      >
-                        <path
-                          d="M8.203 14.53a1 1 0 0 1-1.414 0l-3.32-3.319a1 1 0 1 1 1.414-1.414l2.613 2.612 6.621-6.62a1 1 0 0 1 1.414 1.414z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
-                    <div className="sponsors__benefit-body">
-                      <span className="sponsors__benefit-label">Преимущество {index + 1}</span>
-                      <p className="sponsors__benefit-text">{item}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : null}
-          <div className="sponsors__cta-group">
-            <button
-              type="button"
-              className="sponsors__cta sponsors__cta--primary"
-              onClick={openModal}
+      <div className="sponsors__intro">
+        {intro?.eyebrow ? <p className="sponsors__eyebrow">{intro.eyebrow}</p> : null}
+        {intro?.description ? (
+          <p className="sponsors__description">{intro.description}</p>
+        ) : null}
+        <div className="sponsors__actions">
+          <button type="button" className="sponsors__cta-button" onClick={openModal}>
+            Стать спонсором/партнёром
+          </button>
+          {hasDownloadCta ? (
+            <a
+              className="sponsors__download-link"
+              href={intro.download.href}
+              target="_blank"
+              rel="noreferrer"
             >
-              Стать спонсором/партнёром
-            </button>
-            {hasDownloadCta ? (
+              {intro.download.label}
+            </a>
+          ) : null}
+        </div>
+      </div>
+
+      {benefitItems.length ? (
+        <section className="sponsors__benefits" aria-labelledby="sponsors-benefits-title">
+          <h3 id="sponsors-benefits-title" className="sponsors__benefits-title">
+            {benefits.title || 'Ключевые выгоды партнёрства'}
+          </h3>
+          <ul className="sponsors__benefit-list">
+            {benefitItems.map((item, index) => (
+              <li key={`${item}-${index}`} className="sponsors__benefit-card">
+                <span className="sponsors__benefit-index">{String(index + 1).padStart(2, '0')}</span>
+                <p className="sponsors__benefit-text">{item}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
+      {featuredTier ? (
+        <section className="sponsors__feature" aria-labelledby={`${featuredTier.id}-title`}>
+          <div className="sponsors__feature-content">
+            <h2 id={`${featuredTier.id}-title`} className="sponsors__feature-title">
+              {featuredTier.label}
+            </h2>
+            {featuredTier.description ? (
+              <p className="sponsors__feature-description">{featuredTier.description}</p>
+            ) : null}
+
+            {Array.isArray(featuredTier.highlights) && featuredTier.highlights.length ? (
+              <div className="sponsors__feature-highlights">
+                {featuredHighlightsLabel ? (
+                  <p className="sponsors__feature-highlights-label">{featuredHighlightsLabel}</p>
+                ) : null}
+                <ul className="sponsors__feature-highlights-list">
+                  {featuredTier.highlights.map((highlight, index) => (
+                    <li key={`${featuredTier.id}-highlight-${index}`} className="sponsors__feature-highlight">
+                      <CheckIcon className="sponsors__feature-highlight-icon" />
+                      <span className="sponsors__feature-highlight-text">{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+
+            {Array.isArray(featuredTier.stats) && featuredTier.stats.length ? (
+              <dl className="sponsors__feature-stats">
+                {featuredTier.stats.map((stat, index) => (
+                  <div key={`${featuredTier.id}-stat-${index}`} className="sponsors__feature-stat">
+                    {stat.value ? (
+                      <dt className="sponsors__feature-stat-value">{stat.value}</dt>
+                    ) : null}
+                    {stat.label ? (
+                      <dd className="sponsors__feature-stat-label">{stat.label}</dd>
+                    ) : null}
+                  </div>
+                ))}
+              </dl>
+            ) : null}
+
+            {heroCta?.href && heroCta?.label ? (
               <a
-                className="sponsors__cta sponsors__cta--ghost"
-                href={intro.download.href}
-                target="_blank"
-                rel="noreferrer"
+                className="sponsors__feature-cta"
+                href={heroCtaHref}
+                target={heroCtaIsExternal ? '_blank' : undefined}
+                rel={heroCtaIsExternal ? 'noreferrer' : undefined}
               >
-                {intro.download.label}
+                {heroCta.label}
               </a>
             ) : null}
           </div>
-        </div>
 
-        {featuredTier ? (
-          <section
-            className="sponsors__featured sponsors__panel"
-            aria-labelledby={`${featuredTier.id}-heading`}
-          >
-            <div className="sponsors__featured-content">
-              <h2 id={`${featuredTier.id}-heading`} className="sponsors__featured-title">
-                {featuredTier.label}
-              </h2>
-              {featuredTier.description ? (
-                <p className="sponsors__featured-description">
-                  {featuredTier.description}
-                </p>
-              ) : null}
-              {Array.isArray(featuredTier.highlights) && featuredTier.highlights.length ? (
-                <div className="sponsors__featured-highlights">
-                  {featuredHighlightsLabel ? (
-                    <p className="sponsors__featured-highlights-label">
-                      {featuredHighlightsLabel}
-                    </p>
-                  ) : null}
-                  <ul className="sponsors__featured-highlight-list">
-                    {featuredTier.highlights.map((highlight, index) => (
-                      <li key={`${highlight}-${index}`} className="sponsors__featured-highlight">
-                        <span className="sponsors__featured-highlight-icon" aria-hidden="true">
-                          <svg
-                            className="sponsors__featured-highlight-asset"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                            focusable="false"
-                          >
-                            <path
-                              d="M10.242 16.314a1.25 1.25 0 0 1-1.768 0l-3.788-3.788a1.25 1.25 0 1 1 1.768-1.768l2.904 2.903 7.318-7.317a1.25 1.25 0 0 1 1.768 1.768z"
-                              fill="currentColor"
-                            />
-                          </svg>
-                        </span>
-                        <span className="sponsors__featured-highlight-text">{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ) : null}
-              {Array.isArray(featuredTier.stats) && featuredTier.stats.length ? (
-                <dl className="sponsors__featured-stats">
-                  {featuredTier.stats.map((stat, index) => (
-                    <div key={`${stat.label || stat.value || index}`} className="sponsors__featured-stat">
-                      {stat.value ? (
-                        <dt className="sponsors__featured-stat-value">{stat.value}</dt>
-                      ) : null}
-                      {stat.label ? (
-                        <dd className="sponsors__featured-stat-label">{stat.label}</dd>
-                      ) : null}
+          {featuredSponsors.length ? (
+            <ul className="sponsors__feature-logos">
+              {featuredSponsors.map((sponsor) => (
+                <li key={`featured-${sponsor.name}`}>
+                  {sponsor.url ? (
+                    <a
+                      className="sponsors__logo-card"
+                      href={sponsor.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`Перейти на сайт ${sponsor.name}`}
+                    >
+                      <img
+                        className="sponsors__logo-image"
+                        src={sponsor.logo}
+                        alt={sponsor.alt || sponsor.name}
+                        loading="lazy"
+                      />
+                    </a>
+                  ) : (
+                    <div className="sponsors__logo-card">
+                      <img
+                        className="sponsors__logo-image"
+                        src={sponsor.logo}
+                        alt={sponsor.alt || sponsor.name}
+                        loading="lazy"
+                      />
                     </div>
-                  ))}
-                </dl>
-              ) : null}
-              {heroCta?.href && heroCta?.label ? (
-                <a
-                  className="sponsors__featured-cta"
-                  href={heroCtaHref}
-                  target={heroCtaIsExternal ? '_blank' : undefined}
-                  rel={heroCtaIsExternal ? 'noreferrer' : undefined}
-                >
-                  {heroCta.label}
-                </a>
-              ) : null}
-            </div>
-            {featuredSponsors.length ? (
-              <ul className="sponsors__featured-logos">
-                {featuredSponsors.map((sponsor) => (
-                  <li
-                    key={sponsor.name}
-                    className="sponsors__featured-logo-item sponsors__logo-spot"
-                  >
-                    {sponsor?.url ? (
-                      <a
-                        className="sponsors__featured-logo-link sponsors__logo-tile"
-                        href={sponsor.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label={`Перейти на сайт ${sponsor.name}`}
-                      >
-                        <img
-                          className="sponsors__featured-logo-image"
-                          src={sponsor.logo}
-                          alt={sponsor.alt || sponsor.name}
-                          loading="lazy"
-                        />
-                      </a>
-                    ) : (
-                      <div className="sponsors__featured-logo-static sponsors__logo-tile">
-                        <img
-                          className="sponsors__featured-logo-image"
-                          src={sponsor.logo}
-                          alt={sponsor.alt || sponsor.name}
-                          loading="lazy"
-                        />
-                      </div>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            ) : null}
-          </section>
-        ) : null}
-      </div>
+                  )}
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </section>
+      ) : null}
 
-      {regularTiersWithMeta.length ? (
+      {regularTiers.length ? (
         <div className="sponsors__tiers">
-          {regularTiersWithMeta.map((tier) => (
-            <SponsorsTier
-              key={tier.id}
-              tier={tier}
-              enableSlider={tier.enableSlider}
-              enableAutoScroll={tier.enableAutoScroll}
-            />
+          {regularTiers.map((tier) => (
+            <SponsorsTier key={tier.id} tier={tier} />
           ))}
         </div>
       ) : null}
@@ -639,8 +434,6 @@ Sponsors.propTypes = {
         label: PropTypes.string.isRequired,
         description: PropTypes.string,
         featured: PropTypes.bool,
-        layout: PropTypes.oneOf(['slider', 'grid']),
-        autoScroll: PropTypes.bool,
         highlights: PropTypes.arrayOf(PropTypes.string),
         highlightsTitle: PropTypes.string,
         stats: PropTypes.arrayOf(statShape),
