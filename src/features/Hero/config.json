@@ -1,10 +1,6 @@
 {
   "branding": {
-    "seasonLabel": "Yar Cyber Season 2025/26",
-    "links": [
-      { "label": "Регламент сезона", "href": "/docs/ycs-cup-2025-26.pdf" },
-      { "label": "FAQ", "href": "#faq" }
-    ]
+    "seasonLabel": "Yar Cyber Season 2025/26"
   },
   "title": "YarCyber Season",
   "subtitle": "это киберспортивный проект, который проходит при информационной поддержке Министерства спорта Ярославской области и Федерации компьютерного спорта ЯО.",
