@@ -533,7 +533,10 @@
   font-size: 0.85rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: var(--color-text-primary);
+  text-shadow: 0 2px 4px rgba(5, 9, 26, 0.35), 0 6px 16px rgba(5, 9, 26, 0.4),
+    0 12px 32px rgba(5, 9, 26, 0.55);
+  filter: drop-shadow(0 10px 24px rgba(9, 14, 32, 0.6));
 }
 
 
@@ -568,6 +571,16 @@
   font-weight: 600;
   font-size: clamp(0.95rem, 1.5vw, 1.05rem);
   color: var(--color-text-primary);
+  text-shadow: 0 2px 4px rgba(5, 9, 26, 0.35), 0 6px 16px rgba(5, 9, 26, 0.4),
+    0 12px 32px rgba(5, 9, 26, 0.55);
+  filter: drop-shadow(0 10px 24px rgba(9, 14, 32, 0.6));
+}
+
+@supports (-webkit-text-stroke: 1px transparent) {
+  .hero__support-label,
+  .hero__support-name {
+    -webkit-text-stroke: 0.6px rgba(5, 9, 26, 0.45);
+  }
 }
 
 .hero__countdown-grid {
