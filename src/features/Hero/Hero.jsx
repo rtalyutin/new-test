@@ -88,6 +88,7 @@ const Hero = ({ data }) => {
   const videoSources = [];
   const shouldRenderVideo = false;
   const fallbackImage = heroBackgroundImage;
+  const disabledCtaLabels = new Set(['Регламент Dota 2', 'Регламент CS2', 'Регламент LAN']);
 
   return (
     <div className="hero hero--versus">
@@ -131,11 +132,6 @@ const Hero = ({ data }) => {
         ) : null}
 
         <div className="hero__centerpiece">
-          {branding?.seasonLabel ? (
-            <span className="hero__season hero__badge hero__badge--accent">
-              {branding.seasonLabel}
-            </span>
-          ) : null}
           {branding?.tagline ? (
             <span className="hero__tagline hero__display-lead">{branding.tagline}</span>
           ) : null}
@@ -168,31 +164,48 @@ const Hero = ({ data }) => {
 
         {Array.isArray(keyFacts) && keyFacts.length > 0 ? (
           <div className="hero__keyfacts" role="list">
-            {keyFacts.map((fact) => (
-              <article
-                key={fact.title}
-                className="hero__keyfact hero__glass"
-                role="listitem"
-              >
-                {fact.tag ? (
-                  <span className="hero__keyfact-tag hero__badge hero__badge--soft">{fact.tag}</span>
-                ) : null}
-                <h2 className="hero__keyfact-title">{fact.title}</h2>
-                {fact.value ? <p className="hero__keyfact-value">{fact.value}</p> : null}
-                {fact.description ? <p className="hero__keyfact-description">{fact.description}</p> : null}
-                {fact.cta ? (
-                  <a
-                    className={`hero__keyfact-cta${
-                      fact.cta.variant === 'primary' ? ' hero__keyfact-cta--primary' : ''
-                    }`}
-                    href={fact.cta.href}
-                    aria-label={fact.cta.ariaLabel || fact.cta.label}
-                  >
-                    {fact.cta.label}
-                  </a>
-                ) : null}
-              </article>
-            ))}
+            {keyFacts.map((fact) => {
+              const isCtaDisabled = fact.cta ? disabledCtaLabels.has(fact.cta.label) : false;
+
+              return (
+                <article
+                  key={fact.title}
+                  className="hero__keyfact hero__glass"
+                  role="listitem"
+                >
+                  {fact.tag ? (
+                    <span className="hero__keyfact-tag hero__badge hero__badge--soft">{fact.tag}</span>
+                  ) : null}
+                  <h2 className="hero__keyfact-title">{fact.title}</h2>
+                  {fact.value ? <p className="hero__keyfact-value">{fact.value}</p> : null}
+                  {fact.description ? <p className="hero__keyfact-description">{fact.description}</p> : null}
+                  {fact.cta ? (
+                    isCtaDisabled ? (
+                      <button
+                        type="button"
+                        className={`hero__keyfact-cta${
+                          fact.cta.variant === 'primary' ? ' hero__keyfact-cta--primary' : ''
+                        } hero__keyfact-cta--disabled`}
+                        aria-label={fact.cta.ariaLabel || fact.cta.label}
+                        disabled
+                      >
+                        {fact.cta.label}
+                      </button>
+                    ) : (
+                      <a
+                        className={`hero__keyfact-cta${
+                          fact.cta.variant === 'primary' ? ' hero__keyfact-cta--primary' : ''
+                        }`}
+                        href={fact.cta.href}
+                        aria-label={fact.cta.ariaLabel || fact.cta.label}
+                      >
+                        {fact.cta.label}
+                      </a>
+                    )
+                  ) : null}
+                </article>
+              );
+            })}
           </div>
         ) : null}
 
