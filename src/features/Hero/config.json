@@ -1,6 +1,6 @@
 {
   "branding": {
-    "seasonLabel": "Сезон 2025/26",
+    "seasonLabel": "YarCyberSeason 2025/26",
     "links": [
       { "label": "Регламент сезона", "href": "/docs/ycs-cup-2025-26.pdf" },
       { "label": "FAQ", "href": "#faq" }
@@ -9,10 +9,10 @@
   "primaryCta": {
     "label": "Регистрация команды",
     "href": "/register",
-    "ariaLabel": "Открыть форму регистрации команды YarCyberSeason 2025/26"
+    "ariaLabel": "Открыть форму регистрации команды ЯрКиберСезон 2025/26"
   },
-  "title": "YarCyberSeason 2025/26",
-  "subtitle": "Новый сезон киберспортивных лиг корпоративных, студенческих и сборных команд Ярославской области",
+  "title": "Первый сезон",
+  "subtitle": "киберспортивных лиг корпоративных, студенческих и сборных команд Ярославской области",
   "media": {
     "poster": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=2000&q=80",
     "fallbackImage": "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=2000&q=80",
