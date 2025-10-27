@@ -3,6 +3,23 @@ import PropTypes from 'prop-types';
 import SponsorModal from '../../components/SponsorModal/SponsorModal.jsx';
 import './Sponsors.css';
 
+const resolveSponsorLogo = (logoPath) => {
+  if (!logoPath) {
+    return '';
+  }
+
+  if (/^https?:/i.test(logoPath)) {
+    return logoPath;
+  }
+
+  try {
+    return new URL(logoPath, import.meta.url).href;
+  } catch (error) {
+    console.warn('Не удалось обработать логотип спонсора', logoPath, error);
+    return logoPath;
+  }
+};
+
 const SLIDER_SPONSOR_THRESHOLD = 6;
 
 const useAutoScroll = (isEnabled) => {
@@ -242,6 +259,7 @@ SponsorsTier.propTypes = {
     label: PropTypes.string.isRequired,
     description: PropTypes.string,
     highlights: PropTypes.arrayOf(PropTypes.string),
+    highlightsTitle: PropTypes.string,
     stats: PropTypes.arrayOf(
       PropTypes.shape({
         label: PropTypes.string,
@@ -277,9 +295,32 @@ const Sponsors = ({ data, onSponsorFormSubmit }) => {
 
   const featuredTier = tiers.find((tier) => tier?.featured);
 
-  const featuredSponsors = Array.isArray(featuredTier?.sponsors)
-    ? featuredTier.sponsors
-    : [];
+  const featuredSponsors = useMemo(
+    () =>
+      (Array.isArray(featuredTier?.sponsors) ? featuredTier.sponsors : []).map(
+        (sponsor) => ({
+          ...sponsor,
+          logo: resolveSponsorLogo(sponsor.logo),
+        }),
+      ),
+    [featuredTier],
+  );
+
+  const featuredHighlightsLabel = useMemo(() => {
+    if (!featuredTier) {
+      return '';
+    }
+
+    if (featuredTier.highlightsTitle) {
+      return featuredTier.highlightsTitle;
+    }
+
+    if (featuredSponsors.length === 1) {
+      return `Преимущества ${featuredSponsors[0].name}`;
+    }
+
+    return 'Преимущества партнёров';
+  }, [featuredTier, featuredSponsors]);
 
   const regularTiersWithMeta = useMemo(
     () =>
@@ -289,7 +330,10 @@ const Sponsors = ({ data, onSponsorFormSubmit }) => {
             !tier?.featured && Array.isArray(tier?.sponsors) && tier.sponsors.length > 0,
         )
         .map((tier) => {
-          const sponsors = tier.sponsors;
+          const sponsors = tier.sponsors.map((sponsor) => ({
+            ...sponsor,
+            logo: resolveSponsorLogo(sponsor.logo),
+          }));
           const preferSlider = tier.layout === 'slider';
           const enableSlider = preferSlider || sponsors.length > SLIDER_SPONSOR_THRESHOLD;
           const enableAutoScroll = enableSlider && (tier.autoScroll ?? true);
@@ -408,13 +452,20 @@ const Sponsors = ({ data, onSponsorFormSubmit }) => {
                 </p>
               ) : null}
               {Array.isArray(featuredTier.highlights) && featuredTier.highlights.length ? (
-                <ul className="sponsors__featured-highlights">
-                  {featuredTier.highlights.map((highlight, index) => (
-                    <li key={`${highlight}-${index}`} className="sponsors__featured-highlight">
-                      {highlight}
-                    </li>
-                  ))}
-                </ul>
+                <div className="sponsors__featured-highlights">
+                  {featuredHighlightsLabel ? (
+                    <p className="sponsors__featured-highlights-label">
+                      {featuredHighlightsLabel}
+                    </p>
+                  ) : null}
+                  <ul className="sponsors__featured-highlight-list">
+                    {featuredTier.highlights.map((highlight, index) => (
+                      <li key={`${highlight}-${index}`} className="sponsors__featured-highlight">
+                        {highlight}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ) : null}
               {Array.isArray(featuredTier.stats) && featuredTier.stats.length ? (
                 <dl className="sponsors__featured-stats">
@@ -545,6 +596,7 @@ Sponsors.propTypes = {
         layout: PropTypes.oneOf(['slider', 'grid']),
         autoScroll: PropTypes.bool,
         highlights: PropTypes.arrayOf(PropTypes.string),
+        highlightsTitle: PropTypes.string,
         stats: PropTypes.arrayOf(statShape),
         cta: ctaShape,
         sponsors: PropTypes.arrayOf(sponsorShape),
