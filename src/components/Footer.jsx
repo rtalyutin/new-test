@@ -111,7 +111,7 @@ const Footer = ({ isFeminineTheme, onThemeToggle }) => {
             <strong>ООО «ЯрКиберСезон»</strong>
           </p>
           <p className="footer__legal-line">
-            Юридический адрес: 150004, Ярославская область, г. Ярославль, ул. Володарского, д. 64 кв.37 
+            Юридический адрес: 150040, Ярославская область, г. Ярославль, ул. Володарского, д. 64 кв.37 
           </p>
           <p className="footer__legal-line">ИНН 7606143578, КПП 760601001</p>
           <p className="footer__legal-line">ОГРН 1257600007500</p>
