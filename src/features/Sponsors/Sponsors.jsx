@@ -349,135 +349,137 @@ const Sponsors = ({ data, onSponsorFormSubmit }) => {
 
   return (
     <div className="sponsors">
-      <div className="sponsors__intro">
-        {intro?.eyebrow ? (
-          <span className="sponsors__eyebrow">{intro.eyebrow}</span>
-        ) : null}
-        {intro?.description ? (
-          <p className="sponsors__description">{intro.description}</p>
-        ) : null}
-        {benefitItems.length ? (
-          <div className="sponsors__benefits" aria-labelledby="sponsors-benefits-title">
-            <h3 id="sponsors-benefits-title" className="sponsors__benefits-title">
-              {benefits.title || 'Ключевые выгоды партнёрства'}
-            </h3>
-            <ul className="sponsors__benefits-list">
-              {benefitItems.map((item, index) => (
-                <li key={`${item}-${index}`} className="sponsors__benefit">
-                  <span className="sponsors__benefit-marker" aria-hidden="true" />
-                  <span className="sponsors__benefit-text">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ) : null}
-        <div className="sponsors__cta-group">
-          <button
-            type="button"
-            className="sponsors__cta sponsors__cta--primary"
-            onClick={openModal}
-          >
-            Стать спонсором
-          </button>
-          {hasDownloadCta ? (
-            <a
-              className="sponsors__cta sponsors__cta--ghost"
-              href={intro.download.href}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {intro.download.label}
-            </a>
+      <div className="sponsors__lead">
+        <div className="sponsors__intro">
+          {intro?.eyebrow ? (
+            <span className="sponsors__eyebrow">{intro.eyebrow}</span>
           ) : null}
-        </div>
-      </div>
-
-      {featuredTier ? (
-        <section
-          className="sponsors__featured sponsors__panel sponsors__panel--featured"
-          aria-labelledby={`${featuredTier.id}-heading`}
-        >
-          <div className="sponsors__featured-content">
-            <h2 id={`${featuredTier.id}-heading`} className="sponsors__featured-title">
-              {featuredTier.label}
-            </h2>
-            {featuredTier.description ? (
-              <p className="sponsors__featured-description">
-                {featuredTier.description}
-              </p>
+          {intro?.description ? (
+            <p className="sponsors__description">{intro.description}</p>
+          ) : null}
+          {benefitItems.length ? (
+            <div className="sponsors__benefits" aria-labelledby="sponsors-benefits-title">
+              <h3 id="sponsors-benefits-title" className="sponsors__benefits-title">
+                {benefits.title || 'Ключевые выгоды партнёрства'}
+              </h3>
+              <ul className="sponsors__benefits-list">
+                {benefitItems.map((item, index) => (
+                  <li key={`${item}-${index}`} className="sponsors__benefit">
+                    <span className="sponsors__benefit-marker" aria-hidden="true" />
+                    <span className="sponsors__benefit-text">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+          <div className="sponsors__cta-group">
+            <button
+              type="button"
+              className="sponsors__cta sponsors__cta--primary"
+              onClick={openModal}
+            >
+              Стать спонсором
+            </button>
+            {hasDownloadCta ? (
+              <a
+                className="sponsors__cta sponsors__cta--ghost"
+                href={intro.download.href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {intro.download.label}
+              </a>
             ) : null}
-            {Array.isArray(featuredTier.highlights) && featuredTier.highlights.length ? (
-              <ul className="sponsors__featured-highlights">
-                {featuredTier.highlights.map((highlight, index) => (
-                  <li key={`${highlight}-${index}`} className="sponsors__featured-highlight">
-                    {highlight}
+          </div>
+        </div>
+
+        {featuredTier ? (
+          <section
+            className="sponsors__featured sponsors__panel"
+            aria-labelledby={`${featuredTier.id}-heading`}
+          >
+            <div className="sponsors__featured-content">
+              <h2 id={`${featuredTier.id}-heading`} className="sponsors__featured-title">
+                {featuredTier.label}
+              </h2>
+              {featuredTier.description ? (
+                <p className="sponsors__featured-description">
+                  {featuredTier.description}
+                </p>
+              ) : null}
+              {Array.isArray(featuredTier.highlights) && featuredTier.highlights.length ? (
+                <ul className="sponsors__featured-highlights">
+                  {featuredTier.highlights.map((highlight, index) => (
+                    <li key={`${highlight}-${index}`} className="sponsors__featured-highlight">
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+              {Array.isArray(featuredTier.stats) && featuredTier.stats.length ? (
+                <dl className="sponsors__featured-stats">
+                  {featuredTier.stats.map((stat, index) => (
+                    <div key={`${stat.label || stat.value || index}`} className="sponsors__featured-stat">
+                      {stat.value ? (
+                        <dt className="sponsors__featured-stat-value">{stat.value}</dt>
+                      ) : null}
+                      {stat.label ? (
+                        <dd className="sponsors__featured-stat-label">{stat.label}</dd>
+                      ) : null}
+                    </div>
+                  ))}
+                </dl>
+              ) : null}
+              {heroCta?.href && heroCta?.label ? (
+                <a
+                  className="sponsors__featured-cta"
+                  href={heroCtaHref}
+                  target={heroCtaIsExternal ? '_blank' : undefined}
+                  rel={heroCtaIsExternal ? 'noreferrer' : undefined}
+                >
+                  {heroCta.label}
+                </a>
+              ) : null}
+            </div>
+            {featuredSponsors.length ? (
+              <ul className="sponsors__featured-logos">
+                {featuredSponsors.map((sponsor) => (
+                  <li
+                    key={sponsor.name}
+                    className="sponsors__featured-logo-item sponsors__logo-spot"
+                  >
+                    {sponsor?.url ? (
+                      <a
+                        className="sponsors__featured-logo-link sponsors__logo-tile"
+                        href={sponsor.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`Перейти на сайт ${sponsor.name}`}
+                      >
+                        <img
+                          className="sponsors__featured-logo-image"
+                          src={sponsor.logo}
+                          alt={sponsor.alt || sponsor.name}
+                          loading="lazy"
+                        />
+                      </a>
+                    ) : (
+                      <div className="sponsors__featured-logo-static sponsors__logo-tile">
+                        <img
+                          className="sponsors__featured-logo-image"
+                          src={sponsor.logo}
+                          alt={sponsor.alt || sponsor.name}
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
                   </li>
                 ))}
               </ul>
             ) : null}
-            {Array.isArray(featuredTier.stats) && featuredTier.stats.length ? (
-              <dl className="sponsors__featured-stats">
-                {featuredTier.stats.map((stat, index) => (
-                  <div key={`${stat.label || stat.value || index}`} className="sponsors__featured-stat">
-                    {stat.value ? (
-                      <dt className="sponsors__featured-stat-value">{stat.value}</dt>
-                    ) : null}
-                    {stat.label ? (
-                      <dd className="sponsors__featured-stat-label">{stat.label}</dd>
-                    ) : null}
-                  </div>
-                ))}
-              </dl>
-            ) : null}
-            {heroCta?.href && heroCta?.label ? (
-              <a
-                className="sponsors__featured-cta"
-                href={heroCtaHref}
-                target={heroCtaIsExternal ? '_blank' : undefined}
-                rel={heroCtaIsExternal ? 'noreferrer' : undefined}
-              >
-                {heroCta.label}
-              </a>
-            ) : null}
-          </div>
-          {featuredSponsors.length ? (
-            <ul className="sponsors__featured-logos">
-              {featuredSponsors.map((sponsor) => (
-                <li
-                  key={sponsor.name}
-                  className="sponsors__featured-logo-item sponsors__logo-spot"
-                >
-                  {sponsor?.url ? (
-                    <a
-                      className="sponsors__featured-logo-link sponsors__logo-tile"
-                      href={sponsor.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`Перейти на сайт ${sponsor.name}`}
-                    >
-                      <img
-                        className="sponsors__featured-logo-image"
-                        src={sponsor.logo}
-                        alt={sponsor.alt || sponsor.name}
-                        loading="lazy"
-                      />
-                    </a>
-                  ) : (
-                    <div className="sponsors__featured-logo-static sponsors__logo-tile">
-                      <img
-                        className="sponsors__featured-logo-image"
-                        src={sponsor.logo}
-                        alt={sponsor.alt || sponsor.name}
-                        loading="lazy"
-                      />
-                    </div>
-                  )}
-                </li>
-              ))}
-            </ul>
-          ) : null}
-        </section>
-      ) : null}
+          </section>
+        ) : null}
+      </div>
 
       {regularTiersWithMeta.length ? (
         <div className="sponsors__tiers">
