@@ -22,7 +22,7 @@ const getFormattedValue = (value, item, formatterCache) => {
   return formatter.format(value);
 };
 
-const Stats = ({ items, animationDuration = 1600 }) => {
+const Stats = ({ items, animationDuration = 1600, isFeminine = false }) => {
   const containerRef = useRef(null);
   const frameRef = useRef(null);
   const formatterCache = useMemo(() => new Map(), []);
@@ -152,8 +152,10 @@ const Stats = ({ items, animationDuration = 1600 }) => {
     };
   }, [animationDuration, hasAnimated, isActive, items, reduceMotion]);
 
+  const statsClassName = `stats${isFeminine ? ' stats--feminine' : ''}`;
+
   return (
-    <div className="stats" ref={containerRef}>
+    <div className={statsClassName} ref={containerRef}>
       <dl className="stats__grid" role="list" aria-label="Ключевые показатели YarCyberSeason">
         {items.map((item, index) => {
           const visibleValue = getFormattedValue(displayValues[index] ?? 0, item, formatterCache);
@@ -206,6 +208,7 @@ Stats.propTypes = {
     }),
   ).isRequired,
   animationDuration: PropTypes.number,
+  isFeminine: PropTypes.bool,
 };
 
 export default Stats;

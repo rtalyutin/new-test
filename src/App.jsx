@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import Section from './components/Section.jsx';
 import Footer from './components/Footer.jsx';
@@ -14,16 +14,76 @@ import statsConfig from './features/Stats/config.json';
 import sponsorsConfig from './features/Sponsors/config.json';
 import './App.css';
 
+const THEME_STORAGE_KEY = 'ycs-theme';
+
+const getStoredTheme = () => {
+  if (typeof window === 'undefined') {
+    return 'default';
+  }
+
+  return window.localStorage.getItem(THEME_STORAGE_KEY) || 'default';
+};
+
 const App = () => {
   const handleSponsorFormSubmit = useCallback(async (formData) => {
     // Здесь мог бы быть вызов API или интеграция с сервисом отправки.
     console.log('Sponsor form submitted', formData);
   }, []);
 
-  const sections = [
+  const [theme, setTheme] = useState(getStoredTheme);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768 && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    if (typeof document === 'undefined') {
+      return;
+    }
+
+    const root = document.documentElement;
+    root.dataset.theme = theme;
+
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+    }
+  }, [theme]);
+
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
+
+  const handleNavLinkClick = () => {
+    setIsMenuOpen(false);
+  };
+
+  const handleThemeToggle = () => {
+    setTheme((prevTheme) => (prevTheme === 'feminine' ? 'default' : 'feminine'));
+  };
+
+  const isFeminineTheme = theme === 'feminine';
+
+  const sections = useMemo(() => ([
     {
       id: 'hero',
-      component: <Hero data={heroConfig} disableVideoOnMobile={heroConfig.media?.disableOnMobile} />,
+      component: (
+        <Hero
+          data={heroConfig}
+          disableVideoOnMobile={heroConfig.media?.disableOnMobile}
+          isFeminine={isFeminineTheme}
+        />
+      ),
       variant: 'hero',
       hideTitle: true,
       fullBleed: true,
@@ -32,7 +92,7 @@ const App = () => {
     {
       id: 'overview',
       title: 'Обзор YarCyberSeason',
-      component: <Overview data={overviewConfig} />,
+      component: <Overview data={overviewConfig} isFeminine={isFeminineTheme} />,
       navLabel: 'Обзор',
       variant: 'overview',
       background: (
@@ -45,7 +105,7 @@ const App = () => {
     },
     {
       id: 'registration',
-      component: <RegistrationCta data={registrationCtaConfig} />,
+      component: <RegistrationCta data={registrationCtaConfig} isFeminine={isFeminineTheme} />,
       navLabel: 'Регистрация',
       variant: 'registration-cta',
       hideTitle: true,
@@ -57,6 +117,7 @@ const App = () => {
         <Sponsors
           data={sponsorsConfig}
           onSponsorFormSubmit={handleSponsorFormSubmit}
+          isFeminine={isFeminineTheme}
         />
       ),
       navLabel: 'Партнёры',
@@ -65,10 +126,10 @@ const App = () => {
     {
       id: 'stats',
       title: 'Ключевые показатели сезона',
-      component: <Stats items={statsConfig} />,
+      component: <Stats items={statsConfig} isFeminine={isFeminineTheme} />,
       navLabel: 'Статистика',
     },
-  ];
+  ]), [handleSponsorFormSubmit, isFeminineTheme]);
 
   const navigationItems = sections
     .filter((section) => Boolean(section.navLabel))
@@ -77,6 +138,7 @@ const App = () => {
       label: section.navLabel,
     }));
 
+<
   const THEME_STORAGE_KEY = 'ycs-theme';
 
   const getInitialTheme = useCallback(() => {
@@ -130,9 +192,8 @@ const App = () => {
   };
 
   const isFeminineTheme = theme === 'feminine';
-
   return (
-    <main className="app">
+    <main className={`app${isFeminineTheme ? ' app--feminine' : ''}`}>
       <header className="app__header">
         <a className="app__logo" href="#hero" aria-label="Перейти к началу страницы">
           <span className="app__logo-mark" aria-hidden="true">

@@ -52,7 +52,7 @@ const getIsMobile = () => {
   return window.matchMedia(MOBILE_MEDIA_QUERY).matches;
 };
 
-const Hero = ({ data }) => {
+const Hero = ({ data, isFeminine = false }) => {
   const {
     branding,
     title,
@@ -122,8 +122,11 @@ const Hero = ({ data }) => {
   const shouldRenderVideo = videoSources.length > 0 && !(media?.disableOnMobile && isMobile);
   const fallbackImage = media?.fallbackImage || media?.poster;
 
+  const heroClassName = `hero hero--versus${isFeminine ? ' hero--feminine' : ''}`;
+  const heroInnerClassName = `hero__inner hero__inner--versus${isFeminine ? ' hero__inner--feminine' : ''}`;
+
   return (
-    <div className="hero hero--versus">
+    <div className={heroClassName}>
       <div className="hero__background" aria-hidden="true">
         {shouldRenderVideo ? (
           <video
@@ -162,8 +165,16 @@ const Hero = ({ data }) => {
           />
         ) : null}
       </div>
+      {isFeminine ? (
+        <div className="hero__ornaments" aria-hidden="true">
+          <span className="hero__ornament hero__ornament--ring" />
+          <span className="hero__ornament hero__ornament--petal hero__ornament--petal-a" />
+          <span className="hero__ornament hero__ornament--petal hero__ornament--petal-b" />
+          <span className="hero__ornament hero__ornament--sparkles" />
+        </div>
+      ) : null}
       <div className="hero__overlay" aria-hidden="true" />
-      <div className="hero__inner hero__inner--versus">
+      <div className={heroInnerClassName}>
         <header className="hero__topbar">
           <div className="hero__brand">
             <span className="hero__brand-mark" aria-hidden="true">
@@ -365,6 +376,7 @@ Hero.propTypes = {
       ariaLabel: PropTypes.string,
     }),
   }).isRequired,
+  isFeminine: PropTypes.bool,
 };
 
 export default Hero;

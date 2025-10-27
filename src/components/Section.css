@@ -8,6 +8,36 @@
   isolation: isolate;
 }
 
+.app--feminine .section {
+  background: linear-gradient(150deg, rgba(60, 17, 72, 0.88), rgba(96, 24, 80, 0.82));
+  border: 1px solid rgba(255, 169, 212, 0.38);
+  box-shadow: 0 26px 60px rgba(81, 9, 53, 0.46);
+}
+
+.app--feminine .section::before {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 207, 177, 0.2), transparent 55%),
+    radial-gradient(circle at 80% 70%, rgba(255, 134, 209, 0.24), transparent 52%);
+  filter: blur(40px);
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 0;
+  animation: section-aura 16s ease-in-out infinite alternate;
+}
+
+@keyframes section-aura {
+  from {
+    transform: scale(1) rotate(0deg);
+  }
+
+  to {
+    transform: scale(1.08) rotate(4deg);
+  }
+}
+
 .section + .section {
   margin-top: var(--space-7);
 }
