@@ -1,23 +1,23 @@
 .sponsors {
-  --sponsors-surface: rgba(27, 30, 51, 0.78);
-  --sponsors-surface-strong: rgba(35, 38, 64, 0.86);
-  --sponsors-border: rgba(255, 255, 255, 0.06);
-  --sponsors-border-strong: rgba(255, 255, 255, 0.16);
-  --sponsors-text-primary: var(--color-text-primary);
-  --sponsors-text-secondary: rgba(224, 232, 252, 0.92);
-  --sponsors-text-muted: rgba(176, 188, 220, 0.72);
-  --sponsors-logo-bg: rgba(255, 255, 255, 0.05);
+  --sponsors-surface: rgba(14, 18, 33, 0.94);
+  --sponsors-surface-strong: rgba(20, 24, 42, 0.96);
+  --sponsors-border: rgba(102, 120, 186, 0.22);
+  --sponsors-border-strong: rgba(126, 144, 210, 0.3);
+  --sponsors-text-primary: rgba(244, 247, 255, 0.96);
+  --sponsors-text-secondary: rgba(214, 222, 246, 0.88);
+  --sponsors-text-muted: rgba(153, 167, 205, 0.74);
+  --sponsors-logo-bg: rgba(28, 33, 57, 0.68);
   position: relative;
   display: grid;
   gap: clamp(var(--space-5), 4vw, var(--space-6));
   padding: clamp(var(--space-5), 6vw, var(--space-7));
   border-radius: clamp(2rem, 4vw, 3.2rem);
   background:
-    radial-gradient(120% 120% at 0% 0%, rgba(151, 119, 255, 0.18), transparent 58%),
-    radial-gradient(90% 110% at 100% 10%, rgba(255, 104, 198, 0.12), transparent 55%),
-    linear-gradient(160deg, rgba(22, 26, 46, 0.92), rgba(20, 31, 48, 0.88));
+    radial-gradient(140% 140% at 6% 12%, rgba(64, 82, 158, 0.32), transparent 60%),
+    radial-gradient(120% 120% at 94% 4%, rgba(115, 83, 176, 0.24), transparent 65%),
+    linear-gradient(160deg, rgba(10, 13, 26, 0.96), rgba(18, 22, 37, 0.94));
   border: 1px solid var(--sponsors-border);
-  box-shadow: 0 26px 64px rgba(5, 10, 24, 0.32);
+  box-shadow: 0 26px 72px rgba(5, 9, 22, 0.38);
   backdrop-filter: blur(18px);
   overflow: hidden;
   isolation: isolate;
@@ -51,16 +51,17 @@
 
 .sponsors__benefits {
   margin-top: var(--space-3);
-  padding: clamp(1.2rem, 2.6vw, 1.8rem);
+  padding: clamp(1.2rem, 2.6vw, 1.9rem);
   border-radius: clamp(1.4rem, 3vw, 2rem);
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0))
+    linear-gradient(150deg, rgba(34, 42, 72, 0.85), rgba(27, 33, 56, 0.82))
       padding-box,
-    linear-gradient(135deg, rgba(163, 129, 255, 0.58), rgba(92, 194, 255, 0.42)) border-box;
+    linear-gradient(150deg, rgba(102, 120, 186, 0.48), rgba(137, 105, 189, 0.36))
+      border-box;
   border: 1px solid transparent;
   display: grid;
   gap: var(--space-3);
-  box-shadow: 0 18px 48px rgba(7, 15, 34, 0.28);
+  box-shadow: 0 22px 48px rgba(6, 12, 28, 0.34);
 }
 
 .sponsors__benefits-title {
@@ -83,26 +84,49 @@
 .sponsors__benefit {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: var(--space-2);
-  align-items: start;
-  padding: 0.75rem 0.95rem;
-  border-radius: var(--radius-md);
-  background: rgba(10, 14, 33, 0.38);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  gap: var(--space-3);
+  align-items: center;
+  padding: clamp(0.85rem, 2vw, 1.2rem) clamp(1rem, 2.6vw, 1.6rem);
+  border-radius: clamp(1rem, 2vw, 1.4rem);
+  background: linear-gradient(140deg, rgba(23, 28, 49, 0.88), rgba(30, 36, 58, 0.82));
+  border: 1px solid rgba(113, 132, 202, 0.3);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
-.sponsors__benefit-marker {
-  width: 12px;
-  height: 12px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, rgba(255, 143, 229, 0.95), rgba(127, 196, 255, 0.95));
-  margin-top: 0.35rem;
-  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.05);
+.sponsors__benefit-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(2.5rem, 5vw, 3rem);
+  height: clamp(2.5rem, 5vw, 3rem);
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(126, 144, 210, 0.25), rgba(88, 106, 178, 0.18));
+  color: rgba(183, 198, 255, 0.95);
+  border: 1px solid rgba(135, 154, 223, 0.3);
+  box-shadow: 0 12px 22px rgba(9, 13, 28, 0.4);
+}
+
+.sponsors__benefit-icon-asset {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.sponsors__benefit-body {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.sponsors__benefit-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(185, 197, 236, 0.86);
 }
 
 .sponsors__benefit-text {
+  margin: 0;
   color: var(--sponsors-text-secondary);
-  line-height: 1.55;
+  line-height: 1.6;
   font-weight: 600;
 }
 
@@ -151,12 +175,12 @@
 .sponsors__cta--ghost {
   background: transparent;
   color: var(--sponsors-text-secondary);
-  border-color: rgba(255, 255, 255, 0.22);
+  border-color: rgba(138, 156, 221, 0.32);
 }
 
 .sponsors__cta--ghost:hover,
 .sponsors__cta--ghost:focus-visible {
-  border-color: rgba(255, 255, 255, 0.35);
+  border-color: rgba(165, 183, 240, 0.46);
   color: var(--sponsors-text-primary);
 }
 
@@ -166,24 +190,24 @@
   gap: clamp(var(--space-3), 2vw, var(--space-4));
   padding: clamp(1.6rem, 3vw, 2.6rem);
   border-radius: clamp(1.6rem, 2.8vw, 2.4rem);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 18px 40px rgba(8, 12, 32, 0.28);
-  backdrop-filter: blur(16px);
+  background: linear-gradient(160deg, rgba(22, 27, 48, 0.72), rgba(15, 19, 36, 0.62));
+  border: 1px solid rgba(120, 138, 204, 0.28);
+  box-shadow: 0 18px 44px rgba(6, 10, 26, 0.34);
+  backdrop-filter: blur(18px);
   transition: border-color var(--transition-fast), background-color var(--transition-fast);
 }
 
 .sponsors__panel:hover,
 .sponsors__panel:focus-within {
   border-color: var(--sponsors-border-strong);
-  background: rgba(255, 255, 255, 0.08);
+  background: linear-gradient(160deg, rgba(24, 30, 52, 0.78), rgba(18, 22, 40, 0.7));
 }
 
 .sponsors__featured {
-  background: rgba(255, 255, 255, 0.08);
+  background: linear-gradient(160deg, rgba(28, 34, 60, 0.82), rgba(19, 24, 43, 0.76));
   color: var(--sponsors-text-primary);
   gap: clamp(var(--space-4), 3vw, var(--space-5));
-  border-color: rgba(255, 255, 255, 0.16);
+  border-color: rgba(137, 154, 221, 0.32);
 }
 
 .sponsors__featured-content {
@@ -208,14 +232,13 @@
 .sponsors__featured-highlights {
   display: grid;
   gap: var(--space-3);
-  padding: clamp(1.1rem, 2.4vw, 1.8rem);
+  padding: clamp(1.2rem, 2.6vw, 2rem);
   border-radius: clamp(1.4rem, 3vw, 2rem);
   background:
-    linear-gradient(140deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0))
-      padding-box,
-    linear-gradient(140deg, rgba(255, 143, 229, 0.55), rgba(127, 196, 255, 0.4)) border-box;
+    linear-gradient(150deg, rgba(30, 36, 62, 0.92), rgba(25, 31, 52, 0.85)) padding-box,
+    linear-gradient(150deg, rgba(137, 105, 189, 0.45), rgba(94, 125, 204, 0.38)) border-box;
   border: 1px solid transparent;
-  box-shadow: 0 24px 48px rgba(10, 16, 36, 0.25);
+  box-shadow: 0 28px 52px rgba(8, 12, 30, 0.32);
 }
 
 .sponsors__featured-highlights-label {
@@ -223,7 +246,7 @@
   font-size: 0.9rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(199, 209, 246, 0.82);
 }
 
 .sponsors__featured-highlight-list {
@@ -237,21 +260,40 @@
 .sponsors__featured-highlight {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: var(--space-2);
-  align-items: start;
+  gap: var(--space-3);
+  align-items: flex-start;
   font-size: 1rem;
   font-weight: 600;
   color: var(--sponsors-text-primary);
+  padding: 0.65rem 0.75rem;
+  border-radius: 1rem;
+  background: rgba(18, 23, 42, 0.6);
+  border: 1px solid rgba(126, 146, 214, 0.32);
 }
 
-.sponsors__featured-highlight::before {
-  content: '';
-  width: 12px;
-  height: 12px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, rgba(255, 143, 229, 0.95), rgba(127, 196, 255, 0.95));
-  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.06);
-  margin-top: 0.35rem;
+.sponsors__featured-highlight-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 14px;
+  background: linear-gradient(145deg, rgba(147, 118, 206, 0.3), rgba(96, 130, 213, 0.24));
+  color: rgba(195, 206, 255, 0.96);
+  border: 1px solid rgba(138, 156, 221, 0.35);
+  box-shadow: 0 10px 22px rgba(6, 10, 24, 0.34);
+}
+
+.sponsors__featured-highlight-asset {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.sponsors__featured-highlight-text {
+  display: block;
+  color: var(--sponsors-text-secondary);
+  line-height: 1.5;
+  font-weight: 600;
 }
 
 .sponsors__featured-stats {
@@ -320,9 +362,10 @@
   position: relative;
   display: flex;
   border-radius: clamp(1.2rem, 2vw, 1.6rem);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: transparent;
-  transition: border-color var(--transition-fast), opacity var(--transition-fast);
+  border: 1px solid rgba(118, 136, 206, 0.26);
+  background: var(--sponsors-logo-bg);
+  transition: border-color var(--transition-fast), opacity var(--transition-fast),
+    background-color var(--transition-fast);
 }
 
 .sponsors__logo-tile {
@@ -340,8 +383,9 @@
 
 .sponsors__logo-spot:hover,
 .sponsors__logo-spot:focus-within {
-  border-color: rgba(255, 255, 255, 0.22);
-  opacity: 0.85;
+  border-color: rgba(153, 171, 228, 0.46);
+  background: rgba(36, 44, 74, 0.7);
+  opacity: 0.92;
 }
 
 .sponsors__logo-tile:focus-visible {
@@ -400,10 +444,43 @@
 
 .sponsors__tier-highlights {
   display: grid;
-  gap: 0.5rem;
+  gap: var(--space-2);
   margin: 0;
-  padding-left: 1.2rem;
+  padding: 0;
+}
+
+.sponsors__tier-highlight {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-2);
+  align-items: flex-start;
+  padding: 0.65rem 0.85rem;
+  border-radius: 1rem;
+  background: rgba(18, 23, 42, 0.48);
+  border: 1px solid rgba(110, 130, 202, 0.28);
   color: var(--sponsors-text-secondary);
+}
+
+.sponsors__tier-highlight-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(117, 135, 206, 0.26), rgba(93, 119, 191, 0.2));
+  color: rgba(188, 201, 255, 0.92);
+  border: 1px solid rgba(133, 151, 216, 0.3);
+}
+
+.sponsors__tier-highlight-asset {
+  width: 1rem;
+  height: 1rem;
+}
+
+.sponsors__tier-highlight-text {
+  line-height: 1.45;
+  font-weight: 600;
 }
 
 .sponsors__tier-stats {
