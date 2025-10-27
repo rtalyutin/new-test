@@ -93,22 +93,22 @@ const Footer = ({ isFeminineTheme, onThemeToggle }) => {
           <p className="footer__copyright">
             © {currentYear} YarCyberSeason. Все права защищены.
           </p>
-          <div className="footer__theme-toggle">
-            <div className="footer__theme-text">
+          <button
+            type="button"
+            className={`footer__theme-toggle${isFeminineTheme ? ' footer__theme-toggle--active' : ''}`}
+            onClick={onThemeToggle}
+            aria-pressed={isFeminineTheme}
+          >
+            <span className="footer__theme-icon" aria-hidden="true">
+              {isFeminineTheme ? '🌸' : '🌺'}
+            </span>
+            <span className="footer__theme-text">
               <span className="footer__theme-label">Женская версия</span>
-              <span className="footer__theme-description">Более мягкая цветовая палитра</span>
-            </div>
-            <label className="footer__switch">
-              <input
-                type="checkbox"
-                className="footer__switch-input"
-                checked={isFeminineTheme}
-                onChange={onThemeToggle}
-                aria-label="Переключить женскую версию сайта"
-              />
-              <span aria-hidden="true" className="footer__switch-indicator" />
-            </label>
-          </div>
+              <span className="footer__theme-description">
+                {isFeminineTheme ? 'Нежная палитра активна' : 'Включить нежную палитру'}
+              </span>
+            </span>
+          </button>
         </div>
       </div>
     </footer>
