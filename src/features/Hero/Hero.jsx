@@ -164,17 +164,16 @@ const Hero = ({ data }) => {
       </div>
       <div className="hero__overlay" aria-hidden="true" />
       <div className="hero__inner hero__inner--versus">
-        <header className="hero__topbar">
-          <div className="hero__brand">
-            <span className="hero__brand-mark" aria-hidden="true">
-              YCS
-            </span>
-            <div className="hero__brand-text">
-              {branding?.tagline ? <span className="hero__brand-tagline">{branding.tagline}</span> : null}
-              {branding?.label ? <span className="hero__brand-label">{branding.label}</span> : null}
+        {branding?.tagline || branding?.label ? (
+          <header className="hero__topbar">
+            <div className="hero__brand">
+              <div className="hero__brand-text">
+                {branding?.tagline ? <span className="hero__brand-tagline">{branding.tagline}</span> : null}
+                {branding?.label ? <span className="hero__brand-label">{branding.label}</span> : null}
+              </div>
             </div>
-          </div>
-        </header>
+          </header>
+        ) : null}
 
         <div className="hero__centerpiece">
           {branding?.seasonLabel ? (

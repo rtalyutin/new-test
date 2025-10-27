@@ -1,7 +1,5 @@
 {
   "branding": {
-    "tagline": "YCS CUP",
-    "label": "YarCyberSeason",
     "seasonLabel": "Сезон 2025/26",
     "links": [
       { "label": "Регламент сезона", "href": "/docs/ycs-cup-2025-26.pdf" },
