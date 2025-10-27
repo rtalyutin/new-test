@@ -307,6 +307,125 @@
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
 }
 
+.sponsors__feature-logos--single {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+}
+
+.sponsors__feature-logos--single > li {
+  width: min(100%, 420px);
+}
+
+.sponsors__logo-carousel {
+  display: grid;
+  gap: clamp(var(--space-2), 2.2vw, var(--space-3));
+  justify-items: center;
+}
+
+.sponsors__logo-carousel-viewport {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  min-height: clamp(220px, 34vw, 320px);
+}
+
+.sponsors__logo-carousel-slide {
+  grid-area: 1 / 1;
+  display: grid;
+  justify-items: center;
+  width: min(100%, 520px);
+  opacity: 0;
+  transform: translateX(8%) scale(0.97);
+  transition:
+    opacity 0.5s ease,
+    transform 0.6s ease;
+  pointer-events: none;
+}
+
+.sponsors__logo-carousel-slide.is-active {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  pointer-events: auto;
+  z-index: 1;
+}
+
+.sponsors__logo-carousel-controls {
+  display: flex;
+  gap: var(--space-2);
+  justify-content: center;
+}
+
+.sponsors__logo-carousel-button {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(160, 178, 244, 0.45);
+  background: rgba(12, 16, 36, 0.75);
+  color: rgba(220, 230, 255, 0.85);
+  cursor: pointer;
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.sponsors__logo-carousel-button:hover,
+.sponsors__logo-carousel-button:focus-visible {
+  border-color: rgba(220, 230, 255, 0.7);
+  background: rgba(20, 26, 50, 0.85);
+  color: rgba(255, 255, 255, 0.95);
+  transform: translateY(-1px);
+}
+
+.sponsors__logo-carousel-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.sponsors__logo-carousel-button-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.sponsors__logo-carousel-dots {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sponsors__logo-carousel-dot {
+  width: 12px;
+  height: 12px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(152, 170, 242, 0.4);
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    transform var(--transition-fast),
+    opacity var(--transition-fast);
+}
+
+.sponsors__logo-carousel-dot[aria-current='true'] {
+  background: rgba(255, 210, 255, 0.85);
+  transform: scale(1.15);
+  opacity: 1;
+}
+
+.sponsors__logo-carousel-dot:hover,
+.sponsors__logo-carousel-dot:focus-visible {
+  background: rgba(210, 220, 255, 0.85);
+}
+
 .sponsors__logo-card {
   position: relative;
   display: grid;
@@ -318,6 +437,29 @@
   transition: transform var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast);
 }
 
+.sponsors__logo-card--hero {
+  padding: clamp(2.2rem, 5vw, 3.4rem);
+  border: 1px solid rgba(255, 198, 255, 0.55);
+  background:
+    radial-gradient(120% 120% at 20% 20%, rgba(255, 124, 220, 0.28), transparent 65%),
+    radial-gradient(140% 120% at 80% 18%, rgba(134, 162, 255, 0.3), transparent 60%),
+    rgba(12, 16, 34, 0.82);
+  box-shadow: 0 26px 70px rgba(10, 6, 40, 0.55);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.sponsors__logo-card--hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 208, 255, 0.28), rgba(114, 162, 255, 0.24));
+  opacity: 0.7;
+  filter: blur(0.5px);
+  z-index: 0;
+}
+
 .sponsors__logo-card:hover,
 .sponsors__logo-card:focus-visible {
   transform: translateY(-2px);
@@ -325,10 +467,27 @@
   background: rgba(18, 22, 40, 0.82);
 }
 
+.sponsors__logo-card--hero:hover,
+.sponsors__logo-card--hero:focus-visible {
+  transform: translateY(-4px) scale(1.02);
+  border-color: rgba(255, 220, 255, 0.8);
+  background:
+    radial-gradient(130% 120% at 20% 22%, rgba(255, 136, 228, 0.36), transparent 70%),
+    radial-gradient(150% 130% at 78% 16%, rgba(144, 174, 255, 0.36), transparent 65%),
+    rgba(16, 20, 42, 0.86);
+}
+
 .sponsors__logo-image {
   max-width: 100%;
   max-height: 64px;
   filter: drop-shadow(0 8px 16px rgba(4, 8, 22, 0.35));
+}
+
+.sponsors__logo-card--hero .sponsors__logo-image {
+  max-height: 110px;
+  transform: scale(1.04);
+  z-index: 1;
+  filter: drop-shadow(0 16px 28px rgba(10, 4, 34, 0.45));
 }
 
 .sponsors__tiers {
