@@ -4,6 +4,12 @@ import PropTypes from 'prop-types';
 import SponsorModal from '../../components/SponsorModal/SponsorModal.jsx';
 import './Sponsors.css';
 
+const sponsorLogoAssets = import.meta.glob('./*.{png,jpg,jpeg,gif,svg,webp,avif}', {
+  eager: true,
+  import: 'default',
+  query: '?url',
+});
+
 const resolveSponsorLogo = (logoPath) => {
   if (!logoPath) {
     return '';
@@ -11,6 +17,13 @@ const resolveSponsorLogo = (logoPath) => {
 
   if (/^https?:/i.test(logoPath)) {
     return logoPath;
+  }
+
+  const normalizedPath = logoPath.startsWith('./') ? logoPath : `./${logoPath}`;
+  const localAsset = sponsorLogoAssets[normalizedPath];
+
+  if (localAsset) {
+    return localAsset;
   }
 
   try {
