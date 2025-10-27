@@ -41,7 +41,7 @@
       "sponsors": [
         {
           "name": "Cherry RAiT",
-          "logo": "../Hero/logo1.png",
+          "logo": "./logo-cherry.jpg",
           "url": "https://t.me/Talyutin",
           "alt": "Логотип Cherry RAiT"
         }
