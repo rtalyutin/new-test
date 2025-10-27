@@ -117,10 +117,10 @@ const Hero = ({ data }) => {
 
   const supportPartners = [
     {
-      id: 'microsoft',
+      id: 'ms',
       logo: msLogo,
-      name: 'Microsoft',
-      alt: 'Microsoft',
+      name: 'Министерство спорта ЯО',
+      alt: 'Министерство спорта ЯО',
     },
     {
       id: 'fks',
