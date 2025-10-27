@@ -106,6 +106,19 @@ const Footer = ({ isFeminineTheme, onThemeToggle }) => {
             </span>
           </button>
         </div>
+        <section className="footer__legal" aria-label="Юридическая информация компании">
+          <p className="footer__legal-line">
+            <strong>ООО «ЯрКиберСезон»</strong>
+          </p>
+          <p className="footer__legal-line">
+            Юридический адрес: 150000, Ярославская область, г. Ярославль, ул. Советская, д. 12, офис 34.
+          </p>
+          <p className="footer__legal-line">ИНН 7604554321, КПП 760401001.</p>
+          <p className="footer__legal-line">ОГРН 1237600001234 от 12.03.2020.</p>
+          <p className="footer__legal-line">
+            Расчётный счёт 40702810400000012345 в ПАО «Банк Развития Цифры», БИК 047888770, кор. счёт 30101810400000000770.
+          </p>
+        </section>
       </div>
     </footer>
   );

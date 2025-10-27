@@ -144,6 +144,33 @@
   flex-wrap: wrap;
 }
 
+.footer__legal {
+  margin-top: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  background: rgba(12, 18, 40, 0.75);
+  box-shadow: inset 0 0 0 1px rgba(139, 123, 255, 0.2);
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  display: grid;
+  gap: 0.4rem;
+  letter-spacing: 0.01em;
+}
+
+.footer__legal-line {
+  margin: 0;
+  padding: 0;
+  word-break: break-word;
+}
+
+.footer__legal-line strong {
+  color: var(--color-text-secondary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+}
+
 .footer__theme-toggle {
   display: inline-flex;
   align-items: center;
@@ -245,5 +272,12 @@
 
   .footer__theme-toggle {
     justify-content: space-between;
+  }
+
+  .footer__legal {
+    text-align: left;
+    padding: var(--space-3);
+    font-size: 0.75rem;
+    gap: 0.35rem;
   }
 }
