@@ -189,7 +189,25 @@ const SponsorsTier = ({ tier, enableSlider, enableAutoScroll }) => {
         {Array.isArray(tier.highlights) && tier.highlights.length ? (
           <ul className="sponsors__tier-highlights">
             {tier.highlights.map((highlight, index) => (
-              <li key={`${tier.id}-highlight-${index}`}>{highlight}</li>
+              <li
+                key={`${tier.id}-highlight-${index}`}
+                className="sponsors__tier-highlight"
+              >
+                <span className="sponsors__tier-highlight-icon" aria-hidden="true">
+                  <svg
+                    className="sponsors__tier-highlight-asset"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                    focusable="false"
+                  >
+                    <path
+                      d="M8.203 14.53a1 1 0 0 1-1.414 0l-3.32-3.319a1 1 0 1 1 1.414-1.414l2.613 2.612 6.621-6.62a1 1 0 0 1 1.414 1.414z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span className="sponsors__tier-highlight-text">{highlight}</span>
+              </li>
             ))}
           </ul>
         ) : null}
@@ -409,8 +427,23 @@ const Sponsors = ({ data, onSponsorFormSubmit }) => {
               <ul className="sponsors__benefits-list">
                 {benefitItems.map((item, index) => (
                   <li key={`${item}-${index}`} className="sponsors__benefit">
-                    <span className="sponsors__benefit-marker" aria-hidden="true" />
-                    <span className="sponsors__benefit-text">{item}</span>
+                    <span className="sponsors__benefit-icon" aria-hidden="true">
+                      <svg
+                        className="sponsors__benefit-icon-asset"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                        focusable="false"
+                      >
+                        <path
+                          d="M8.203 14.53a1 1 0 0 1-1.414 0l-3.32-3.319a1 1 0 1 1 1.414-1.414l2.613 2.612 6.621-6.62a1 1 0 0 1 1.414 1.414z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </span>
+                    <div className="sponsors__benefit-body">
+                      <span className="sponsors__benefit-label">Преимущество {index + 1}</span>
+                      <p className="sponsors__benefit-text">{item}</p>
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -422,7 +455,7 @@ const Sponsors = ({ data, onSponsorFormSubmit }) => {
               className="sponsors__cta sponsors__cta--primary"
               onClick={openModal}
             >
-              Стать спонсором
+              Стать спонсором/партнёром
             </button>
             {hasDownloadCta ? (
               <a
@@ -461,7 +494,20 @@ const Sponsors = ({ data, onSponsorFormSubmit }) => {
                   <ul className="sponsors__featured-highlight-list">
                     {featuredTier.highlights.map((highlight, index) => (
                       <li key={`${highlight}-${index}`} className="sponsors__featured-highlight">
-                        {highlight}
+                        <span className="sponsors__featured-highlight-icon" aria-hidden="true">
+                          <svg
+                            className="sponsors__featured-highlight-asset"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                            focusable="false"
+                          >
+                            <path
+                              d="M10.242 16.314a1.25 1.25 0 0 1-1.768 0l-3.788-3.788a1.25 1.25 0 1 1 1.768-1.768l2.904 2.903 7.318-7.317a1.25 1.25 0 0 1 1.768 1.768z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </span>
+                        <span className="sponsors__featured-highlight-text">{highlight}</span>
                       </li>
                     ))}
                   </ul>
