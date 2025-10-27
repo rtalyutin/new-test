@@ -21,6 +21,24 @@
   pointer-events: none;
 }
 
+html[data-theme='feminine'] .registration-cta {
+  background:
+    linear-gradient(145deg, rgba(61, 20, 30, 0.95), rgba(88, 28, 42, 0.92)),
+    url('../../styles/feminine-lanterns.svg');
+  background-size: cover, 420px;
+  background-blend-mode: multiply, lighten;
+  border: 1px solid color-mix(in srgb, var(--color-secondary) 34%, transparent);
+  box-shadow: var(--shadow-soft-elevated), 0 0 64px rgba(92, 24, 33, 0.35);
+}
+
+html[data-theme='feminine'] .registration-cta::before {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(180, 74, 91, 0.36), transparent 60%),
+    radial-gradient(circle at 84% 24%, rgba(212, 169, 76, 0.32), transparent 65%),
+    radial-gradient(circle at 60% 80%, rgba(127, 143, 153, 0.18), transparent 68%);
+  opacity: 0.7;
+}
+
 .registration-cta__header,
 .registration-cta__body,
 .registration-cta__actions,
@@ -63,6 +81,11 @@
   color: var(--color-text-secondary);
 }
 
+html[data-theme='feminine'] .registration-cta__description {
+  color: color-mix(in srgb, var(--color-text-secondary) 78%, var(--color-text-primary) 22%);
+  text-shadow: 0 10px 28px rgba(40, 10, 18, 0.45);
+}
+
 .registration-cta__deadline {
   display: grid;
   gap: var(--space-2);
@@ -71,6 +94,12 @@
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(64, 232, 194, 0.2);
   width: min(20vw, 100%);
+}
+
+html[data-theme='feminine'] .registration-cta__deadline {
+  background: color-mix(in srgb, var(--color-surface) 85%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-secondary) 36%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, #fff1d0 22%, transparent);
 }
 
 .registration-cta__deadline-label {
@@ -96,6 +125,12 @@
   border: 1px solid rgba(64, 232, 194, 0.3);
 }
 
+html[data-theme='feminine'] .registration-cta__countdown {
+  background: color-mix(in srgb, var(--color-overlay) 72%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-secondary) 34%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, #fff2d6 18%, transparent);
+}
+
 .registration-cta__countdown-segment {
   display: grid;
   gap: 0.1rem;
@@ -113,6 +148,10 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--color-text-muted);
+}
+
+html[data-theme='feminine'] .registration-cta__countdown-label {
+  color: color-mix(in srgb, var(--color-text-secondary) 60%, var(--color-secondary) 40%);
 }
 
 .registration-cta__countdown-separator {
@@ -144,6 +183,10 @@
   color: var(--color-text-secondary);
 }
 
+html[data-theme='feminine'] .registration-cta__term {
+  color: color-mix(in srgb, var(--color-text-secondary) 78%, var(--color-text-primary) 22%);
+}
+
 .registration-cta__term-icon {
   color: var(--color-secondary);
 }
@@ -155,6 +198,12 @@
   border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(139, 123, 255, 0.2);
+}
+
+html[data-theme='feminine'] .registration-cta__term-group {
+  background: color-mix(in srgb, var(--color-surface) 86%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-secondary) 30%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, #ffeede 18%, transparent);
 }
 
 .registration-cta__term-heading {
@@ -181,6 +230,13 @@
   font-weight: 600;
 }
 
+html[data-theme='feminine'] .registration-cta__term-quota {
+  background: color-mix(in srgb, var(--color-secondary) 18%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-secondary) 46%, transparent);
+  color: var(--color-secondary);
+  box-shadow: 0 8px 16px rgba(80, 24, 36, 0.4);
+}
+
 .registration-cta__term-items {
   margin: 0;
   padding: 0;
@@ -197,14 +253,26 @@
   color: var(--color-text-secondary);
 }
 
+html[data-theme='feminine'] .registration-cta__term-item {
+  color: color-mix(in srgb, var(--color-text-secondary) 70%, var(--color-text-primary) 30%);
+}
+
 .registration-cta__term-bullet {
   color: var(--color-secondary);
+}
+
+html[data-theme='feminine'] .registration-cta__term-bullet {
+  color: color-mix(in srgb, var(--color-secondary) 70%, var(--color-primary) 30%);
 }
 
 .registration-cta__term-note {
   margin: 0;
   font-size: 0.85rem;
   color: var(--color-text-muted);
+}
+
+html[data-theme='feminine'] .registration-cta__term-note {
+  color: color-mix(in srgb, var(--color-text-muted) 70%, var(--color-text-secondary) 30%);
 }
 
 .registration-cta__actions {
@@ -216,6 +284,14 @@
   bottom: clamp(1rem, 4vw, 2rem);
   padding: var(--space-2) 0;
   backdrop-filter: blur(6px);
+}
+
+html[data-theme='feminine'] .registration-cta__actions {
+  background: color-mix(in srgb, var(--color-overlay) 65%, transparent);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid color-mix(in srgb, var(--color-secondary) 26%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, #ffe8cc 18%, transparent);
 }
 
 .registration-cta__button {
@@ -235,10 +311,22 @@
   box-shadow: 0 18px 40px rgba(139, 123, 255, 0.5);
 }
 
+html[data-theme='feminine'] .registration-cta__button--primary {
+  color: #2d0c14;
+  box-shadow: 0 26px 52px rgba(92, 24, 33, 0.45), 0 0 36px color-mix(in srgb, var(--color-secondary) 30%, transparent);
+}
+
 .registration-cta__button--secondary {
   background: rgba(255, 255, 255, 0.06);
   color: var(--color-text-primary);
   border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+html[data-theme='feminine'] .registration-cta__button--secondary {
+  background: color-mix(in srgb, var(--color-primary) 20%, transparent);
+  color: var(--color-text-primary);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 48%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, #fff0d6 24%, transparent);
 }
 
 .registration-cta__button:hover,
@@ -251,6 +339,17 @@
   background: rgba(255, 255, 255, 0.12);
 }
 
+html[data-theme='feminine'] .registration-cta__button--primary:hover,
+html[data-theme='feminine'] .registration-cta__button--primary:focus-visible {
+  box-shadow: 0 32px 56px rgba(92, 24, 33, 0.55), 0 0 44px color-mix(in srgb, var(--color-secondary) 32%, transparent);
+}
+
+html[data-theme='feminine'] .registration-cta__button--secondary:hover,
+html[data-theme='feminine'] .registration-cta__button--secondary:focus-visible {
+  background: color-mix(in srgb, var(--color-secondary) 26%, transparent);
+  color: #2d0c14;
+}
+
 .registration-cta__mobile-spacer {
   display: none;
 }
@@ -259,6 +358,10 @@
   margin: 0;
   font-size: 0.85rem;
   color: var(--color-text-muted);
+}
+
+html[data-theme='feminine'] .registration-cta__disclaimer {
+  color: color-mix(in srgb, var(--color-text-muted) 65%, var(--color-text-secondary) 35%);
 }
 
 @keyframes timerFlip {
@@ -314,6 +417,12 @@
     box-shadow: 0 24px 48px rgba(5, 9, 20, 0.6);
     backdrop-filter: blur(18px);
     justify-content: center;
+  }
+
+  html[data-theme='feminine'] .registration-cta__actions {
+    background: color-mix(in srgb, var(--color-overlay) 75%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-secondary) 30%, transparent);
+    box-shadow: 0 24px 48px rgba(64, 14, 24, 0.6);
   }
 
   .registration-cta__button {

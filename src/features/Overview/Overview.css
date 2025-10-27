@@ -10,6 +10,11 @@
   max-width: 60ch;
 }
 
+html[data-theme='feminine'] .overview__lead {
+  color: color-mix(in srgb, var(--color-text-secondary) 80%, var(--color-text-primary) 20%);
+  text-shadow: 0 8px 26px rgba(34, 9, 18, 0.4);
+}
+
 .overview__metrics {
   display: grid;
   gap: var(--space-4);
@@ -33,6 +38,35 @@
   background: radial-gradient(circle at 120% 0%, rgba(64, 232, 194, 0.25), transparent 55%);
   opacity: 0;
   transition: opacity var(--transition-normal);
+}
+
+html[data-theme='feminine'] .overview__metric-card {
+  background:
+    color-mix(in srgb, var(--color-surface) 82%, transparent),
+    url('../../styles/feminine-lanterns.svg');
+  background-blend-mode: soft-light, lighten;
+  background-size: cover, 360px;
+  border: 1px solid color-mix(in srgb, var(--color-secondary) 34%, transparent);
+  box-shadow: var(--shadow-soft-elevated);
+}
+
+html[data-theme='feminine'] .overview__metric-card::after {
+  background:
+    radial-gradient(circle at 0% 0%, rgba(180, 74, 91, 0.28), transparent 58%),
+    radial-gradient(circle at 100% 20%, rgba(212, 169, 76, 0.32), transparent 60%);
+}
+
+html[data-theme='feminine'] .overview__metric-value {
+  color: var(--color-text-primary);
+  text-shadow: 0 12px 36px rgba(38, 8, 16, 0.45);
+}
+
+html[data-theme='feminine'] .overview__metric-label {
+  color: var(--color-text-secondary);
+}
+
+html[data-theme='feminine'] .overview__metric-description {
+  color: color-mix(in srgb, var(--color-text-secondary) 70%, var(--color-text-primary) 30%);
 }
 
 .overview__metric-card:hover::after,

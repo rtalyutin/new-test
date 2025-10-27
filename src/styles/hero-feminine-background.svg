@@ -1,0 +1,38 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="petalGlow" cx="0.2" cy="0.25" r="0.8">
+      <stop offset="0%" stop-color="#f4d7c6" stop-opacity="0.9" />
+      <stop offset="45%" stop-color="#e5a0a8" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#411019" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="lantern" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffe4b8" stop-opacity="0.95" />
+      <stop offset="60%" stop-color="#d89a46" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#2a0912" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="backgroundGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#220711" />
+      <stop offset="48%" stop-color="#38131f" />
+      <stop offset="100%" stop-color="#4a1c28" />
+    </linearGradient>
+    <filter id="softBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="30" />
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#backgroundGradient)" />
+  <g opacity="0.8">
+    <circle cx="280" cy="280" r="320" fill="url(#petalGlow)" filter="url(#softBlur)" />
+    <circle cx="1320" cy="180" r="280" fill="url(#petalGlow)" filter="url(#softBlur)" />
+    <circle cx="1080" cy="620" r="320" fill="url(#petalGlow)" filter="url(#softBlur)" />
+  </g>
+  <g opacity="0.9">
+    <circle cx="400" cy="180" r="180" fill="url(#lantern)" filter="url(#softBlur)" />
+    <circle cx="1220" cy="360" r="160" fill="url(#lantern)" filter="url(#softBlur)" />
+    <circle cx="860" cy="720" r="140" fill="url(#lantern)" filter="url(#softBlur)" />
+  </g>
+  <g opacity="0.35">
+    <path d="M140 780 C260 720, 380 720, 520 780" stroke="#f6d9c4" stroke-width="2" stroke-linecap="round" stroke-opacity="0.6" fill="none" />
+    <path d="M1080 180 C1180 220, 1280 220, 1380 180" stroke="#f3c7d3" stroke-width="2" stroke-linecap="round" stroke-opacity="0.5" fill="none" />
+    <path d="M820 620 C880 580, 960 580, 1040 620" stroke="#ffdcb3" stroke-width="2" stroke-linecap="round" stroke-opacity="0.5" fill="none" />
+  </g>
+</svg>
