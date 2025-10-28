@@ -104,12 +104,7 @@ const Footer = ({ isFeminineTheme, onThemeToggle }) => {
               {isFeminineTheme ? '🌸' : '🏮'}
             </span>
             <span className="footer__theme-text">
-              <span className="footer__theme-label">Режим восточной героини</span>
-              <span className="footer__theme-description">
-                {isFeminineTheme
-                  ? 'Восточная эстетика и вдохновляющий контент уже с вами'
-                  : 'Активируйте восточный режим — визуал и истории адаптируются под женскую аудиторию'}
-              </span>
+              
             </span>
           </button>
         </div>
