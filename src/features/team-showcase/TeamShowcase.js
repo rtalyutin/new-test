@@ -17,7 +17,10 @@ export const loadTeamShowcaseStyles = (loader = () => import('./TeamShowcase.css
   return loader()
     .then(() => true)
     .catch((error) => {
-      if (typeof process !== 'undefined' && process.env?.NODE_ENV !== 'production') {
+      if (
+        typeof globalThis !== 'undefined' &&
+        globalThis.process?.env?.NODE_ENV !== 'production'
+      ) {
         console.error('Failed to load TeamShowcase styles', error);
       }
       return false;
@@ -97,7 +100,10 @@ const TeamShowcase = () => {
         }
       })
       .catch((error) => {
-        if (typeof process !== 'undefined' && process.env?.NODE_ENV !== 'production') {
+        if (
+          typeof globalThis !== 'undefined' &&
+          globalThis.process?.env?.NODE_ENV !== 'production'
+        ) {
           console.error('Failed to load TeamShowcase config', error);
         }
       });
