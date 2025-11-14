@@ -6,6 +6,7 @@ import Hero from './features/Hero/Hero.jsx';
 import Overview from './features/Overview/Overview.jsx';
 import RegistrationCta from './features/RegistrationCta/RegistrationCta.jsx';
 import Sponsors from './features/Sponsors/Sponsors.jsx';
+import TeamShowcase from './features/team-showcase/TeamShowcase.js';
 import heroConfig from './features/Hero/config.json';
 import overviewConfig from './features/Overview/config.json';
 import UpcomingMatches from './features/UpcomingMatches/UpcomingMatches.jsx';
@@ -43,6 +44,14 @@ const App = () => {
           <div className="overview-background__grain" />
         </div>
       ),
+    },
+    {
+      id: 'team-showcase',
+      title: 'Команды сезона',
+      component: <TeamShowcase />,
+      navLabel: 'Команды',
+      variant: 'team-showcase',
+      hideTitle: true,
     },
     {
       id: 'upcoming-matches',
