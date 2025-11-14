@@ -1,0 +1,480 @@
+.teams {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.teams-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: radial-gradient(circle at 12% 8%, rgba(139, 123, 255, 0.28), transparent 55%),
+    radial-gradient(circle at 88% 12%, rgba(64, 232, 194, 0.22), transparent 55%),
+    radial-gradient(circle at 50% 90%, rgba(255, 111, 207, 0.18), transparent 60%);
+}
+
+:root[data-theme='feminine'] .teams-background {
+  background: radial-gradient(circle at 16% 12%, rgba(212, 169, 76, 0.35), transparent 58%),
+    radial-gradient(circle at 82% 10%, rgba(180, 74, 91, 0.32), transparent 62%),
+    radial-gradient(circle at 50% 84%, rgba(127, 143, 153, 0.24), transparent 66%);
+}
+
+.teams-background__halo {
+  position: absolute;
+  inset: 18% 30% auto 18%;
+  height: 46%;
+  background: radial-gradient(circle, rgba(139, 123, 255, 0.28) 0%, rgba(5, 9, 24, 0) 70%);
+  filter: blur(20px);
+}
+
+:root[data-theme='feminine'] .teams-background__halo {
+  background: radial-gradient(circle, rgba(212, 169, 76, 0.3) 0%, rgba(31, 10, 18, 0) 70%);
+}
+
+.teams-background__grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 120px 120px;
+  opacity: 0.32;
+  mix-blend-mode: screen;
+}
+
+.teams-background__spark {
+  position: absolute;
+  width: 16rem;
+  height: 16rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(64, 232, 194, 0.45), rgba(64, 232, 194, 0));
+  filter: blur(18px);
+  opacity: 0.4;
+}
+
+.teams-background__spark--one {
+  top: 12%;
+  right: 4%;
+}
+
+.teams-background__spark--two {
+  bottom: -6%;
+  left: 12%;
+}
+
+:root[data-theme='feminine'] .teams-background__spark {
+  background: radial-gradient(circle, rgba(180, 74, 91, 0.5), rgba(180, 74, 91, 0));
+}
+
+.teams__controller {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-3);
+}
+
+.teams__control {
+  align-self: center;
+  border: 1px solid var(--color-border-strong);
+  background: var(--gradient-primary);
+  color: var(--color-text-primary);
+  border-radius: 50%;
+  width: 3.2rem;
+  height: 3.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
+  box-shadow: var(--shadow-soft-elevated);
+  cursor: pointer;
+}
+
+.teams__control:hover,
+.teams__control:focus-visible {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--shadow-soft-elevated), 0 0 0 3px var(--color-primary-soft);
+}
+
+.teams__control:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.teams__viewport {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  background: linear-gradient(140deg, rgba(18, 25, 48, 0.92), rgba(28, 38, 69, 0.92));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), var(--shadow-soft-elevated);
+}
+
+:root[data-theme='feminine'] .teams__viewport {
+  background: linear-gradient(140deg, rgba(61, 20, 30, 0.94), rgba(93, 36, 45, 0.92));
+}
+
+.teams__track {
+  display: flex;
+  height: 100%;
+  transition: transform var(--transition-slow);
+  will-change: transform;
+}
+
+.teams__page {
+  flex: 0 0 100%;
+  display: grid;
+  grid-template-columns: repeat(var(--teams-cards-per-view, 1), minmax(0, 1fr));
+  gap: var(--space-4);
+  padding: clamp(var(--space-4), 3vw, var(--space-6));
+  align-content: start;
+}
+
+.teams__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  background: linear-gradient(155deg, var(--color-card), var(--color-card-alt));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: clamp(var(--space-4), 2.6vw, var(--space-5));
+  box-shadow: var(--shadow-soft-elevated);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-fast);
+  outline: none;
+}
+
+.teams__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-soft-elevated), 0 18px 44px rgba(10, 16, 32, 0.45);
+}
+
+.teams__card:focus-visible {
+  border-color: var(--color-secondary);
+  box-shadow: var(--shadow-soft-elevated), 0 0 0 3px var(--color-secondary-soft);
+  transform: translateY(-2px);
+}
+
+.teams__card-header {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.teams__card-hero {
+  margin: 0;
+  padding: clamp(var(--space-4), 2.5vw, var(--space-6));
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(120% 120% at 50% 0%, rgba(139, 123, 255, 0.28), transparent 72%),
+    linear-gradient(155deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0));
+  border: 1px solid rgba(139, 123, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(8.5rem, 18vw, 13rem);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+:root[data-theme='feminine'] .teams__card-hero {
+  background:
+    radial-gradient(125% 125% at 50% 0%, rgba(212, 169, 76, 0.35), transparent 75%),
+    linear-gradient(155deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0));
+  border-color: rgba(212, 169, 76, 0.32);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.teams__logo-large {
+  width: min(100%, 18rem);
+  max-height: clamp(7.5rem, 16vw, 12rem);
+  object-fit: contain;
+  filter: drop-shadow(0 16px 40px rgba(10, 16, 32, 0.45));
+  transition: transform var(--transition-slow) ease;
+}
+
+.teams__card:hover .teams__logo-large,
+.teams__card:focus-visible .teams__logo-large {
+  transform: scale(1.025);
+}
+
+.teams__logo-wrapper {
+  width: 4.25rem;
+  height: 4.25rem;
+  min-width: 4.25rem;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.teams__logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.teams__logo--placeholder {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.teams__card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.teams__type {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(139, 123, 255, 0.16);
+  color: var(--color-text-secondary);
+  border: 1px solid rgba(139, 123, 255, 0.28);
+}
+
+:root[data-theme='feminine'] .teams__type {
+  background: rgba(212, 169, 76, 0.16);
+  border-color: rgba(212, 169, 76, 0.32);
+}
+
+.teams__name {
+  margin: 0;
+  font-size: clamp(1.25rem, 1rem + 0.8vw, 1.6rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.teams__players {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.teams__player {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(139, 123, 255, 0.12);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+:root[data-theme='feminine'] .teams__player {
+  border-color: rgba(212, 169, 76, 0.18);
+  background: rgba(214, 164, 90, 0.08);
+}
+
+.teams__player-summary {
+  border-radius: var(--radius-sm);
+}
+
+.teams__player-toggle {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(2rem, auto) 1fr auto auto;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-primary);
+  font: inherit;
+  text-align: left;
+}
+
+.teams__player-toggle:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+.teams__player-summary--expanded .teams__player-toggle {
+  color: var(--color-text-primary);
+}
+
+.teams__player-position {
+  font-weight: 600;
+  color: var(--color-primary);
+  font-size: 0.95rem;
+}
+
+:root[data-theme='feminine'] .teams__player-position {
+  color: var(--color-secondary);
+}
+
+.teams__player-name {
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+}
+
+.teams__player-hours {
+  margin-left: auto;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+.teams__player-indicator {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  border: 1px solid rgba(139, 123, 255, 0.32);
+  display: grid;
+  place-items: center;
+  position: relative;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.teams__player-toggle:hover .teams__player-indicator,
+.teams__player-toggle:focus-visible .teams__player-indicator {
+  border-color: var(--color-secondary);
+}
+
+.teams__player-indicator::before {
+  content: '';
+  width: 0.45rem;
+  height: 0.45rem;
+  border: 2px solid currentColor;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg) translate(-1px, -1px);
+  transition: transform var(--transition-fast);
+}
+
+.teams__player-summary--expanded .teams__player-indicator {
+  background: var(--color-secondary-soft);
+  border-color: var(--color-secondary);
+}
+
+.teams__player-summary--expanded .teams__player-indicator::before {
+  transform: rotate(-135deg);
+}
+
+.teams__player-panel {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: max-height var(--transition-slow), opacity var(--transition-slow), visibility var(--transition-slow);
+}
+
+.teams__player-panel--expanded {
+  max-height: 24rem;
+  opacity: 1;
+  visibility: visible;
+}
+
+.teams__player-panel--expanded .teams__player-description {
+  padding-top: var(--space-2);
+}
+
+.teams__player-description {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.teams__pagination {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.teams__dot {
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  border: 1px solid rgba(139, 123, 255, 0.36);
+  background: rgba(139, 123, 255, 0.12);
+  padding: 0;
+  transition: transform var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+  cursor: pointer;
+}
+
+.teams__dot:hover,
+.teams__dot:focus-visible {
+  transform: scale(1.15);
+  border-color: var(--color-secondary);
+  background: var(--color-secondary-soft);
+}
+
+.teams__dot--active {
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+  transform: scale(1.1);
+}
+
+:root[data-theme='feminine'] .teams__dot {
+  border-color: rgba(212, 169, 76, 0.36);
+  background: rgba(212, 169, 76, 0.12);
+}
+
+:root[data-theme='feminine'] .teams__dot--active {
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+.teams__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 1024px) {
+  .teams__controller {
+    gap: var(--space-2);
+  }
+
+  .teams__control {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .teams__controller {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .teams__control {
+    align-self: flex-end;
+  }
+
+  .teams__pagination {
+    justify-content: flex-start;
+  }
+}

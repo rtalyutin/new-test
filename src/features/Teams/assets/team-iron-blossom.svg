@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <linearGradient id="ironBlossom" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#401d3b" />
+      <stop offset="50%" stop-color="#7f2b56" />
+      <stop offset="100%" stop-color="#f472b6" />
+    </linearGradient>
+  </defs>
+  <rect width="160" height="160" rx="32" fill="url(#ironBlossom)" />
+  <g fill="none" stroke="#fde4f5" stroke-width="4" stroke-linecap="round">
+    <path d="M80 38 C104 54 118 76 118 96 C118 118 102 130 80 130 C58 130 42 118 42 96 C42 76 56 54 80 38 Z" />
+    <path d="M80 68 C88 74 94 84 94 94 C94 108 88 116 80 116 C72 116 66 108 66 94 C66 84 72 74 80 68 Z" />
+  </g>
+  <text x="80" y="140" text-anchor="middle" font-family="'Inter', sans-serif" font-size="18" fill="#fde4f5">IB</text>
+</svg>

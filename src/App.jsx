@@ -6,10 +6,12 @@ import Hero from './features/Hero/Hero.jsx';
 import Overview from './features/Overview/Overview.jsx';
 import RegistrationCta from './features/RegistrationCta/RegistrationCta.jsx';
 import Sponsors from './features/Sponsors/Sponsors.jsx';
+import Teams from './features/Teams/Teams.jsx';
 import heroConfig from './features/Hero/config.json';
 import overviewConfig from './features/Overview/config.json';
 import registrationCtaConfig from './features/RegistrationCta/config.json';
 import sponsorsConfig from './features/Sponsors/config.json';
+import teamsConfig from './features/Teams/config.json';
 import logoImage from './ChatGPT Image 20 окт. 2025 г., 22_02_10.png';
 import './App.css';
 
@@ -48,6 +50,21 @@ const App = () => {
       navLabel: 'Регистрация',
       variant: 'registration-cta',
       hideTitle: true,
+    },
+    {
+      id: 'teams',
+      title: 'Команды участницы',
+      component: <Teams data={teamsConfig} />,
+      navLabel: 'Команды',
+      variant: 'teams',
+      background: (
+        <div className="teams-background">
+          <div className="teams-background__halo" />
+          <div className="teams-background__grid" />
+          <div className="teams-background__spark teams-background__spark--one" />
+          <div className="teams-background__spark teams-background__spark--two" />
+        </div>
+      ),
     },
     {
       id: 'sponsors',

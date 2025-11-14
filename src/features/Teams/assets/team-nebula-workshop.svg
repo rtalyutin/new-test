@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <radialGradient id="nebulaGlow" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#ff6fcf" />
+      <stop offset="65%" stop-color="#7a4dd3" />
+      <stop offset="100%" stop-color="#1b0f3f" />
+    </radialGradient>
+  </defs>
+  <rect width="160" height="160" rx="36" fill="url(#nebulaGlow)" />
+  <g fill="none" stroke="#ffe9ff" stroke-width="4" stroke-linecap="round">
+    <path d="M40 52 C52 40 108 40 120 52" />
+    <path d="M40 108 C52 120 108 120 120 108" />
+    <path d="M40 80 H120" />
+  </g>
+  <text x="80" y="92" text-anchor="middle" font-family="'Inter', sans-serif" font-size="22" fill="#fff">NW</text>
+</svg>

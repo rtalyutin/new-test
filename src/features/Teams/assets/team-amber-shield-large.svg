@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <radialGradient id="amberShield" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#ffd166" />
+      <stop offset="60%" stop-color="#fca311" />
+      <stop offset="100%" stop-color="#7f4f24" />
+    </radialGradient>
+  </defs>
+  <rect width="160" height="160" rx="32" fill="url(#amberShield)" />
+  <path d="M80 38 L116 58 V90 C116 112 100 128 80 134 C60 128 44 112 44 90 V58 Z" fill="rgba(11, 16, 32, 0.35)" stroke="#ffe7a0" stroke-width="5" />
+  <text x="80" y="104" text-anchor="middle" font-family="'Inter', sans-serif" font-size="20" font-weight="600" fill="#ffe7a0">AS</text>
+</svg>
