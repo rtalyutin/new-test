@@ -2,17 +2,30 @@ import {
   createElement,
   useCallback,
   useEffect,
-  useMemo,
   useRef,
   useState,
 } from 'react';
 
-import data from './loadConfig.js';
+import { getCachedConfig, loadConfig } from './loadConfig.js';
 import { getFollowingIndex, getNextIndex, getPreviousIndex } from './carouselUtils.js';
 
-if (typeof document !== 'undefined') {
-  await import('./TeamShowcase.css');
-}
+export const loadTeamShowcaseStyles = (loader = () => import('./TeamShowcase.css')) => {
+  if (typeof document === 'undefined') {
+    return Promise.resolve(false);
+  }
+
+  return loader()
+    .then(() => true)
+    .catch((error) => {
+      if (
+        typeof globalThis !== 'undefined' &&
+        globalThis.process?.env?.NODE_ENV !== 'production'
+      ) {
+        console.error('Failed to load TeamShowcase styles', error);
+      }
+      return false;
+    });
+};
 
 const AUTO_PLAY_INTERVAL = 8000;
 const numberFormatter = new Intl.NumberFormat('ru-RU');
@@ -71,11 +84,38 @@ const renderTeamSlide = (team, index, activeIndex) =>
   );
 
 const TeamShowcase = () => {
-  const teams = useMemo(() => data, []);
+  const [teams, setTeams] = useState(() => getCachedConfig() ?? []);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const totalSlides = teams.length;
   const autoplayRef = useRef(null);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    loadConfig()
+      .then((dataset) => {
+        if (isMounted) {
+          setTeams(dataset);
+        }
+      })
+      .catch((error) => {
+        if (
+          typeof globalThis !== 'undefined' &&
+          globalThis.process?.env?.NODE_ENV !== 'production'
+        ) {
+          console.error('Failed to load TeamShowcase config', error);
+        }
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    loadTeamShowcaseStyles();
+  }, []);
 
   const goToIndex = useCallback(
     (index) => {
@@ -98,7 +138,7 @@ const TeamShowcase = () => {
   }, [totalSlides]);
 
   useEffect(() => {
-    if (totalSlides <= 1 || isPaused) {
+    if (typeof document === 'undefined' || totalSlides <= 1 || isPaused) {
       return undefined;
     }
 
