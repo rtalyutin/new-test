@@ -1,0 +1,95 @@
+{
+  "title": "расписание ближайших матчей",
+  "tags": ["dota 2", "qual"],
+  "channelPresets": {
+    "primary": {
+      "id": "primary",
+      "label": "1 канал",
+      "url": "https://www.twitch.tv/yarcyberseason"
+    },
+    "secondary": {
+      "id": "secondary",
+      "label": "2 канал",
+      "url": "https://www.twitch.tv/yarcyberseason2"
+    }
+  },
+  "matches": [
+    {
+      "id": "2025-11-17-mi-ne-pushim-ygk",
+      "dayLabel": "Пнк 17.11",
+      "timeLabel": "19:00",
+      "dateTime": "2025-11-17T19:00:00+03:00",
+      "teams": {
+        "home": "Mi ne Pushim!",
+        "away": "YGK"
+      },
+      "channelIds": ["primary"]
+    },
+    {
+      "id": "2025-11-18-team-borisogleb-ne-znayushchie-pobed",
+      "dayLabel": "Вт 18.11",
+      "timeLabel": "19:00",
+      "dateTime": "2025-11-18T19:00:00+03:00",
+      "teams": {
+        "home": "Team Borisogleb",
+        "away": "Не Знающие Побед"
+      },
+      "channelIds": ["primary"]
+    },
+    {
+      "id": "2025-11-19-japan-blyzhayshie",
+      "dayLabel": "Ср 19.11",
+      "timeLabel": "19:00",
+      "dateTime": "2025-11-19T19:00:00+03:00",
+      "teams": {
+        "home": "Japan 日本",
+        "away": "Ближайшие"
+      },
+      "channelIds": ["secondary"]
+    },
+    {
+      "id": "2025-11-19-geeks-way-prod",
+      "dayLabel": "Ср 19.11",
+      "timeLabel": "19:00",
+      "dateTime": "2025-11-19T19:00:00+03:00",
+      "teams": {
+        "home": "Гики",
+        "away": "Way prod."
+      },
+      "channelIds": ["primary"]
+    },
+    {
+      "id": "2025-11-20-yellow-submarine-arb-esports",
+      "dayLabel": "Чт 20.11",
+      "timeLabel": "19:00",
+      "dateTime": "2025-11-20T19:00:00+03:00",
+      "teams": {
+        "home": "Yellow Submarine",
+        "away": "ARB esports"
+      },
+      "channelIds": ["primary"]
+    },
+    {
+      "id": "2025-11-21-steel-titans-labubu-team",
+      "dayLabel": "Пт 21.11",
+      "timeLabel": "19:00",
+      "dateTime": "2025-11-21T19:00:00+03:00",
+      "teams": {
+        "home": "Steel Titans",
+        "away": "Labubu team"
+      },
+      "channelIds": ["primary"]
+    },
+    {
+      "id": "2025-11-23-buyback-academy-tech-titans",
+      "dayLabel": "Вск 23.11",
+      "timeLabel": "15:00",
+      "dateTime": "2025-11-23T15:00:00+03:00",
+      "teams": {
+        "home": "Buyback Academy",
+        "away": "Tech Titans"
+      },
+      "channelIds": ["primary"]
+    }
+  ]
+}
