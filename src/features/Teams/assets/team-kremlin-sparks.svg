@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <linearGradient id="kremlinSparks" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d7263d" />
+      <stop offset="50%" stop-color="#f46036" />
+      <stop offset="100%" stop-color="#2e294e" />
+    </linearGradient>
+  </defs>
+  <rect width="160" height="160" rx="30" fill="url(#kremlinSparks)" />
+  <path d="M80 32 L98 74 L144 74 L108 100 L122 142 L80 118 L38 142 L52 100 L16 74 L62 74 Z" fill="rgba(255, 255, 255, 0.18)" stroke="#ffeedd" stroke-width="4" />
+  <text x="80" y="92" text-anchor="middle" font-family="'Inter', sans-serif" font-size="20" fill="#ffeedd">KS</text>
+</svg>

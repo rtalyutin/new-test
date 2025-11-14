@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <linearGradient id="polarVector" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+  </defs>
+  <rect width="160" height="160" rx="28" fill="url(#polarVector)" />
+  <path d="M80 34 L116 80 L80 126 L44 80 Z" fill="none" stroke="#e0f2fe" stroke-width="6" stroke-linejoin="round" />
+  <path d="M80 52 L101 80 L80 108 L59 80 Z" fill="#e0f2fe" opacity="0.75" />
+  <text x="80" y="138" text-anchor="middle" font-family="'Inter', sans-serif" font-size="18" fill="#e0f2fe">PV</text>
+</svg>

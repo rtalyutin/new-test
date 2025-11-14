@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <linearGradient id="quantumStrata" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffb347" />
+      <stop offset="50%" stop-color="#ffcc33" />
+      <stop offset="100%" stop-color="#ff7096" />
+    </linearGradient>
+  </defs>
+  <rect width="160" height="160" rx="34" fill="url(#quantumStrata)" />
+  <g fill="none" stroke="#2b0f35" stroke-width="5">
+    <path d="M80 34 C110 46 122 82 112 110 C104 132 56 132 48 110 C38 82 50 46 80 34 Z" />
+    <circle cx="80" cy="74" r="18" />
+    <path d="M58 102 H102" />
+  </g>
+  <text x="80" y="138" text-anchor="middle" font-family="'Inter', sans-serif" font-size="18" font-weight="600" fill="#2b0f35">QM</text>
+</svg>

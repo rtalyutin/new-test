@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <radialGradient id="sakuraAssembly" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#ffe5f1" />
+      <stop offset="60%" stop-color="#ff9ac7" />
+      <stop offset="100%" stop-color="#d946ef" />
+    </radialGradient>
+  </defs>
+  <rect width="160" height="160" rx="32" fill="url(#sakuraAssembly)" />
+  <g fill="none" stroke="#4c1d95" stroke-width="4" stroke-linecap="round">
+    <path d="M80 42 C92 58 126 70 118 96 C112 116 92 126 80 126 C68 126 48 116 42 96 C34 70 68 58 80 42 Z" />
+    <circle cx="80" cy="86" r="16" />
+  </g>
+  <text x="80" y="136" text-anchor="middle" font-family="'Inter', sans-serif" font-size="18" fill="#4c1d95">SA</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <linearGradient id="synthwave" x1="0%" x2="0%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#ff2d95" />
+      <stop offset="50%" stop-color="#7928ca" />
+      <stop offset="100%" stop-color="#0b102b" />
+    </linearGradient>
+  </defs>
+  <rect width="160" height="160" rx="26" fill="url(#synthwave)" />
+  <g stroke="#f9f3ff" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M36 112 L52 72 L68 112 L84 64 L100 112 L116 76" />
+  </g>
+  <circle cx="48" cy="52" r="12" fill="#ffe0ff" opacity="0.6" />
+  <text x="80" y="136" text-anchor="middle" font-family="'Inter', sans-serif" font-size="18" fill="#f9f3ff">SC</text>
+</svg>

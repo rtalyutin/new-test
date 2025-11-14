@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <linearGradient id="stellarKolos" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#312e81" />
+      <stop offset="100%" stop-color="#7c3aed" />
+    </linearGradient>
+  </defs>
+  <rect width="160" height="160" rx="30" fill="url(#stellarKolos)" />
+  <g fill="#c4b5fd" opacity="0.85">
+    <path d="M80 32 L90 72 H132 L98 96 L110 136 L80 110 L50 136 L62 96 L28 72 H70 Z" />
+  </g>
+  <text x="80" y="142" text-anchor="middle" font-family="'Inter', sans-serif" font-size="18" fill="#ede9fe">SK</text>
+</svg>

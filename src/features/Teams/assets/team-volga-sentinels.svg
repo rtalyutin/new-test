@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <linearGradient id="volgaGradient" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#1d3557" />
+      <stop offset="50%" stop-color="#457b9d" />
+      <stop offset="100%" stop-color="#a8dadc" />
+    </linearGradient>
+  </defs>
+  <rect width="160" height="160" rx="28" fill="url(#volgaGradient)" />
+  <path d="M40 118 Q80 52 120 118" stroke="#f1faee" stroke-width="10" fill="none" stroke-linecap="round" />
+  <circle cx="80" cy="82" r="18" fill="rgba(255, 255, 255, 0.25)" stroke="#f1faee" stroke-width="4" />
+  <text x="80" y="132" text-anchor="middle" font-family="'Inter', sans-serif" font-size="18" font-weight="600" fill="#f1faee">VS</text>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <linearGradient id="yarPilots" x1="0%" x2="100%" y1="0%" y2="0%">
+      <stop offset="0%" stop-color="#0b1225" />
+      <stop offset="50%" stop-color="#1f3b73" />
+      <stop offset="100%" stop-color="#7bdff2" />
+    </linearGradient>
+  </defs>
+  <rect width="160" height="160" rx="30" fill="url(#yarPilots)" />
+  <path d="M80 38 L108 78 L80 118 L52 78 Z" fill="rgba(255, 255, 255, 0.16)" stroke="#d9f0ff" stroke-width="4" />
+  <path d="M80 52 L92 78 L80 104 L68 78 Z" fill="#d9f0ff" opacity="0.85" />
+  <text x="80" y="138" text-anchor="middle" font-family="'Inter', sans-serif" font-size="18" fill="#d9f0ff">YP</text>
+</svg>
