@@ -8,6 +8,8 @@ import RegistrationCta from './features/RegistrationCta/RegistrationCta.jsx';
 import Sponsors from './features/Sponsors/Sponsors.jsx';
 import heroConfig from './features/Hero/config.json';
 import overviewConfig from './features/Overview/config.json';
+import UpcomingMatches from './features/UpcomingMatches/UpcomingMatches.jsx';
+import upcomingMatchesConfig from './features/UpcomingMatches/config.json';
 import registrationCtaConfig from './features/RegistrationCta/config.json';
 import sponsorsConfig from './features/Sponsors/config.json';
 import logoImage from './ChatGPT Image 20 окт. 2025 г., 22_02_10.png';
@@ -41,6 +43,13 @@ const App = () => {
           <div className="overview-background__grain" />
         </div>
       ),
+    },
+    {
+      id: 'upcoming-matches',
+      component: <UpcomingMatches data={upcomingMatchesConfig} />,
+      navLabel: 'Матчи',
+      variant: 'upcoming-matches',
+      hideTitle: true,
     },
     {
       id: 'registration',
