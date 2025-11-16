@@ -2,7 +2,7 @@
   {
     "name": "Labubu Team",
     "teamType": "Молодая киберспортивная команда",
-    "logo": "/logos/labubu-team.svg",
+    "logo": "/logos/Labubu Team.jpg",
     "members": [
       {
         "name": "Кирилл «yunoqwee» Яловой",
@@ -39,7 +39,7 @@
   {
     "name": "ARB eSports",
     "teamType": "Опытный микс",
-    "logo": "/logos/arb-esports.svg",
+    "logo": "/logos/ARB eSports.jpg",
     "members": [
       {
         "name": "Кирилл «kyoutetsu凛» Малиновский",
@@ -76,7 +76,7 @@
   {
     "name": "Way prod.",
     "teamType": "Организация с упором на макро",
-    "logo": "/logos/way-prod.svg",
+    "logo": "/logos/Way prod.jpg",
     "members": [
       {
         "name": "Максим «hope» Архипов",
@@ -113,7 +113,7 @@
   {
     "name": "Ближайшие",
     "teamType": "Структурированная команда",
-    "logo": "/logos/blizhayshie.svg",
+    "logo": "/logos/nearest.jpg",
     "members": [
       {
         "name": "Дмитрий «Pomyanem» Штольц",
@@ -150,7 +150,7 @@
   {
     "name": "Tech Titans",
     "teamType": "Чемпионы корпоративного кубка",
-    "logo": "/logos/tech-titans.svg",
+    "logo": "/logos/Tech Titans.jpg",
     "members": [
       {
         "name": "Арсений Павлов",
@@ -187,7 +187,7 @@
   {
     "name": "Не знающие побед",
     "teamType": "Открытые квалификации",
-    "logo": "/logos/no-winners.svg",
+    "logo": "/logos/nzp.jpg",
     "members": [
       {
         "name": "Нил «my life is the moon» Громов",
@@ -224,7 +224,7 @@
   {
     "name": "YGK",
     "teamType": "Оптимистичный ростер",
-    "logo": "/logos/ygk.svg",
+    "logo": "/logos/YGK.jpg",
     "members": [
       {
         "name": "Матвей «Shudi» Костров",
@@ -261,7 +261,7 @@
   {
     "name": "BuyBack Academy",
     "teamType": "Тактическая академия",
-    "logo": "/logos/buyback-academy.svg",
+    "logo": "/logos/BuyBack Academy.jpg",
     "members": [
       {
         "name": "Игорь «Юрий Цезарь» Ужусенис",
@@ -298,7 +298,7 @@
   {
     "name": "Гики",
     "teamType": "Квалификационный состав",
-    "logo": "/logos/geeks.svg",
+    "logo": "/logos/giki.jpg",
     "members": [
       {
         "name": "Илья «godless» Заика",
@@ -335,7 +335,7 @@
   {
     "name": "Steel Titans",
     "teamType": "Сбалансированный состав",
-    "logo": "/logos/steel-titans.svg",
+    "logo": "/logos/Steel Titans.jpg",
     "members": [
       {
         "name": "Эльнур «CraftOne» Алыев",
@@ -370,7 +370,7 @@
     ]
   },
   {
-    "name": "Yellow Submarine",
+    "name": "Yellow Submarine.jpg",
     "teamType": "Команда с капитаном-саппортом",
     "logo": "/logos/yellow-submarine.svg",
     "members": [
@@ -409,7 +409,7 @@
   {
     "name": "Japan日本",
     "teamType": "Межкультурный состав",
-    "logo": "/logos/japan.svg",
+    "logo": "/logos/Japan.jpg",
     "members": [
       {
         "name": "Валера «卵を食べる» Крохмаль",
@@ -446,7 +446,7 @@
   {
     "name": "Team Borisogleb",
     "teamType": "Уверенный микс",
-    "logo": "/logos/team-borisogleb.svg",
+    "logo": "/logos/Borisogleb.jpg",
     "members": [
       {
         "name": "Андрей «Dedredd» Бородулин",
@@ -483,7 +483,7 @@
   {
     "name": "Mi Ne Pushim!",
     "teamType": "Гибкий коллектив",
-    "logo": "/logos/mi-ne-pushim.svg",
+    "logo": "/logos/Mi Ne Pushim.jpg",
     "members": [
       {
         "name": "Кирилл «Ucomion» Олешков",
