@@ -12,6 +12,8 @@ import heroConfig from './features/Hero/config.json';
 import overviewConfig from './features/Overview/config.json';
 import UpcomingMatches from './features/UpcomingMatches/UpcomingMatches.jsx';
 import upcomingMatchesConfig from './features/UpcomingMatches/config.json';
+import MatchResults from './features/MatchResults/MatchResults.jsx';
+import matchResultsConfig from './features/MatchResults/config.json';
 import registrationCtaConfig from './features/RegistrationCta/config.json';
 import sponsorsConfig from './features/Sponsors/config.json';
 import socialLinksConfig from './features/SocialLinks/config.json';
@@ -60,6 +62,13 @@ const App = () => {
       component: <UpcomingMatches data={upcomingMatchesConfig} />,
       navLabel: 'Матчи',
       variant: 'upcoming-matches',
+      hideTitle: true,
+    },
+    {
+      id: 'match-results',
+      component: <MatchResults data={matchResultsConfig} />,
+      navLabel: 'Результаты',
+      variant: 'match-results',
       hideTitle: true,
     },
     {

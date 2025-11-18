@@ -1,0 +1,26 @@
+{
+  "title": "Результаты последних матчей",
+  "description": "Следите за динамикой плей-офф: счёт, формат серии и быстрые ссылки на повторы.",
+  "matches": [
+    {
+      "id": "2025-11-17-qual-mi-ne-pushim-ygk",
+      "dateLabel": "17 ноя · 19:00",
+      "dateTime": "2025-11-17T19:00:00+03:00",
+      "stage": "Квалификация · Раунд 1",
+      "teams": {
+        "home": "Mi ne Pushim!",
+        "away": "YGK"
+      },
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "bestOf": 3,
+      "status": "finished",
+      "statusLabel": "2–0 · завершён",
+      "detailsUrl": "https://www.youtube.com/watch?v=qual-mi-ne-pushim-ygk",
+      "detailsLabel": "Смотреть повтор",
+      "winner": "home"
+    }
+  ]
+}
