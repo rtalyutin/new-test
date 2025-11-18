@@ -1,0 +1,64 @@
+{
+  "eyebrow": "Сообщество",
+  "title": "Всегда на связи с YarCyberSeason",
+  "description": "Подключайтесь к трансляциям, следите за закулисьем и ловите анонсы турниров на любимых платформах. Мы публикуем расписание, хайлайты и backstage-контент — выбирайте удобный канал и будьте в курсе сезона.",
+  "channels": [
+    {
+      "id": "twitch-main",
+      "label": "Twitch #1",
+      "handle": "@yarcyberseason",
+      "description": "Главная арена с прямыми трансляциями матчей и плей-офф.",
+      "url": "https://www.twitch.tv/yarcyberseason",
+      "type": "twitch"
+    },
+    {
+      "id": "twitch-analytics",
+      "label": "Twitch #2",
+      "handle": "@yarcyberseason2",
+      "description": "За кадром: аналитика, интервью и дружеские шоу-матчи.",
+      "url": "https://www.twitch.tv/yarcyberseason2",
+      "type": "twitch"
+    },
+    {
+      "id": "twitch-community",
+      "label": "Twitch #3",
+      "handle": "@yarcyberseason3",
+      "description": "Комьюнити-стримы и тренировочные сессии команд.",
+      "url": "https://www.twitch.tv/yarcyberseason3",
+      "type": "twitch"
+    },
+    {
+      "id": "youtube",
+      "label": "YouTube",
+      "handle": "@YarCyberSeason",
+      "description": "Хайлайты, обзоры патчей и документалка о пути участников.",
+      "url": "https://www.youtube.com/@YarCyberSeason",
+      "type": "youtube"
+    },
+    {
+      "id": "email",
+      "label": "Email",
+      "handle": "yarcyberseason@gmail.com",
+      "description": "Вопросы по партнёрству и орг. моменты? Пишите напрямую.",
+      "url": "mailto:yarcyberseason@gmail.com",
+      "type": "email"
+    },
+    {
+      "id": "tiktok",
+      "label": "TikTok",
+      "handle": "@yarcyberseason",
+      "description": "Быстрые нарезки, тренды и backstage-лифты настроения.",
+      "url": "https://www.tiktok.com/@yarcyberseason",
+      "type": "tiktok"
+    },
+    {
+      "id": "instagram",
+      "label": "Instagram",
+      "handle": "@yarcyberseason",
+      "description": "Фото-дайджесты матчей и живое общение со зрителями.",
+      "url": "https://www.instagram.com/yarcyberseason/",
+      "type": "instagram"
+    }
+  ],
+  "footnote": "Навигация обновляется автоматически — добавим новые площадки по мере расширения YarCyberSeason."
+}

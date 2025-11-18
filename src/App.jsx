@@ -7,12 +7,14 @@ import Overview from './features/Overview/Overview.jsx';
 import RegistrationCta from './features/RegistrationCta/RegistrationCta.jsx';
 import Sponsors from './features/Sponsors/Sponsors.jsx';
 import TeamShowcase from './features/team-showcase/TeamShowcase.js';
+import SocialLinks from './features/SocialLinks/SocialLinks.jsx';
 import heroConfig from './features/Hero/config.json';
 import overviewConfig from './features/Overview/config.json';
 import UpcomingMatches from './features/UpcomingMatches/UpcomingMatches.jsx';
 import upcomingMatchesConfig from './features/UpcomingMatches/config.json';
 import registrationCtaConfig from './features/RegistrationCta/config.json';
 import sponsorsConfig from './features/Sponsors/config.json';
+import socialLinksConfig from './features/SocialLinks/config.json';
 import logoImage from './ChatGPT Image 20 окт. 2025 г., 22_02_10.png';
 import './App.css';
 
@@ -65,6 +67,14 @@ const App = () => {
       component: <RegistrationCta data={registrationCtaConfig} />,
       navLabel: 'Регистрация',
       variant: 'registration-cta',
+      hideTitle: true,
+    },
+    {
+      id: 'social',
+      title: 'Социальные каналы',
+      component: <SocialLinks data={socialLinksConfig} />,
+      navLabel: 'Соцсети',
+      variant: 'social-links',
       hideTitle: true,
     },
     {
