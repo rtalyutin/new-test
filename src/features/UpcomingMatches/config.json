@@ -39,17 +39,6 @@
         "home": "Japan 日本",
         "away": "Ближайшие"
       },
-      "channelIds": ["thirdy"]
-    },
-    {
-      "id": "2025-11-19-geeks-way-prod",
-      "dayLabel": "Пт 21.11",
-      "timeLabel": "19:00",
-      "dateTime": "2025-11-21T19:00:00+03:00",
-      "teams": {
-        "home": "Гики",
-        "away": "Way prod."
-      },
       "channelIds": ["secondary"]
     },
     {
@@ -62,6 +51,17 @@
         "away": "ARB esports"
       },
       "channelIds": ["primary"]
+    },
+    {
+      "id": "2025-11-19-geeks-way-prod",
+      "dayLabel": "Пт 21.11",
+      "timeLabel": "19:00",
+      "dateTime": "2025-11-21T19:00:00+03:00",
+      "teams": {
+        "home": "Гики",
+        "away": "Way prod."
+      },
+      "channelIds": ["secondary"]
     },
     {
       "id": "2025-11-21-steel-titans-labubu-team",
