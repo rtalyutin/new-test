@@ -21,6 +21,45 @@
       "detailsUrl": "https://www.youtube.com/watch?v=qual-mi-ne-pushim-ygk",
       "detailsLabel": "Смотреть повтор",
       "winner": "home"
+    },
+     {
+      "id": "2025-11-18-team-borisogleb-ne-znayushchie-pobed",
+      "dateLabel": "19 ноя · 19:00",
+      "timeLabel": "19:00",
+      "dateTime": "2025-11-18T19:00:00+03:00",
+      "teams": {
+        "home": "Team Borisogleb",
+        "away": "Не Знающие Побед"
+      },
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "bestOf": 3,
+      "status": "finished",
+      "statusLabel": "2–0 · завершён",
+       "detailsUrl": "https://www.youtube.com/watch?v=",
+      "detailsLabel": "Смотреть повтор",
+      "winner": "home"
+    },
+    {
+      "id": "2025-11-19-japan-blyzhayshie",
+      "dateLabel": "19 ноя · 20:00",
+      "dateTime": "2025-11-19T20:00:00+03:00",
+      "teams": {
+        "home": "Japan 日本",
+        "away": "Ближайшие"
+      },
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "bestOf": 3,
+      "status": "finished",
+      "statusLabel": "2–0 · завершён",
+      "detailsUrl": "https://www.youtube.com/watch?v=",
+      "detailsLabel": "Смотреть повтор",
+      "winner": "home"
     }
   ]
 }
