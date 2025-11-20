@@ -19,28 +19,7 @@
     }
   },
   "matches": [
-    {
-      "id": "2025-11-18-team-borisogleb-ne-znayushchie-pobed",
-      "dayLabel": "Ср 19.11",
-      "timeLabel": "19:00",
-      "dateTime": "2025-11-18T19:00:00+03:00",
-      "teams": {
-        "home": "Team Borisogleb",
-        "away": "Не Знающие Побед"
-      },
-      "channelIds": ["primary"]
-    },
-    {
-      "id": "2025-11-19-japan-blyzhayshie",
-      "dayLabel": "Ср 19.11",
-      "timeLabel": "20:00",
-      "dateTime": "2025-11-19T19:00:00+03:00",
-      "teams": {
-        "home": "Japan 日本",
-        "away": "Ближайшие"
-      },
-      "channelIds": ["secondary"]
-    },
+   
     {
       "id": "2025-11-20-yellow-submarine-arb-esports",
       "dayLabel": "Чт 20.11",
