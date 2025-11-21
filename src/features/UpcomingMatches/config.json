@@ -21,17 +21,6 @@
   "matches": [
    
     {
-      "id": "2025-11-20-yellow-submarine-arb-esports",
-      "dayLabel": "Чт 20.11",
-      "timeLabel": "19:00",
-      "dateTime": "2025-11-20T19:00:00+03:00",
-      "teams": {
-        "home": "Yellow Submarine",
-        "away": "ARB esports"
-      },
-      "channelIds": ["primary"]
-    },
-    {
       "id": "2025-11-19-geeks-way-prod",
       "dayLabel": "Пт 21.11",
       "timeLabel": "19:00",
