@@ -18,7 +18,7 @@
       "bestOf": 3,
       "status": "finished",
       "statusLabel": "2–0 · завершён",
-      "detailsUrl": "https://www.youtube.com/watch?v=qual-mi-ne-pushim-ygk",
+      "detailsUrl": "https://youtu.be/HqTmpiQYUYE?si=m-i_J2KJhgkmmZbB",
       "detailsLabel": "Смотреть повтор",
       "winner": "home"
     },
@@ -38,7 +38,7 @@
       "bestOf": 3,
       "status": "finished",
       "statusLabel": "2–0 · завершён",
-       "detailsUrl": "https://www.youtube.com/watch?v=",
+       "detailsUrl": "https://youtu.be/fOa2SLn0U6w?si=DzZKJYETDOTCEixa",
       "detailsLabel": "Смотреть повтор",
       "winner": "home"
     },
@@ -57,9 +57,28 @@
       "bestOf": 3,
       "status": "finished",
       "statusLabel": "2–0 · завершён",
-      "detailsUrl": "https://www.youtube.com/watch?v=",
+      "detailsUrl": "https://youtu.be/Y21MEipmu10?si=sJAv8cqWqh6msFqV",
       "detailsLabel": "Смотреть повтор",
       "winner": "home"
-    }
+    },
+    {
+      "id": "2025-11-20-yellow-submarine-arb-esports",
+      "dateLabel": "20 ноя · 20:00",
+      "dateTime": "2025-11-20T20:00:00+03:00",
+      "teams": {
+        "home": "Yellow Submarine",
+        "away": "ARB esports"
+      },
+      "score": {
+        "home": 0,
+        "away": 2
+      },
+      "bestOf": 3,
+      "status": "finished",
+      "statusLabel": "0–2 · завершён",
+      "detailsUrl": "https://youtu.be/Y21MEipmu10?si=..",
+      "detailsLabel": "Смотреть повтор",
+      "winner": "away"
+   }
   ]
 }
