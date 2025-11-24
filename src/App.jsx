@@ -17,6 +17,8 @@ import matchResultsConfig from './features/MatchResults/config.json';
 import registrationCtaConfig from './features/RegistrationCta/config.json';
 import sponsorsConfig from './features/Sponsors/config.json';
 import socialLinksConfig from './features/SocialLinks/config.json';
+import QualificationsTable from './features/QualificationsTable/QualificationsTable.jsx';
+import qualificationsConfig from './features/QualificationsTable/config.json';
 import logoImage from './ChatGPT Image 20 окт. 2025 г., 22_02_10.png';
 import './App.css';
 
@@ -62,6 +64,15 @@ const App = () => {
       component: <UpcomingMatches data={upcomingMatchesConfig} />,
       navLabel: 'Матчи',
       variant: 'upcoming-matches',
+      hideTitle: true,
+    },
+    {
+      id: 'qualifications',
+      component: (
+        <QualificationsTable data={qualificationsConfig} matchResults={matchResultsConfig} />
+      ),
+      navLabel: 'Таблица',
+      variant: 'qualifications-table',
       hideTitle: true,
     },
     {
