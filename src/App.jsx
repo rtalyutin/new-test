@@ -74,6 +74,7 @@ const App = () => {
       navLabel: 'Таблица',
       variant: 'qualifications-table',
       hideTitle: true,
+      fullBleed: true,
     },
     {
       id: 'match-results',
