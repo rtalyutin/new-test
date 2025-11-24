@@ -9,16 +9,12 @@ import {
 import styles from './QualificationsTable.module.css';
 
 const QualificationsTable = ({ data, matchResults }) => {
-  const { title, description, caption, columnLabels, sortLabels, pointsPerWin, pointsPerDraw } = data;
+  const { title, description, caption, columnLabels, sortLabels } = data;
   const [sortBy, setSortBy] = useState('points');
 
   const derivedTeams = useMemo(
-    () =>
-      buildStandingsFromMatchResults(matchResults, {
-        pointsPerWin,
-        pointsPerDraw,
-      }),
-    [matchResults, pointsPerWin, pointsPerDraw],
+    () => buildStandingsFromMatchResults(matchResults),
+    [matchResults],
   );
 
   const finishedWeeks = useMemo(() => extractFinishedMatchesByWeek(matchResults), [matchResults]);
@@ -34,9 +30,9 @@ const QualificationsTable = ({ data, matchResults }) => {
       return [];
     }
 
-    const previousTeams = buildStandingsFromMatches(previousWeekMatches, { pointsPerWin, pointsPerDraw });
+    const previousTeams = buildStandingsFromMatches(previousWeekMatches);
     return sortTeams(previousTeams, sortBy);
-  }, [pointsPerDraw, pointsPerWin, previousWeekMatches, sortBy]);
+  }, [previousWeekMatches, sortBy]);
 
   const previousPositions = useMemo(() => {
     const map = new Map();
@@ -207,8 +203,6 @@ QualificationsTable.propTypes = {
       points: PropTypes.string.isRequired,
       mapDiff: PropTypes.string.isRequired,
     }).isRequired,
-    pointsPerWin: PropTypes.number,
-    pointsPerDraw: PropTypes.number,
   }).isRequired,
   matchResults: PropTypes.shape({
     rounds: PropTypes.arrayOf(
