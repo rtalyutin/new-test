@@ -18,7 +18,6 @@ const QualificationsTable = ({ data, matchResults }) => {
   );
 
   const finishedWeeks = useMemo(() => extractFinishedMatchesByWeek(matchResults), [matchResults]);
-  const latestFinishedWeek = finishedWeeks[finishedWeeks.length - 1];
 
   const previousWeekMatches = useMemo(
     () => finishedWeeks.slice(0, -1).flatMap((week) => week.matches),
@@ -66,11 +65,6 @@ const QualificationsTable = ({ data, matchResults }) => {
             {title}
           </h3>
           <p className={styles.description}>{description}</p>
-          {latestFinishedWeek ? (
-            <p className={styles.updateNote}>
-              Обновлено по итогам: <span className={styles.updateHighlight}>{latestFinishedWeek.title}</span>
-            </p>
-          ) : null}
         </div>
         <div className={styles.controls} aria-label="Управление сортировкой таблицы">
           <span className={styles.controlsLabel}>Сортировка:</span>
