@@ -139,8 +139,19 @@
 .table td {
   padding: clamp(0.75rem, 2vw, 1rem) clamp(0.6rem, 1.5vw, 0.9rem);
   text-align: left;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   font-variant-numeric: tabular-nums;
+}
+
+.table tbody tr {
+  position: relative;
+}
+
+.table tbody tr::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  pointer-events: none;
 }
 
 .table th {
