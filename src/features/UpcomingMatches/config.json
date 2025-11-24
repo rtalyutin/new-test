@@ -25,7 +25,7 @@
       "timeLabel": "19:00",
       "dateTime": "2025-11-25T19:00:00+03:00",
       "teams": {
-        "home": "Way prod",
+        "home": "Way prod.",
         "away": "Steel Titans"
       },
       "channelIds": ["primary"]
@@ -37,7 +37,7 @@
       "dateTime": "2025-11-26T19:00:00+03:00",
       "teams": {
         "home": "Не знающие побед",
-        "away": "Yellow submarine"
+        "away": "Yellow Submarine"
       },
       "channelIds": ["primary"]
     },
@@ -48,7 +48,7 @@
       "dateTime": "2025-11-27T19:00:00+03:00",
       "teams": {
         "home": "ARB",
-        "away": "Buyback academy"
+        "away": "Buyback Academy"
       },
       "channelIds": ["primary"]
     },
@@ -70,7 +70,7 @@
       "dateTime": "2025-11-27T21:00:00+03:00",
       "teams": {
         "home": "Mi ne pushim",
-        "away": "Japan"
+        "away": "Japan 日本"
       },
       "channelIds": ["primary"]
     },
