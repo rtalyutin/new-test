@@ -1,87 +1,278 @@
 {
   "title": "Результаты последних матчей",
-  "description": "Следите за динамикой плей-офф: счёт, формат серии и быстрые ссылки на повторы.",
-  "matches": [
+  "description": "Следите за динамикой плей-офф: счёт, формат серии, карты и быстрые ссылки на повторы.",
+  "rounds": [
     {
-      "id": "2025-11-17-qual-mi-ne-pushim-ygk",
-      "dateLabel": "17 ноя · 19:00",
-      "dateTime": "2025-11-17T19:00:00+03:00",
-      "stage": "Квалификация · Раунд 1",
-      "teams": {
-        "home": "Mi ne Pushim!",
-        "away": "YGK"
-      },
-      "score": {
-        "home": 2,
-        "away": 0
-      },
-      "bestOf": 3,
-      "status": "finished",
-      "statusLabel": "2–0 · завершён",
-      "detailsUrl": "https://youtu.be/HqTmpiQYUYE?si=m-i_J2KJhgkmmZbB",
-      "detailsLabel": "Смотреть повтор",
-      "winner": "home"
-    },
-     {
-      "id": "2025-11-18-team-borisogleb-ne-znayushchie-pobed",
-      "dateLabel": "19 ноя · 19:00",
-      "timeLabel": "19:00",
-      "dateTime": "2025-11-18T19:00:00+03:00",
-      "stage": "Квалификация · Раунд 1",
-      "teams": {
-        "home": "Team Borisogleb",
-        "away": "Не Знающие Побед"
-      },
-      "score": {
-        "home": 2,
-        "away": 0
-      },
-      "bestOf": 3,
-      "status": "finished",
-      "statusLabel": "2–0 · завершён",
-       "detailsUrl": "https://youtu.be/fOa2SLn0U6w?si=DzZKJYETDOTCEixa",
-      "detailsLabel": "Смотреть повтор",
-      "winner": "home"
-    },
-    {
-      "id": "2025-11-19-japan-blyzhayshie",
-      "dateLabel": "19 ноя · 20:00",
-      "dateTime": "2025-11-19T20:00:00+03:00",
-      "stage": "Квалификация · Раунд 1",
-      "teams": {
-        "home": "Japan 日本",
-        "away": "Ближайшие"
-      },
-      "score": {
-        "home": 2,
-        "away": 0
-      },
-      "bestOf": 3,
-      "status": "finished",
-      "statusLabel": "2–0 · завершён",
-      "detailsUrl": "https://youtu.be/Y21MEipmu10?si=sJAv8cqWqh6msFqV",
-      "detailsLabel": "Смотреть повтор",
-      "winner": "home"
-    },
-    {
-      "id": "2025-11-20-yellow-submarine-arb-esports",
-      "dateLabel": "20 ноя · 20:00",
-      "dateTime": "2025-11-20T20:00:00+03:00",
-      "stage": "Квалификация · Раунд 1",
-      "teams": {
-        "home": "Yellow Submarine",
-        "away": "ARB esports"
-      },
-      "score": {
-        "home": 0,
-        "away": 2
-      },
-      "bestOf": 3,
-      "status": "finished",
-      "statusLabel": "0–2 · завершён",
-      "detailsUrl": "https://youtu.be/Y21MEipmu10?si=..",
-      "detailsLabel": "Смотреть повтор",
-      "winner": "away"
-   }
+      "id": "round-1",
+      "title": "Результаты 1-го круга",
+      "subtitle": "Групповой этап",
+      "defaultExpanded": false,
+      "weeks": [
+        {
+          "id": "week-1",
+          "title": "Неделя 1 · 17–20 ноября",
+          "matches": [
+            {
+              "id": "2025-11-17-qual-mi-ne-pushim-ygk",
+              "dateLabel": "17 ноя · 19:00",
+              "dateTime": "2025-11-17T19:00:00+03:00",
+              "stage": "Круг 1 · Неделя 1",
+              "teams": {
+                "home": "Mi ne Pushim!",
+                "away": "YGK"
+              },
+              "score": {
+                "home": 2,
+                "away": 0
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 33,
+                    "away": 3
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 39,
+                    "away": 27
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–0 · завершён",
+              "detailsUrl": "https://youtu.be/HqTmpiQYUYE?si=m-i_J2KJhgkmmZbB",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            },
+            {
+              "id": "2025-11-18-team-borisogleb-ne-znayushchie-pobed",
+              "dateLabel": "18 ноя · 19:00",
+              "dateTime": "2025-11-18T19:00:00+03:00",
+              "stage": "Круг 1 · Неделя 1",
+              "teams": {
+                "home": "Team Borisogleb",
+                "away": "Не Знающие Побед"
+              },
+              "score": {
+                "home": 2,
+                "away": 0
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 24,
+                    "away": 12
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 31,
+                    "away": 18
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–0 · завершён",
+              "detailsUrl": "https://youtu.be/fOa2SLn0U6w?si=DzZKJYETDOTCEixa",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            },
+            {
+              "id": "2025-11-19-japan-blyzhayshie",
+              "dateLabel": "19 ноя · 20:00",
+              "dateTime": "2025-11-19T20:00:00+03:00",
+              "stage": "Круг 1 · Неделя 1",
+              "teams": {
+                "home": "Japan 日本",
+                "away": "Ближайшие"
+              },
+              "score": {
+                "home": 2,
+                "away": 0
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 28,
+                    "away": 10
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 30,
+                    "away": 21
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–0 · завершён",
+              "detailsUrl": "https://youtu.be/Y21MEipmu10?si=sJAv8cqWqh6msFqV",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            },
+            {
+              "id": "2025-11-20-yellow-submarine-arb-esports",
+              "dateLabel": "20 ноя · 20:00",
+              "dateTime": "2025-11-20T20:00:00+03:00",
+              "stage": "Круг 1 · Неделя 1",
+              "teams": {
+                "home": "Yellow Submarine",
+                "away": "ARB esports"
+              },
+              "score": {
+                "home": 0,
+                "away": 2
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 16,
+                    "away": 30
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 19,
+                    "away": 33
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "0–2 · завершён",
+              "detailsUrl": "https://youtu.be/Y21MEipmu10?si=..",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "away"
+            }
+          ]
+        },
+        {
+          "id": "week-2",
+          "title": "Неделя 2 · 21–23 ноября",
+          "matches": [
+            {
+              "id": "2025-11-21-steel-titans-labubu-team",
+              "dateLabel": "21 ноя · 19:00",
+              "dateTime": "2025-11-21T19:00:00+03:00",
+              "stage": "Круг 1 · Неделя 2",
+              "teams": {
+                "home": "Steel Titans",
+                "away": "Labubu Team"
+              },
+              "score": {
+                "home": 2,
+                "away": 0
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 32,
+                    "away": 15
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 34,
+                    "away": 18
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–0 · завершён",
+              "detailsUrl": "https://youtu.be/dummy-steel-titans-labubu",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            },
+            {
+              "id": "2025-11-21-way-prod-geeks",
+              "dateLabel": "21 ноя · 19:00",
+              "dateTime": "2025-11-21T19:00:00+03:00",
+              "stage": "Круг 1 · Неделя 2",
+              "teams": {
+                "home": "Way prod",
+                "away": "Гики"
+              },
+              "score": {
+                "home": 2,
+                "away": 0
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 31,
+                    "away": 22
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 29,
+                    "away": 17
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–0 · завершён",
+              "detailsUrl": "https://youtu.be/dummy-way-prod-geeks",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            },
+            {
+              "id": "2025-11-23-tech-titans-buyback-academy",
+              "dateLabel": "23 ноя · 15:00",
+              "dateTime": "2025-11-23T15:00:00+03:00",
+              "stage": "Круг 1 · Неделя 2",
+              "teams": {
+                "home": "Tech Titans",
+                "away": "Buyback academy"
+              },
+              "score": {
+                "home": 2,
+                "away": 0
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 33,
+                    "away": 29
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 30,
+                    "away": 21
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–0 · завершён",
+              "detailsUrl": "https://youtu.be/dummy-tech-titans-buyback",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            }
+          ]
+        }
+      ]
+    }
   ]
 }
