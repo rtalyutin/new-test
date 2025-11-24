@@ -29,15 +29,15 @@
                 {
                   "id": "game-1",
                   "score": {
-                    "home": 33,
-                    "away": 3
+                    "home": 52,
+                    "away": 7
                   }
                 },
                 {
                   "id": "game-2",
                   "score": {
-                    "home": 39,
-                    "away": 27
+                    "home": 61,
+                    "away": 23
                   }
                 }
               ],
@@ -65,15 +65,15 @@
                 {
                   "id": "game-1",
                   "score": {
-                    "home": 24,
-                    "away": 12
+                    "home": 49,
+                    "away": 5
                   }
                 },
                 {
                   "id": "game-2",
                   "score": {
-                    "home": 31,
-                    "away": 18
+                    "home": 25,
+                    "away": 5
                   }
                 }
               ],
@@ -101,15 +101,15 @@
                 {
                   "id": "game-1",
                   "score": {
-                    "home": 28,
-                    "away": 10
+                    "home": 45,
+                    "away": 27
                   }
                 },
                 {
                   "id": "game-2",
                   "score": {
-                    "home": 30,
-                    "away": 21
+                    "home": 47,
+                    "away": 25
                   }
                 }
               ],
@@ -137,22 +137,22 @@
                 {
                   "id": "game-1",
                   "score": {
-                    "home": 16,
-                    "away": 30
+                    "home": 15,
+                    "away": 41
                   }
                 },
                 {
                   "id": "game-2",
                   "score": {
-                    "home": 19,
-                    "away": 33
+                    "home": 29,
+                    "away": 46
                   }
                 }
               ],
               "bestOf": 3,
               "status": "finished",
               "statusLabel": "0–2 · завершён",
-              "detailsUrl": "https://youtu.be/Y21MEipmu10?si=..",
+              "detailsUrl": "https://youtu.be/XkJkZ92osag?si=qogqeHILPjy11RB1.",
               "detailsLabel": "Смотреть повтор",
               "winner": "away"
             }
@@ -179,22 +179,22 @@
                 {
                   "id": "game-1",
                   "score": {
-                    "home": 32,
-                    "away": 15
+                    "home": 33,
+                    "away": 3
                   }
                 },
                 {
                   "id": "game-2",
                   "score": {
-                    "home": 34,
-                    "away": 18
+                    "home": 39,
+                    "away": 27
                   }
                 }
               ],
               "bestOf": 3,
               "status": "finished",
               "statusLabel": "2–0 · завершён",
-              "detailsUrl": "https://youtu.be/dummy-steel-titans-labubu",
+              "detailsUrl": "https://youtu.be/jk6gbLCUTEc?si=bjwxLQ-98lyCTs9D",
               "detailsLabel": "Смотреть повтор",
               "winner": "home"
             },
@@ -215,22 +215,22 @@
                 {
                   "id": "game-1",
                   "score": {
-                    "home": 31,
-                    "away": 22
+                    "home": 43,
+                    "away": 17
                   }
                 },
                 {
                   "id": "game-2",
                   "score": {
-                    "home": 29,
-                    "away": 17
+                    "home": 20,
+                    "away": 5
                   }
                 }
               ],
               "bestOf": 3,
               "status": "finished",
               "statusLabel": "2–0 · завершён",
-              "detailsUrl": "https://youtu.be/dummy-way-prod-geeks",
+              "detailsUrl": "https://youtu.be/M2IEvKIrUrE?si=e3K_Zc5EuyvjUybg",
               "detailsLabel": "Смотреть повтор",
               "winner": "home"
             },
@@ -251,15 +251,15 @@
                 {
                   "id": "game-1",
                   "score": {
-                    "home": 33,
-                    "away": 29
+                    "home": 46,
+                    "away": 16
                   }
                 },
                 {
                   "id": "game-2",
                   "score": {
-                    "home": 30,
-                    "away": 21
+                    "home": 53,
+                    "away": 46
                   }
                 }
               ],
