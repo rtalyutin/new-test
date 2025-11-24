@@ -28,6 +28,7 @@ test('buildStandingsFromMatchResults aggregates finished matches into standings'
     mapWins: 2,
     mapLosses: 0,
     points: 2,
+    logo: '/logos/Mi Ne Pushim.jpg',
   });
 
   const uniqueIds = new Set(standings.map((team) => team.id));

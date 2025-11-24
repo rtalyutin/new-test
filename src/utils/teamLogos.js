@@ -1,4 +1,4 @@
-import teamShowcaseConfig from '../features/team-showcase/config.json';
+import teamShowcaseConfig from '../features/team-showcase/config.json' with { type: 'json' };
 
 const normalizeTeamName = (name) =>
   name
