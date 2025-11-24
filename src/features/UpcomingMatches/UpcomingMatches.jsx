@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { getTeamLogo } from '../../utils/teamLogos';
 import styles from './UpcomingMatches.module.css';
 
 const UpcomingMatches = ({ data }) => {
@@ -36,9 +37,31 @@ const UpcomingMatches = ({ data }) => {
                 </time>
               </div>
               <div className={styles.teams}>
-                <span className={styles.teamName}>{match.teams.home}</span>
-                <span className={styles.separator}>—</span>
-                <span className={styles.teamName}>{match.teams.away}</span>
+                {['home', 'away'].map((side) => {
+                  const teamName = match.teams[side];
+                  const teamLogo = getTeamLogo(teamName);
+
+                  return (
+                    <span key={side} className={styles.team}>
+                      {teamLogo ? (
+                        <img
+                          src={teamLogo}
+                          alt={`Логотип команды ${teamName}`}
+                          className={styles.teamLogo}
+                          loading="lazy"
+                          width={28}
+                          height={28}
+                        />
+                      ) : null}
+                      <span className={styles.teamName}>{teamName}</span>
+                      {side === 'home' ? (
+                        <span className={styles.separator} aria-hidden="true">
+                          —
+                        </span>
+                      ) : null}
+                    </span>
+                  );
+                })}
               </div>
               <div className={styles.channels}>
                 {channels.map((channel) => (
