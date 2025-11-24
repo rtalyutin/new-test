@@ -35,10 +35,7 @@ export const extractFinishedMatchesByWeek = (matchResults) =>
 export const extractFinishedMatches = (matchResults) =>
   extractFinishedMatchesByWeek(matchResults).flatMap((week) => week.matches);
 
-export const buildStandingsFromMatches = (
-  finishedMatches,
-  { pointsPerWin = 3, pointsPerDraw = 0 } = {},
-) => {
+export const buildStandingsFromMatches = (finishedMatches) => {
   const teamsMap = new Map();
 
   finishedMatches.forEach((match) => {
@@ -66,24 +63,20 @@ export const buildStandingsFromMatches = (
     if (homeMaps > awayMaps) {
       homeTeam.wins += 1;
       awayTeam.losses += 1;
-      homeTeam.points += pointsPerWin;
     } else if (homeMaps < awayMaps) {
       awayTeam.wins += 1;
       homeTeam.losses += 1;
-      awayTeam.points += pointsPerWin;
-    } else {
-      homeTeam.points += pointsPerDraw;
-      awayTeam.points += pointsPerDraw;
     }
+
+    homeTeam.points += homeMaps;
+    awayTeam.points += awayMaps;
   });
 
   return Array.from(teamsMap.values());
 };
 
-export const buildStandingsFromMatchResults = (
-  matchResults,
-  { pointsPerWin = 3, pointsPerDraw = 0 } = {},
-) => buildStandingsFromMatches(extractFinishedMatches(matchResults), { pointsPerWin, pointsPerDraw });
+export const buildStandingsFromMatchResults = (matchResults) =>
+  buildStandingsFromMatches(extractFinishedMatches(matchResults));
 
 export const sortTeams = (teams, sortBy) => {
   const sorted = [...teams].sort((teamA, teamB) => {

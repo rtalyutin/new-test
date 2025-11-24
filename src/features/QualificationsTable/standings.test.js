@@ -16,7 +16,7 @@ const matchResultsConfig = JSON.parse(
 );
 
 test('buildStandingsFromMatchResults aggregates finished matches into standings', () => {
-  const standings = buildStandingsFromMatchResults(matchResultsConfig, { pointsPerWin: 3 });
+  const standings = buildStandingsFromMatchResults(matchResultsConfig);
 
   const miNePushim = standings.find((team) => team.name === 'Mi ne Pushim!');
   assert.deepStrictEqual(miNePushim, {
@@ -27,7 +27,7 @@ test('buildStandingsFromMatchResults aggregates finished matches into standings'
     losses: 0,
     mapWins: 2,
     mapLosses: 0,
-    points: 3,
+    points: 2,
   });
 
   const uniqueIds = new Set(standings.map((team) => team.id));
@@ -37,10 +37,10 @@ test('buildStandingsFromMatchResults aggregates finished matches into standings'
 
 test('buildStandingsFromMatches aggregates matches for a single week', () => {
   const [firstFinishedWeek] = extractFinishedMatchesByWeek(matchResultsConfig);
-  const standings = buildStandingsFromMatches(firstFinishedWeek.matches, { pointsPerWin: 3 });
+  const standings = buildStandingsFromMatches(firstFinishedWeek.matches);
 
   const firstTeam = standings.find((team) => team.name === 'Mi ne Pushim!');
-  assert.strictEqual(firstTeam.points, 3);
+  assert.strictEqual(firstTeam.points, 2);
   assert.strictEqual(firstTeam.matches, 1);
 });
 
