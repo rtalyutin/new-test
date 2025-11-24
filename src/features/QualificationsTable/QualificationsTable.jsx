@@ -175,6 +175,11 @@ const QualificationsTable = ({ data, matchResults }) => {
           </tbody>
         </table>
       </div>
+
+      <p className={styles.mobileNotice} role="note">
+        Таблица доступна на десктопных устройствах. Откройте сайт на более широком экране,
+        чтобы посмотреть расписание и результаты.
+      </p>
     </section>
   );
 };
