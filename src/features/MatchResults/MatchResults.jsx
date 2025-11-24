@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { getTeamLogo } from '../../utils/teamLogos';
 import styles from './MatchResults.module.css';
 
 const MatchResults = ({ data }) => {
@@ -17,6 +18,28 @@ const MatchResults = ({ data }) => {
 
   const buildScoreLabel = (match) =>
     `${match.teams.home} ${match.score.home} — ${match.score.away} ${match.teams.away} · BO${match.bestOf}`;
+
+  const renderTeam = (match, side) => {
+    const teamName = match.teams[side];
+    const teamLogo = getTeamLogo(teamName);
+    const isWinner = match.winner === side;
+
+    return (
+      <div className={`${styles.team} ${isWinner ? styles.teamWinner : ''}`}>
+        {teamLogo ? (
+          <img
+            src={teamLogo}
+            alt={`Логотип команды ${teamName}`}
+            className={styles.teamLogo}
+            loading="lazy"
+            width={32}
+            height={32}
+          />
+        ) : null}
+        <span className={styles.teamName}>{teamName}</span>
+      </div>
+    );
+  };
 
   const toggleRound = (roundId) => {
     setExpandedRounds((prev) => ({
@@ -78,8 +101,6 @@ const MatchResults = ({ data }) => {
                       <ol className={styles.resultsList} aria-label={`Матчи за ${week.title}`}>
                         {week.matches.map((match) => {
                           const scoreLabel = buildScoreLabel(match);
-                          const isHomeWinner = match.winner === 'home';
-                          const isAwayWinner = match.winner === 'away';
 
                           return (
                             <li key={match.id} className={styles.resultItem}>
@@ -91,11 +112,7 @@ const MatchResults = ({ data }) => {
                               </div>
                               <div className={styles.teamsMapsWrapper}>
                                 <div className={styles.teams}>
-                                  <div
-                                    className={`${styles.team} ${isHomeWinner ? styles.teamWinner : ''}`}
-                                  >
-                                    <span className={styles.teamName}>{match.teams.home}</span>
-                                  </div>
+                                  {renderTeam(match, 'home')}
                                   <div
                                     className={styles.scoreWrapper}
                                     aria-label={`Счёт: ${scoreLabel}`}
@@ -112,11 +129,7 @@ const MatchResults = ({ data }) => {
                                       BO{match.bestOf}
                                     </span>
                                   </div>
-                                  <div
-                                    className={`${styles.team} ${isAwayWinner ? styles.teamWinner : ''}`}
-                                  >
-                                    <span className={styles.teamName}>{match.teams.away}</span>
-                                  </div>
+                                  {renderTeam(match, 'away')}
                                 </div>
                                 {match.maps?.length ? (
                                   <div className={styles.maps}>
