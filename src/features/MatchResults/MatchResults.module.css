@@ -23,6 +23,92 @@
   font-size: 1rem;
 }
 
+.rounds {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(var(--space-3), 1.6vw, var(--space-4));
+}
+
+.round {
+  border: 1px solid color-mix(in srgb, var(--color-border) 65%, transparent);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color-surface) 94%, transparent);
+  box-shadow: 0 18px 36px -28px var(--color-shadow-strong);
+}
+
+.roundHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(var(--space-3), 1.2vw, var(--space-4));
+  border-bottom: 1px solid color-mix(in srgb, var(--color-border) 65%, transparent);
+}
+
+.roundMetaWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.roundSubtitle {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.roundToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  border: none;
+  background: transparent;
+  color: var(--color-text-primary);
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+
+.roundToggle:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.roundToggleLabel {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.roundChevron {
+  font-size: 1.1rem;
+}
+
+.roundPanel {
+  padding: clamp(var(--space-3), 1.4vw, var(--space-4));
+  display: flex;
+  flex-direction: column;
+  gap: clamp(var(--space-3), 1.6vw, var(--space-4));
+}
+
+.weekBlock {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(var(--space-2), 1vw, var(--space-3));
+}
+
+.weekHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.weekTitle {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
 .resultsList {
   list-style: none;
   margin: 0;
@@ -34,7 +120,7 @@
 
 .resultItem {
   display: grid;
-  grid-template-columns: minmax(8rem, 0.9fr) minmax(0, 1.3fr) minmax(8rem, 0.8fr);
+  grid-template-columns: minmax(8rem, 0.8fr) minmax(0, 1.5fr) minmax(8rem, 0.7fr);
   gap: clamp(var(--space-3), 1.6vw, var(--space-5));
   padding: clamp(var(--space-3), 1.5vw, var(--space-4));
   border-radius: var(--radius-lg);
@@ -60,6 +146,12 @@
 .stage {
   font-size: 0.85rem;
   color: var(--color-text-secondary);
+}
+
+.teamsMapsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(var(--space-2), 1vw, var(--space-3));
 }
 
 .teams {
@@ -125,6 +217,56 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text-secondary);
+}
+
+.maps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-surface) 78%, transparent);
+  border: 1px dashed color-mix(in srgb, var(--color-border) 60%, transparent);
+}
+
+.mapsTitle {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+}
+
+.mapList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: var(--space-2);
+}
+
+.mapItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--color-surface) 60%, transparent);
+}
+
+.mapName {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.mapScore {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-1);
+  font-weight: 700;
+  color: var(--color-text-primary);
 }
 
 .statusWrapper {
