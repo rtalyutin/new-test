@@ -156,15 +156,18 @@
 
 .teams {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
   gap: clamp(var(--space-2), 1vw, var(--space-3));
+  column-gap: clamp(var(--space-3), 1vw + var(--space-2), var(--space-4));
 }
 
 .team {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  gap: clamp(var(--space-1), 0.8vw, var(--space-2));
+  min-width: 0;
 }
 
 .team:nth-child(3) {
@@ -175,11 +178,24 @@
   font-size: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
   font-weight: 600;
   color: var(--color-text-primary);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .teamWinner .teamName {
   color: var(--color-accent-strong, var(--color-accent));
   text-shadow: 0 0 16px color-mix(in srgb, var(--color-accent) 40%, transparent);
+}
+
+.teamLogo {
+  width: 2.25rem;
+  height: 2.25rem;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--color-surface) 70%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
 }
 
 .scoreWrapper {
