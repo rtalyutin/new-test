@@ -19,37 +19,80 @@
     }
   },
   "matches": [
-   
     {
-      "id": "2025-11-19-geeks-way-prod",
-      "dayLabel": "Пт 21.11",
+      "id": "2025-11-25-way-prod-steel-titans",
+      "dayLabel": "Вт 25.11",
       "timeLabel": "19:00",
-      "dateTime": "2025-11-21T19:00:00+03:00",
+      "dateTime": "2025-11-25T19:00:00+03:00",
       "teams": {
-        "home": "Гики",
-        "away": "Way prod."
-      },
-      "channelIds": ["secondary"]
-    },
-    {
-      "id": "2025-11-21-steel-titans-labubu-team",
-      "dayLabel": "Пт 21.11",
-      "timeLabel": "19:00",
-      "dateTime": "2025-11-21T19:00:00+03:00",
-      "teams": {
-        "home": "Steel Titans",
-        "away": "Labubu team"
+        "home": "Way prod",
+        "away": "Steel Titans"
       },
       "channelIds": ["primary"]
     },
     {
-      "id": "2025-11-23-buyback-academy-tech-titans",
-      "dayLabel": "Вск 23.11",
-      "timeLabel": "15:00",
-      "dateTime": "2025-11-23T15:00:00+03:00",
+      "id": "2025-11-26-ne-znayushchie-pobed-yellow-submarine",
+      "dayLabel": "Ср 26.11",
+      "timeLabel": "19:00",
+      "dateTime": "2025-11-26T19:00:00+03:00",
       "teams": {
-        "home": "Buyback Academy",
-        "away": "Tech Titans"
+        "home": "Не знающие побед",
+        "away": "Yellow submarine"
+      },
+      "channelIds": ["primary"]
+    },
+    {
+      "id": "2025-11-27-arb-buyback-academy",
+      "dayLabel": "Чт 27.11",
+      "timeLabel": "19:00",
+      "dateTime": "2025-11-27T19:00:00+03:00",
+      "teams": {
+        "home": "ARB",
+        "away": "Buyback academy"
+      },
+      "channelIds": ["primary"]
+    },
+    {
+      "id": "2025-11-27-ygk-blizhayshie",
+      "dayLabel": "Чт 27.11",
+      "timeLabel": "19:00",
+      "dateTime": "2025-11-27T19:00:00+03:00",
+      "teams": {
+        "home": "YGK",
+        "away": "Ближайшие"
+      },
+      "channelIds": ["secondary"]
+    },
+    {
+      "id": "2025-11-27-mi-ne-pushim-japan",
+      "dayLabel": "Чт 27.11",
+      "timeLabel": "21:00",
+      "dateTime": "2025-11-27T21:00:00+03:00",
+      "teams": {
+        "home": "Mi ne pushim",
+        "away": "Japan"
+      },
+      "channelIds": ["primary"]
+    },
+    {
+      "id": "2025-11-28-labubu-team-geeks",
+      "dayLabel": "Пт 28.11",
+      "timeLabel": "19:00",
+      "dateTime": "2025-11-28T19:00:00+03:00",
+      "teams": {
+        "home": "Labubu Team",
+        "away": "Гики"
+      },
+      "channelIds": ["primary"]
+    },
+    {
+      "id": "2025-11-30-tech-titans-team-borisogleb",
+      "dayLabel": "Вск 30.11",
+      "timeLabel": "15:00",
+      "dateTime": "2025-11-30T15:00:00+03:00",
+      "teams": {
+        "home": "Tech Titans",
+        "away": "Team Borisogleb"
       },
       "channelIds": ["primary"]
     }
