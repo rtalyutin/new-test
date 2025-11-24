@@ -90,8 +90,21 @@
   color: var(--color-text-primary);
 }
 
+.team {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
 .teamName {
   white-space: nowrap;
+}
+
+.teamLogo {
+  width: 1.75rem;
+  height: 1.75rem;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .separator {
