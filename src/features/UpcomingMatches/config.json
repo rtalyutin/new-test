@@ -25,7 +25,7 @@
       "timeLabel": "19:00",
       "dateTime": "2025-11-25T19:00:00+03:00",
       "teams": {
-        "home": "Way prod.",
+        "home": "Way Prod.",
         "away": "Steel Titans"
       },
       "channelIds": ["primary"]
@@ -36,7 +36,7 @@
       "timeLabel": "19:00",
       "dateTime": "2025-11-26T19:00:00+03:00",
       "teams": {
-        "home": "Не знающие побед",
+        "home": "Не Знающие Побед",
         "away": "Yellow Submarine"
       },
       "channelIds": ["primary"]
@@ -47,7 +47,7 @@
       "timeLabel": "19:00",
       "dateTime": "2025-11-27T19:00:00+03:00",
       "teams": {
-        "home": "ARB",
+        "home": "ARB ESports",
         "away": "Buyback Academy"
       },
       "channelIds": ["primary"]
@@ -69,7 +69,7 @@
       "timeLabel": "21:00",
       "dateTime": "2025-11-27T21:00:00+03:00",
       "teams": {
-        "home": "Mi ne pushim",
+        "home": "Mi Ne Pushim",
         "away": "Japan 日本"
       },
       "channelIds": ["thirdy"]
