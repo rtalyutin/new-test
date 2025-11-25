@@ -1,9 +1,17 @@
 import PropTypes from 'prop-types';
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import {
+  createContext,
+  createElement,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 
 const TOKEN_STORAGE_KEY = 'authToken';
 
-const AuthContext = createContext({
+export const AuthContext = createContext({
   token: null,
   setToken: () => undefined,
   signOut: () => undefined,
@@ -83,7 +91,7 @@ export const AuthProvider = ({ children }) => {
     [token, setToken, signOut],
   );
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return createElement(AuthContext.Provider, { value }, children);
 };
 
 AuthProvider.propTypes = {
