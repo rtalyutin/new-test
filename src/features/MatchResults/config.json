@@ -273,6 +273,56 @@
           ]
         }
       ]
+    },
+    {
+      "id": "round-2",
+      "title": "Результаты 2-го круга",
+      "subtitle": "Групповой этап",
+      "defaultExpanded": true,
+      "weeks": [
+        {
+          "id": "week-3",
+          "title": "Неделя 3 · 25–30 ноября",
+          "matches": [
+            {
+              "id": "2025-11-25-steel-titans-way-prod",
+              "dateLabel": "25 ноя · 19:00",
+              "dateTime": "2025-11-25T19:00:00+03:00",
+              "stage": "Круг 2 · Неделя 1",
+              "teams": {
+                "home": "Steel Titans",
+                "away": "Way Prod."
+              },
+              "score": {
+                "home": 0,
+                "away": 2
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 18,
+                    "away": 26
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 20,
+                    "away": 44
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "0–2 · завершён",
+              "detailsUrl": "https://youtu.be/steel-titans-way-prod",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "away"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
