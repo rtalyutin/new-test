@@ -20,17 +20,6 @@
   },
   "matches": [
     {
-      "id": "2025-11-26-ne-znayushchie-pobed-yellow-submarine",
-      "dayLabel": "Ср 26.11",
-      "timeLabel": "19:00",
-      "dateTime": "2025-11-26T19:00:00+03:00",
-      "teams": {
-        "home": "Не Знающие Побед",
-        "away": "Yellow Submarine"
-      },
-      "channelIds": ["primary"]
-    },
-    {
       "id": "2025-11-27-arb-buyback-academy",
       "dayLabel": "Чт 27.11",
       "timeLabel": "19:00",

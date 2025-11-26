@@ -319,6 +319,42 @@
               "detailsUrl": "https://youtu.be/steel-titans-way-prod",
               "detailsLabel": "Смотреть повтор",
               "winner": "away"
+            },
+            {
+              "id": "2025-11-26-yellow-submarine-ne-znayushchie-pobed",
+              "dateLabel": "26 ноя · 19:00",
+              "dateTime": "2025-11-26T19:00:00+03:00",
+              "stage": "Круг 2 · Неделя 1",
+              "teams": {
+                "home": "Yellow Submarine",
+                "away": "Не Знающие Побед"
+              },
+              "score": {
+                "home": 2,
+                "away": 0
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 41,
+                    "away": 36
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 32,
+                    "away": 13
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–0 · завершён",
+              "detailsUrl": "https://youtu.be/yellow-submarine-ne-znayushchie-pobed",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
             }
           ]
         }
