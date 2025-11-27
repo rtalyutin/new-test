@@ -1,4 +1,5 @@
 import slugify from '../../utils/slugify.js';
+import { getTeamLogo } from '../../utils/teamLogos.js';
 
 export const calculateMapDiff = (team) => team.mapWins - team.mapLosses;
 
@@ -13,10 +14,17 @@ const ensureTeam = (teamsMap, name) => {
       mapWins: 0,
       mapLosses: 0,
       points: 0,
+      logo: getTeamLogo(name),
     });
   }
 
-  return teamsMap.get(name);
+  const team = teamsMap.get(name);
+
+  if (!team.logo) {
+    team.logo = getTeamLogo(name);
+  }
+
+  return team;
 };
 
 const toNumber = (value) => (Number.isFinite(value) ? value : 0);

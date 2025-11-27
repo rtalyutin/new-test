@@ -149,9 +149,27 @@ const QualificationsTable = ({ data, matchResults }) => {
                   </span>
                 </th>
                 <td className={styles.teamCell}>
-                  <div className={styles.teamName}>{team.name}</div>
-                  <div className={styles.teamMeta} aria-hidden="true">
-                    {team.wins}–{team.losses} · карты {team.mapWins}:{team.mapLosses}
+                  <div className={styles.teamIdentity}>
+                    {team.logo ? (
+                      <img
+                        src={team.logo}
+                        alt={`Логотип команды ${team.name}`}
+                        className={styles.teamLogo}
+                        loading="lazy"
+                        width={44}
+                        height={44}
+                      />
+                    ) : (
+                      <div className={styles.teamLogoFallback} aria-hidden="true">
+                        {team.name?.[0] ?? '?'}
+                      </div>
+                    )}
+                    <div className={styles.teamText}>
+                      <div className={styles.teamName}>{team.name}</div>
+                      <div className={styles.teamMeta} aria-hidden="true">
+                        {team.wins}–{team.losses} · карты {team.mapWins}:{team.mapLosses}
+                      </div>
+                    </div>
                   </div>
                 </td>
                 <td className={styles.numeric}>{team.matches}</td>
