@@ -16,7 +16,7 @@
               "id": "2025-11-17-qual-mi-ne-pushim-ygk",
               "dateLabel": "17 ноя · 19:00",
               "dateTime": "2025-11-17T19:00:00+03:00",
-              "stage": "Круг 1 · Неделя 1",
+              "stage": "Круг 1 ",
               "teams": {
                 "home": "Mi ne Pushim!",
                 "away": "YGK"
@@ -52,7 +52,7 @@
               "id": "2025-11-18-team-borisogleb-ne-znayushchie-pobed",
               "dateLabel": "18 ноя · 19:00",
               "dateTime": "2025-11-18T19:00:00+03:00",
-              "stage": "Круг 1 · Неделя 1",
+              "stage": "Круг 1",
               "teams": {
                 "home": "Team Borisogleb",
                 "away": "Не Знающие Побед"
@@ -88,7 +88,7 @@
               "id": "2025-11-19-japan-blyzhayshie",
               "dateLabel": "19 ноя · 20:00",
               "dateTime": "2025-11-19T20:00:00+03:00",
-              "stage": "Круг 1 · Неделя 1",
+              "stage": "Круг 1",
               "teams": {
                 "home": "Japan 日本",
                 "away": "Ближайшие"
@@ -124,7 +124,7 @@
               "id": "2025-11-20-yellow-submarine-arb-esports",
               "dateLabel": "20 ноя · 20:00",
               "dateTime": "2025-11-20T20:00:00+03:00",
-              "stage": "Круг 1 · Неделя 1",
+              "stage": "Круг 1",
               "teams": {
                 "home": "Yellow Submarine",
                 "away": "ARB ESports"
@@ -166,7 +166,7 @@
               "id": "2025-11-21-steel-titans-labubu-team",
               "dateLabel": "21 ноя · 19:00",
               "dateTime": "2025-11-21T19:00:00+03:00",
-              "stage": "Круг 1 · Неделя 2",
+              "stage": "Круг 1",
               "teams": {
                 "home": "Steel Titans",
                 "away": "Labubu Team"
@@ -202,7 +202,7 @@
               "id": "2025-11-21-way-prod-geeks",
               "dateLabel": "21 ноя · 19:00",
               "dateTime": "2025-11-21T19:00:00+03:00",
-              "stage": "Круг 1 · Неделя 2",
+              "stage": "Круг 1",
               "teams": {
                 "home": "Way Prod.",
                 "away": "Гики"
@@ -238,7 +238,7 @@
               "id": "2025-11-23-tech-titans-buyback-academy",
               "dateLabel": "23 ноя · 15:00",
               "dateTime": "2025-11-23T15:00:00+03:00",
-              "stage": "Круг 1 · Неделя 2",
+              "stage": "Круг 1",
               "teams": {
                 "home": "Tech Titans",
                 "away": "Buyback Academy"
@@ -288,7 +288,7 @@
               "id": "2025-11-25-steel-titans-way-prod",
               "dateLabel": "25 ноя · 19:00",
               "dateTime": "2025-11-25T19:00:00+03:00",
-              "stage": "Круг 2 · Неделя 1",
+              "stage": "Круг 2",
               "teams": {
                 "home": "Steel Titans",
                 "away": "Way Prod."
@@ -324,7 +324,7 @@
               "id": "2025-11-26-yellow-submarine-ne-znayushchie-pobed",
               "dateLabel": "26 ноя · 19:00",
               "dateTime": "2025-11-26T19:00:00+03:00",
-              "stage": "Круг 2 · Неделя 1",
+              "stage": "Круг 2",
               "teams": {
                 "home": "Yellow Submarine",
                 "away": "Не Знающие Побед"
@@ -360,7 +360,7 @@
               "id": "2025-11-27-arb-buyback-academy",
               "dateLabel": "27 ноя · 19:00",
               "dateTime": "2025-11-27T19:00:00+03:00",
-              "stage": "Круг 2 · Неделя 1",
+              "stage": "Круг 2",
               "teams": {
                 "home": "ARB ESports",
                 "away": "Buyback Academy"
@@ -396,7 +396,7 @@
               "id": "2025-11-27-ygk-blizhayshie",
               "dateLabel": "27 ноя · 19:00",
               "dateTime": "2025-11-27T19:00:00+03:00",
-              "stage": "Круг 2 · Неделя 1",
+              "stage": "Круг 2",
               "teams": {
                 "home": "YGK",
                 "away": "Ближайшие"
@@ -432,7 +432,7 @@
               "id": "2025-11-27-mi-ne-pushim-japan",
               "dateLabel": "27 ноя · 21:00",
               "dateTime": "2025-11-27T21:00:00+03:00",
-              "stage": "Круг 2 · Неделя 1",
+              "stage": "Круг 2",
               "teams": {
                 "home": "Mi ne Pushim!",
                 "away": "Japan 日本"
@@ -459,8 +459,8 @@
                 {
                   "id": "game-3",
                   "score": {
-                    "home": 63,
-                    "away": 72
+                    "home": 6,
+                    "away": 37
                   }
                 }
               ],
