@@ -355,6 +355,121 @@
               "detailsUrl": "https://youtu.be/yellow-submarine-ne-znayushchie-pobed",
               "detailsLabel": "Смотреть повтор",
               "winner": "home"
+            },
+            {
+              "id": "2025-11-27-arb-buyback-academy",
+              "dateLabel": "27 ноя · 19:00",
+              "dateTime": "2025-11-27T19:00:00+03:00",
+              "stage": "Круг 2 · Неделя 1",
+              "teams": {
+                "home": "ARB ESports",
+                "away": "Buyback Academy"
+              },
+              "score": {
+                "home": 2,
+                "away": 0
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 36,
+                    "away": 14
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 32,
+                    "away": 11
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–0 · завершён",
+              "detailsUrl": "https://youtu.be/arb-esports-buyback-academy-27-nov",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            },
+            {
+              "id": "2025-11-27-ygk-blizhayshie",
+              "dateLabel": "27 ноя · 19:00",
+              "dateTime": "2025-11-27T19:00:00+03:00",
+              "stage": "Круг 2 · Неделя 1",
+              "teams": {
+                "home": "YGK",
+                "away": "Ближайшие"
+              },
+              "score": {
+                "home": 0,
+                "away": 2
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 13,
+                    "away": 31
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 14,
+                    "away": 43
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "0–2 · завершён",
+              "detailsUrl": "https://youtu.be/ygk-blizhayshie-27-nov",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "away"
+            },
+            {
+              "id": "2025-11-27-mi-ne-pushim-japan",
+              "dateLabel": "27 ноя · 21:00",
+              "dateTime": "2025-11-27T21:00:00+03:00",
+              "stage": "Круг 2 · Неделя 1",
+              "teams": {
+                "home": "Mi ne Pushim!",
+                "away": "Japan 日本"
+              },
+              "score": {
+                "home": 1,
+                "away": 2
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 42,
+                    "away": 34
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 37,
+                    "away": 53
+                  }
+                },
+                {
+                  "id": "game-3",
+                  "score": {
+                    "home": 63,
+                    "away": 72
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "1–2 · завершён",
+              "detailsUrl": "https://youtu.be/mi-ne-pushim-japan-27-nov",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "away"
             }
           ]
         }
