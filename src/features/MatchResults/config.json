@@ -495,15 +495,15 @@
                 {
                   "id": "game-2",
                   "score": {
-                    "home": 45,
-                    "away": 7
+                    "home": 10,
+                    "away": 0
                   }
                 },
                 {
                   "id": "game-3",
                   "score": {
                     "home": 45,
-                    "away": 7
+                    "away": 17
                   }
                 }
               ],
