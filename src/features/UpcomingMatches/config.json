@@ -20,17 +20,6 @@
   },
   "matches": [
     {
-      "id": "2025-11-28-labubu-team-geeks",
-      "dayLabel": "Пт 28.11",
-      "timeLabel": "19:00",
-      "dateTime": "2025-11-28T19:00:00+03:00",
-      "teams": {
-        "home": "Labubu Team",
-        "away": "Гики"
-      },
-      "channelIds": ["primary"]
-    },
-    {
       "id": "2025-11-30-tech-titans-team-borisogleb",
       "dayLabel": "Вск 30.11",
       "timeLabel": "15:00",

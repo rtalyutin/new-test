@@ -470,6 +470,49 @@
               "detailsUrl": "https://youtu.be/mi-ne-pushim-japan-27-nov",
               "detailsLabel": "Смотреть повтор",
               "winner": "away"
+            },
+            {
+              "id": "2025-11-28-labubu-team-geeks",
+              "dateLabel": "28 ноя · 19:00",
+              "dateTime": "2025-11-28T19:00:00+03:00",
+              "stage": "Круг 2",
+              "teams": {
+                "home": "Labubu Team",
+                "away": "Гики"
+              },
+              "score": {
+                "home": 2,
+                "away": 1
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 21,
+                    "away": 38
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 45,
+                    "away": 7
+                  }
+                },
+                {
+                  "id": "game-3",
+                  "score": {
+                    "home": 45,
+                    "away": 7
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–1 · завершён",
+              "detailsUrl": "https://youtu.be/labubu-team-geeks-28-nov",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
             }
           ]
         }
