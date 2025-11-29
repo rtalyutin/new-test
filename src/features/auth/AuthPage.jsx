@@ -1,9 +1,13 @@
-import { useMemo, useState } from 'react';
-import { useAuth } from '../../context/AuthContext.jsx';
+import { useEffect, useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext.js';
+import { useApiClient } from '../../utils/apiClient.js';
 import './AuthPage.css';
 
 const AuthPage = () => {
-  const { setToken } = useAuth();
+  const navigate = useNavigate();
+  const apiClient = useApiClient();
+  const { setToken, token } = useAuth();
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(true);
@@ -21,7 +25,7 @@ const AuthPage = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('/api/auth/sign-in', {
+      const response = await apiClient('/api/auth/sign-in', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -46,6 +50,12 @@ const AuthPage = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (token) {
+      navigate('/', { replace: true });
+    }
+  }, [navigate, token]);
 
   return (
     <div className="auth-page">
