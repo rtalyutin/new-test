@@ -513,6 +513,42 @@
               "detailsUrl": "https://youtu.be/labubu-team-geeks-28-nov",
               "detailsLabel": "Смотреть повтор",
               "winner": "home"
+            },
+            {
+              "id": "2025-11-30",
+              "dateLabel": "30 ноя · 15:00",
+              "dateTime": "2025-11-30T15:00:00+03:00",
+              "stage": "Круг 2",
+              "teams": {
+                "home": "Team Borisogleb",
+                "away": "Tech Titans"
+              },
+              "score": {
+                "home": 0,
+                "away": 2
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 23,
+                    "away": 39
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 32,
+                    "away": 44
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "0–2· завершён",
+              "detailsUrl": "https://youtu.be/yellow-submarine-ne-znayushchie-pobed",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "away"
             }
           ]
         }
