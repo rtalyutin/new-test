@@ -20,13 +20,79 @@
   },
   "matches": [
     {
-      "id": "2025-11-30-tech-titans-team-borisogleb",
-      "dayLabel": "Вск 30.11",
+      "id": "2025-12-02-mi-ne-pushim-blizhayshie",
+      "dayLabel": "Вт 2.12",
+      "timeLabel": "19:00",
+      "dateTime": "2025-12-02T19:00:00+03:00",
+      "teams": {
+        "home": "Mi ne Pushim!",
+        "away": "Ближайшие"
+      },
+      "channelIds": ["primary"]
+    },
+    {
+      "id": "2025-12-04-arb-esports-japan",
+      "dayLabel": "Чт 4.12",
+      "timeLabel": "20:00",
+      "dateTime": "2025-12-04T20:00:00+03:00",
+      "teams": {
+        "home": "ARB ESports",
+        "away": "Japan 日本"
+      },
+      "channelIds": ["primary"]
+    },
+    {
+      "id": "2025-12-05-ygk-buyback-academy",
+      "dayLabel": "Пт 5.12",
+      "timeLabel": "19:00",
+      "dateTime": "2025-12-05T19:00:00+03:00",
+      "teams": {
+        "home": "YGK",
+        "away": "BuyBack Academy"
+      },
+      "channelIds": ["primary"]
+    },
+    {
+      "id": "2025-12-05-geeks-ne-znayushchie-pobed",
+      "dayLabel": "Пт 5.12",
+      "timeLabel": "19:00",
+      "dateTime": "2025-12-05T19:00:00+03:00",
+      "teams": {
+        "home": "Гики",
+        "away": "не знающие побед"
+      },
+      "channelIds": ["secondary"]
+    },
+    {
+      "id": "2025-12-06-team-borisogleb-steel-titans",
+      "dayLabel": "Сб 6.12",
       "timeLabel": "15:00",
-      "dateTime": "2025-11-30T15:00:00+03:00",
+      "dateTime": "2025-12-06T15:00:00+03:00",
+      "teams": {
+        "home": "Team Borisogleb",
+        "away": "Steel Titans"
+      },
+      "channelIds": ["primary"]
+    },
+    {
+      "id": "2025-12-07-tech-titans-way-prod",
+      "dayLabel": "Вск 7.12",
+      "timeLabel": "15:00",
+      "dateTime": "2025-12-07T15:00:00+03:00",
       "teams": {
         "home": "Tech Titans",
-        "away": "Team Borisogleb"
+        "away": "Way Prod."
+      },
+      "channelIds": ["primary"]
+    },
+    {
+      "id": "2025-12-07-labubu-yellow-submarine",
+      "dayLabel": "Вск 7.12",
+      "timeLabel": "19:00",
+      "dateTime": "2025-12-07T19:00:00+03:00",
+      "teams": {
+        "home": "Labubu Team",
+        "away": "Yellow Submarine"
       },
       "channelIds": ["primary"]
     }
