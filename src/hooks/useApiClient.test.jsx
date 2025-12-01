@@ -32,13 +32,17 @@ const createWrapper = (contextValue) => {
 };
 
 describe('useApiClient', () => {
+  const originalEnv = { ...import.meta.env };
+
   beforeEach(() => {
     vi.clearAllMocks();
     vi.stubGlobal('fetch', vi.fn());
+    import.meta.env.VITE_API_BASE_URL = originalEnv.VITE_API_BASE_URL;
   });
 
   afterEach(() => {
     vi.restoreAllMocks();
+    import.meta.env.VITE_API_BASE_URL = originalEnv.VITE_API_BASE_URL;
   });
 
   it('adds Authorization header when token is present', async () => {
@@ -67,6 +71,36 @@ describe('useApiClient', () => {
     const headers = fetch.mock.calls[0][1].headers;
     expect(headers.get('Authorization')).toBeNull();
     expect(signOut).not.toHaveBeenCalled();
+  });
+
+  it('resolves request URL with provided base API env', async () => {
+    import.meta.env.VITE_API_BASE_URL = 'https://api.example.com';
+    fetch.mockResolvedValueOnce({ ok: true, status: 200 });
+    const signOut = vi.fn();
+    const { result } = renderHook(() => useApiClient(), {
+      wrapper: createWrapper({ token: 'token-123', setToken: vi.fn(), signOut }),
+    });
+
+    await result.current('/api/protected', { method: 'GET' });
+
+    const [requestUrl] = fetch.mock.calls[0];
+    expect(requestUrl).toBeInstanceOf(URL);
+    expect(requestUrl.href).toBe('https://api.example.com/api/protected');
+  });
+
+  it('falls back to window origin when base API env is not set', async () => {
+    import.meta.env.VITE_API_BASE_URL = undefined;
+    fetch.mockResolvedValueOnce({ ok: true, status: 200 });
+    const signOut = vi.fn();
+    const { result } = renderHook(() => useApiClient(), {
+      wrapper: createWrapper({ token: 'token-123', setToken: vi.fn(), signOut }),
+    });
+
+    await result.current('/api/public', { method: 'GET' });
+
+    const [requestUrl] = fetch.mock.calls[0];
+    expect(requestUrl).toBeInstanceOf(URL);
+    expect(requestUrl.href).toBe(new URL('/api/public', window.location.href).href);
   });
 
   it('signs out and navigates to auth on 401 responses', async () => {
