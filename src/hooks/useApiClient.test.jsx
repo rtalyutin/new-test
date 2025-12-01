@@ -1,6 +1,8 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { renderHook } from '@testing-library/react';
 
+import PropTypes from 'prop-types';
+
 import { AuthContext } from '../context/AuthContext.jsx';
 import useApiClient from './useApiClient.js';
 
@@ -16,9 +18,18 @@ vi.mock('react-router-dom', async () => {
   };
 });
 
-const createWrapper = (contextValue) => ({ children }) => (
-  <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
-);
+const createWrapper = (contextValue) => {
+  const ProviderWrapper = ({ children }) => (
+    <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
+  );
+
+  ProviderWrapper.displayName = 'ProviderWrapper';
+  ProviderWrapper.propTypes = {
+    children: PropTypes.node.isRequired,
+  };
+
+  return ProviderWrapper;
+};
 
 describe('useApiClient', () => {
   beforeEach(() => {
