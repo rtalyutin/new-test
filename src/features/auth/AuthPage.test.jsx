@@ -22,17 +22,21 @@ describe('AuthPage', () => {
   const setToken = vi.fn();
   const signOut = vi.fn();
   const baseContext = { token: null, setToken, signOut };
+  const originalEnv = { ...import.meta.env };
 
   beforeEach(() => {
     vi.clearAllMocks();
     vi.stubGlobal('fetch', vi.fn());
+    import.meta.env.VITE_API_BASE_URL = originalEnv.VITE_API_BASE_URL;
   });
 
   afterEach(() => {
     vi.restoreAllMocks();
+    import.meta.env.VITE_API_BASE_URL = originalEnv.VITE_API_BASE_URL;
   });
 
   it('navigates to karaoke and shows success notice after successful sign in', async () => {
+    import.meta.env.VITE_API_BASE_URL = 'https://api.example.com';
     fetch.mockResolvedValueOnce({
       ok: true,
       status: 200,
@@ -50,6 +54,10 @@ describe('AuthPage', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Войти' }));
 
     await waitFor(() => expect(setToken).toHaveBeenCalledWith('sample-token', { remember: true }));
+
+    const [requestUrl] = fetch.mock.calls[0];
+    expect(requestUrl).toBeInstanceOf(URL);
+    expect(requestUrl.href).toBe('https://api.example.com/api/auth/sign-in');
 
     expect(await screen.findByText('Вы успешно вошли в систему')).toBeInTheDocument();
     expect(screen.getByText('Караоке доступно всем')).toBeInTheDocument();

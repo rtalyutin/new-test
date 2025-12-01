@@ -19,10 +19,25 @@ const serializeLocation = (location) => ({
   hash: location.hash,
 });
 
+const getBaseUrl = () => {
+  const envBase = import.meta.env.VITE_API_BASE_URL;
+
+  if (envBase) {
+    return envBase;
+  }
+
+  if (typeof window !== 'undefined' && window.location?.origin && window.location.origin !== 'null') {
+    return window.location.origin;
+  }
+
+  return 'http://localhost';
+};
+
 export const useApiClient = () => {
   const { token, signOut } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  const baseUrl = getBaseUrl();
 
   return useCallback(
     async (input, options = {}) => {
@@ -33,7 +48,18 @@ export const useApiClient = () => {
         headers.set('Authorization', `Bearer ${token}`);
       }
 
-      const response = await fetch(input, {
+      const fallbackBaseUrl =
+        typeof window !== 'undefined' && window.location?.href ? window.location.href : 'http://localhost';
+
+      let requestUrl;
+
+      try {
+        requestUrl = new URL(input, baseUrl);
+      } catch {
+        requestUrl = new URL(input, fallbackBaseUrl);
+      }
+
+      const response = await fetch(requestUrl, {
         ...fetchOptions,
         headers,
       });

@@ -14,6 +14,13 @@ npm install
 npm run dev
 ```
 
+Create a `.env` file (or adjust `.env.example`) to point the frontend to your backend API:
+
+```bash
+# Base URL of the backend API used for all requests
+VITE_API_BASE_URL=http://localhost:3000
+```
+
 ## Available Scripts
 
 - `npm run dev` – start the development server.
@@ -36,6 +43,10 @@ src/
 Each feature folder contains a React component (e.g., `News.jsx`) and a JSON configuration file (`config.json`). Components import their configuration with a standard ES module import (`import config from './config.json'`).
 
 You can duplicate an existing feature folder to bootstrap new blocks.
+
+## Deployment & Configuration
+
+- Set the `VITE_API_BASE_URL` environment variable to the public URL of your backend API when building or deploying. The app will use this base to resolve all relative API paths.
 
 ## Linting & Formatting
 
