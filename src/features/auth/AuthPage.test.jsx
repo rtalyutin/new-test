@@ -28,11 +28,13 @@ describe('AuthPage', () => {
     vi.clearAllMocks();
     vi.stubGlobal('fetch', vi.fn());
     import.meta.env.VITE_API_BASE_URL = originalEnv.VITE_API_BASE_URL;
+    import.meta.env.VITE_SIGN_IN_ENDPOINT = originalEnv.VITE_SIGN_IN_ENDPOINT;
   });
 
   afterEach(() => {
     vi.restoreAllMocks();
     import.meta.env.VITE_API_BASE_URL = originalEnv.VITE_API_BASE_URL;
+    import.meta.env.VITE_SIGN_IN_ENDPOINT = originalEnv.VITE_SIGN_IN_ENDPOINT;
   });
 
   it('navigates to karaoke and shows success notice after successful sign in', async () => {
@@ -61,6 +63,31 @@ describe('AuthPage', () => {
 
     expect(await screen.findByText('Вы успешно вошли в систему')).toBeInTheDocument();
     expect(screen.getByText('Караоке доступно всем')).toBeInTheDocument();
+  });
+
+  it('respects deployment override for sign in endpoint', async () => {
+    import.meta.env.VITE_API_BASE_URL = 'https://api.example.com';
+    import.meta.env.VITE_SIGN_IN_ENDPOINT = '/custom/auth';
+    fetch.mockResolvedValueOnce({
+      ok: true,
+      status: 200,
+      json: () => Promise.resolve({ token: 'override-token' }),
+    });
+
+    renderAuth(baseContext);
+
+    fireEvent.change(screen.getByPlaceholderText('Введите логин'), {
+      target: { value: 'demo' },
+    });
+    fireEvent.change(screen.getByPlaceholderText('Введите пароль'), {
+      target: { value: 'secret' },
+    });
+    fireEvent.click(screen.getByRole('button', { name: 'Войти' }));
+
+    await waitFor(() => expect(setToken).toHaveBeenCalledWith('override-token', { remember: true }));
+
+    const [requestUrl] = fetch.mock.calls[0];
+    expect(requestUrl.href).toBe('https://api.example.com/custom/auth');
   });
 
   it('shows friendly server error and keeps form active', async () => {
