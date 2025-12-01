@@ -1,9 +1,13 @@
 import { useMemo, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext.jsx';
 import './AuthPage.css';
 
 const AuthPage = () => {
   const { setToken } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const redirectPath = location.state?.from?.pathname || '/karaoke';
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(true);
@@ -32,7 +36,24 @@ const AuthPage = () => {
       const payload = await response.json().catch(() => ({}));
 
       if (!response.ok) {
-        throw new Error(payload?.message || 'Не удалось выполнить вход');
+        if (response.status === 400 || response.status === 401) {
+          throw new Error(
+            payload?.message ||
+              'Неверный логин или пароль. Проверьте раскладку и попробуйте снова.',
+          );
+        }
+
+        if (response.status === 429) {
+          throw new Error('Слишком много попыток. Подождите минуту и повторите попытку.');
+        }
+
+        if (response.status >= 500) {
+          throw new Error(
+            payload?.message || 'Сервер временно недоступен. Попробуйте зайти чуть позже.',
+          );
+        }
+
+        throw new Error(payload?.message || 'Не удалось выполнить вход. Попробуйте снова.');
       }
 
       if (!payload?.token) {
@@ -40,8 +61,19 @@ const AuthPage = () => {
       }
 
       setToken(payload.token, { remember: rememberMe });
+      navigate(redirectPath, {
+        replace: true,
+        state: { authNotice: 'Вы успешно вошли в систему' },
+      });
     } catch (err) {
-      setError(err.message || 'Произошла ошибка при выполнении запроса');
+      const fallbackMessage =
+        err?.message === 'Failed to fetch'
+          ? 'Не удалось связаться с сервером. Проверьте интернет или VPN и попробуйте снова.'
+          : 'Произошла ошибка при выполнении запроса. Попробуйте еще раз.';
+      const displayMessage =
+        err?.message === 'Failed to fetch' ? fallbackMessage : err?.message || fallbackMessage;
+
+      setError(displayMessage);
     } finally {
       setLoading(false);
     }
