@@ -1,12 +1,14 @@
 import { useMemo, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext.jsx';
+import useApiClient from '../../hooks/useApiClient.js';
 import './AuthPage.css';
 
 const AuthPage = () => {
   const { setToken } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  const apiClient = useApiClient();
   const redirectPath = location.state?.from?.pathname || '/karaoke';
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
@@ -25,12 +27,13 @@ const AuthPage = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('/api/auth/sign-in', {
+      const response = await apiClient('/api/auth/sign-in', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ login, password }),
+        skipAuth: true,
       });
 
       const payload = await response.json().catch(() => ({}));
