@@ -3,7 +3,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 
 const TOKEN_STORAGE_KEY = 'authToken';
 
-const AuthContext = createContext({
+export const AuthContext = createContext({
   token: null,
   setToken: () => undefined,
   signOut: () => undefined,
