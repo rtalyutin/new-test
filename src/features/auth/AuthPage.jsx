@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext.jsx';
 import useApiClient from '../../hooks/useApiClient.js';
+import API_ENDPOINTS from '../../config/apiEndpoints.js';
 import './AuthPage.css';
 
 const AuthPage = () => {
@@ -27,7 +28,7 @@ const AuthPage = () => {
     setLoading(true);
 
     try {
-      const response = await apiClient('/api/auth/sign-in', {
+      const response = await apiClient(API_ENDPOINTS.SIGN_IN, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

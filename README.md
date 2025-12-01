@@ -19,6 +19,12 @@ Create a `.env` file (or adjust `.env.example`) to point the frontend to your ba
 ```bash
 # Base URL of the backend API used for all requests
 VITE_API_BASE_URL=http://localhost:3000
+
+# REST endpoints (override if your backend uses custom paths)
+VITE_SIGN_IN_ENDPOINT=/api/auth/sign-in
+VITE_JOB_STATUS_ENDPOINT=/api/karaoke-tracks/tasks
+VITE_CREATE_TASK_URL=/api/karaoke-tracks/create-task-from-url
+VITE_CREATE_TASK_FILE=/api/karaoke-tracks/create-task-from-file
 ```
 
 ## Available Scripts
