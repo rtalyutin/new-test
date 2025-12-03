@@ -278,7 +278,7 @@
       "id": "round-2",
       "title": "Результаты 2-го круга",
       "subtitle": "Групповой этап",
-      "defaultExpanded": true,
+      "defaultExpanded": false,
       "weeks": [
         {
           "id": "week-3",
@@ -551,7 +551,15 @@
               "winner": "away"
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "round-3",
+      "title": "Результаты 3-го круга",
+      "subtitle": "Групповой этап",
+      "defaultExpanded": true,
+      "weeks": [
         {
           "id": "week-4",
           "title": "Неделя 3 · 2–7 декабря",
