@@ -20,17 +20,6 @@
   },
   "matches": [
     {
-      "id": "2025-12-02-mi-ne-pushim-blizhayshie",
-      "dayLabel": "Вт 2.12",
-      "timeLabel": "19:00",
-      "dateTime": "2025-12-02T19:00:00+03:00",
-      "teams": {
-        "home": "Mi ne Pushim!",
-        "away": "Ближайшие"
-      },
-      "channelIds": ["primary"]
-    },
-    {
       "id": "2025-12-04-arb-esports-japan",
       "dayLabel": "Чт 4.12",
       "timeLabel": "20:00",
