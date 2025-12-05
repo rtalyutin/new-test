@@ -642,7 +642,44 @@
               "detailsUrl": "https://youtu.be/arb-esports-japan-04-dec",
               "detailsLabel": "Смотреть повтор",
               "winner": "away"
-            }
+            },
+            {
+             "id": "2025-12-05-ygk-buyback-academy",
+              "dateLabel": "5 дек · 19:00",
+              "dateTime": "2025-12-05T19:00:00+03:00",
+              "stage": "Круг 3",
+              "teams": {
+                "home": "YGK",
+                "away": "BuyBack Academy"
+              },
+              "score": {
+                "home": 0,
+                "away": 2
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 3,
+                    "away": 46
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 14,
+                    "away": 30
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "0–2 · завершён",
+              "detailsUrl": "https://youtu.be/arb-esports-japan-04-dec",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "away" 
+             }
+          }
           ]
         }
       ]
