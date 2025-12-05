@@ -31,17 +31,6 @@
       "channelIds": ["primary"]
     },
     {
-      "id": "2025-12-05-ygk-buyback-academy",
-      "dayLabel": "Пт 5.12",
-      "timeLabel": "19:00",
-      "dateTime": "2025-12-05T19:00:00+03:00",
-      "teams": {
-        "home": "YGK",
-        "away": "BuyBack Academy"
-      },
-      "channelIds": ["primary"]
-    },
-    {
       "id": "2025-12-05-geeks-ne-znayushchie-pobed",
       "dayLabel": "Сб 6.12",
       "timeLabel": "19:00",
