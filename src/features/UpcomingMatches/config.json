@@ -20,21 +20,10 @@
   },
   "matches": [
     {
-      "id": "2025-12-05-geeks-ne-znayushchie-pobed",
-      "dayLabel": "Сб 6.12",
-      "timeLabel": "19:00",
-      "dateTime": "2025-12-06T19:00:00+03:00",
-      "teams": {
-        "home": "Гики",
-        "away": "не знающие побед"
-      },
-      "channelIds": ["secondary"]
-    },
-    {
       "id": "2025-12-07-tech-titans-way-prod",
       "dayLabel": "Вск 7.12",
-      "timeLabel": "15:00",
-      "dateTime": "2025-12-07T15:00:00+03:00",
+      "timeLabel": "17:00",
+      "dateTime": "2025-12-07T17:00:00+03:00",
       "teams": {
         "home": "Tech Titans",
         "away": "Way Prod."
