@@ -678,6 +678,42 @@
               "detailsUrl": "https://youtu.be/arb-esports-japan-04-dec",
               "detailsLabel": "Смотреть повтор",
               "winner": "away"
+            },
+            {
+              "id": "2025-12-06-team-borisogleb-steel-titans",
+              "dateLabel": "6 дек · 15:00",
+              "dateTime": "2025-12-06T15:00:00+03:00",
+              "stage": "Круг 3",
+              "teams": {
+                "home": "Team Borisogleb",
+                "away": "Steel Titans"
+              },
+              "score": {
+                "home": 2,
+                "away": 0
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 35,
+                    "away": 32
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 35,
+                    "away": 14
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–0 · завершён",
+              "detailsUrl": "https://youtu.be/team-borisogleb-steel-titans-06-dec",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
             }
           ]
         }
