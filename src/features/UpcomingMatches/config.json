@@ -18,5 +18,72 @@
       "url": "https://www.twitch.tv/yarcyberseason3"
     }
   },
-  "matches": []
+  "matches": [
+    {
+      "id": "2025-12-09-team-borisogleb-mi-ne-pushim",
+      "dayLabel": "Вт · 9 декабря",
+      "timeLabel": "21:00",
+      "dateTime": "2025-12-09T21:00:00+03:00",
+      "teams": {
+        "home": "Team Borisogleb",
+        "away": "Mi ne Pushim!"
+      },
+      "channelIds": ["primary"]
+    },
+    {
+      "id": "2025-12-10-steel-titans-buyback-academy",
+      "dayLabel": "Ср · 10 декабря",
+      "timeLabel": "19:00",
+      "dateTime": "2025-12-10T19:00:00+03:00",
+      "teams": {
+        "home": "Steel Titans",
+        "away": "Buyback Academy"
+      },
+      "channelIds": ["primary"]
+    },
+    {
+      "id": "2025-12-11-ygk-giki",
+      "dayLabel": "Чт · 11 декабря",
+      "timeLabel": "19:30",
+      "dateTime": "2025-12-11T19:30:00+03:00",
+      "teams": {
+        "home": "YGK",
+        "away": "Гики"
+      },
+      "channelIds": ["primary"]
+    },
+    {
+      "id": "2025-12-11-tech-titans-arb-esports",
+      "dayLabel": "Чт · 11 декабря",
+      "timeLabel": "19:30",
+      "dateTime": "2025-12-11T19:30:00+03:00",
+      "teams": {
+        "home": "Tech Titans",
+        "away": "ARB ESports"
+      },
+      "channelIds": ["secondary"]
+    },
+    {
+      "id": "2025-12-12-yellow-submarine-blyzhayshie",
+      "dayLabel": "Пт · 12 декабря",
+      "timeLabel": "19:00",
+      "dateTime": "2025-12-12T19:00:00+03:00",
+      "teams": {
+        "home": "Yellow Submarine",
+        "away": "Ближайшие"
+      },
+      "channelIds": ["primary"]
+    },
+    {
+      "id": "2025-12-14-japan-way-prod",
+      "dayLabel": "Вс · 14 декабря",
+      "timeLabel": "19:00",
+      "dateTime": "2025-12-14T19:00:00+03:00",
+      "teams": {
+        "home": "Japan 日本",
+        "away": "Way Prod."
+      },
+      "channelIds": ["primary"]
+    }
+  ]
 }
