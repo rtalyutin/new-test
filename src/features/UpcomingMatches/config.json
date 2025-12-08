@@ -61,7 +61,7 @@
         "home": "Tech Titans",
         "away": "ARB ESports"
       },
-      "channelIds": ["secondary"]
+      "channelIds": ["primary"]
     },
     {
       "id": "2025-12-12-yellow-submarine-blyzhayshie",
@@ -72,7 +72,7 @@
         "home": "Yellow Submarine",
         "away": "Ближайшие"
       },
-      "channelIds": ["primary"]
+      "channelIds": ["secondary"]
     },
     {
       "id": "2025-12-14-japan-way-prod",
