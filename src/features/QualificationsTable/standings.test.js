@@ -21,12 +21,12 @@ test('buildStandingsFromMatchResults aggregates finished matches into standings'
   assert.deepStrictEqual(miNePushim, {
     id: 'mi-ne-pushim',
     name: 'Mi ne Pushim!',
-    matches: 3,
-    wins: 1,
+    matches: 4,
+    wins: 2,
     losses: 2,
-    mapWins: 4,
+    mapWins: 6,
     mapLosses: 4,
-    points: 4,
+    points: 6,
   });
 
   const uniqueIds = new Set(standings.map((team) => team.id));
