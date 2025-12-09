@@ -826,6 +826,56 @@
           ]
         }
       ]
+    },
+    {
+      "id": "round-4",
+      "title": "Результаты 4-го круга",
+      "subtitle": "Групповой этап",
+      "defaultExpanded": true,
+      "weeks": [
+        {
+          "id": "week-5",
+          "title": "Неделя 4 · 9–15 декабря",
+          "matches": [
+            {
+              "id": "2025-12-09-team-borisogleb-mi-ne-pushim",
+              "dateLabel": "9 дек · 21:00",
+              "dateTime": "2025-12-09T21:00:00+03:00",
+              "stage": "Круг 4",
+              "teams": {
+                "home": "Team Borisogleb",
+                "away": "Mi ne Pushim!"
+              },
+              "score": {
+                "home": 0,
+                "away": 2
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 52,
+                    "away": 55
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 44,
+                    "away": 49
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "0–2 · завершён",
+              "detailsUrl": "https://youtu.be/team-borisogleb-mi-ne-pushim-09-dec",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "away"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
