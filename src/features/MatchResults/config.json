@@ -872,6 +872,49 @@
               "detailsUrl": "https://youtu.be/team-borisogleb-mi-ne-pushim-09-dec",
               "detailsLabel": "Смотреть повтор",
               "winner": "away"
+            },
+            {
+              "id": "2025-12-10-steel-titans-buyback-academy",
+              "dateLabel": "10 дек · 19:00",
+              "dateTime": "2025-12-10T19:00:00+03:00",
+              "stage": "Круг 4",
+              "teams": {
+                "home": "Steel Titans",
+                "away": "Buyback Academy"
+              },
+              "score": {
+                "home": 2,
+                "away": 1
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 44,
+                    "away": 32
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 33,
+                    "away": 45
+                  }
+                },
+                {
+                  "id": "game-3",
+                  "score": {
+                    "home": 45,
+                    "away": 19
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–1 · завершён",
+              "detailsUrl": "https://youtu.be/steel-titans-buyback-academy-10-dec",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
             }
           ]
         }
