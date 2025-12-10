@@ -39,7 +39,7 @@
         "home": "YGK",
         "away": "Гики"
       },
-      "channelIds": ["primary"]
+      "channelIds": ["secondary"]
     },
     {
       "id": "2025-12-11-tech-titans-arb-esports",
@@ -61,7 +61,7 @@
         "home": "Yellow Submarine",
         "away": "Ближайшие"
       },
-      "channelIds": ["secondary"]
+      "channelIds": ["primary"]
     },
     {
       "id": "2025-12-14-japan-way-prod",
