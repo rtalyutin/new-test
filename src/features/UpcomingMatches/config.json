@@ -20,17 +20,6 @@
   },
   "matches": [
     {
-      "id": "2025-12-10-steel-titans-buyback-academy",
-      "dayLabel": "Ср · 10 декабря",
-      "timeLabel": "19:00",
-      "dateTime": "2025-12-10T19:00:00+03:00",
-      "teams": {
-        "home": "Steel Titans",
-        "away": "Buyback Academy"
-      },
-      "channelIds": ["primary"]
-    },
-    {
       "id": "2025-12-11-ygk-giki",
       "dayLabel": "Чт · 11 декабря",
       "timeLabel": "19:30",
