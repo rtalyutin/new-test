@@ -21,6 +21,25 @@ const ensureTeam = (teamsMap, name) => {
 
 const toNumber = (value) => (Number.isFinite(value) ? value : 0);
 
+const POINT_DEDUCTIONS = {
+  'Не Знающие Побед': 6,
+  'Labubu Team': 6,
+};
+
+const applyPointDeductions = (teams, deductions) =>
+  teams.map((team) => {
+    const deduction = deductions[team.name];
+
+    if (!deduction) {
+      return team;
+    }
+
+    return {
+      ...team,
+      points: team.points - deduction,
+    };
+  });
+
 export const extractFinishedMatchesByWeek = (matchResults) =>
   (matchResults?.rounds ?? [])
     .flatMap((round) => round?.weeks ?? [])
@@ -72,7 +91,9 @@ export const buildStandingsFromMatches = (finishedMatches) => {
     awayTeam.points += awayMaps;
   });
 
-  return Array.from(teamsMap.values());
+  const teams = Array.from(teamsMap.values());
+
+  return applyPointDeductions(teams, POINT_DEDUCTIONS);
 };
 
 export const buildStandingsFromMatchResults = (matchResults) =>

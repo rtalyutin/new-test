@@ -20,28 +20,6 @@
   },
   "matches": [
     {
-      "id": "2025-12-11-ygk-giki",
-      "dayLabel": "Чт · 11 декабря",
-      "timeLabel": "19:30",
-      "dateTime": "2025-12-11T19:30:00+03:00",
-      "teams": {
-        "home": "YGK",
-        "away": "Гики"
-      },
-      "channelIds": ["secondary"]
-    },
-    {
-      "id": "2025-12-11-tech-titans-arb-esports",
-      "dayLabel": "Чт · 11 декабря",
-      "timeLabel": "19:30",
-      "dateTime": "2025-12-11T19:30:00+03:00",
-      "teams": {
-        "home": "Tech Titans",
-        "away": "ARB ESports"
-      },
-      "channelIds": ["primary"]
-    },
-    {
       "id": "2025-12-12-yellow-submarine-blyzhayshie",
       "dayLabel": "Пт · 12 декабря",
       "timeLabel": "19:00",
