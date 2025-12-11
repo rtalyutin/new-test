@@ -43,6 +43,19 @@ test('buildStandingsFromMatches aggregates matches for a single week', () => {
   assert.strictEqual(firstTeam.matches, 1);
 });
 
+test('buildStandingsFromMatchResults applies point deductions for penalized teams', () => {
+  const standings = buildStandingsFromMatchResults(matchResultsConfig);
+
+  const penalizedTeam = standings.find((team) => team.name === 'Не Знающие Побед');
+  const labubuTeam = standings.find((team) => team.name === 'Labubu Team');
+
+  assert.ok(penalizedTeam, 'Penalized team should exist in standings');
+  assert.strictEqual(penalizedTeam.points, penalizedTeam.mapWins - 6);
+
+  assert.ok(labubuTeam, 'Labubu Team should exist in standings');
+  assert.strictEqual(labubuTeam.points, labubuTeam.mapWins - 6);
+});
+
 test('sortTeams orders by points, map difference, map wins, then alphabetically', () => {
   const teams = [
     { id: 'c', name: 'Team C', matches: 1, wins: 1, losses: 0, mapWins: 2, mapLosses: 0, points: 3 },

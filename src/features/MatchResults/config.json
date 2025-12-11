@@ -915,6 +915,78 @@
               "detailsUrl": "https://youtu.be/steel-titans-buyback-academy-10-dec",
               "detailsLabel": "Смотреть повтор",
               "winner": "home"
+            },
+            {
+              "id": "2025-12-11-geeks-ygk",
+              "dateLabel": "11 дек · 19:30",
+              "dateTime": "2025-12-11T19:30:00+03:00",
+              "stage": "Круг 4",
+              "teams": {
+                "home": "Гики",
+                "away": "YGK"
+              },
+              "score": {
+                "home": 2,
+                "away": 0
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 51,
+                    "away": 30
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 66,
+                    "away": 50
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–0 · завершён",
+              "detailsUrl": "https://youtu.be/geeks-ygk-11-dec",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            },
+            {
+              "id": "2025-12-11-tech-titans-arb-esports",
+              "dateLabel": "11 дек · 19:30",
+              "dateTime": "2025-12-11T19:30:00+03:00",
+              "stage": "Круг 4",
+              "teams": {
+                "home": "Tech Titans",
+                "away": "ARB ESports"
+              },
+              "score": {
+                "home": 2,
+                "away": 0
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 34,
+                    "away": 31
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 10,
+                    "away": 5
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–0 · завершён",
+              "detailsUrl": "https://youtu.be/tech-titans-arb-esports-11-dec",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
             }
           ]
         }
