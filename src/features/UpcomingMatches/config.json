@@ -18,17 +18,5 @@
       "url": "https://www.twitch.tv/yarcyberseason3"
     }
   },
-  "matches": [
-    {
-      "id": "2025-12-14-japan-way-prod",
-      "dayLabel": "Вс · 14 декабря",
-      "timeLabel": "19:00",
-      "dateTime": "2025-12-14T19:00:00+03:00",
-      "teams": {
-        "home": "Japan 日本",
-        "away": "Way Prod."
-      },
-      "channelIds": ["primary"]
-    }
-  ]
+  "matches": []
 }
