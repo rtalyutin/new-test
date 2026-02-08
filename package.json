@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "lint": "eslint \"src/**/*.{js,jsx}\"",
     "format": "prettier --write .",
-    "test": "vitest run"
+    "test": "vitest run",
+    "lint:assets": "node scripts/validate-asset-names.mjs"
   },
   "dependencies": {
     "prop-types": "^15.8.1",
