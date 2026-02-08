@@ -22,5 +22,16 @@ module.exports = {
   },
   rules: {
     'react/react-in-jsx-scope': 'off',
+    'no-restricted-imports': [
+      'error',
+      {
+        patterns: [
+          {
+            group: ['**/_archive/**'],
+            message: 'Импорты из src/_archive запрещены в runtime-коде.',
+          },
+        ],
+      },
+    ],
   },
 };
