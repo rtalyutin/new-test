@@ -41,6 +41,7 @@ VITE_CREATE_TASK_FILE=/api/karaoke-tracks/create-task-from-file
 src/
   App.jsx               # root application component
   main.jsx              # application bootstrap
+  _archive/             # archived modules kept out of runtime bundle
   components/           # shared UI building blocks
   features/             # feature folders with component + config.json
   styles/               # global styles
@@ -49,6 +50,16 @@ src/
 Each feature folder contains a React component (e.g., `News.jsx`) and a JSON configuration file (`config.json`). Components import their configuration with a standard ES module import (`import config from './config.json'`).
 
 You can duplicate an existing feature folder to bootstrap new blocks.
+
+## Archived Modules
+
+Следующие модули исключены из runtime-подключений и перенесены в архив для возможного возврата функционала:
+
+- `src/_archive/features/Program`
+- `src/_archive/features/Schedule`
+- `src/_archive/features/Bracket`
+- `src/_archive/features/Spectators`
+- `src/_archive/components/SeasonSelectorModal`
 
 ## Deployment & Configuration
 
