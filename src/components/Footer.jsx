@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import logoImage from '../ChatGPT Image 20 окт. 2025 г., 22_02_10.png';
+import logoImage from '../brand-logo.png';
 import './Footer.css';
 
 const Footer = ({ isFeminineTheme, onThemeToggle }) => {

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import msLogo from './ms.png';
 import fksLogo from './fks.png';
-import heroBackgroundImage from './image_2025-10-27_20-17-24.png';
+import heroBackgroundImage from './hero-background.png';
 import './Hero.css';
 
 const DEFAULT_EXPIRED_LABEL = 'Сезон уже стартовал';

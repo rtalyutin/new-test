@@ -19,7 +19,7 @@ import sponsorsConfig from './features/Sponsors/config.json';
 import socialLinksConfig from './features/SocialLinks/config.json';
 import QualificationsTable from './features/QualificationsTable/QualificationsTable.jsx';
 import qualificationsConfig from './features/QualificationsTable/config.json';
-import logoImage from './ChatGPT Image 20 окт. 2025 г., 22_02_10.png';
+import logoImage from './brand-logo.png';
 import './App.css';
 
 const App = () => {
