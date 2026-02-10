@@ -1,45 +1,56 @@
 import { describe, expect, it } from 'vitest';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 
 import App from './App.jsx';
 
-describe('App game discipline blocks', () => {
-  it('renders Dota 2 collapsed and Counter Strike 2 expanded by default', () => {
+const getDisciplineTabList = () => screen.getAllByRole('tablist')
+  .find((list) => within(list).queryByRole('tab', { name: 'Dota2' }));
+
+describe('App game discipline switcher', () => {
+  it('renders one section with Dota2 tab active by default', () => {
     render(<App />);
 
-    const dotaToggle = screen.getAllByRole('button', { name: /Развернуть|Свернуть/ })
-      .find((button) => button.getAttribute('aria-controls') === 'dota-2-content');
+    expect(screen.getByRole('heading', { name: 'Игровые дисциплины' })).toBeInTheDocument();
 
-    expect(dotaToggle).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'Dota 2' })).toBeInTheDocument();
-    expect(document.getElementById('dota-2-content')).toHaveAttribute('hidden');
+    const tabList = getDisciplineTabList();
+    const dotaTab = within(tabList).getByRole('tab', { name: 'Dota2' });
+    const cs2Tab = within(tabList).getByRole('tab', { name: 'CS2' });
 
-    expect(screen.getByRole('heading', { name: 'Counter Strike 2' })).toBeInTheDocument();
-    expect(document.getElementById('counter-strike-2-content')).not.toHaveAttribute('hidden');
+    expect(dotaTab).toHaveAttribute('aria-selected', 'true');
+    expect(cs2Tab).toHaveAttribute('aria-selected', 'false');
+
+    expect(document.getElementById('panel-dota2')).not.toHaveAttribute('hidden');
+    expect(document.getElementById('panel-cs2')).toHaveAttribute('hidden');
   });
 
-  it('toggles game discipline blocks independently', () => {
+  it('switches between Dota2 and CS2 independently', () => {
     render(<App />);
 
-    const toggles = screen.getAllByRole('button', { name: /Развернуть|Свернуть/ });
-    const dotaToggle = toggles.find((button) => button.getAttribute('aria-controls') === 'dota-2-content');
-    const cs2Toggle = toggles.find((button) => button.getAttribute('aria-controls') === 'counter-strike-2-content');
+    const tabList = getDisciplineTabList();
+    const cs2Tab = within(tabList).getByRole('tab', { name: 'CS2' });
+    fireEvent.click(cs2Tab);
 
-    fireEvent.click(dotaToggle);
-    expect(document.getElementById('dota-2-content')).not.toHaveAttribute('hidden');
+    expect(document.getElementById('panel-cs2')).not.toHaveAttribute('hidden');
+    expect(document.getElementById('panel-dota2')).toHaveAttribute('hidden');
 
-    fireEvent.click(cs2Toggle);
-    expect(document.getElementById('counter-strike-2-content')).toHaveAttribute('hidden');
+    expect(within(document.getElementById('panel-cs2')).getByRole('heading', { name: 'Counter Strike 2' })).toBeInTheDocument();
+
+    const dotaTab = within(tabList).getByRole('tab', { name: 'Dota2' });
+    fireEvent.click(dotaTab);
+
+    expect(document.getElementById('panel-dota2')).not.toHaveAttribute('hidden');
+    expect(document.getElementById('panel-cs2')).toHaveAttribute('hidden');
+    expect(within(document.getElementById('panel-dota2')).getByRole('heading', { name: 'Dota 2' })).toBeInTheDocument();
   });
 
-  it('shows roster gallery inside both game blocks', () => {
+  it('shows one roster gallery for active discipline', () => {
     render(<App />);
 
-    const toggles = screen.getAllByRole('button', { name: /Развернуть|Свернуть/ });
-    const dotaToggle = toggles.find((button) => button.getAttribute('aria-controls') === 'dota-2-content');
-    fireEvent.click(dotaToggle);
+    expect(within(document.getElementById('panel-dota2')).getAllByRole('heading', { name: 'Галерея ростеров' })).toHaveLength(1);
 
-    const galleries = screen.getAllByRole('heading', { name: 'Галерея ростеров' });
-    expect(galleries).toHaveLength(2);
+    const tabList = getDisciplineTabList();
+    fireEvent.click(within(tabList).getByRole('tab', { name: 'CS2' }));
+
+    expect(within(document.getElementById('panel-cs2')).getAllByRole('heading', { name: 'Галерея ростеров' })).toHaveLength(1);
   });
 });

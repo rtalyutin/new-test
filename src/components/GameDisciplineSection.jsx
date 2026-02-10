@@ -2,22 +2,24 @@ import PropTypes from 'prop-types';
 
 import './GameDisciplineSection.css';
 
-const GameDisciplineSection = ({ id, title, isExpanded, onToggle, children }) => {
+const GameDisciplineSection = ({ id, title, isExpanded, onToggle, isCollapsible = true, children }) => {
   const contentId = `${id}-content`;
 
   return (
     <article className="game-discipline" aria-labelledby={`${id}-title`}>
       <div className="game-discipline__header">
         <h3 id={`${id}-title`} className="game-discipline__title">{title}</h3>
-        <button
-          type="button"
-          className="game-discipline__toggle"
-          onClick={onToggle}
-          aria-expanded={isExpanded}
-          aria-controls={contentId}
-        >
-          {isExpanded ? 'Свернуть' : 'Развернуть'}
-        </button>
+        {isCollapsible && (
+          <button
+            type="button"
+            className="game-discipline__toggle"
+            onClick={onToggle}
+            aria-expanded={isExpanded}
+            aria-controls={contentId}
+          >
+            {isExpanded ? 'Свернуть' : 'Развернуть'}
+          </button>
+        )}
       </div>
       <div
         id={contentId}
@@ -34,7 +36,8 @@ GameDisciplineSection.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   isExpanded: PropTypes.bool.isRequired,
-  onToggle: PropTypes.func.isRequired,
+  onToggle: PropTypes.func,
+  isCollapsible: PropTypes.bool,
   children: PropTypes.node.isRequired,
 };
 

@@ -41,7 +41,7 @@ const App = () => {
 
   const [theme, setTheme] = useState(getInitialTheme);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [expandedGameBlocks, setExpandedGameBlocks] = useState({ dota2: false, cs2: true });
+  const [activeGameDiscipline, setActiveGameDiscipline] = useState('dota2');
 
   useEffect(() => {
     const handleResize = () => {
@@ -82,13 +82,6 @@ const App = () => {
     setTheme((prevTheme) => (prevTheme === 'feminine' ? 'default' : 'feminine'));
   };
 
-  const toggleGameBlock = (blockId) => {
-    setExpandedGameBlocks((prevState) => ({
-      ...prevState,
-      [blockId]: !prevState[blockId],
-    }));
-  };
-
   const sections = [
     {
       id: 'hero',
@@ -120,37 +113,67 @@ const App = () => {
       hideTitle: true,
     },
     {
-      id: 'dota-2',
+      id: 'game-disciplines',
       component: (
-        <GameDisciplineSection
-          id="dota-2"
-          title="Dota 2"
-          isExpanded={expandedGameBlocks.dota2}
-          onToggle={() => toggleGameBlock('dota2')}
-        >
-          <TeamShowcase />
-          <QualificationsTable data={qualificationsConfig} matchResults={matchResultsConfig} />
-          <MatchResults data={matchResultsConfig} />
-        </GameDisciplineSection>
+        <article className="game-disciplines-switcher" aria-labelledby="game-disciplines-title">
+          <div className="game-disciplines-switcher__header">
+            <h3 id="game-disciplines-title" className="game-disciplines-switcher__title">Игровые дисциплины</h3>
+            <div
+              className="game-disciplines-switcher__controls"
+              role="tablist"
+              aria-label="Переключение дисциплин"
+            >
+              <button
+                type="button"
+                role="tab"
+                id="tab-dota2"
+                aria-selected={activeGameDiscipline === 'dota2'}
+                aria-controls="panel-dota2"
+                className={`game-disciplines-switcher__tab${activeGameDiscipline === 'dota2' ? ' game-disciplines-switcher__tab--active' : ''}`}
+                onClick={() => setActiveGameDiscipline('dota2')}
+              >
+                Dota2
+              </button>
+              <button
+                type="button"
+                role="tab"
+                id="tab-cs2"
+                aria-selected={activeGameDiscipline === 'cs2'}
+                aria-controls="panel-cs2"
+                className={`game-disciplines-switcher__tab${activeGameDiscipline === 'cs2' ? ' game-disciplines-switcher__tab--active' : ''}`}
+                onClick={() => setActiveGameDiscipline('cs2')}
+              >
+                CS2
+              </button>
+            </div>
+          </div>
+
+          <div
+            role="tabpanel"
+            id="panel-dota2"
+            aria-labelledby="tab-dota2"
+            hidden={activeGameDiscipline !== 'dota2'}
+          >
+            <GameDisciplineSection id="dota-2" title="Dota 2" isExpanded isCollapsible={false}>
+              <TeamShowcase />
+              <QualificationsTable data={qualificationsConfig} matchResults={matchResultsConfig} />
+              <MatchResults data={matchResultsConfig} />
+            </GameDisciplineSection>
+          </div>
+
+          <div
+            role="tabpanel"
+            id="panel-cs2"
+            aria-labelledby="tab-cs2"
+            hidden={activeGameDiscipline !== 'cs2'}
+          >
+            <GameDisciplineSection id="counter-strike-2" title="Counter Strike 2" isExpanded isCollapsible={false}>
+              <TeamShowcase />
+            </GameDisciplineSection>
+          </div>
+        </article>
       ),
-      navLabel: 'Dota 2',
-      variant: 'game-discipline',
-      hideTitle: true,
-      fullBleed: true,
-    },
-    {
-      id: 'counter-strike-2',
-      component: (
-        <GameDisciplineSection
-          id="counter-strike-2"
-          title="Counter Strike 2"
-          isExpanded={expandedGameBlocks.cs2}
-          onToggle={() => toggleGameBlock('cs2')}
-        >
-          <TeamShowcase />
-        </GameDisciplineSection>
-      ),
-      navLabel: 'Counter Strike 2',
+      navLabel: 'Дисциплины',
       variant: 'game-discipline',
       hideTitle: true,
       fullBleed: true,
