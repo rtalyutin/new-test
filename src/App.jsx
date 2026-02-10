@@ -19,6 +19,7 @@ import sponsorsConfig from './features/Sponsors/config.json';
 import socialLinksConfig from './features/SocialLinks/config.json';
 import QualificationsTable from './features/QualificationsTable/QualificationsTable.jsx';
 import qualificationsConfig from './features/QualificationsTable/config.json';
+import GameDisciplineSection from './components/GameDisciplineSection.jsx';
 import logoImage from './brand-logo.png';
 import './App.css';
 
@@ -27,97 +28,6 @@ const App = () => {
     // Здесь мог бы быть вызов API или интеграция с сервисом отправки.
     console.log('Sponsor form submitted', formData);
   }, []);
-
-  const sections = [
-    {
-      id: 'hero',
-      component: <Hero data={heroConfig} disableVideoOnMobile={heroConfig.media?.disableOnMobile} />,
-      variant: 'hero',
-      hideTitle: true,
-      fullBleed: true,
-      navLabel: 'Главная',
-    },
-    {
-      id: 'overview',
-      title: 'Обзор YarCyberSeason',
-      component: <Overview data={overviewConfig} />,
-      navLabel: 'Обзор',
-      variant: 'overview',
-      background: (
-        <div className="overview-background">
-          <div className="overview-background__blur overview-background__blur--primary" />
-          <div className="overview-background__blur overview-background__blur--secondary" />
-          <div className="overview-background__grain" />
-        </div>
-      ),
-    },
-    {
-      id: 'team-showcase',
-      title: 'Команды сезона',
-      component: <TeamShowcase />,
-      navLabel: 'Команды',
-      variant: 'team-showcase',
-      hideTitle: true,
-    },
-    {
-      id: 'upcoming-matches',
-      component: <UpcomingMatches data={upcomingMatchesConfig} />,
-      navLabel: 'Матчи',
-      variant: 'upcoming-matches',
-      hideTitle: true,
-    },
-    {
-      id: 'qualifications',
-      component: (
-        <QualificationsTable data={qualificationsConfig} matchResults={matchResultsConfig} />
-      ),
-      navLabel: 'Таблица',
-      variant: 'qualifications-table',
-      hideTitle: true,
-      fullBleed: true,
-    },
-    {
-      id: 'match-results',
-      component: <MatchResults data={matchResultsConfig} />,
-      navLabel: 'Результаты',
-      variant: 'match-results',
-      hideTitle: true,
-    },
-    {
-      id: 'registration',
-      component: <RegistrationCta data={registrationCtaConfig} />,
-      navLabel: 'Регистрация',
-      variant: 'registration-cta',
-      hideTitle: true,
-    },
-    {
-      id: 'social',
-      title: 'Социальные каналы',
-      component: <SocialLinks data={socialLinksConfig} />,
-      navLabel: 'Соцсети',
-      variant: 'social-links',
-      hideTitle: true,
-    },
-    {
-      id: 'sponsors',
-      title: 'Партнёры и спонсоры',
-      component: (
-        <Sponsors
-          data={sponsorsConfig}
-          onSponsorFormSubmit={handleSponsorFormSubmit}
-        />
-      ),
-      navLabel: 'Партнёры',
-      variant: 'sponsors',
-    },
-  ];
-
-  const navigationItems = sections
-    .filter((section) => Boolean(section.navLabel))
-    .map((section) => ({
-      id: section.id,
-      label: section.navLabel,
-    }));
 
   const THEME_STORAGE_KEY = 'ycs-theme';
 
@@ -131,6 +41,7 @@ const App = () => {
 
   const [theme, setTheme] = useState(getInitialTheme);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [expandedGameBlocks, setExpandedGameBlocks] = useState({ dota2: false, cs2: true });
 
   useEffect(() => {
     const handleResize = () => {
@@ -170,6 +81,115 @@ const App = () => {
   const handleThemeToggle = () => {
     setTheme((prevTheme) => (prevTheme === 'feminine' ? 'default' : 'feminine'));
   };
+
+  const toggleGameBlock = (blockId) => {
+    setExpandedGameBlocks((prevState) => ({
+      ...prevState,
+      [blockId]: !prevState[blockId],
+    }));
+  };
+
+  const sections = [
+    {
+      id: 'hero',
+      component: <Hero data={heroConfig} disableVideoOnMobile={heroConfig.media?.disableOnMobile} />,
+      variant: 'hero',
+      hideTitle: true,
+      fullBleed: true,
+      navLabel: 'Главная',
+    },
+    {
+      id: 'overview',
+      title: 'Обзор YarCyberSeason',
+      component: <Overview data={overviewConfig} />,
+      navLabel: 'Обзор',
+      variant: 'overview',
+      background: (
+        <div className="overview-background">
+          <div className="overview-background__blur overview-background__blur--primary" />
+          <div className="overview-background__blur overview-background__blur--secondary" />
+          <div className="overview-background__grain" />
+        </div>
+      ),
+    },
+    {
+      id: 'upcoming-matches',
+      component: <UpcomingMatches data={upcomingMatchesConfig} />,
+      navLabel: 'Матчи',
+      variant: 'upcoming-matches',
+      hideTitle: true,
+    },
+    {
+      id: 'dota-2',
+      component: (
+        <GameDisciplineSection
+          id="dota-2"
+          title="Dota 2"
+          isExpanded={expandedGameBlocks.dota2}
+          onToggle={() => toggleGameBlock('dota2')}
+        >
+          <TeamShowcase />
+          <QualificationsTable data={qualificationsConfig} matchResults={matchResultsConfig} />
+          <MatchResults data={matchResultsConfig} />
+        </GameDisciplineSection>
+      ),
+      navLabel: 'Dota 2',
+      variant: 'game-discipline',
+      hideTitle: true,
+      fullBleed: true,
+    },
+    {
+      id: 'counter-strike-2',
+      component: (
+        <GameDisciplineSection
+          id="counter-strike-2"
+          title="Counter Strike 2"
+          isExpanded={expandedGameBlocks.cs2}
+          onToggle={() => toggleGameBlock('cs2')}
+        >
+          <TeamShowcase />
+        </GameDisciplineSection>
+      ),
+      navLabel: 'Counter Strike 2',
+      variant: 'game-discipline',
+      hideTitle: true,
+      fullBleed: true,
+    },
+    {
+      id: 'registration',
+      component: <RegistrationCta data={registrationCtaConfig} />,
+      navLabel: 'Регистрация',
+      variant: 'registration-cta',
+      hideTitle: true,
+    },
+    {
+      id: 'social',
+      title: 'Социальные каналы',
+      component: <SocialLinks data={socialLinksConfig} />,
+      navLabel: 'Соцсети',
+      variant: 'social-links',
+      hideTitle: true,
+    },
+    {
+      id: 'sponsors',
+      title: 'Партнёры и спонсоры',
+      component: (
+        <Sponsors
+          data={sponsorsConfig}
+          onSponsorFormSubmit={handleSponsorFormSubmit}
+        />
+      ),
+      navLabel: 'Партнёры',
+      variant: 'sponsors',
+    },
+  ];
+
+  const navigationItems = sections
+    .filter((section) => Boolean(section.navLabel))
+    .map((section) => ({
+      id: section.id,
+      label: section.navLabel,
+    }));
 
   const isFeminineTheme = theme === 'feminine';
 

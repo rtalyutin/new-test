@@ -1,0 +1,57 @@
+.game-discipline {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(145deg, rgba(20, 28, 54, 0.88), rgba(13, 18, 38, 0.95));
+  box-shadow: var(--shadow-soft-elevated);
+  padding: clamp(var(--space-4), 3vw, var(--space-6));
+}
+
+.game-discipline__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.game-discipline__title {
+  margin: 0;
+  font-size: clamp(1.4rem, 1.1rem + 1vw, 2rem);
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.game-discipline__toggle {
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-text-primary);
+  border-radius: 999px;
+  padding: 0.5rem 0.95rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+.game-discipline__toggle:hover,
+.game-discipline__toggle:focus-visible {
+  background: var(--color-primary-soft);
+}
+
+.game-discipline__content {
+  margin-top: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.game-discipline__placeholder {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .game-discipline__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
