@@ -52,5 +52,6 @@ describe('App game discipline switcher', () => {
     fireEvent.click(within(tabList).getByRole('tab', { name: 'CS2' }));
 
     expect(within(document.getElementById('panel-cs2')).getAllByRole('heading', { name: 'Галерея ростеров' })).toHaveLength(1);
+    expect(within(document.getElementById('panel-cs2')).getByRole('heading', { name: 'Результаты последних матчей' })).toBeInTheDocument();
   });
 });
