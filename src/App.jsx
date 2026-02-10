@@ -15,6 +15,7 @@ import UpcomingMatches from './features/UpcomingMatches/UpcomingMatches.jsx';
 import upcomingMatchesConfig from './features/UpcomingMatches/config.json';
 import MatchResults from './features/MatchResults/MatchResults.jsx';
 import matchResultsConfig from './features/MatchResults/config.json';
+import cs2MatchResultsConfig from './features/MatchResults/cs2-config.json';
 import registrationCtaConfig from './features/RegistrationCta/config.json';
 import sponsorsConfig from './features/Sponsors/config.json';
 import socialLinksConfig from './features/SocialLinks/config.json';
@@ -170,6 +171,7 @@ const App = () => {
           >
             <GameDisciplineSection id="counter-strike-2" title="Counter Strike 2" isExpanded isCollapsible={false}>
               <Cs2TeamShowcase />
+              <MatchResults data={cs2MatchResultsConfig} />
             </GameDisciplineSection>
           </div>
         </article>

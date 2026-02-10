@@ -30,6 +30,7 @@ export const loadTeamShowcaseStyles = (loader = () => import('../team-showcase/T
 const AUTO_PLAY_INTERVAL = 8000;
 const numberFormatter = new Intl.NumberFormat('ru-RU');
 
+
 const renderMember = (member) =>
   createElement(
     'li',
