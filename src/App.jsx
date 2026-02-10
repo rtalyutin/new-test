@@ -7,6 +7,7 @@ import Overview from './features/Overview/Overview.jsx';
 import RegistrationCta from './features/RegistrationCta/RegistrationCta.jsx';
 import Sponsors from './features/Sponsors/Sponsors.jsx';
 import TeamShowcase from './features/team-showcase/TeamShowcase.js';
+import Cs2TeamShowcase from './features/cs2-team-showcase/Cs2TeamShowcase.js';
 import SocialLinks from './features/SocialLinks/SocialLinks.jsx';
 import heroConfig from './features/Hero/config.json';
 import overviewConfig from './features/Overview/config.json';
@@ -168,9 +169,7 @@ const App = () => {
             hidden={activeGameDiscipline !== 'cs2'}
           >
             <GameDisciplineSection id="counter-strike-2" title="Counter Strike 2" isExpanded isCollapsible={false}>
-              <div className="game-discipline__placeholder" aria-hidden="true" />
-              <div className="game-discipline__placeholder" aria-hidden="true" />
-              <div className="game-discipline__placeholder" aria-hidden="true" />
+              <Cs2TeamShowcase />
             </GameDisciplineSection>
           </div>
         </article>
