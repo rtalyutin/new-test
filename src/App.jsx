@@ -168,7 +168,9 @@ const App = () => {
             hidden={activeGameDiscipline !== 'cs2'}
           >
             <GameDisciplineSection id="counter-strike-2" title="Counter Strike 2" isExpanded isCollapsible={false}>
-              <TeamShowcase />
+              <div className="game-discipline__placeholder" aria-hidden="true" />
+              <div className="game-discipline__placeholder" aria-hidden="true" />
+              <div className="game-discipline__placeholder" aria-hidden="true" />
             </GameDisciplineSection>
           </div>
         </article>
