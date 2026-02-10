@@ -43,7 +43,7 @@ describe('App game discipline switcher', () => {
     expect(within(document.getElementById('panel-dota2')).getByRole('heading', { name: 'Dota 2' })).toBeInTheDocument();
   });
 
-  it('keeps CS2 section empty while preserving Dota2 content', () => {
+  it('renders roster gallery in both Dota2 and CS2 sections', () => {
     render(<App />);
 
     expect(within(document.getElementById('panel-dota2')).getAllByRole('heading', { name: 'Галерея ростеров' })).toHaveLength(1);
@@ -51,6 +51,6 @@ describe('App game discipline switcher', () => {
     const tabList = getDisciplineTabList();
     fireEvent.click(within(tabList).getByRole('tab', { name: 'CS2' }));
 
-    expect(within(document.getElementById('panel-cs2')).queryByRole('heading', { name: 'Галерея ростеров' })).not.toBeInTheDocument();
+    expect(within(document.getElementById('panel-cs2')).getAllByRole('heading', { name: 'Галерея ростеров' })).toHaveLength(1);
   });
 });
