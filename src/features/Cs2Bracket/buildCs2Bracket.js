@@ -1,4 +1,4 @@
-import { buildStandingsFromMatches, extractFinishedMatches, sortTeams } from '../QualificationsTable/standings.js';
+import { buildStandingsFromMatchResults, sortTeams } from '../QualificationsTable/standings.js';
 
 const EMPTY_SLOT = '—';
 
@@ -74,9 +74,7 @@ const applyResult = (targetMatch, sourceMatch) => {
 
 export const buildCs2Bracket = (matchResults) => {
   const bracket = createBracketSkeleton();
-  const qualificationMatches = extractFinishedMatches(matchResults)
-    .filter((match) => !match?.playoffMatchId);
-  const standings = sortTeams(buildStandingsFromMatches(qualificationMatches), 'points');
+  const standings = sortTeams(buildStandingsFromMatchResults(matchResults), 'points');
   const seededTeams = standings.slice(0, 8);
 
   if (seededTeams.length < 8) {

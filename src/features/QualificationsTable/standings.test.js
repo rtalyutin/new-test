@@ -103,6 +103,36 @@ test('extractFinishedMatchesByWeek keeps only finished matches grouped by week',
   assert.strictEqual(weeks[0].matches.length, 1);
 });
 
+
+test('buildStandingsFromMatchResults ignores finished playoff matches', () => {
+  const standings = buildStandingsFromMatchResults({
+    rounds: [
+      {
+        weeks: [
+          {
+            matches: [
+              { status: 'finished', teams: { home: 'A', away: 'B' }, score: { home: 2, away: 0 } },
+              {
+                status: 'finished',
+                playoffMatchId: 'G1',
+                teams: { home: 'B', away: 'A' },
+                score: { home: 2, away: 1 },
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  });
+
+  const sorted = sortTeams(standings, 'points');
+
+  assert.deepStrictEqual(sorted.map((team) => ({ name: team.name, points: team.points, losses: team.losses })), [
+    { name: 'A', points: 2, losses: 0 },
+    { name: 'B', points: 0, losses: 1 },
+  ]);
+});
+
 test('buildStandingsFromMatchResults returns correct loss distribution for cs2 data', () => {
   const standings = sortTeams(buildStandingsFromMatchResults(cs2MatchResultsConfig), 'points');
 

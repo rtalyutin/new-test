@@ -54,6 +54,8 @@ export const extractFinishedMatchesByWeek = (matchResults) =>
 export const extractFinishedMatches = (matchResults) =>
   extractFinishedMatchesByWeek(matchResults).flatMap((week) => week.matches);
 
+const isQualificationMatch = (match) => !match?.playoffMatchId;
+
 export const buildStandingsFromMatches = (finishedMatches) => {
   const teamsMap = new Map();
 
@@ -97,7 +99,7 @@ export const buildStandingsFromMatches = (finishedMatches) => {
 };
 
 export const buildStandingsFromMatchResults = (matchResults) =>
-  buildStandingsFromMatches(extractFinishedMatches(matchResults));
+  buildStandingsFromMatches(extractFinishedMatches(matchResults).filter(isQualificationMatch));
 
 export const sortTeams = (teams, sortBy) => {
   const sorted = [...teams].sort((teamA, teamB) => {
