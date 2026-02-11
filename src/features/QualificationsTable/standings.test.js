@@ -136,11 +136,28 @@ test('buildStandingsFromMatchResults ignores finished playoff matches', () => {
 test('buildStandingsFromMatchResults returns correct loss distribution for cs2 data', () => {
   const standings = sortTeams(buildStandingsFromMatchResults(cs2MatchResultsConfig), 'points');
 
-  const noLossesTeams = standings.filter((team) => team.losses === 0).map((team) => team.name);
-  const oneLossTeams = standings.filter((team) => team.losses === 1).map((team) => team.name);
-  const twoLossesTeams = standings.filter((team) => team.losses === 2).map((team) => team.name);
+  const actualLossesByTeam = Object.fromEntries(standings.map((team) => [team.name, team.losses]));
 
-  assert.deepStrictEqual(noLossesTeams, ['LigaChad', 'Resistance', 'Saint Worms', 'КИТ, Кипар и татары']);
-  assert.deepStrictEqual(oneLossTeams, ['FIST&BEER (Кулачки&Пиво)', 'Slabeyshie', 'Vpopengagen wolves', 'Pickmi Guys']);
-  assert.deepStrictEqual(twoLossesTeams, ['НМР', 'CipHer', 'The Eagles']);
+  const expectedLossesByTeam = {};
+  (cs2MatchResultsConfig?.rounds ?? [])
+    .flatMap((round) => round?.weeks ?? [])
+    .flatMap((week) => week?.matches ?? [])
+    .filter((match) => match?.status === 'finished' && match?.score && match?.teams && !match?.playoffMatchId)
+    .forEach((match) => {
+      const home = match.teams.home;
+      const away = match.teams.away;
+      const homeScore = Number.isFinite(match.score.home) ? match.score.home : 0;
+      const awayScore = Number.isFinite(match.score.away) ? match.score.away : 0;
+
+      expectedLossesByTeam[home] = expectedLossesByTeam[home] ?? 0;
+      expectedLossesByTeam[away] = expectedLossesByTeam[away] ?? 0;
+
+      if (homeScore < awayScore) {
+        expectedLossesByTeam[home] += 1;
+      } else if (homeScore > awayScore) {
+        expectedLossesByTeam[away] += 1;
+      }
+    });
+
+  assert.deepStrictEqual(actualLossesByTeam, expectedLossesByTeam);
 });
