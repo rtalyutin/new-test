@@ -1,4 +1,4 @@
-import { buildStandingsFromMatchResults, sortTeams } from '../QualificationsTable/standings.js';
+import { buildStandingsFromMatches, extractFinishedMatches, sortTeams } from '../QualificationsTable/standings.js';
 
 const EMPTY_SLOT = '—';
 
@@ -74,7 +74,9 @@ const applyResult = (targetMatch, sourceMatch) => {
 
 export const buildCs2Bracket = (matchResults) => {
   const bracket = createBracketSkeleton();
-  const standings = sortTeams(buildStandingsFromMatchResults(matchResults), 'points');
+  const qualificationMatches = extractFinishedMatches(matchResults)
+    .filter((match) => !match?.playoffMatchId);
+  const standings = sortTeams(buildStandingsFromMatches(qualificationMatches), 'points');
   const seededTeams = standings.slice(0, 8);
 
   if (seededTeams.length < 8) {
@@ -151,7 +153,7 @@ export const buildCs2Bracket = (matchResults) => {
   bracket.bronzeFinal.bottom = bracket.bronzeFinal.bottom !== EMPTY_SLOT ? bracket.bronzeFinal.bottom : bracket.upperFinal.loser || 'L7';
 
   bracket.grandFinal.top = bracket.grandFinal.top !== EMPTY_SLOT ? bracket.grandFinal.top : bracket.upperFinal.winner || 'W7';
-  bracket.grandFinal.bottom = bracket.grandFinal.bottom !== EMPTY_SLOT ? bracket.grandFinal.bottom : bracket.bronzeFinal.winner || 'W-BF';
+  bracket.grandFinal.bottom = bracket.grandFinal.bottom !== EMPTY_SLOT ? bracket.grandFinal.bottom : bracket.lowerRound3[1].winner || 'W-L6';
 
   return bracket;
 };
