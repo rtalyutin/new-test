@@ -1,0 +1,78 @@
+import { describe, expect, it } from 'vitest';
+import { buildCs2Bracket } from './buildCs2Bracket.js';
+
+const createSwissMatch = (home, away, homeScore, awayScore) => ({
+  status: 'finished',
+  teams: { home, away },
+  score: { home: homeScore, away: awayScore },
+});
+
+const baseResults = {
+  rounds: [
+    {
+      weeks: [
+        {
+          matches: [
+            createSwissMatch('Team A', 'Team H', 1, 0),
+            createSwissMatch('Team B', 'Team G', 1, 0),
+            createSwissMatch('Team C', 'Team F', 1, 0),
+            createSwissMatch('Team D', 'Team E', 1, 0),
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+describe('buildCs2Bracket', () => {
+  it('формирует пары 1-8, 2-7, 3-6, 4-5 на основе таблицы', () => {
+    const bracket = buildCs2Bracket(baseResults);
+
+    expect(bracket.upperQuarterfinals[0].top).toBe('Team A');
+    expect(bracket.upperQuarterfinals[0].bottom).toBe('Team H');
+    expect(bracket.upperQuarterfinals[1].top).toBe('Team B');
+    expect(bracket.upperQuarterfinals[1].bottom).toBe('Team G');
+    expect(bracket.upperQuarterfinals[2].top).toBe('Team C');
+    expect(bracket.upperQuarterfinals[2].bottom).toBe('Team F');
+    expect(bracket.upperQuarterfinals[3].top).toBe('Team D');
+    expect(bracket.upperQuarterfinals[3].bottom).toBe('Team E');
+  });
+
+  it('подтягивает сыгранный матч плей-офф по playoffMatchId', () => {
+    const resultsWithPlayoff = {
+      rounds: [
+        ...baseResults.rounds,
+        {
+          weeks: [
+            {
+              matches: [
+                {
+                  status: 'finished',
+                  playoffMatchId: 'G1',
+                  teams: { home: 'Team A', away: 'Team H' },
+                  score: { home: 1, away: 0 },
+                  winner: 'home',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    };
+
+    const bracket = buildCs2Bracket(resultsWithPlayoff);
+
+    expect(bracket.upperQuarterfinals[0].score).toBe('1:0');
+    expect(bracket.upperQuarterfinals[0].winner).toBe('Team A');
+    expect(bracket.upperQuarterfinals[0].loser).toBe('Team H');
+    expect(bracket.upperSemifinals[0].top).toBe('Team A');
+    expect(bracket.lowerRound1[0].top).toBe('Team H');
+  });
+
+  it('возвращает пустой каркас, если команд меньше 8', () => {
+    const smallBracket = buildCs2Bracket({ rounds: [{ weeks: [{ matches: [createSwissMatch('A', 'B', 1, 0)] }] }] });
+
+    expect(smallBracket.upperQuarterfinals[0].top).toBe('—');
+    expect(smallBracket.grandFinal.bottom).toBe('—');
+  });
+});

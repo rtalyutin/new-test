@@ -22,6 +22,7 @@ import socialLinksConfig from './features/SocialLinks/config.json';
 import QualificationsTable from './features/QualificationsTable/QualificationsTable.jsx';
 import qualificationsConfig from './features/QualificationsTable/config.json';
 import Cs2LossTables from './features/QualificationsTable/Cs2LossTables.jsx';
+import Cs2Bracket from './features/Cs2Bracket/Cs2Bracket.jsx';
 import cs2LossTablesConfig from './features/QualificationsTable/cs2-loss-config.json';
 import GameDisciplineSection from './components/GameDisciplineSection.jsx';
 import logoImage from './brand-logo.png';
@@ -174,6 +175,7 @@ const App = () => {
             <GameDisciplineSection id="counter-strike-2" title="Counter Strike 2" isExpanded isCollapsible={false}>
               <Cs2TeamShowcase />
               <Cs2LossTables data={cs2LossTablesConfig} matchResults={cs2MatchResultsConfig} />
+              <Cs2Bracket matchResults={cs2MatchResultsConfig} />
               <MatchResults data={cs2MatchResultsConfig} />
             </GameDisciplineSection>
           </div>
