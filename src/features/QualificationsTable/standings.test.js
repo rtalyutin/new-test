@@ -110,7 +110,7 @@ test('buildStandingsFromMatchResults returns correct loss distribution for cs2 d
   const oneLossTeams = standings.filter((team) => team.losses === 1).map((team) => team.name);
   const twoLossesTeams = standings.filter((team) => team.losses === 2).map((team) => team.name);
 
-  assert.deepStrictEqual(noLossesTeams, ['LigaChad', 'Resistance', 'Saint Worms', 'КИТ, Кипар и татары']);
-  assert.deepStrictEqual(oneLossTeams, ['FIST&BEER (Кулачки&Пиво)', 'Slabeyshie', 'Vpopengagen wolves', 'Pickmi Guys']);
-  assert.deepStrictEqual(twoLossesTeams, ['НМР', 'CipHer', 'The Eagles']);
+  assert.deepStrictEqual(noLossesTeams, ['LigaChad', 'Resistance', 'Saint Worms']);
+  assert.deepStrictEqual(oneLossTeams, ['CipHer', 'FIST&BEER (Кулачки&Пиво)', 'Slabeyshie', 'Vpopengagen wolves', 'КИТ, Кипар и татары', 'Pickmi Guys']);
+  assert.deepStrictEqual(twoLossesTeams, ['НМР', 'The Eagles']);
 });
