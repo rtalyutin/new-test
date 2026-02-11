@@ -103,14 +103,61 @@ test('extractFinishedMatchesByWeek keeps only finished matches grouped by week',
   assert.strictEqual(weeks[0].matches.length, 1);
 });
 
+
+test('buildStandingsFromMatchResults ignores finished playoff matches', () => {
+  const standings = buildStandingsFromMatchResults({
+    rounds: [
+      {
+        weeks: [
+          {
+            matches: [
+              { status: 'finished', teams: { home: 'A', away: 'B' }, score: { home: 2, away: 0 } },
+              {
+                status: 'finished',
+                playoffMatchId: 'G1',
+                teams: { home: 'B', away: 'A' },
+                score: { home: 2, away: 1 },
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  });
+
+  const sorted = sortTeams(standings, 'points');
+
+  assert.deepStrictEqual(sorted.map((team) => ({ name: team.name, points: team.points, losses: team.losses })), [
+    { name: 'A', points: 2, losses: 0 },
+    { name: 'B', points: 0, losses: 1 },
+  ]);
+});
+
 test('buildStandingsFromMatchResults returns correct loss distribution for cs2 data', () => {
   const standings = sortTeams(buildStandingsFromMatchResults(cs2MatchResultsConfig), 'points');
 
-  const noLossesTeams = standings.filter((team) => team.losses === 0).map((team) => team.name);
-  const oneLossTeams = standings.filter((team) => team.losses === 1).map((team) => team.name);
-  const twoLossesTeams = standings.filter((team) => team.losses === 2).map((team) => team.name);
+  const actualLossesByTeam = Object.fromEntries(standings.map((team) => [team.name, team.losses]));
 
-  assert.deepStrictEqual(noLossesTeams, ['LigaChad', 'Resistance', 'Saint Worms']);
-  assert.deepStrictEqual(oneLossTeams, ['CipHer', 'FIST&BEER (Кулачки&Пиво)', 'Slabeyshie', 'Vpopengagen wolves', 'КИТ, Кипар и татары', 'Pickmi Guys']);
-  assert.deepStrictEqual(twoLossesTeams, ['НМР', 'The Eagles']);
+  const expectedLossesByTeam = {};
+  (cs2MatchResultsConfig?.rounds ?? [])
+    .flatMap((round) => round?.weeks ?? [])
+    .flatMap((week) => week?.matches ?? [])
+    .filter((match) => match?.status === 'finished' && match?.score && match?.teams && !match?.playoffMatchId)
+    .forEach((match) => {
+      const home = match.teams.home;
+      const away = match.teams.away;
+      const homeScore = Number.isFinite(match.score.home) ? match.score.home : 0;
+      const awayScore = Number.isFinite(match.score.away) ? match.score.away : 0;
+
+      expectedLossesByTeam[home] = expectedLossesByTeam[home] ?? 0;
+      expectedLossesByTeam[away] = expectedLossesByTeam[away] ?? 0;
+
+      if (homeScore < awayScore) {
+        expectedLossesByTeam[home] += 1;
+      } else if (homeScore > awayScore) {
+        expectedLossesByTeam[away] += 1;
+      }
+    });
+
+  assert.deepStrictEqual(actualLossesByTeam, expectedLossesByTeam);
 });
