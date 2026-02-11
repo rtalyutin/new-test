@@ -264,6 +264,28 @@
   text-align: center;
 }
 
+.lossGroups {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.lossGroup {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.lossGroupTitle {
+  margin: 0;
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  color: var(--color-text-primary);
+}
+
+.emptyState {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: var(--space-4);
+}
+
 @media (max-width: 768px) {
   .wrapper {
     padding: var(--space-5);

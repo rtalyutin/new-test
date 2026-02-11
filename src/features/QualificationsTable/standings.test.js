@@ -13,6 +13,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const matchResultsConfig = JSON.parse(
   readFileSync(path.join(__dirname, '../MatchResults/config.json'), 'utf-8'),
 );
+const cs2MatchResultsConfig = JSON.parse(
+  readFileSync(path.join(__dirname, '../MatchResults/cs2-config.json'), 'utf-8'),
+);
 
 test('buildStandingsFromMatchResults aggregates finished matches into standings', () => {
   const standings = buildStandingsFromMatchResults(matchResultsConfig);
@@ -98,4 +101,16 @@ test('extractFinishedMatchesByWeek keeps only finished matches grouped by week',
   assert.strictEqual(weeks.length, 1);
   assert.strictEqual(weeks[0].id, 'week-a');
   assert.strictEqual(weeks[0].matches.length, 1);
+});
+
+test('buildStandingsFromMatchResults returns correct loss distribution for cs2 data', () => {
+  const standings = sortTeams(buildStandingsFromMatchResults(cs2MatchResultsConfig), 'points');
+
+  const noLossesTeams = standings.filter((team) => team.losses === 0).map((team) => team.name);
+  const oneLossTeams = standings.filter((team) => team.losses === 1).map((team) => team.name);
+  const twoLossesTeams = standings.filter((team) => team.losses === 2).map((team) => team.name);
+
+  assert.deepStrictEqual(noLossesTeams, ['LigaChad', 'Resistance', 'Saint Worms', 'КИТ, Кипар и татары']);
+  assert.deepStrictEqual(oneLossTeams, ['FIST&BEER (Кулачки&Пиво)', 'Slabeyshie', 'Vpopengagen wolves', 'Pickmi Guys']);
+  assert.deepStrictEqual(twoLossesTeams, ['НМР', 'CipHer', 'The Eagles']);
 });
