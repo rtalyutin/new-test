@@ -4,6 +4,9 @@ import styles from './UpcomingMatches.module.css';
 
 const UpcomingMatches = ({ data }) => {
   const { title, tags, matches, channelPresets } = data;
+  const sortedMatches = [...matches].sort(
+    (leftMatch, rightMatch) => Date.parse(leftMatch.dateTime) - Date.parse(rightMatch.dateTime),
+  );
 
   const resolveChannels = (channelIds) =>
     channelIds
@@ -25,7 +28,7 @@ const UpcomingMatches = ({ data }) => {
         </div>
       </header>
       <ol className={styles.scheduleList}>
-        {matches.map((match) => {
+        {sortedMatches.map((match) => {
           const channels = resolveChannels(match.channelIds);
 
           return (
