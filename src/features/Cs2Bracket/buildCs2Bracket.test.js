@@ -44,6 +44,10 @@ describe('buildCs2Bracket', () => {
     expect(bracket.upperQuarterfinals[2].bottom).toBe('Team F');
     expect(bracket.upperQuarterfinals[3].top).toBe('Team D');
     expect(bracket.upperQuarterfinals[3].bottom).toBe('Team E');
+    expect(bracket.upperQuarterfinals[0].title).toBe('Игра 1 · 17.2');
+    expect(bracket.lowerRound1[0].title).toBe('Нижняя сетка 1 · 19.2');
+    expect(bracket.lowerFinal.title).toBe('Нижняя сетка 7 · 26.2');
+    expect(bracket.grandFinal.title).toBe('Гранд-финал · 26.2');
   });
 
   it('подтягивает сыгранный матч плей-офф по playoffMatchId', () => {
@@ -96,9 +100,13 @@ describe('buildCs2Bracket', () => {
     expect(bracket.upperQuarterfinals[2].bottom).toBe('Team F');
     expect(bracket.upperQuarterfinals[3].top).toBe('Team D');
     expect(bracket.upperQuarterfinals[3].bottom).toBe('Team E');
+    expect(bracket.upperQuarterfinals[0].title).toBe('Игра 1 · 17.2');
+    expect(bracket.lowerRound1[0].title).toBe('Нижняя сетка 1 · 19.2');
+    expect(bracket.lowerFinal.title).toBe('Нижняя сетка 7 · 26.2');
+    expect(bracket.grandFinal.title).toBe('Гранд-финал · 26.2');
   });
 
-  it('использует победителя нижней сетки в гранд-финале, а не победителя матча за бронзу', () => {
+  it('использует победителя нижней сетки в гранд-финале', () => {
     const resultsWithUpperFinal = {
       rounds: [
         ...baseResults.rounds,
@@ -108,7 +116,6 @@ describe('buildCs2Bracket', () => {
               matches: [
                 createPlayoffMatch('L6', 'Team X', 'Team Y', 2, 1, 'home'),
                 createPlayoffMatch('G7', 'Team A', 'Team B', 2, 0, 'home'),
-                createPlayoffMatch('BF', 'Team Z', 'Team C', 2, 0, 'home'),
               ],
             },
           ],
@@ -120,6 +127,7 @@ describe('buildCs2Bracket', () => {
 
     expect(bracket.grandFinal.top).toBe('Team A');
     expect(bracket.grandFinal.bottom).toBe('Team X');
+    expect(bracket.lowerFinal.title).toBe('Нижняя сетка 7 · 26.2');
   });
 
   it('возвращает пустой каркас, если команд меньше 8', () => {
@@ -127,5 +135,6 @@ describe('buildCs2Bracket', () => {
 
     expect(smallBracket.upperQuarterfinals[0].top).toBe('—');
     expect(smallBracket.grandFinal.bottom).toBe('—');
+    expect(smallBracket.bronzeFinal).toBeUndefined();
   });
 });
