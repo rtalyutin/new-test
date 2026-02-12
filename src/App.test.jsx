@@ -7,7 +7,7 @@ const getDisciplineTabList = () => screen.getAllByRole('tablist')
   .find((list) => within(list).queryByRole('tab', { name: 'Dota2' }));
 
 describe('App game discipline switcher', () => {
-  it('renders one section with Dota2 tab active by default', () => {
+  it('renders one section with CS2 tab active by default', () => {
     render(<App />);
 
     expect(screen.getByRole('heading', { name: 'Игровые дисциплины' })).toBeInTheDocument();
@@ -16,11 +16,11 @@ describe('App game discipline switcher', () => {
     const dotaTab = within(tabList).getByRole('tab', { name: 'Dota2' });
     const cs2Tab = within(tabList).getByRole('tab', { name: 'CS2' });
 
-    expect(dotaTab).toHaveAttribute('aria-selected', 'true');
-    expect(cs2Tab).toHaveAttribute('aria-selected', 'false');
+    expect(dotaTab).toHaveAttribute('aria-selected', 'false');
+    expect(cs2Tab).toHaveAttribute('aria-selected', 'true');
 
-    expect(document.getElementById('panel-dota2')).not.toHaveAttribute('hidden');
-    expect(document.getElementById('panel-cs2')).toHaveAttribute('hidden');
+    expect(document.getElementById('panel-dota2')).toHaveAttribute('hidden');
+    expect(document.getElementById('panel-cs2')).not.toHaveAttribute('hidden');
   });
 
   it('switches between Dota2 and CS2 independently', () => {
@@ -46,9 +46,11 @@ describe('App game discipline switcher', () => {
   it('renders roster gallery in both Dota2 and CS2 sections', () => {
     render(<App />);
 
+    const tabList = getDisciplineTabList();
+    fireEvent.click(within(tabList).getByRole('tab', { name: 'Dota2' }));
+
     expect(within(document.getElementById('panel-dota2')).getAllByRole('heading', { name: 'Галерея ростеров' })).toHaveLength(1);
 
-    const tabList = getDisciplineTabList();
     fireEvent.click(within(tabList).getByRole('tab', { name: 'CS2' }));
 
     expect(within(document.getElementById('panel-cs2')).getAllByRole('heading', { name: 'Галерея ростеров' })).toHaveLength(1);
