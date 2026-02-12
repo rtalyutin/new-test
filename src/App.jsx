@@ -46,7 +46,7 @@ const App = () => {
 
   const [theme, setTheme] = useState(getInitialTheme);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeGameDiscipline, setActiveGameDiscipline] = useState('dota2');
+  const [activeGameDiscipline, setActiveGameDiscipline] = useState('cs2');
 
   useEffect(() => {
     const handleResize = () => {
@@ -172,7 +172,7 @@ const App = () => {
             aria-labelledby="tab-cs2"
             hidden={activeGameDiscipline !== 'cs2'}
           >
-            <GameDisciplineSection id="counter-strike-2" title="Counter Strike 2" isExpanded isCollapsible={false}>
+            <GameDisciplineSection id="counter-strike2" title="Counter Strike 2" isExpanded isCollapsible={false}>
               <Cs2TeamShowcase />
               <Cs2LossTables data={cs2LossTablesConfig} matchResults={cs2MatchResultsConfig} />
               <Cs2Bracket matchResults={cs2MatchResultsConfig} />
