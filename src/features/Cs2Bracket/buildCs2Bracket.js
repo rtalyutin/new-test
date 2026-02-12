@@ -14,30 +14,29 @@ const createEmptyMatch = (id, title) => ({
 
 const createBracketSkeleton = () => ({
   upperQuarterfinals: [
-    createEmptyMatch('G1', 'Игра 1'),
-    createEmptyMatch('G2', 'Игра 2'),
-    createEmptyMatch('G3', 'Игра 3'),
-    createEmptyMatch('G4', 'Игра 4'),
+    createEmptyMatch('G1', 'Игра 1 · 17.2'),
+    createEmptyMatch('G2', 'Игра 2 · 17.2'),
+    createEmptyMatch('G3', 'Игра 3 · 17.2'),
+    createEmptyMatch('G4', 'Игра 4 · 17.2'),
   ],
   upperSemifinals: [
-    createEmptyMatch('G5', 'Игра 5'),
-    createEmptyMatch('G6', 'Игра 6'),
+    createEmptyMatch('G5', 'Игра 5 · 21.2'),
+    createEmptyMatch('G6', 'Игра 6 · 21.2'),
   ],
-  upperFinal: createEmptyMatch('G7', 'Игра 7'),
-  grandFinal: createEmptyMatch('GF', 'Гранд-финал'),
+  upperFinal: createEmptyMatch('G7', 'Игра 7 · 25.2'),
+  grandFinal: createEmptyMatch('GF', 'Гранд-финал · 26.2'),
   lowerRound1: [
-    createEmptyMatch('L1', 'Нижняя сетка 1'),
-    createEmptyMatch('L2', 'Нижняя сетка 2'),
+    createEmptyMatch('L1', 'Нижняя сетка 1 · 19.2'),
+    createEmptyMatch('L2', 'Нижняя сетка 2 · 19.2'),
   ],
   lowerRound2: [
-    createEmptyMatch('L3', 'Нижняя сетка 3'),
-    createEmptyMatch('L4', 'Нижняя сетка 4'),
+    createEmptyMatch('L3', 'Нижняя сетка 3 · 24.2'),
+    createEmptyMatch('L4', 'Нижняя сетка 4 · 24.2'),
   ],
   lowerRound3: [
-    createEmptyMatch('L5', 'Нижняя сетка 5'),
-    createEmptyMatch('L6', 'Нижняя сетка 6'),
+    createEmptyMatch('L5', 'Нижняя сетка 5 · 25.2'),
   ],
-  bronzeFinal: createEmptyMatch('BF', 'Матч за бронзу'),
+  lowerFinal: createEmptyMatch('L7', 'Нижняя сетка 7 · 26.2'),
 });
 
 const buildSeedPairs = (teams) => [
@@ -88,7 +87,7 @@ export const buildCs2Bracket = (matchResults) => {
     bottom: pairs[index][1].name,
   }));
 
-  const playoffMatchIds = ['G1', 'G2', 'G3', 'G4', 'G5', 'G6', 'G7', 'L1', 'L2', 'L3', 'L4', 'L5', 'L6', 'BF', 'GF'];
+  const playoffMatchIds = ['G1', 'G2', 'G3', 'G4', 'G5', 'G6', 'G7', 'L1', 'L2', 'L3', 'L4', 'L5', 'L6', 'L7', 'GF'];
   const matchById = {
     G1: bracket.upperQuarterfinals[0],
     G2: bracket.upperQuarterfinals[1],
@@ -102,8 +101,8 @@ export const buildCs2Bracket = (matchResults) => {
     L3: bracket.lowerRound2[0],
     L4: bracket.lowerRound2[1],
     L5: bracket.lowerRound3[0],
-    L6: bracket.lowerRound3[1],
-    BF: bracket.bronzeFinal,
+    L6: bracket.lowerFinal,
+    L7: bracket.lowerFinal,
     GF: bracket.grandFinal,
   };
 
@@ -144,14 +143,11 @@ export const buildCs2Bracket = (matchResults) => {
   bracket.lowerRound3[0].top = bracket.lowerRound3[0].top !== EMPTY_SLOT ? bracket.lowerRound3[0].top : bracket.lowerRound2[0].winner || 'W-L3';
   bracket.lowerRound3[0].bottom = bracket.lowerRound3[0].bottom !== EMPTY_SLOT ? bracket.lowerRound3[0].bottom : bracket.lowerRound2[1].winner || 'W-L4';
 
-  bracket.lowerRound3[1].top = bracket.lowerRound3[1].top !== EMPTY_SLOT ? bracket.lowerRound3[1].top : bracket.lowerRound3[0].winner || 'W-L5';
-  bracket.lowerRound3[1].bottom = bracket.lowerRound3[1].bottom !== EMPTY_SLOT ? bracket.lowerRound3[1].bottom : bracket.upperFinal.loser || 'L7';
-
-  bracket.bronzeFinal.top = bracket.bronzeFinal.top !== EMPTY_SLOT ? bracket.bronzeFinal.top : bracket.lowerRound3[1].winner || 'W-L6';
-  bracket.bronzeFinal.bottom = bracket.bronzeFinal.bottom !== EMPTY_SLOT ? bracket.bronzeFinal.bottom : bracket.upperFinal.loser || 'L7';
+  bracket.lowerFinal.top = bracket.lowerFinal.top !== EMPTY_SLOT ? bracket.lowerFinal.top : bracket.lowerRound3[0].winner || 'W-L5';
+  bracket.lowerFinal.bottom = bracket.lowerFinal.bottom !== EMPTY_SLOT ? bracket.lowerFinal.bottom : bracket.upperFinal.loser || 'L7';
 
   bracket.grandFinal.top = bracket.grandFinal.top !== EMPTY_SLOT ? bracket.grandFinal.top : bracket.upperFinal.winner || 'W7';
-  bracket.grandFinal.bottom = bracket.grandFinal.bottom !== EMPTY_SLOT ? bracket.grandFinal.bottom : bracket.lowerRound3[1].winner || 'W-L6';
+  bracket.grandFinal.bottom = bracket.grandFinal.bottom !== EMPTY_SLOT ? bracket.grandFinal.bottom : bracket.lowerFinal.winner || 'W-L7';
 
   return bracket;
 };

@@ -63,7 +63,7 @@ const Cs2Bracket = ({ matchResults }) => {
         <MatchColumn title="Lower Bracket · раунд 1" matches={bracket.lowerRound1} />
         <MatchColumn title="Lower Bracket · раунд 2" matches={bracket.lowerRound2} />
         <MatchColumn title="Lower Bracket · раунд 3" matches={bracket.lowerRound3} />
-        <MatchColumn title="Матч за бронзу" matches={[bracket.bronzeFinal]} />
+        <MatchColumn title="Lower Bracket · финал" matches={[bracket.lowerFinal]} />
       </div>
     </section>
   );
