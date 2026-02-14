@@ -412,15 +412,15 @@
                 "away": "Pickmi Guys"
               },
               "score": {
-                "home": 0,
-                "away": 1
+                "home": 1,
+                "away": 0
               },
               "maps": [
                 {
                   "id": "game-1",
                   "score": {
-                    "home": 11,
-                    "away": 13
+                    "home": 13,
+                    "away": 4
                   }
                 }
               ],
