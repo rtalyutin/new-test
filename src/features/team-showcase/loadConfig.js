@@ -16,15 +16,8 @@ export async function loadConfig() {
   if (!loadingPromise) {
     loadingPromise = (async () => {
       try {
-        let dataset;
-        if (typeof document === 'undefined') {
-          const { createRequire } = await import('node:module');
-          const require = createRequire(import.meta.url);
-          dataset = require('./config.json');
-        } else {
-          const module = await import('./config.json');
-          dataset = module.default ?? module;
-        }
+        const module = await import('./config.json');
+        const dataset = module.default ?? module;
 
         cachedDataset = dataset;
         return dataset;
