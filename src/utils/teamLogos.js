@@ -1,5 +1,3 @@
-import teamShowcaseConfig from '../features/team-showcase/config.json';
-
 const normalizeTeamName = (name) =>
   name
     ? name
@@ -9,27 +7,42 @@ const normalizeTeamName = (name) =>
         .replace(/[^\p{L}\p{N}]+/gu, '')
     : '';
 
-const teamLogosMap = teamShowcaseConfig.reduce((acc, team) => {
-  if (!team || typeof team !== 'object') {
-    return acc;
+const teamLogosMap = {};
+
+const buildTeamLogosMap = (teams) => {
+  if (!Array.isArray(teams)) {
+    return;
   }
 
-  const { name, logo } = team;
+  teams.forEach((team) => {
+    if (!team || typeof team !== 'object') {
+      return;
+    }
 
-  if (!name || !logo) {
-    return acc;
-  }
+    const { name, logo } = team;
 
-  acc[name] = logo;
+    if (!name || !logo) {
+      return;
+    }
 
-  const normalizedName = normalizeTeamName(name);
+    teamLogosMap[name] = logo;
 
-  if (normalizedName && !acc[normalizedName]) {
-    acc[normalizedName] = logo;
-  }
+    const normalizedName = normalizeTeamName(name);
 
-  return acc;
-}, {});
+    if (normalizedName && !teamLogosMap[normalizedName]) {
+      teamLogosMap[normalizedName] = logo;
+    }
+  });
+};
+
+const teamShowcaseConfigPromise = import('../features/team-showcase/config.json')
+  .then((module) => module.default)
+  .then(buildTeamLogosMap)
+  .catch(() => {
+    // no-op: при ошибке загрузки сохраняем пустую map и безопасный fallback.
+  });
+
+void teamShowcaseConfigPromise;
 
 const TEAM_LOGO_ALIASES = {
   arb: 'arbesports',
