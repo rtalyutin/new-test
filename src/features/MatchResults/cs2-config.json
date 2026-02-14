@@ -17,10 +17,22 @@
               "dateLabel": "5 фев · 19:00",
               "dateTime": "2026-02-05T19:00:00+03:00",
               "stage": "Тур 1",
-              "teams": { "home": "НМР", "away": "Saint Worms" },
-              "score": { "home": 0, "away": 1 },
+              "teams": {
+                "home": "НМР",
+                "away": "Saint Worms"
+              },
+              "score": {
+                "home": 0,
+                "away": 1
+              },
               "maps": [
-                { "id": "game-1", "score": { "home": 8, "away": 13 } }
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 8,
+                    "away": 13
+                  }
+                }
               ],
               "bestOf": 1,
               "status": "finished",
@@ -34,10 +46,22 @@
               "dateLabel": "5 фев · 20:00",
               "dateTime": "2026-02-05T20:00:00+03:00",
               "stage": "Тур 1",
-              "teams": { "home": "Resistance", "away": "Vpopengagen wolves" },
-              "score": { "home": 1, "away": 0 },
+              "teams": {
+                "home": "Resistance",
+                "away": "Vpopengagen wolves"
+              },
+              "score": {
+                "home": 1,
+                "away": 0
+              },
               "maps": [
-                { "id": "game-1", "score": { "home": 13, "away": 9 } }
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 13,
+                    "away": 9
+                  }
+                }
               ],
               "bestOf": 1,
               "status": "finished",
@@ -51,10 +75,22 @@
               "dateLabel": "6 фев · 19:00",
               "dateTime": "2026-02-06T19:00:00+03:00",
               "stage": "Тур 1",
-              "teams": { "home": "FIST&BEER (Кулачки&Пиво)", "away": "The Eagles" },
-              "score": { "home": 1, "away": 0 },
+              "teams": {
+                "home": "FIST&BEER (Кулачки&Пиво)",
+                "away": "The Eagles"
+              },
+              "score": {
+                "home": 1,
+                "away": 0
+              },
               "maps": [
-                { "id": "game-1", "score": { "home": 13, "away": 7 } }
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 13,
+                    "away": 7
+                  }
+                }
               ],
               "bestOf": 1,
               "status": "finished",
@@ -68,10 +104,22 @@
               "dateLabel": "6 фев · 20:00",
               "dateTime": "2026-02-06T20:00:00+03:00",
               "stage": "Тур 1",
-              "teams": { "home": "CipHer", "away": "КИТ, Кипар и татары" },
-              "score": { "home": 1, "away": 0 },
+              "teams": {
+                "home": "CipHer",
+                "away": "КИТ, Кипар и татары"
+              },
+              "score": {
+                "home": 1,
+                "away": 0
+              },
               "maps": [
-                { "id": "game-1", "score": { "home": 13, "away": 10 } }
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 13,
+                    "away": 10
+                  }
+                }
               ],
               "bestOf": 1,
               "status": "finished",
@@ -85,10 +133,22 @@
               "dateLabel": "6 фев · 21:00",
               "dateTime": "2026-02-06T21:00:00+03:00",
               "stage": "Тур 1",
-              "teams": { "home": "Slabeyshie", "away": "LigaChad" },
-              "score": { "home": 0, "away": 1 },
+              "teams": {
+                "home": "Slabeyshie",
+                "away": "LigaChad"
+              },
+              "score": {
+                "home": 0,
+                "away": 1
+              },
               "maps": [
-                { "id": "game-1", "score": { "home": 11, "away": 13 } }
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 11,
+                    "away": 13
+                  }
+                }
               ],
               "bestOf": 1,
               "status": "finished",
@@ -116,10 +176,22 @@
               "dateLabel": "7 фев · 19:00",
               "dateTime": "2026-02-07T19:00:00+03:00",
               "stage": "Тур 2",
-              "teams": { "home": "Resistance", "away": "Pickmi Guys" },
-              "score": { "home": 1, "away": 0 },
+              "teams": {
+                "home": "Resistance",
+                "away": "Pickmi Guys"
+              },
+              "score": {
+                "home": 1,
+                "away": 0
+              },
               "maps": [
-                { "id": "game-1", "score": { "home": 13, "away": 10 } }
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 13,
+                    "away": 10
+                  }
+                }
               ],
               "bestOf": 1,
               "status": "finished",
@@ -133,10 +205,22 @@
               "dateLabel": "7 фев · 20:00",
               "dateTime": "2026-02-07T20:00:00+03:00",
               "stage": "Тур 2",
-              "teams": { "home": "LigaChad", "away": "CipHer" },
-              "score": { "home": 1, "away": 0 },
+              "teams": {
+                "home": "LigaChad",
+                "away": "CipHer"
+              },
+              "score": {
+                "home": 1,
+                "away": 0
+              },
               "maps": [
-                { "id": "game-1", "score": { "home": 13, "away": 8 } }
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 13,
+                    "away": 8
+                  }
+                }
               ],
               "bestOf": 1,
               "status": "finished",
@@ -150,10 +234,22 @@
               "dateLabel": "8 фев · 19:00",
               "dateTime": "2026-02-08T19:00:00+03:00",
               "stage": "Тур 2",
-              "teams": { "home": "Saint Worms", "away": "FIST&BEER (Кулачки&Пиво)" },
-              "score": { "home": 1, "away": 0 },
+              "teams": {
+                "home": "Saint Worms",
+                "away": "FIST&BEER (Кулачки&Пиво)"
+              },
+              "score": {
+                "home": 1,
+                "away": 0
+              },
               "maps": [
-                { "id": "game-1", "score": { "home": 13, "away": 11 } }
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 13,
+                    "away": 11
+                  }
+                }
               ],
               "bestOf": 1,
               "status": "finished",
@@ -167,10 +263,22 @@
               "dateLabel": "8 фев · 20:00",
               "dateTime": "2026-02-08T20:00:00+03:00",
               "stage": "Тур 2",
-              "teams": { "home": "НМР", "away": "Slabeyshie" },
-              "score": { "home": 0, "away": 1 },
+              "teams": {
+                "home": "НМР",
+                "away": "Slabeyshie"
+              },
+              "score": {
+                "home": 0,
+                "away": 1
+              },
               "maps": [
-                { "id": "game-1", "score": { "home": 9, "away": 13 } }
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 9,
+                    "away": 13
+                  }
+                }
               ],
               "bestOf": 1,
               "status": "finished",
@@ -184,15 +292,200 @@
               "dateLabel": "8 фев · 21:00",
               "dateTime": "2026-02-08T21:00:00+03:00",
               "stage": "Тур 2",
-              "teams": { "home": "The Eagles", "away": "Vpopengagen wolves" },
-              "score": { "home": 0, "away": 1 },
+              "teams": {
+                "home": "The Eagles",
+                "away": "Vpopengagen wolves"
+              },
+              "score": {
+                "home": 0,
+                "away": 1
+              },
               "maps": [
-                { "id": "game-1", "score": { "home": 12, "away": 16 } }
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 12,
+                    "away": 16
+                  }
+                }
               ],
               "bestOf": 1,
               "status": "finished",
               "statusLabel": "0–1 · завершён",
               "detailsUrl": "https://example.com/cs2-2026-02-08-the-eagles-vpopengagen-wolves",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "away"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cs2-round-3",
+      "title": "Результаты 3-го тура",
+      "subtitle": "Групповой этап",
+      "defaultExpanded": true,
+      "weeks": [
+        {
+          "id": "cs2-week-3",
+          "title": "3-й тур · 12–13 февраля",
+          "matches": [
+            {
+              "id": "2026-02-12-the-eagles-nmr",
+              "dateLabel": "12 фев · 18:00",
+              "dateTime": "2026-02-12T18:00:00+03:00",
+              "stage": "Тур 3",
+              "teams": {
+                "home": "The Eagles",
+                "away": "НМР"
+              },
+              "score": {
+                "home": 2,
+                "away": 1
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 13,
+                    "away": 9
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 8,
+                    "away": 13
+                  }
+                },
+                {
+                  "id": "game-3",
+                  "score": {
+                    "home": 13,
+                    "away": 10
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–1 · завершён",
+              "detailsUrl": "https://example.com/cs2-2026-02-12-the-eagles-nmr",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            },
+            {
+              "id": "2026-02-12-kit-vpopengagen-wolves",
+              "dateLabel": "12 фев · 19:00",
+              "dateTime": "2026-02-12T19:00:00+03:00",
+              "stage": "Тур 3",
+              "teams": {
+                "home": "КИТ, Кипар и татары",
+                "away": "Vpopengagen wolves"
+              },
+              "score": {
+                "home": 0,
+                "away": 1
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 10,
+                    "away": 13
+                  }
+                }
+              ],
+              "bestOf": 1,
+              "status": "finished",
+              "statusLabel": "0–1 · завершён",
+              "detailsUrl": "https://example.com/cs2-2026-02-12-kit-vpopengagen-wolves",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "away"
+            },
+            {
+              "id": "2026-02-12-cipher-pickmi-guys",
+              "dateLabel": "12 фев · 21:00",
+              "dateTime": "2026-02-12T21:00:00+03:00",
+              "stage": "Тур 3",
+              "teams": {
+                "home": "CipHer",
+                "away": "Pickmi Guys"
+              },
+              "score": {
+                "home": 0,
+                "away": 1
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 11,
+                    "away": 13
+                  }
+                }
+              ],
+              "bestOf": 1,
+              "status": "finished",
+              "statusLabel": "0–1 · завершён",
+              "detailsUrl": "https://example.com/cs2-2026-02-12-cipher-pickmi-guys",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "away"
+            },
+            {
+              "id": "2026-02-13-resistance-ligachad",
+              "dateLabel": "13 фев · 20:00",
+              "dateTime": "2026-02-13T20:00:00+03:00",
+              "stage": "Тур 3",
+              "teams": {
+                "home": "Resistance",
+                "away": "LigaChad"
+              },
+              "score": {
+                "home": 0,
+                "away": 1
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 7,
+                    "away": 13
+                  }
+                }
+              ],
+              "bestOf": 1,
+              "status": "finished",
+              "statusLabel": "0–1 · завершён",
+              "detailsUrl": "https://example.com/cs2-2026-02-13-resistance-ligachad",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "away"
+            },
+            {
+              "id": "2026-02-13-slabeyshie-fist-beer",
+              "dateLabel": "13 фев · 22:00",
+              "dateTime": "2026-02-13T22:00:00+03:00",
+              "stage": "Тур 3",
+              "teams": {
+                "home": "Slabeyshie",
+                "away": "FIST&BEER (Кулачки&Пиво)"
+              },
+              "score": {
+                "home": 0,
+                "away": 1
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 9,
+                    "away": 13
+                  }
+                }
+              ],
+              "bestOf": 1,
+              "status": "finished",
+              "statusLabel": "0–1 · завершён",
+              "detailsUrl": "https://example.com/cs2-2026-02-13-slabeyshie-fist-beer",
               "detailsLabel": "Смотреть повтор",
               "winner": "away"
             }
