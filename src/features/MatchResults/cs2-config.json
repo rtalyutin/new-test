@@ -29,7 +29,7 @@
                 {
                   "id": "game-1",
                   "score": {
-                    "home": 8,
+                    "home": 6,
                     "away": 13
                   }
                 }
@@ -59,7 +59,7 @@
                   "id": "game-1",
                   "score": {
                     "home": 13,
-                    "away": 9
+                    "away": 6
                   }
                 }
               ],
@@ -117,7 +117,7 @@
                   "id": "game-1",
                   "score": {
                     "home": 13,
-                    "away": 10
+                    "away": 11
                   }
                 }
               ],
@@ -145,7 +145,7 @@
                 {
                   "id": "game-1",
                   "score": {
-                    "home": 11,
+                    "home": 7,
                     "away": 13
                   }
                 }
@@ -189,7 +189,7 @@
                   "id": "game-1",
                   "score": {
                     "home": 13,
-                    "away": 10
+                    "away": 1
                   }
                 }
               ],
@@ -218,7 +218,7 @@
                   "id": "game-1",
                   "score": {
                     "home": 13,
-                    "away": 8
+                    "away": 3
                   }
                 }
               ],
@@ -275,7 +275,7 @@
                 {
                   "id": "game-1",
                   "score": {
-                    "home": 9,
+                    "home": 6,
                     "away": 13
                   }
                 }
@@ -304,8 +304,8 @@
                 {
                   "id": "game-1",
                   "score": {
-                    "home": 12,
-                    "away": 16
+                    "home": 6,
+                    "away": 13
                   }
                 }
               ],
@@ -420,7 +420,7 @@
                   "id": "game-1",
                   "score": {
                     "home": 13,
-                    "away": 4
+                    "away": 7
                   }
                 }
               ],
