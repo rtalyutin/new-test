@@ -492,6 +492,179 @@
           ]
         }
       ]
+    },
+    {
+      "id": "cs2-round-4",
+      "title": "Результаты 4-го тура",
+      "subtitle": "Групповой этап",
+      "defaultExpanded": true,
+      "weeks": [
+        {
+          "id": "cs2-week-4",
+          "title": "4-й тур · 14–16 февраля",
+          "matches": [
+            {
+              "id": "2026-02-14-pickmi-guys-fist-beer",
+              "dateLabel": "14 фев · 20:00",
+              "dateTime": "2026-02-14T20:00:00+03:00",
+              "stage": "Тур 4",
+              "teams": {
+                "home": "Pickmi Guys",
+                "away": "FIST&BEER (Кулачки&Пиво)"
+              },
+              "score": {
+                "home": 0,
+                "away": 2
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 6,
+                    "away": 13
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 9,
+                    "away": 13
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "0–2 · завершён",
+              "detailsUrl": "https://example.com/cs2-2026-02-14-pickmi-guys-fist-beer",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "away"
+            },
+            {
+              "id": "2026-02-15-vpopengagen-wolves-cipher",
+              "dateLabel": "15 фев · 19:00",
+              "dateTime": "2026-02-15T19:00:00+03:00",
+              "stage": "Тур 4",
+              "teams": {
+                "home": "Vpopengagen wolves",
+                "away": "CipHer"
+              },
+              "score": {
+                "home": 1,
+                "away": 0
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 13,
+                    "away": 3
+                  }
+                }
+              ],
+              "bestOf": 1,
+              "status": "finished",
+              "statusLabel": "1–0 · завершён",
+              "detailsUrl": "https://example.com/cs2-2026-02-15-vpopengagen-wolves-cipher",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            },
+            {
+              "id": "2026-02-15-ligachad-saint-worms",
+              "dateLabel": "15 фев · 20:00",
+              "dateTime": "2026-02-15T20:00:00+03:00",
+              "stage": "Тур 4",
+              "teams": {
+                "home": "LigaChad",
+                "away": "Saint Worms"
+              },
+              "score": {
+                "home": 1,
+                "away": 0
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 13,
+                    "away": 11
+                  }
+                }
+              ],
+              "bestOf": 1,
+              "status": "finished",
+              "statusLabel": "1–0 · завершён",
+              "detailsUrl": "https://example.com/cs2-2026-02-15-ligachad-saint-worms",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            },
+            {
+              "id": "2026-02-15-kit-the-eagles",
+              "dateLabel": "15 фев · 21:00",
+              "dateTime": "2026-02-15T21:00:00+03:00",
+              "stage": "Тур 4",
+              "teams": {
+                "home": "КИТ, Кипар и татары",
+                "away": "The Eagles"
+              },
+              "score": {
+                "home": 2,
+                "away": 0
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 13,
+                    "away": 11
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 13,
+                    "away": 0
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–0 · завершён",
+              "detailsUrl": "https://example.com/cs2-2026-02-15-kit-the-eagles",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            },
+            {
+              "id": "2026-02-16-resistance-slabeyshie",
+              "dateLabel": "16 фев · 20:00",
+              "dateTime": "2026-02-16T20:00:00+03:00",
+              "stage": "Тур 4",
+              "teams": {
+                "home": "Resistance",
+                "away": "Slabeyshie"
+              },
+              "score": {
+                "home": 1,
+                "away": 0
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 13,
+                    "away": 2
+                  }
+                }
+              ],
+              "bestOf": 1,
+              "status": "finished",
+              "statusLabel": "1–0 · завершён",
+              "detailsUrl": "https://example.com/cs2-2026-02-16-resistance-slabeyshie",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
