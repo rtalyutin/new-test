@@ -737,6 +737,36 @@
               "winner": "home"
             },
             {
+              "id": "2026-02-17-upper-qf-g5-1-2",
+              "playoffMatchId": "G4",
+              "dateLabel": "17.2",
+              "dateTime": "2026-02-17",
+              "stage": "Игра 4",
+              "teams": {
+                "home": "Saint Worms",
+                "away": "FIST&BEER"
+              },
+              "score": {
+                "home": 0,
+                "away": 1
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 9,
+                    "away": 13
+                  }
+                }
+              ],
+              "bestOf": 1,
+              "status": "finished",
+              "statusLabel": "0–1 · завершён",
+              "detailsUrl": "https://example.com/cs2-2026-02-17-upper-qf-g2-resistance-cipher",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "away"
+            },
+            {
               "id": "2026-02-17-upper-qf-g3-vpopengagen-wolves-kit",
               "playoffMatchId": "G3",
               "dateLabel": "17.2",
