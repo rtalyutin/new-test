@@ -665,6 +665,110 @@
           ]
         }
       ]
+    },
+    {
+      "id": "cs2-round-playoff-upper-qf",
+      "title": "Плей-офф · Верхняя сетка 1/4",
+      "subtitle": "Upper Bracket · 1/4",
+      "defaultExpanded": true,
+      "weeks": [
+        {
+          "id": "cs2-week-playoff-upper-qf",
+          "title": "Upper Bracket · 1/4 · 17.2",
+          "matches": [
+            {
+              "id": "2026-02-17-upper-qf-g1-ligachad-slabeyshie",
+              "playoffMatchId": "G1",
+              "dateLabel": "17.2",
+              "dateTime": "2026-02-17",
+              "stage": "Игра 1",
+              "teams": {
+                "home": "LigaChad",
+                "away": "Slabeyshie"
+              },
+              "score": {
+                "home": 1,
+                "away": 0
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 16,
+                    "away": 14
+                  }
+                }
+              ],
+              "bestOf": 1,
+              "status": "finished",
+              "statusLabel": "1–0 · завершён",
+              "detailsUrl": "https://example.com/cs2-2026-02-17-upper-qf-g1-ligachad-slabeyshie",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            },
+            {
+              "id": "2026-02-17-upper-qf-g2-resistance-cipher",
+              "playoffMatchId": "G2",
+              "dateLabel": "17.2",
+              "dateTime": "2026-02-17",
+              "stage": "Игра 2",
+              "teams": {
+                "home": "Resistance",
+                "away": "CipHer"
+              },
+              "score": {
+                "home": 1,
+                "away": 0
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 13,
+                    "away": 11
+                  }
+                }
+              ],
+              "bestOf": 1,
+              "status": "finished",
+              "statusLabel": "1–0 · завершён",
+              "detailsUrl": "https://example.com/cs2-2026-02-17-upper-qf-g2-resistance-cipher",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            },
+            {
+              "id": "2026-02-17-upper-qf-g3-vpopengagen-wolves-kit",
+              "playoffMatchId": "G3",
+              "dateLabel": "17.2",
+              "dateTime": "2026-02-17",
+              "stage": "Игра 3",
+              "teams": {
+                "home": "Vpopengagen wolves",
+                "away": "КИТ, Кипар и татары"
+              },
+              "score": {
+                "home": 1,
+                "away": 0
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 13,
+                    "away": 3
+                  }
+                }
+              ],
+              "bestOf": 1,
+              "status": "finished",
+              "statusLabel": "1–0 · завершён",
+              "detailsUrl": "https://example.com/cs2-2026-02-17-upper-qf-g3-vpopengagen-wolves-kit",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
