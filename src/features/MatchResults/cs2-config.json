@@ -799,6 +799,101 @@
           ]
         }
       ]
+    },
+    {
+      "id": "cs2-round-playoff-lower-qf",
+      "title": "Плей-офф · Нижняя сетка 1/4",
+      "subtitle": "Lower Bracket · 1/4",
+      "defaultExpanded": true,
+      "weeks": [
+        {
+          "id": "cs2-week-playoff-lower-qf",
+          "title": "Lower Bracket · 1/4 · 18.2",
+          "matches": [
+            {
+              "id": "2026-02-18-lower-qf-l1-cipher-slabeyshie",
+              "playoffMatchId": "L1",
+              "dateLabel": "18.2",
+              "dateTime": "2026-02-18",
+              "stage": "Игра 1",
+              "teams": {
+                "home": "CipHer",
+                "away": "Slabeyshie"
+              },
+              "score": {
+                "home": 0,
+                "away": 2
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 4,
+                    "away": 13
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 6,
+                    "away": 13
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "0–2 · завершён",
+              "detailsUrl": "https://example.com/cs2-2026-02-18-lower-qf-l1-cipher-slabeyshie",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "away"
+            },
+            {
+              "id": "2026-02-18-lower-qf-l2-saint-worms-kit",
+              "playoffMatchId": "L2",
+              "dateLabel": "18.2",
+              "dateTime": "2026-02-18",
+              "stage": "Игра 2",
+              "teams": {
+                "home": "Saint Worms",
+                "away": "КИТ, Кипар и татары"
+              },
+              "score": {
+                "home": 2,
+                "away": 1
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 13,
+                    "away": 3
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 9,
+                    "away": 13
+                  }
+                },
+                {
+                  "id": "game-3",
+                  "score": {
+                    "home": 13,
+                    "away": 10
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–1 · завершён",
+              "detailsUrl": "https://example.com/cs2-2026-02-18-lower-qf-l2-saint-worms-kit",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
