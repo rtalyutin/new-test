@@ -894,6 +894,101 @@
           ]
         }
       ]
+    },
+    {
+      "id": "cs2-round-playoff-upper-sf",
+      "title": "Плей-офф · Верхняя сетка 1/2",
+      "subtitle": "Upper Bracket · 1/2",
+      "defaultExpanded": true,
+      "weeks": [
+        {
+          "id": "cs2-week-playoff-upper-sf",
+          "title": "Upper Bracket · 1/2 · 21.2",
+          "matches": [
+            {
+              "id": "2026-02-21-upper-sf-g5-ligachad-resistance",
+              "playoffMatchId": "G5",
+              "dateLabel": "21.2",
+              "dateTime": "2026-02-21",
+              "stage": "Игра 5",
+              "teams": {
+                "home": "LigaChad",
+                "away": "Resistance"
+              },
+              "score": {
+                "home": 1,
+                "away": 2
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 7,
+                    "away": 13
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 13,
+                    "away": 7
+                  }
+                },
+                {
+                  "id": "game-3",
+                  "score": {
+                    "home": 14,
+                    "away": 16
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "1–2 · завершён",
+              "detailsUrl": "https://example.com/cs2-2026-02-21-upper-sf-g5-ligachad-resistance",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "away"
+            },
+            {
+              "id": "2026-02-21-upper-sf-g6-vpopengagen-wolves-fist-beer",
+              "playoffMatchId": "G6",
+              "dateLabel": "21.2",
+              "dateTime": "2026-02-21",
+              "stage": "Игра 6",
+              "teams": {
+                "home": "Vpopengagen wolves",
+                "away": "FIST&BEER"
+              },
+              "score": {
+                "home": 2,
+                "away": 0
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 13,
+                    "away": 9
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 13,
+                    "away": 4
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–0 · завершён",
+              "detailsUrl": "https://example.com/cs2-2026-02-21-upper-sf-g6-vpopengagen-wolves-fist-beer",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
