@@ -989,6 +989,94 @@
           ]
         }
       ]
+    },
+    {
+      "id": "cs2-round-playoff-lower-r2",
+      "title": "Плей-офф · Нижняя сетка 2 раунд",
+      "subtitle": "Lower Bracket · Round 2",
+      "defaultExpanded": true,
+      "weeks": [
+        {
+          "id": "cs2-week-playoff-lower-r2",
+          "title": "Lower Bracket · Round 2 · 24.2",
+          "matches": [
+            {
+              "id": "2026-02-24-lower-r2-l3-slabeyshie-ligachad",
+              "playoffMatchId": "L3",
+              "dateLabel": "24.2",
+              "dateTime": "2026-02-24",
+              "stage": "Игра 3",
+              "teams": {
+                "home": "Slabeyshie",
+                "away": "LigaChad"
+              },
+              "score": {
+                "home": 0,
+                "away": 2
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 8,
+                    "away": 13
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 2,
+                    "away": 13
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "0–2 · завершён",
+              "detailsUrl": "https://example.com/cs2-2026-02-24-lower-r2-l3-slabeyshie-ligachad",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "away"
+            },
+            {
+              "id": "2026-02-24-lower-r2-l4-saint-worms-fist-beer",
+              "playoffMatchId": "L4",
+              "dateLabel": "24.2",
+              "dateTime": "2026-02-24",
+              "stage": "Игра 4",
+              "teams": {
+                "home": "Saint Worms",
+                "away": "FIST&BEER"
+              },
+              "score": {
+                "home": 2,
+                "away": 0
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 13,
+                    "away": 9
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 13,
+                    "away": 4
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–0 · завершён",
+              "detailsUrl": "https://example.com/cs2-2026-02-24-lower-r2-l4-saint-worms-fist-beer",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
