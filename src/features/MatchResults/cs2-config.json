@@ -1077,6 +1077,108 @@
           ]
         }
       ]
+    },
+    {
+      "id": "cs2-round-playoff-upper-final",
+      "title": "Плей-офф · Финал верхней сетки",
+      "subtitle": "Upper Bracket · Final",
+      "defaultExpanded": true,
+      "weeks": [
+        {
+          "id": "cs2-week-playoff-upper-final",
+          "title": "Upper Bracket · Final · 25.2",
+          "matches": [
+            {
+              "id": "2026-02-25-upper-final-g7-resistance-vpopengagen-wolves",
+              "playoffMatchId": "G7",
+              "dateLabel": "25.2",
+              "dateTime": "2026-02-25",
+              "stage": "Игра 7",
+              "teams": {
+                "home": "Resistance",
+                "away": "Vpopengagen wolves"
+              },
+              "score": {
+                "home": 2,
+                "away": 0
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 13,
+                    "away": 10
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 13,
+                    "away": 8
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–0 · завершён",
+              "detailsUrl": "https://example.com/cs2-2026-02-25-upper-final-g7-resistance-vpopengagen-wolves",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cs2-round-playoff-lower-r3",
+      "title": "Плей-офф · Нижняя сетка 3 раунд",
+      "subtitle": "Lower Bracket · Round 3",
+      "defaultExpanded": true,
+      "weeks": [
+        {
+          "id": "cs2-week-playoff-lower-r3",
+          "title": "Lower Bracket · Round 3 · 25.2",
+          "matches": [
+            {
+              "id": "2026-02-25-lower-r3-l5-ligachad-saint-worms",
+              "playoffMatchId": "L5",
+              "dateLabel": "25.2",
+              "dateTime": "2026-02-25",
+              "stage": "Игра 5",
+              "teams": {
+                "home": "LigaChad",
+                "away": "Saint Worms"
+              },
+              "score": {
+                "home": 2,
+                "away": 0
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 13,
+                    "away": 11
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 13,
+                    "away": 7
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–0 · завершён",
+              "detailsUrl": "https://example.com/cs2-2026-02-25-lower-r3-l5-ligachad-saint-worms",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
