@@ -122,9 +122,9 @@
   {
     "name": "Resistance",
     "teamType": "Собранный состав квалификаций",
-    "logo": "cs2-11.jpg",
+    "logo": "/logos/cs2-11.jpg",
     "members": [
-      { "name": "Дмитрий (капитан)", "position": "Капитан", "hours": 2500, "description": "Координирует игру и коммуникацию ростера." },
+      { "name": "Дмитрий smane", "position": "Капитан", "hours": 4500, "description": "Координирует игру и коммуникацию ростера." },
       { "name": "Артём «nechinazes»", "position": "Рифлер", "hours": 10000, "description": "Ключевой игрок с большим соревновательным опытом." },
       { "name": "Игорь «lamoz»", "position": "Рифлер", "hours": 4000, "description": "Надёжно играет опорные позиции." },
       { "name": "Дмитрий «De7ire»", "position": "Рифлер", "hours": 6000, "description": "Включается в решающих раундах." },
