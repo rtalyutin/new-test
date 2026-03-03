@@ -24,7 +24,7 @@ const createBracketSkeleton = () => ({
     createEmptyMatch('G6', 'Игра 6 · 21.2'),
   ],
   upperFinal: createEmptyMatch('G7', 'Игра 7 · 25.2'),
-  grandFinal: createEmptyMatch('GF', 'Гранд-финал · 26.2'),
+  grandFinal: createEmptyMatch('GF', 'Гранд-финал · 15.3 · 14:00'),
   lowerRound1: [
     createEmptyMatch('L1', 'Нижняя сетка 1 · 19.2'),
     createEmptyMatch('L2', 'Нижняя сетка 2 · 19.2'),
