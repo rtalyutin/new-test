@@ -47,7 +47,7 @@ describe('buildCs2Bracket', () => {
     expect(bracket.upperQuarterfinals[0].title).toBe('Игра 1 · 17.2');
     expect(bracket.lowerRound1[0].title).toBe('Нижняя сетка 1 · 19.2');
     expect(bracket.lowerFinal.title).toBe('Нижняя сетка 7 · 26.2');
-    expect(bracket.grandFinal.title).toBe('Гранд-финал · 26.2');
+    expect(bracket.grandFinal.title).toBe('Гранд-финал · 15.3 · 14:00');
   });
 
   it('подтягивает сыгранный матч плей-офф по playoffMatchId', () => {
@@ -103,7 +103,7 @@ describe('buildCs2Bracket', () => {
     expect(bracket.upperQuarterfinals[0].title).toBe('Игра 1 · 17.2');
     expect(bracket.lowerRound1[0].title).toBe('Нижняя сетка 1 · 19.2');
     expect(bracket.lowerFinal.title).toBe('Нижняя сетка 7 · 26.2');
-    expect(bracket.grandFinal.title).toBe('Гранд-финал · 26.2');
+    expect(bracket.grandFinal.title).toBe('Гранд-финал · 15.3 · 14:00');
   });
 
   it('использует победителя нижней сетки в гранд-финале', () => {

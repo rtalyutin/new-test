@@ -1179,6 +1179,57 @@
           ]
         }
       ]
+    },
+    {
+      "id": "cs2-round-playoff-lower-final",
+      "title": "Плей-офф · Финал нижней сетки",
+      "subtitle": "Lower Bracket · Final",
+      "defaultExpanded": true,
+      "weeks": [
+        {
+          "id": "cs2-week-playoff-lower-final",
+          "title": "Lower Bracket · Final · 26.2",
+          "matches": [
+            {
+              "id": "2026-02-26-lower-final-l7-ligachad-vpopengagen-wolves",
+              "playoffMatchId": "L7",
+              "dateLabel": "26.2",
+              "dateTime": "2026-02-26",
+              "stage": "Игра 7",
+              "teams": {
+                "home": "LigaChad",
+                "away": "Vpopengagen wolves"
+              },
+              "score": {
+                "home": 2,
+                "away": 0
+              },
+              "maps": [
+                {
+                  "id": "game-1",
+                  "score": {
+                    "home": 13,
+                    "away": 9
+                  }
+                },
+                {
+                  "id": "game-2",
+                  "score": {
+                    "home": 13,
+                    "away": 5
+                  }
+                }
+              ],
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–0 · завершён",
+              "detailsUrl": "https://example.com/cs2-2026-02-26-lower-final-l7-ligachad-vpopengagen-wolves",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
