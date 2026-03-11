@@ -19,11 +19,12 @@
     {
       "tag": "DOTA 2",
       "title": "Основной этап Dota 2",
-      "value": "10 марта - 30 апреля'26",
+      "value": "25 марта 2026 - 26 апреля 2026 года",
       "description": "включен в ЕКП",
       "cta": {
         "label": "Регламент Dota 2",
-        "href": "/docs/ycs-dota2-mainstage.pdf",
+        "href": "/docs/reglament-dota2-ver1.pdf",
+        "newTab": true,
         "ariaLabel": "Открыть регламент основного этапа Dota 2"
       }
     },

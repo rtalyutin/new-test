@@ -90,7 +90,7 @@ const Hero = ({ data }) => {
   const shouldRenderVideo = videoSources.length > 0;
   const fallbackImage = media?.fallbackImage || defaultFallbackImage;
   const posterImage = media?.poster || defaultFallbackImage;
-  const disabledCtaLabels = new Set(['Регламент Dota 2', 'Регламент CS2', 'Регламент LAN']);
+  const disabledCtaLabels = new Set(['Регламент CS2', 'Регламент LAN']);
 
   return (
     <div className="hero hero--versus">
@@ -204,6 +204,8 @@ const Hero = ({ data }) => {
                         }`}
                         href={fact.cta.href}
                         aria-label={fact.cta.ariaLabel || fact.cta.label}
+                        target={fact.cta.newTab ? '_blank' : undefined}
+                        rel={fact.cta.newTab ? 'noopener noreferrer' : undefined}
                       >
                         {fact.cta.label}
                       </a>
@@ -318,6 +320,7 @@ Hero.propTypes = {
           label: PropTypes.string.isRequired,
           href: PropTypes.string.isRequired,
           ariaLabel: PropTypes.string,
+          newTab: PropTypes.bool,
         }),
       })
     ),
