@@ -1,0 +1,21 @@
+{
+  "title": "Групповой этап",
+  "groups": [
+    {
+      "name": "A группа",
+      "teams": ["Самозванцы", "Japan", "Колбасный Цэх", "Yellow Submarine"]
+    },
+    {
+      "name": "B группа",
+      "teams": ["Podpivas Team", "Mi Ne Pushim", "Buyback Academy", "afk30"]
+    },
+    {
+      "name": "C группа",
+      "teams": ["Tech Titans", "Ягк", "Синергия", "Вифк"]
+    },
+    {
+      "name": "D группа",
+      "teams": ["Way Prod.", "Гики", "Steel Titans", "Team Borisogleb"]
+    }
+  ]
+}

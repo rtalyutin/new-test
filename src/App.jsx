@@ -25,6 +25,7 @@ import Cs2LossTables from './features/QualificationsTable/Cs2LossTables.jsx';
 import Cs2Bracket from './features/Cs2Bracket/Cs2Bracket.jsx';
 import cs2LossTablesConfig from './features/QualificationsTable/cs2-loss-config.json';
 import GameDisciplineSection from './components/GameDisciplineSection.jsx';
+import DotaMainGroups from './features/DotaMainGroups/DotaMainGroups.jsx';
 import logoImage from './brand-logo.png';
 import './App.css';
 
@@ -46,7 +47,7 @@ const App = () => {
 
   const [theme, setTheme] = useState(getInitialTheme);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeGameDiscipline, setActiveGameDiscipline] = useState('cs2');
+  const [activeGameDiscipline, setActiveGameDiscipline] = useState('dota2-main');
 
   useEffect(() => {
     const handleResize = () => {
@@ -131,13 +132,24 @@ const App = () => {
               <button
                 type="button"
                 role="tab"
-                id="tab-dota2"
-                aria-selected={activeGameDiscipline === 'dota2'}
-                aria-controls="panel-dota2"
-                className={`game-disciplines-switcher__tab${activeGameDiscipline === 'dota2' ? ' game-disciplines-switcher__tab--active' : ''}`}
-                onClick={() => setActiveGameDiscipline('dota2')}
+                id="tab-dota2-main"
+                aria-selected={activeGameDiscipline === 'dota2-main'}
+                aria-controls="panel-dota2-main"
+                className={`game-disciplines-switcher__tab${activeGameDiscipline === 'dota2-main' ? ' game-disciplines-switcher__tab--active' : ''}`}
+                onClick={() => setActiveGameDiscipline('dota2-main')}
               >
-                Dota2
+                Dota 2.Main
+              </button>
+              <button
+                type="button"
+                role="tab"
+                id="tab-dota2-qual"
+                aria-selected={activeGameDiscipline === 'dota2-qual'}
+                aria-controls="panel-dota2-qual"
+                className={`game-disciplines-switcher__tab${activeGameDiscipline === 'dota2-qual' ? ' game-disciplines-switcher__tab--active' : ''}`}
+                onClick={() => setActiveGameDiscipline('dota2-qual')}
+              >
+                DotA 2.Qual
               </button>
               <button
                 type="button"
@@ -155,11 +167,22 @@ const App = () => {
 
           <div
             role="tabpanel"
-            id="panel-dota2"
-            aria-labelledby="tab-dota2"
-            hidden={activeGameDiscipline !== 'dota2'}
+            id="panel-dota2-main"
+            aria-labelledby="tab-dota2-main"
+            hidden={activeGameDiscipline !== 'dota2-main'}
           >
-            <GameDisciplineSection id="dota-2" title="Dota 2" isExpanded isCollapsible={false}>
+            <GameDisciplineSection id="dota-2-main" title="Dota 2.Main" isExpanded isCollapsible={false}>
+              <DotaMainGroups />
+            </GameDisciplineSection>
+          </div>
+
+          <div
+            role="tabpanel"
+            id="panel-dota2-qual"
+            aria-labelledby="tab-dota2-qual"
+            hidden={activeGameDiscipline !== 'dota2-qual'}
+          >
+            <GameDisciplineSection id="dota-2-qual" title="DotA 2.Qual" isExpanded isCollapsible={false}>
               <TeamShowcase />
               <QualificationsTable data={qualificationsConfig} matchResults={matchResultsConfig} />
               <MatchResults data={matchResultsConfig} />
