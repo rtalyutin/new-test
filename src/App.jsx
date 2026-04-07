@@ -25,7 +25,6 @@ import Cs2LossTables from './features/QualificationsTable/Cs2LossTables.jsx';
 import Cs2Bracket from './features/Cs2Bracket/Cs2Bracket.jsx';
 import cs2LossTablesConfig from './features/QualificationsTable/cs2-loss-config.json';
 import GameDisciplineSection from './components/GameDisciplineSection.jsx';
-import DotaMainGroups from './features/DotaMainGroups/DotaMainGroups.jsx';
 import logoImage from './brand-logo.png';
 import './App.css';
 
@@ -172,7 +171,9 @@ const App = () => {
             hidden={activeGameDiscipline !== 'dota2-main'}
           >
             <GameDisciplineSection id="dota-2-main" title="Dota 2.Main" isExpanded isCollapsible={false}>
-              <DotaMainGroups />
+              <TeamShowcase />
+              <QualificationsTable data={qualificationsConfig} matchResults={matchResultsConfig} />
+              <MatchResults data={matchResultsConfig} />
             </GameDisciplineSection>
           </div>
 

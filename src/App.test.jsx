@@ -57,12 +57,13 @@ describe('App game discipline switcher', () => {
     expect(within(document.getElementById('panel-dota2-main')).getByRole('heading', { name: 'Dota 2.Main' })).toBeInTheDocument();
   });
 
-  it('renders group stage in Dota 2.Main and roster gallery in DotA 2.Qual and CS2 sections', () => {
+  it('renders roster galleries and match blocks in Dota 2.Main, DotA 2.Qual and CS2 sections', () => {
     render(<App />);
 
     const tabList = getDisciplineTabList();
     fireEvent.click(within(tabList).getByRole('tab', { name: 'Dota 2.Main' }));
-    expect(within(document.getElementById('panel-dota2-main')).getByRole('heading', { name: 'Групповой этап' })).toBeInTheDocument();
+    expect(within(document.getElementById('panel-dota2-main')).getAllByRole('heading', { name: 'Галерея ростеров' })).toHaveLength(1);
+    expect(within(document.getElementById('panel-dota2-main')).getByRole('heading', { name: 'Результаты последних матчей' })).toBeInTheDocument();
 
     fireEvent.click(within(tabList).getByRole('tab', { name: 'DotA 2.Qual' }));
     expect(within(document.getElementById('panel-dota2-qual')).getAllByRole('heading', { name: 'Галерея ростеров' })).toHaveLength(1);
