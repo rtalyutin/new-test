@@ -15,6 +15,8 @@ import UpcomingMatches from './features/UpcomingMatches/UpcomingMatches.jsx';
 import upcomingMatchesConfig from './features/UpcomingMatches/config.json';
 import MatchResults from './features/MatchResults/MatchResults.jsx';
 import matchResultsConfig from './features/MatchResults/config.json';
+import dotaMainMatchResultsConfig from './features/MatchResults/dota-main-config.js';
+import dotaQualMatchResultsConfig from './features/MatchResults/dota-qual-config.js';
 import cs2MatchResultsConfig from './features/MatchResults/cs2-config.json';
 import registrationCtaConfig from './features/RegistrationCta/config.json';
 import sponsorsConfig from './features/Sponsors/config.json';
@@ -36,6 +38,8 @@ const App = () => {
   }, []);
 
   const THEME_STORAGE_KEY = 'ycs-theme';
+
+
 
   const getInitialTheme = useCallback(() => {
     if (typeof window === 'undefined') {
@@ -173,6 +177,7 @@ const App = () => {
           >
             <GameDisciplineSection id="dota-2-main" title="Dota 2.Main" isExpanded isCollapsible={false}>
               <DotaMainGroups />
+              <MatchResults data={dotaMainMatchResultsConfig} />
             </GameDisciplineSection>
           </div>
 
@@ -185,7 +190,7 @@ const App = () => {
             <GameDisciplineSection id="dota-2-qual" title="DotA 2.Qual" isExpanded isCollapsible={false}>
               <TeamShowcase />
               <QualificationsTable data={qualificationsConfig} matchResults={matchResultsConfig} />
-              <MatchResults data={matchResultsConfig} />
+              <MatchResults data={dotaQualMatchResultsConfig} />
             </GameDisciplineSection>
           </div>
 
