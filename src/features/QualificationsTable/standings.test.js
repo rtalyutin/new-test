@@ -24,17 +24,17 @@ test('buildStandingsFromMatchResults aggregates finished matches into standings'
   assert.deepStrictEqual(miNePushim, {
     id: 'mi-ne-pushim',
     name: 'Mi ne Pushim!',
-    matches: 5,
-    wins: 3,
+    matches: 7,
+    wins: 5,
     losses: 2,
-    mapWins: 8,
+    mapWins: 12,
     mapLosses: 4,
-    points: 8,
+    points: 12,
   });
 
   const uniqueIds = new Set(standings.map((team) => team.id));
   assert.strictEqual(standings.length, uniqueIds.size);
-  assert.strictEqual(standings.length, 21);
+  assert.strictEqual(standings.length, 22);
 });
 
 test('buildStandingsFromMatches aggregates matches for a single week', () => {
@@ -42,8 +42,8 @@ test('buildStandingsFromMatches aggregates matches for a single week', () => {
   const standings = buildStandingsFromMatches(firstFinishedWeek.matches);
 
   const firstTeam = standings.find((team) => team.name === 'Mi ne Pushim!');
-  assert.strictEqual(firstTeam.points, 2);
-  assert.strictEqual(firstTeam.matches, 1);
+  assert.strictEqual(firstTeam.points, 6);
+  assert.strictEqual(firstTeam.matches, 3);
 });
 
 test('buildStandingsFromMatchResults applies point deductions for penalized teams', () => {
