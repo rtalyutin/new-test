@@ -24,17 +24,17 @@ test('buildStandingsFromMatchResults aggregates finished matches into standings'
   assert.deepStrictEqual(miNePushim, {
     id: 'mi-ne-pushim',
     name: 'Mi ne Pushim!',
-    matches: 4,
-    wins: 2,
+    matches: 5,
+    wins: 3,
     losses: 2,
-    mapWins: 6,
+    mapWins: 8,
     mapLosses: 4,
-    points: 6,
+    points: 8,
   });
 
   const uniqueIds = new Set(standings.map((team) => team.id));
   assert.strictEqual(standings.length, uniqueIds.size);
-  assert.strictEqual(standings.length, 14);
+  assert.strictEqual(standings.length, 21);
 });
 
 test('buildStandingsFromMatches aggregates matches for a single week', () => {
