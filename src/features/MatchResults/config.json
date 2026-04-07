@@ -171,6 +171,306 @@
               "detailsUrl": "https://example.com/dota-2026-03-27-steel-titans-team-borisogleb",
               "detailsLabel": "Смотреть повтор",
               "winner": "away"
+            },
+            {
+              "id": "2026-04-01-samozvancy-japan",
+              "dateLabel": "1 апр · 21:30",
+              "dateTime": "2026-04-01T21:30:00+03:00",
+              "stage": "Тур 2 · Группа A",
+              "teams": {
+                "home": "Самозванцы",
+                "away": "Japan 日本"
+              },
+              "score": {
+                "home": 2,
+                "away": 0
+              },
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–0 · завершён",
+              "detailsUrl": "https://example.com/dota-2026-04-01-samozvancy-japan",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            },
+            {
+              "id": "2026-03-29-kolbasny-czech-yellow-submarine",
+              "dateLabel": "29 мар · 21:00",
+              "dateTime": "2026-03-29T21:00:00+03:00",
+              "stage": "Тур 2 · Группа A",
+              "teams": {
+                "home": "Колбасный ЦЭХ",
+                "away": "Yellow Submarine"
+              },
+              "score": {
+                "home": 0,
+                "away": 2
+              },
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "0–2 · завершён",
+              "detailsUrl": "https://example.com/dota-2026-03-29-kolbasny-czech-yellow-submarine",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "away"
+            },
+            {
+              "id": "2026-03-31-mi-ne-pushim-buyback-academy",
+              "dateLabel": "31 мар · 19:00",
+              "dateTime": "2026-03-31T19:00:00+03:00",
+              "stage": "Тур 2 · Группа B",
+              "teams": {
+                "home": "Mi ne Pushim!",
+                "away": "Buyback Academy"
+              },
+              "score": {
+                "home": 2,
+                "away": 0
+              },
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–0 · завершён",
+              "detailsUrl": "https://example.com/dota-2026-03-31-mi-ne-pushim-buyback-academy",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            },
+            {
+              "id": "2026-03-30-tech-titans-ygk",
+              "dateLabel": "30 мар · 19:00",
+              "dateTime": "2026-03-30T19:00:00+03:00",
+              "stage": "Тур 2 · Группа C",
+              "teams": {
+                "home": "Tech Titans",
+                "away": "ЯГК"
+              },
+              "score": {
+                "home": 2,
+                "away": 0
+              },
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–0 · завершён",
+              "detailsUrl": "https://example.com/dota-2026-03-30-tech-titans-ygk",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            },
+            {
+              "id": "2026-03-30-vifk-synergia",
+              "dateLabel": "30 мар · 20:00",
+              "dateTime": "2026-03-30T20:00:00+03:00",
+              "stage": "Тур 2 · Группа C",
+              "teams": {
+                "home": "ВИФК",
+                "away": "Синергия"
+              },
+              "score": {
+                "home": 0,
+                "away": 2
+              },
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "0–2 · завершён",
+              "detailsUrl": "https://example.com/dota-2026-03-30-vifk-synergia",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "away"
+            },
+            {
+              "id": "2026-03-29-team-borisogleb-giki",
+              "dateLabel": "29 мар · 18:00",
+              "dateTime": "2026-03-29T18:00:00+03:00",
+              "stage": "Тур 2 · Группа D",
+              "teams": {
+                "home": "Team Borisogleb",
+                "away": "Гики"
+              },
+              "score": {
+                "home": 2,
+                "away": 0
+              },
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–0 · завершён",
+              "detailsUrl": "https://example.com/dota-2026-03-29-team-borisogleb-giki",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            },
+            {
+              "id": "2026-03-31-steel-titans-way-prod",
+              "dateLabel": "31 мар · 21:00",
+              "dateTime": "2026-03-31T21:00:00+03:00",
+              "stage": "Тур 2 · Группа D",
+              "teams": {
+                "home": "Steel Titans",
+                "away": "Way Prod."
+              },
+              "score": {
+                "home": 0,
+                "away": 2
+              },
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "0–2 · завершён",
+              "detailsUrl": "https://example.com/dota-2026-03-31-steel-titans-way-prod",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "away"
+            },
+            {
+              "id": "2026-04-05-samozvancy-yellow-submarine",
+              "dateLabel": "5 апр · 19:00",
+              "dateTime": "2026-04-05T19:00:00+03:00",
+              "stage": "Тур 3 · Группа A",
+              "teams": {
+                "home": "Самозванцы",
+                "away": "Yellow Submarine"
+              },
+              "score": {
+                "home": 1,
+                "away": 1
+              },
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "1–1 · завершён",
+              "detailsUrl": "https://example.com/dota-2026-04-05-samozvancy-yellow-submarine",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            },
+            {
+              "id": "2026-04-04-kolbasny-czech-japan",
+              "dateLabel": "4 апр · 16:00",
+              "dateTime": "2026-04-04T16:00:00+03:00",
+              "stage": "Тур 3 · Группа A",
+              "teams": {
+                "home": "Колбасный ЦЭХ",
+                "away": "Japan 日本"
+              },
+              "score": {
+                "home": 0,
+                "away": 2
+              },
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "0–2 · завершён",
+              "detailsUrl": "https://example.com/dota-2026-04-04-kolbasny-czech-japan",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "away"
+            },
+            {
+              "id": "2026-04-05-pojarniki-buyback-academy-tour3",
+              "dateLabel": "5 апр · 18:00",
+              "dateTime": "2026-04-05T18:00:00+03:00",
+              "stage": "Тур 3 · Группа B",
+              "teams": {
+                "home": "pojarniki",
+                "away": "Buyback Academy"
+              },
+              "score": {
+                "home": 0,
+                "away": 2
+              },
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "0–2 · завершён",
+              "detailsUrl": "https://example.com/dota-2026-04-05-pojarniki-buyback-academy-tour3",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "away"
+            },
+            {
+              "id": "2026-04-05-mi-ne-pushim-jazzfive",
+              "dateLabel": "5 апр · 18:00",
+              "dateTime": "2026-04-05T18:00:00+03:00",
+              "stage": "Тур 3 · Группа B",
+              "teams": {
+                "home": "Mi ne Pushim!",
+                "away": "jazzfive"
+              },
+              "score": {
+                "home": 2,
+                "away": 0
+              },
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–0 · завершён",
+              "detailsUrl": "https://example.com/dota-2026-04-05-mi-ne-pushim-jazzfive",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            },
+            {
+              "id": "2026-04-06-tech-titans-synergia",
+              "dateLabel": "6 апр · 18:00",
+              "dateTime": "2026-04-06T18:00:00+03:00",
+              "stage": "Тур 3 · Группа C",
+              "teams": {
+                "home": "Tech Titans",
+                "away": "Синергия"
+              },
+              "score": {
+                "home": 2,
+                "away": 0
+              },
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "2–0 · завершён",
+              "detailsUrl": "https://example.com/dota-2026-04-06-tech-titans-synergia",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "home"
+            },
+            {
+              "id": "2026-04-06-vifk-ygk",
+              "dateLabel": "6 апр · 18:00",
+              "dateTime": "2026-04-06T18:00:00+03:00",
+              "stage": "Тур 3 · Группа C",
+              "teams": {
+                "home": "ВИФК",
+                "away": "ЯГК"
+              },
+              "score": {
+                "home": 0,
+                "away": 2
+              },
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "0–2 · завершён",
+              "detailsUrl": "https://example.com/dota-2026-04-06-vifk-ygk",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "away"
+            },
+            {
+              "id": "2026-04-04-team-borisogleb-way-prod",
+              "dateLabel": "4 апр · 21:00",
+              "dateTime": "2026-04-04T21:00:00+03:00",
+              "stage": "Тур 3 · Группа D",
+              "teams": {
+                "home": "Team Borisogleb",
+                "away": "Way Prod."
+              },
+              "score": {
+                "home": 0,
+                "away": 2
+              },
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "0–2 · завершён",
+              "detailsUrl": "https://example.com/dota-2026-04-04-team-borisogleb-way-prod",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "away"
+            },
+            {
+              "id": "2026-04-06-steel-titans-giki",
+              "dateLabel": "6 апр · 18:00",
+              "dateTime": "2026-04-06T18:00:00+03:00",
+              "stage": "Тур 3 · Группа D",
+              "teams": {
+                "home": "Steel Titans",
+                "away": "Гики"
+              },
+              "score": {
+                "home": 0,
+                "away": 2
+              },
+              "bestOf": 3,
+              "status": "finished",
+              "statusLabel": "0–2 · завершён",
+              "detailsUrl": "https://example.com/dota-2026-04-06-steel-titans-giki",
+              "detailsLabel": "Смотреть повтор",
+              "winner": "away"
             }
           ]
         }
