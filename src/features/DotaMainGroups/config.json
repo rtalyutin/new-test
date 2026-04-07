@@ -3,19 +3,39 @@
   "groups": [
     {
       "name": "A группа",
-      "teams": ["Самозванцы", "Japan", "Колбасный Цэх", "Yellow Submarine"]
+      "teams": [
+        { "name": "Самозванцы", "games": 0, "winMaps": 0, "loseMaps": 0, "points": 0 },
+        { "name": "Japan", "games": 0, "winMaps": 0, "loseMaps": 0, "points": 0 },
+        { "name": "Колбасный ЦЭХ", "games": 0, "winMaps": 0, "loseMaps": 0, "points": 0 },
+        { "name": "Yellow Submarine", "games": 0, "winMaps": 0, "loseMaps": 0, "points": 0 }
+      ]
     },
     {
       "name": "B группа",
-      "teams": ["Podpivas Team", "Mi Ne Pushim", "Buyback Academy", "afk30"]
+      "teams": [
+        { "name": "Pojarniki", "games": 0, "winMaps": 0, "loseMaps": 0, "points": 0 },
+        { "name": "Mi ne pushim", "games": 0, "winMaps": 0, "loseMaps": 0, "points": 0 },
+        { "name": "Buyback Academy", "games": 0, "winMaps": 0, "loseMaps": 0, "points": 0 },
+        { "name": "JazzFive", "games": 0, "winMaps": 0, "loseMaps": 0, "points": 0 }
+      ]
     },
     {
       "name": "C группа",
-      "teams": ["Tech Titans", "Ягк", "Синергия", "Вифк"]
+      "teams": [
+        { "name": "tech titans", "games": 0, "winMaps": 0, "loseMaps": 0, "points": 0 },
+        { "name": "ЯГК", "games": 0, "winMaps": 0, "loseMaps": 0, "points": 0 },
+        { "name": "Синергия", "games": 0, "winMaps": 0, "loseMaps": 0, "points": 0 },
+        { "name": "ВИФК", "games": 0, "winMaps": 0, "loseMaps": 0, "points": 0 }
+      ]
     },
     {
       "name": "D группа",
-      "teams": ["Way Prod.", "Гики", "Steel Titans", "Team Borisogleb"]
+      "teams": [
+        { "name": "Way prod.", "games": 0, "winMaps": 0, "loseMaps": 0, "points": 0 },
+        { "name": "Гики", "games": 0, "winMaps": 0, "loseMaps": 0, "points": 0 },
+        { "name": "Steel Titans", "games": 0, "winMaps": 0, "loseMaps": 0, "points": 0 },
+        { "name": "Team Borisogleb", "games": 0, "winMaps": 0, "loseMaps": 0, "points": 0 }
+      ]
     }
   ]
 }

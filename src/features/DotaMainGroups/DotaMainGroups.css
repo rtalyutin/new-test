@@ -30,16 +30,37 @@
   font-size: 1rem;
 }
 
-.dota-main-groups__team-list {
-  margin: 0;
-  padding-left: 1.2rem;
-  display: grid;
-  gap: 0.35rem;
-  color: var(--color-text-secondary);
+.dota-main-groups__table-wrapper {
+  overflow-x: auto;
 }
 
-.dota-main-groups__team-item {
-  line-height: 1.35;
+.dota-main-groups__table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--color-text-secondary);
+  font-size: 0.92rem;
+}
+
+.dota-main-groups__table th,
+.dota-main-groups__table td {
+  border: 1px solid color-mix(in srgb, var(--color-border) 82%, transparent);
+  padding: 0.45rem 0.5rem;
+}
+
+.dota-main-groups__table thead th {
+  color: var(--color-text-primary);
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.dota-main-groups__table tbody th {
+  text-align: left;
+  font-weight: 500;
+}
+
+.dota-main-groups__table tbody td {
+  text-align: center;
 }
 
 @media (max-width: 768px) {
