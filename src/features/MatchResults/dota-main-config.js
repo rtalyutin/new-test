@@ -13,6 +13,7 @@ const dotaMainMatchResultsConfig = {
       defaultExpanded: false,
       weeks: [
         {
+
           id: 'dota-main-playoff-matches',
           title: 'Плей-офф · Матчи',
           matches: [
@@ -27,10 +28,12 @@ const dotaMainMatchResultsConfig = {
               status: 'finished',
               statusLabel: '3–0 · завершён',
               detailsUrl: 'https://example.com/dota-main-2026-04-26-wayprod-tech-titans-playoff',
+
               detailsLabel: 'Смотреть повтор',
               winner: 'home',
             },
             {
+
               id: '2026-04-19-samozvancy-japan-playoff',
               dateLabel: '19 апр',
               dateTime: '2026-04-19T20:00:00+03:00',
@@ -83,10 +86,12 @@ const dotaMainMatchResultsConfig = {
               status: 'finished',
               statusLabel: '2–0 · завершён',
               detailsUrl: 'https://example.com/dota-main-2026-04-26-wayprod-synergia-playoff',
+
               detailsLabel: 'Смотреть повтор',
               winner: 'home',
             },
             {
+
               id: '2026-04-22-japan-mi-ne-pushim-playoff',
               dateLabel: '22 апр',
               dateTime: '2026-04-22T20:00:00+03:00',
@@ -100,6 +105,7 @@ const dotaMainMatchResultsConfig = {
               detailsLabel: 'Смотреть повтор',
               winner: 'home',
             },
+
           ],
         },
       ],
